@@ -1,0 +1,154 @@
+#!/usr/bin/env ruby
+
+new_license = <<-END
+Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+END
+
+old_licenses = []
+old_licenses << <<-END
+Copyright (C) 2006  Coupa Software Incorporated http://www.coupa.com
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+END
+
+old_licenses << <<-END
+Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+END
+
+old_licenses << <<-END
+Copyright (c) 2006 Coupa Software <info@coupa.com>
+
+GNU Lesser General Public License
+Version 2.1, February 1999
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+END
+
+old_licenses << <<-END
+Copyright (C) 2006  Coupa Software Incorporated http://www.coupa.com
+END
+
+# generate the license for various file formats
+commenters = {
+  :rb => Proc.new { |s| s.gsub(/^(.*)$/, '# \1').gsub(/^# $/, '#') },
+  :rhtml => Proc.new { |s| s.gsub(/^/, '  ').sub(/\A/, "<%#\n").sub(/\Z/, "\n-%>") },
+  :js => Proc.new { |s| s.gsub(/^/, '  ').sub(/\A/, "/*\n").sub(/\Z/, "\n*/") }
+}
+
+old_commenters = {
+  :rb => [commenters[:rb],
+    Proc.new { |s| s.gsub(/^(.*)$/, '#  \1') },
+    Proc.new { |s| s.gsub(/^(.*)$/, '# \1') }],
+  :rhtml => [commenters[:rhtml],
+    Proc.new { |s| s.gsub(/^(.*)$/, '<%# \1 -%>') },
+    Proc.new { |s| s.gsub(/^(.*)$/, '<%# \1 -%>').gsub('<%#  -%>', '<%# -%>') }],
+  :js => [commenters[:js],
+    Proc.new { |s| s.gsub(/^(.*)$/, '/* \1 */') },
+    Proc.new { |s| s.gsub(/^(.*)$/, '/* \1 */').gsub('/*  */', '/* */') }]
+}
+
+# new_license: { :rb => <text>, :rhtml => text, ... }
+new_license = Hash[*commenters.inject([]) { |m, i| m << i.first << i.last.call(new_license) }]
+
+# old_licenses: { :rb => [<text>, <text>, ...], :rhtml => [<text>, <text>, ...], ... }
+old_licenses = Hash[*old_commenters.inject([]) { |m, i| m << i.first << old_licenses.collect { |l| i.last.collect { |c| c.call(l) } }.flatten }]
+
+# generate glob-friendly list of files to modify
+coupa_roots = %w(app test public/javascripts/application.js)
+engine_roots = %w(app assets/javascripts/*.js assets/javascripts/coupa assets/stylesheets init.rb install.rb lib/action_view_pdf.rb lib/coupa_engine.rb lib/coupa_engine lib/action_controller lib/workers tasks test)
+roots = coupa_roots + engine_roots.collect { |f| "vendor/plugins/coupa_engine/#{f}" }
+roots.collect! { |f| "#{File.dirname(__FILE__)}/../#{f}" }
+roots.collect! { |f| File.directory?(f) ? "#{f}/**/*.{rb,rhtml,rxml,rjs,rpdf,js,rake}" : "#{f}" }
+
+# keep track of file counts
+processed = 0
+removed = 0
+inserted = 0
+converted = 0
+
+Dir.glob(roots).each do |f|
+  next unless File.file?(f)
+  
+  file_type = commenters.keys.find { |k| File.extname(f) == ".#{k}" } || :rb
+  text = File.read(f)
+  removed_license = false
+  inserted_license = false
+  converted_newlines = false
+  
+  # convert to unix newlines
+  converted_newlines = true if text.gsub!("\r\n", "\n") || text.gsub!("\n\r", "\n")
+  
+  # get rid of old license if any
+  removed_license = old_licenses[file_type].any? { |l| text.sub!(l, '') }
+  
+  # add in new license if necessary
+  license = "#{new_license[file_type]}\n"
+  unless text.include?(license)
+    inserted_license = true if text.sub!(/\A^(\s*#!.*?$\s*)/m, "\\1\n#{license}") || text.sub!(/\A\s*/m, license)
+  end
+  
+  # write the file if necessary
+  File.open(f, 'w') { |fh| fh.write(text) } if removed_license || inserted_license || converted_newlines
+  
+  processed += 1
+  removed += 1 if removed_license
+  inserted += 1 if inserted_license
+  converted += 1 if converted_newlines
+end
+
+puts "Processed #{processed} files:"
+puts "Converted newlines in #{converted} files"
+puts "Removed old licenses from #{removed} files"
+puts "Inserted new license into #{inserted} files"

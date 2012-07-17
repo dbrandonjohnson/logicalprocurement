@@ -1,0 +1,36 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<h3>Edit a Review</h3>
+<% @product_review = product_review %>
+<%= error_messages_for 'product_review' %>
+<%= form_remote_tag :url => {:controller => 'product_reviews', :action => 'manage_edit', :id => product_review.id}  %>
+    <%= hidden_field 'product_review[]', 'catalog_item_id'%>
+    <%= wrapped_text_field({:name => 'Headline', :required => true},'product_review[]', 'title') %>
+    <div class="wrapped_form_element"><label>Rating<span class="req"> * </span></label><%= hidden_field 'product_review[]', 'rating', :style => 'display:none' %>
+    <ul id='review_rating_<%= product_review.id %>' class='star-rating'>
+        <li class='current-rating' style='width:<%= (product_review.rating * 0.7).round %>px;'>&nbsp;</li>
+        <li><a href="#review_rating_<%= product_review.id %>" onClick="update_rating(<%= product_review.id %>,20);return false;" title='1 star out of 5' class='one-star'>1</a></li>
+        <li><a href="#review_rating_<%=product_review.id%>" onClick="update_rating(<%= product_review.id %>,40);return false;" title='2 stars out of 5' class='two-stars'>2</a></li>
+        <li><a href="#review_rating_<%= product_review.id%>" onClick="update_rating(<%= product_review.id %>,60);return false;" title='3 stars out of 5' class='three-stars'>3</a></li>
+        <li><a href="#review_rating_<%= product_review.id%>" onClick="update_rating(<%= product_review.id %>,80);return false;" title='4 stars out of 5' class='four-stars'>4</a></li>
+        <li><a href="#review_rating_<%= product_review.id%>" onClick="update_rating(<%= product_review.id %>,100);return false;" title='5 stars out of 5' class='five-stars'>5</a></li>
+    </ul></div>
+    <%= wrapped_text_area({:name => 'Review', :required => true},'product_review[]', 'text', :cols => 60, :rows => 5) %>
+    <table><tr><td><%= rollover_submit_tag 'Save' %></td><td><%= rollover_link_to_function 'Cancel',"dojo.widget.byId('pr_#{product_review.id}').hide();"%></td></tr></table>
+</form>

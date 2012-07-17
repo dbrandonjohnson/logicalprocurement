@@ -1,0 +1,54 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% 
+    suppliers = Supplier.find_by_sql(["SELECT DISTINCT suppliers.name, suppliers.id 
+                        FROM suppliers, contracts
+                        WHERE suppliers.id = contracts.supplier_id
+                        AND contracts.status = 'published'
+                        AND contracts.preferred_flag = ?
+                          AND contracts.start_date <= ? 
+                          AND contracts.end_date > ? 
+                        AND suppliers.status = 'active'
+                        AND (SELECT count(*) FROM catalog_items 
+                             WHERE catalog_items.contract_id = contracts.id) > 0",true,Time.now,Time.now]) 
+    punchout_sites = PunchoutSite.find(:all,:order => 'name')
+%>
+<h3>Quick Access</h3>
+<div style="padding:2px 4px;">
+    <table>
+        <% if suppliers.size > 0 %>
+        <tr>
+            <td><label>Preferred Catalogs</label></td>
+            <td><%= select_tag('local_catalogs',
+                        "<OPTION SELECTED></OPTION>"+
+                        options_for_select(suppliers.inject([]) {|options,supplier| options << [supplier.name.length > 30 ? (supplier.name[0..29] + '...') : supplier.name,supplier.id]}),
+                        :onchange => "window.location = '#{url_for(:controller => 'search', :action => 'browse_by_supplier')}/'+value") %></td>
+        </tr>
+        <% end %>
+        <% if punchout_sites.size > 0 %>
+        <tr>
+            <td><label>Punchout Stores</label></td>
+            <td><%= select_tag('punchout_sites',
+                        "<OPTION SELECTED></OPTION>"+
+                        options_for_select(punchout_sites.inject([]) {|options,site| options << [site.name.length > 30 ? site.name[0..29] + '...' : site.name,site.id]}),
+                        :onchange => "window.location = '#{url_for(:controller => 'punchout', :action => 'go')}/'+value") %></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

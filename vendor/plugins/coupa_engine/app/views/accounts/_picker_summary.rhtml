@@ -1,0 +1,28 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<tr class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td><%=h picker_summary.name %></td>
+    <td><%=h picker_summary.code %></td>
+    <td><%=h picker_summary.account_type.name %></td>
+    <td>
+        <%= form_tag({:action => 'pick', :id => picker_summary.id},:id => "#{field_root_id}_account_picker_form_#{picker_summary.id}") %><%= hidden_field_tag 'field_root_id', field_root_id %>
+        <%= rollover_submit_to_remote('Choose', "#{field_root_id}_account_picker_form_#{picker_summary.id}", :url => {:action => 'pick',:id => picker_summary.id}) %>
+        </form>
+    </td>
+</tr>

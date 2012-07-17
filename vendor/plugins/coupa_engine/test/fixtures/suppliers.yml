@@ -1,0 +1,14 @@
+--- 
+suppliers_001: 
+  name: Supplier ABC - Sample
+  primary_contact_id: 1
+  updated_at: 2006-03-29 15:35:59 Z
+  primary_address_id: 18
+  created_by: 1
+  corporate_url: ""
+  updated_by: 1
+  id: 1
+  storefront_url: ""
+  parent_id: 
+  created_at: 2006-02-22 12:24:00 Z
+  status: active

@@ -1,0 +1,10 @@
+--- 
+policies_001: 
+  name: Base Policy ABC
+  updated_at: 2006-07-15 06:17:45 Z
+  text: <font color=\\\\\\\\\\\\\\\"#009900\\\\\\\\\\\\\\\" size=\\\\\\\\\\\\\\\"3\\\\\\\\\\\\\\\"><b>Sample How-to-Buy Policy</b></font><br><br>When employees need to purchase goods, they should follow these policies.&nbsp; You can insert HTML links, images and other actions into these policies.<br><br><br>
+  created_by: 2
+  updated_by: 2
+  id: 1
+  category_id: 
+  created_at: 2006-07-15 06:17:45 Z

@@ -1,0 +1,1226 @@
+--- 
+currencies_148: 
+  name: Tonga, Pa'anga
+  symbol: 
+  code: TOP
+  id: 148
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_063: 
+  name: Indonesia, Rupiahs
+  symbol: 
+  code: IDR
+  id: 63
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_034: 
+  name: Cuba, Pesos
+  symbol: 
+  code: CUP
+  id: 34
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_006: 
+  name: Angola, Kwanza
+  symbol: 
+  code: AOA
+  id: 6
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_091: 
+  name: Morocco, Dirhams
+  symbol: 
+  code: MAD
+  id: 91
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_149: 
+  name: Turkey, New Lira
+  symbol: 
+  code: TRY
+  id: 149
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_064: 
+  name: Israel, New Shekels
+  symbol: 
+  code: ILS
+  id: 64
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_035: 
+  name: Cape Verde, Escudos
+  symbol: 
+  code: CVE
+  id: 35
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_007: 
+  name: Argentina, Pesos
+  symbol: 
+  code: ARS
+  id: 7
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_092: 
+  name: Moldova, Lei
+  symbol: 
+  code: MDL
+  id: 92
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_120: 
+  name: Paraguay, Guarani
+  symbol: 
+  code: PYG
+  id: 120
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_036: 
+  name: Cyprus, Pounds
+  symbol: 
+  code: CYP
+  id: 36
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_008: 
+  name: Australia, Dollars
+  symbol: 
+  code: AUD
+  id: 8
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_093: 
+  name: Madagascar, Ariary
+  symbol: 
+  code: MGA
+  id: 93
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_065: 
+  name: Isle of Man, Pounds
+  symbol: 
+  code: IMP
+  id: 65
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_037: 
+  name: Czech Republic, Koruny
+  symbol: 
+  code: CZK
+  id: 37
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_009: 
+  name: Aruba, Guilders (also called Florins)
+  symbol: 
+  code: AWG
+  id: 9
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_094: 
+  name: Macedonia, Denars
+  symbol: 
+  code: MKD
+  id: 94
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_150: 
+  name: Trinidad and Tobago, Dollars
+  symbol: 
+  code: TTD
+  id: 150
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_121: 
+  name: Qatar, Rials
+  symbol: 
+  code: QAR
+  id: 121
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_038: 
+  name: Djibouti, Francs
+  symbol: 
+  code: DJF
+  id: 38
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_095: 
+  name: Myanmar (Burma), Kyats
+  symbol: 
+  code: MMK
+  id: 95
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_066: 
+  name: India, Rupees
+  symbol: 
+  code: INR
+  id: 66
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_151: 
+  name: Tuvalu, Tuvalu Dollars
+  symbol: 
+  code: TVD
+  id: 151
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_122: 
+  name: Romania, Lei [being phased out]
+  symbol: 
+  code: ROL
+  id: 122
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_039: 
+  name: Denmark, Kroner
+  symbol: 
+  code: DKK
+  id: 39
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_096: 
+  name: Mongolia, Tugriks
+  symbol: 
+  code: MNT
+  id: 96
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_067: 
+  name: Iraq, Dinars
+  symbol: 
+  code: IQD
+  id: 67
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_152: 
+  name: Taiwan, New Dollars
+  symbol: 
+  code: TWD
+  id: 152
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_123: 
+  name: Romania, New Lei
+  symbol: 
+  code: RON
+  id: 123
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_097: 
+  name: Macau, Patacas
+  symbol: 
+  code: MOP
+  id: 97
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_010: 
+  name: Azerbaijan, Manats [being phased out]
+  symbol: 
+  code: AZM
+  id: 10
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_068: 
+  name: Iran, Rials
+  symbol: 
+  code: IRR
+  id: 68
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_153: 
+  name: Tanzania, Shillings
+  symbol: 
+  code: TZS
+  id: 153
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_124: 
+  name: Serbia, Dinars
+  symbol: 
+  code: RSD
+  id: 124
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_098: 
+  name: Mauritania, Ouguiyas
+  symbol: 
+  code: MRO
+  id: 98
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_069: 
+  name: Iceland, Kronur
+  symbol: 
+  code: ISK
+  id: 69
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_125: 
+  name: Russia, Rubles
+  symbol: 
+  code: RUB
+  id: 125
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_040: 
+  name: Dominican Republic, Pesos
+  symbol: 
+  code: DOP
+  id: 40
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_011: 
+  name: Azerbaijan, New Manats
+  symbol: 
+  code: AZN
+  id: 11
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_154: 
+  name: Ukraine, Hryvnia
+  symbol: 
+  code: UAH
+  id: 154
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_126: 
+  name: Rwanda, Rwanda Francs
+  symbol: 
+  code: RWF
+  id: 126
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_041: 
+  name: Algeria, Algeria Dinars
+  symbol: 
+  code: DZD
+  id: 41
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_099: 
+  name: Malta, Liri
+  symbol: 
+  code: MTL
+  id: 99
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_012: 
+  name: Bosnia and Herzegovina, Convertible Marka
+  symbol: 
+  code: BAM
+  id: 12
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_155: 
+  name: Uganda, Shillings
+  symbol: 
+  code: UGX
+  id: 155
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_127: 
+  name: Saudi Arabia, Riyals
+  symbol: 
+  code: SAR
+  id: 127
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_042: 
+  name: Estonia, Krooni
+  symbol: 
+  code: EEK
+  id: 42
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_013: 
+  name: Barbados, Dollars
+  symbol: 
+  code: BBD
+  id: 13
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_070: 
+  name: Jersey, Pounds
+  symbol: 
+  code: JEP
+  id: 70
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_156: 
+  name: United Arab Emirates, Dirhams
+  symbol: 
+  code: AED
+  id: 156
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_128: 
+  name: Solomon Islands, Dollars
+  symbol: 
+  code: SBD
+  id: 128
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_043: 
+  name: Egypt, Pounds
+  symbol: 
+  code: EGP
+  id: 43
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_014: 
+  name: Bangladesh, Taka
+  symbol: 
+  code: BDT
+  id: 14
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_071: 
+  name: Jamaica, Dollars
+  symbol: 
+  code: JMD
+  id: 71
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_157: 
+  name: Uruguay, Pesos
+  symbol: 
+  code: UYU
+  id: 157
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_129: 
+  name: Seychelles, Rupees
+  symbol: 
+  code: SCR
+  id: 129
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_015: 
+  name: Bulgaria, Leva
+  symbol: 
+  code: BGN
+  id: 15
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_072: 
+  name: Jordan, Dinars
+  symbol: 
+  code: JOD
+  id: 72
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_158: 
+  name: Uzbekistan, Sums
+  symbol: 
+  code: UZS
+  id: 158
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_016: 
+  name: Bahrain, Dinars
+  symbol: 
+  code: BHD
+  id: 16
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_073: 
+  name: Japan, Yen
+  symbol: 
+  code: JPY
+  id: 73
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_044: 
+  name: Eritrea, Nakfa
+  symbol: 
+  code: ERN
+  id: 44
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_159: 
+  name: Venezuela, Bolivares
+  symbol: 
+  code: VEB
+  id: 159
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_017: 
+  name: Burundi, Francs
+  symbol: 
+  code: BIF
+  id: 17
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_074: 
+  name: Kenya, Shillings
+  symbol: 
+  code: KES
+  id: 74
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_045: 
+  name: Ethiopia, Birr
+  symbol: 
+  code: ETB
+  id: 45
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_100: 
+  name: Mauritius, Rupees
+  symbol: 
+  code: MUR
+  id: 100
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_130: 
+  name: Sudan, Dinars
+  symbol: 
+  code: SDD
+  id: 130
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_018: 
+  name: Bermuda, Dollars
+  symbol: 
+  code: BMD
+  id: 18
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_075: 
+  name: Kyrgyzstan, Soms
+  symbol: 
+  code: KGS
+  id: 75
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_046: 
+  name: Euro Member Countries, Euro
+  symbol: 
+  code: EUR
+  id: 46
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_101: 
+  name: Maldives (Maldive Islands), Rufiyaa
+  symbol: 
+  code: MVR
+  id: 101
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_131: 
+  name: Sweden, Kronor
+  symbol: 
+  code: SEK
+  id: 131
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_019: 
+  name: Brunei Darussalam, Dollars
+  symbol: 
+  code: BND
+  id: 19
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_076: 
+  name: Cambodia, Riels
+  symbol: 
+  code: KHR
+  id: 76
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_047: 
+  name: Fiji, Dollars
+  symbol: 
+  code: FJD
+  id: 47
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_102: 
+  name: Malawi, Kwachas
+  symbol: 
+  code: MWK
+  id: 102
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_160: 
+  name: Viet Nam, Dong
+  symbol: 
+  code: VND
+  id: 160
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_048: 
+  name: Falkland Islands (Malvinas), Pounds
+  symbol: 
+  code: FKP
+  id: 48
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_103: 
+  name: Mexico, Pesos
+  symbol: 
+  code: MXN
+  id: 103
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_161: 
+  name: Vanuatu, Vatu
+  symbol: 
+  code: VUV
+  id: 161
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_132: 
+  name: Singapore, Dollars
+  symbol: 
+  code: SGD
+  id: 132
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_077: 
+  name: Comoros, Francs
+  symbol: 
+  code: KMF
+  id: 77
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_049: 
+  name: United Kingdom, Pounds
+  symbol: 
+  code: GBP
+  id: 49
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_104: 
+  name: Malaysia, Ringgits
+  symbol: 
+  code: MYR
+  id: 104
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_162: 
+  name: Samoa, Tala
+  symbol: 
+  code: WST
+  id: 162
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_133: 
+  name: Saint Helena, Pounds
+  symbol: 
+  code: SHP
+  id: 133
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_020: 
+  name: Bolivia, Bolivianos
+  symbol: 
+  code: BOB
+  id: 20
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_078: 
+  name: Korea (North), Won
+  symbol: 
+  code: KPW
+  id: 78
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_105: 
+  name: Mozambique, Meticais [being phased out]
+  symbol: 
+  code: MZM
+  id: 105
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_163: 
+  name: "Communaut\xC3\xA9 Financi\xC3\xA8re Africaine BEAC, Francs"
+  symbol: 
+  code: XAF
+  id: 163
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_134: 
+  name: Slovenia, Tolars
+  symbol: 
+  code: SIT
+  id: 134
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_021: 
+  name: Brazil, Brazil Real
+  symbol: 
+  code: BRL
+  id: 21
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_079: 
+  name: Korea (South), Won
+  symbol: 
+  code: KRW
+  id: 79
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_106: 
+  name: Mozambique, Meticais [newer unit, same name]
+  symbol: 
+  code: MZN
+  id: 106
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_164: 
+  name: Silver, Ounces
+  symbol: 
+  code: XAG
+  id: 164
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_135: 
+  name: Slovakia, Koruny
+  symbol: 
+  code: SKK
+  id: 135
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_107: 
+  name: Namibia, Dollars
+  symbol: 
+  code: NAD
+  id: 107
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_050: 
+  name: Georgia, Lari
+  symbol: 
+  code: GEL
+  id: 50
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_136: 
+  name: Sierra Leone, Leones
+  symbol: 
+  code: SLL
+  id: 136
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_108: 
+  name: Nigeria, Nairas
+  symbol: 
+  code: NGN
+  id: 108
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_051: 
+  name: Guernsey, Pounds
+  symbol: 
+  code: GGP
+  id: 51
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_022: 
+  name: Bahamas, Dollars
+  symbol: 
+  code: BSD
+  id: 22
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_165: 
+  name: Gold, Ounces
+  symbol: 
+  code: XAU
+  id: 165
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_137: 
+  name: Somalia, Shillings
+  symbol: 
+  code: SOS
+  id: 137
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_080: 
+  name: Kuwait, Dinars
+  symbol: 
+  code: KWD
+  id: 80
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_109: 
+  name: Nicaragua, Cordobas
+  symbol: 
+  code: NIO
+  id: 109
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_052: 
+  name: Ghana, Cedis
+  symbol: 
+  code: GHC
+  id: 52
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_023: 
+  name: Bhutan, Ngultrum
+  symbol: 
+  code: BTN
+  id: 23
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_166: 
+  name: East Caribbean Dollars
+  symbol: 
+  code: XCD
+  id: 166
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_138: 
+  name: Seborga, Luigini
+  symbol: 
+  code: SPL
+  id: 138
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_081: 
+  name: Cayman Islands, Dollars
+  symbol: 
+  code: KYD
+  id: 81
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_053: 
+  name: Gibraltar, Pounds
+  symbol: 
+  code: GIP
+  id: 53
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_024: 
+  name: Botswana, Pulas
+  symbol: 
+  code: BWP
+  id: 24
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_167: 
+  name: International Monetary Fund (IMF) Special Drawing Rights
+  symbol: 
+  code: XDR
+  id: 167
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_139: 
+  name: Suriname, Dollars
+  symbol: 
+  code: SRD
+  id: 139
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_082: 
+  name: Kazakhstan, Tenge
+  symbol: 
+  code: KZT
+  id: 82
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_054: 
+  name: Gambia, Dalasi
+  symbol: 
+  code: GMD
+  id: 54
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_025: 
+  name: Belarus, Rubles
+  symbol: 
+  code: BYR
+  id: 25
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_168: 
+  name: "Communaut\xC3\xA9 Financi\xC3\xA8re Africaine BCEAO, Francs"
+  symbol: 
+  code: XOF
+  id: 168
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_083: 
+  name: Laos, Kips
+  symbol: 
+  code: LAK
+  id: 83
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_026: 
+  name: Belize, Dollars
+  symbol: 
+  code: BZD
+  id: 26
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_169: 
+  name: Palladium Ounces
+  symbol: 
+  code: XPD
+  id: 169
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_084: 
+  name: Lebanon, Pounds
+  symbol: 
+  code: LBP
+  id: 84
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_055: 
+  name: Guinea, Francs
+  symbol: 
+  code: GNF
+  id: 55
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_110: 
+  name: Norway, Krone
+  symbol: 
+  code: NOK
+  id: 110
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_027: 
+  name: Canada, Dollars
+  symbol: 
+  code: CAD
+  id: 27
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_140: 
+  name: "S\xC3\xA3o Tome and Principe, Dobras"
+  symbol: 
+  code: STD
+  id: 140
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_085: 
+  name: Sri Lanka, Rupees
+  symbol: 
+  code: LKR
+  id: 85
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_056: 
+  name: Guatemala, Quetzales
+  symbol: 
+  code: GTQ
+  id: 56
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_111: 
+  name: Nepal, Nepal Rupees
+  symbol: 
+  code: NPR
+  id: 111
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_028: 
+  name: Congo/Kinshasa, Congolese Francs
+  symbol: 
+  code: CDF
+  id: 28
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_141: 
+  name: El Salvador, Colones
+  symbol: 
+  code: SVC
+  id: 141
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_057: 
+  name: Guyana, Dollars
+  symbol: 
+  code: GYD
+  id: 57
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_112: 
+  name: New Zealand, Dollars
+  symbol: 
+  code: NZD
+  id: 112
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_029: 
+  name: Switzerland, Francs
+  symbol: 
+  code: CHF
+  id: 29
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_086: 
+  name: Liberia, Dollars
+  symbol: 
+  code: LRD
+  id: 86
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_170: 
+  name: "Comptoirs Fran\xC3\xA7ais du Pacifique Francs"
+  symbol: 
+  code: XPF
+  id: 170
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_142: 
+  name: Syria, Pounds
+  symbol: 
+  code: SYP
+  id: 142
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_058: 
+  name: Hong Kong, Dollars
+  symbol: 
+  code: HKD
+  id: 58
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_113: 
+  name: Oman, Rials
+  symbol: 
+  code: OMR
+  id: 113
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_087: 
+  name: Lesotho, Maloti
+  symbol: 
+  code: LSL
+  id: 87
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_171: 
+  name: Platinum, Ounces
+  symbol: 
+  code: XPT
+  id: 171
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_059: 
+  name: Honduras, Lempiras
+  symbol: 
+  code: HNL
+  id: 59
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_114: 
+  name: Panama, Balboa
+  symbol: 
+  code: PAB
+  id: 114
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_172: 
+  name: Yemen, Rials
+  symbol: 
+  code: YER
+  id: 172
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_143: 
+  name: Swaziland, Emalangeni
+  symbol: 
+  code: SZL
+  id: 143
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_115: 
+  name: Peru, Nuevos Soles
+  symbol: 
+  code: PEN
+  id: 115
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_030: 
+  name: Chile, Pesos
+  symbol: 
+  code: CLP
+  id: 30
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_088: 
+  name: Lithuania, Litai
+  symbol: 
+  code: LTL
+  id: 88
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_001: 
+  name: United States of America, Dollars
+  symbol: 
+  code: USD
+  id: 1
+  min_accountable_unit: 
+  enabled_flag: true
+currencies_173: 
+  name: South Africa, Rand
+  symbol: 
+  code: ZAR
+  id: 173
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_144: 
+  name: Thailand, Baht
+  symbol: 
+  code: THB
+  id: 144
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_116: 
+  name: Papua New Guinea, Kina
+  symbol: 
+  code: PGK
+  id: 116
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_031: 
+  name: China, Yuan Renminbi
+  symbol: 
+  code: CNY
+  id: 31
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_089: 
+  name: Latvia, Lati
+  symbol: 
+  code: LVL
+  id: 89
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_002: 
+  name: Afghanistan, Afghanis
+  symbol: 
+  code: AFN
+  id: 2
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_174: 
+  name: Zambia, Kwacha
+  symbol: 
+  code: ZMK
+  id: 174
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_145: 
+  name: Tajikistan, Somoni
+  symbol: 
+  code: TJS
+  id: 145
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_117: 
+  name: Philippines, Pesos
+  symbol: 
+  code: PHP
+  id: 117
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_060: 
+  name: Croatia, Kuna
+  symbol: 
+  code: HRK
+  id: 60
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_032: 
+  name: Colombia, Pesos
+  symbol: 
+  code: COP
+  id: 32
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_003: 
+  name: Albania, Leke
+  symbol: 
+  code: ALL
+  id: 3
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_175: 
+  name: Zimbabwe, Zimbabwe Dollars
+  symbol: 
+  code: ZWN
+  id: 175
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_146: 
+  name: Turkmenistan, Manats
+  symbol: 
+  code: TMM
+  id: 146
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_118: 
+  name: Pakistan, Rupees
+  symbol: 
+  code: PKR
+  id: 118
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_061: 
+  name: Haiti, Gourdes
+  symbol: 
+  code: HTG
+  id: 61
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_004: 
+  name: Armenia, Drams
+  symbol: 
+  code: AMD
+  id: 4
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_147: 
+  name: Tunisia, Dinars
+  symbol: 
+  code: TND
+  id: 147
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_119: 
+  name: Poland, Zlotych
+  symbol: 
+  code: PLN
+  id: 119
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_062: 
+  name: Hungary, Forint
+  symbol: 
+  code: HUF
+  id: 62
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_033: 
+  name: Costa Rica, Colones
+  symbol: 
+  code: CRC
+  id: 33
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_005: 
+  name: Netherlands Antilles, Guilders (also called Florins)
+  symbol: 
+  code: ANG
+  id: 5
+  min_accountable_unit: 
+  enabled_flag: 
+currencies_090: 
+  name: Libya, Dinars
+  symbol: 
+  code: LYD
+  id: 90
+  min_accountable_unit: 
+  enabled_flag: 

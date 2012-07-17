@@ -1,0 +1,91 @@
+--- 
+approvals_001: 
+  status: pending_approval
+  approvable_id: 
+  approval_key: 
+  approval_date: 
+  id: 1
+  approvable_type: 
+  note: 
+  user_id: 3
+  parent_id: 
+approvals_002: 
+  status: approved
+  approvable_id: 
+  approval_key: 
+  approval_date: 2006-07-15 06:49:47 Z
+  id: 2
+  approvable_type: 
+  note: 
+  user_id: 1
+  parent_id: 
+approvals_003: 
+  status: approved
+  approvable_id: 
+  approval_key: 
+  approval_date: 2006-07-15 06:54:43 Z
+  id: 3
+  approvable_type: 
+  note: 
+  user_id: 1
+  parent_id: 
+approvals_004: 
+  status: pending_approval
+  approvable_id: 
+  approval_key: 
+  approval_date: 
+  id: 4
+  approvable_type: 
+  note: 
+  user_id: 1
+  parent_id: 
+approvals_005: 
+  status: approved
+  approvable_id: 
+  approval_key: 
+  approval_date: 2006-07-16 23:39:39 Z
+  id: 8
+  approvable_type: 
+  note: 
+  user_id: 1
+  parent_id: 
+approvals_006: 
+  status: approved
+  approvable_id: 
+  approval_key: 
+  approval_date: 2006-07-26 14:21:02 Z
+  id: 10
+  approvable_type: 
+  note: 
+  user_id: 1
+  parent_id: 
+approvals_007: 
+  status: pending_approval
+  approvable_id: 
+  approval_key: 
+  approval_date: 
+  id: 12
+  approvable_type: 
+  note: 
+  user_id: 1
+  parent_id: 
+approvals_008: 
+  status: pending_approval
+  approvable_id: 
+  approval_key: 
+  approval_date: 
+  id: 13
+  approvable_type: 
+  note: 
+  user_id: 1
+  parent_id: 
+approvals_009: 
+  status: pending_approval
+  approvable_id: 
+  approval_key: 
+  approval_date: 
+  id: 15
+  approvable_type: 
+  note: 
+  user_id: 1
+  parent_id: 

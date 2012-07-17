@@ -1,0 +1,46 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+<%= start_form_tag :action => 'update', :id => @account %>
+  <%= render :partial => 'form' %>
+    <table><tr>
+        <td><%= rollover_link_to 'Cancel', :action => 'index' %></td>
+        <td><%= rollover_submit_tag "Save" %></td>
+    </tr></table>
+<%= end_form_tag %>
+</div>
+<div id="right_col">
+    <div class="portlet">
+        <div class="portlet_header">
+            <h3>Account Maintenance</h3>
+        </div>
+        <div class="portlet_body">
+            <ul style="line-height:12pt;">
+
+                <li><%= link_to 'Create new segment', :controller => 'account_field_types', :action => 'new' %></li>
+                <li><%= link_to 'Maintain segments', :controller => 'account_field_types', :action => 'index' %></li>
+                <li><%= link_to 'Create new set of books', :controller => 'account_types', :action => 'new' %></li>
+                <li><%= link_to 'Maintain sets of books', :controller => 'account_types', :action => 'index' %></li>
+                <li><%= link_to 'Create new account', :controller => 'accounts', :action => 'new' %></li>
+                <li><%= link_to 'Maintain accounts', :controller => 'accounts', :action => 'index' %></li>
+                <li><%= link_to 'Load accounts from a file', :controller => 'accounts', :action => 'bulk_loader' %></li>
+            </ul>
+        </div>
+    </div>
+</div>

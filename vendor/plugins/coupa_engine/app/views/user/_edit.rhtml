@@ -1,0 +1,36 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div class="user_edit">
+  <table>
+    <%= form_input changeable(user, "firstname"), "First Name", "firstname" %>
+    <%= form_input changeable(user, "lastname"), "Last Name","lastname" %>
+    <%= form_input changeable(user, "login"), "Login ID", "login", :size => 30 %><br/>
+    <%= form_input changeable(user, "email"), "Email", "email" %>
+    <tr><td>Approval Limit</td><td><%= select "user", "approval_limit_id", ApprovalLimit.find(:all,:order => 'amount').collect{ |a| [(render_attribute(a.amount,:long)),a.id] }, :include_blank => true %></td></tr>
+    <% if @user.id %>
+    <tr><td>Manager</td><td><%= select "user", "manager_id", User.find(:all, :conditions => ["id <> ?",@user.id]).collect{ |a| [a.fullname,a.id] }, :include_blank => true %></td></tr>
+    <% else %>
+    <tr><td>Manager</td><td><%= select "user", "manager_id", User.find(:all).collect{ |a| [a.fullname,a.id] }, :include_blank => true %></td></tr>
+    <% end %>
+    <tr><td>Default Currency</td><td><%= select "user", "default_currency_id", Currency.find(:all).collect{|a| [a.code,a.id]}, :include_blank => true%></td></tr>
+    <% if submit %>
+      <%= form_input :submit_button, (user.new_record? ? 'Signup' : 'Change Settings'), :class => 'two_columns' %>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,80 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% @requisition_line = requisition_line %>
+<tbody id="requisition_line_<%= @requisition_line.id %>" class="tabular">
+<tr id="requisition_line_<%= @requisition_line.id %>_main" class="<%= cycle("stripe_even","stripe_odd")%>">
+    <td align="center">
+        <%= toggle_switch_for("requisition_line_#{@requisition_line.id}_more", :description => "supplier details for requisition line #{@requisition_line.id}") %>
+    </td>
+    <td align="center">
+        <% if @requisition_line.type_editable? -%>
+        <%= select_tag("requisition_line[#{@requisition_line.id}][type]",
+                       options_for_select(@line_types,@requisition_line.class.to_s),
+                       :onchange => "change_line_type('#{@requisition_line.id}')",
+                       :id => "requisition_line_#{@requisition_line.id}_type") %>
+        <% else -%>
+        <%= image_tag(@requisition_line.class.type_icon) %>
+        <%= hidden_field "requisition_line[]", "type" %>
+        <% end -%>
+        <%= hidden_field "requisition_line[]", "id" %>
+    </td>
+    <td><%= line_description_field "requisition_line[]" %><%= '&nbsp;'+image_tag('attach.png', :title => 'This line has attachments',:style => 'vertical-align:middle;') if @requisition_line.attachments.size > 0 %></td>
+    <td><%= line_quantity_field("requisition_line[]") %>
+        <%= hidden_field("requisition_line[]", "item_id") %>
+        <%= hidden_field("requisition_line[]", "supplier_id") %>
+    </td>
+    <td nowrap="nowrap"><%= line_uom_field("requisition_line[]") %></td>
+    <td align="right">
+    <% if @requisition_line.unit_price_editable? -%>
+        <%= text_field("requisition_line[]","unit_price", :size => 12) -%>
+    <% else -%>
+        <%= render_attribute(@requisition_line.unit_price) -%>
+    <% end -%>
+    </td>
+    <td><% if @requisition_line.currency_editable? -%>
+        <%= select("requisition_line[]","currency_id",Currency.find(:all,:conditions => ['enabled_flag = ?',true]).collect{|cur| [cur.code,cur.id]}) -%>
+        <% else -%>
+        <%= render_attribute(@requisition_line.currency) -%>
+        <% end -%>
+      </td>
+    <td nowrap="nowrap" align="right"><%= render_attribute(@requisition_line.total) %>
+    </td>
+    <td align="center"><%= link_to_remote(image_tag('delete.png'),
+                :url =>{
+                    :controller =>"requisition_headers",
+                    :action=>"remove",
+                    :id=>@requisition_header.id,
+                    :line_id=>@requisition_line.id,
+                    :root=>@requisition_line.id}) %></td>
+</tr>
+<tr id="requisition_line_<%= @requisition_line.id %>_hidden" class="<%= cycle('stripe_even','stripe_odd') %>" style="display:none"><td colspan="9">&nbsp;</td></tr>
+<tr id="requisition_line_<%= @requisition_line.id %>_more" class="<%= cycle('stripe_even','stripe_odd') %>" style="display:none">
+    <td colspan="2">&nbsp;</td>
+    <td colspan="7">
+    <h4>Additional Information</h4>
+    <%= inline_supplier_selector('Supplier','requisition_line[]','supplier') %>
+    <%= inline_immutable_field_tag(@requisition_line.lead_time.nil? ? { :name => 'Lead time', :style => 'display:none' } : 'Lead time', "requisition_line[#{@requisition_line.id}][lead_time]", pluralize(@requisition_line.lead_time, 'day'), :id => "requisition_line_#{@requisition_line.id}_lead_time") %>
+    <%= inline_date_picker_field(@requisition_line.lead_time.nil? ? 'Need by date' : { :name => 'Need by date', :style => 'display:none' }, 'requisition_line', 'need_by_date', :name => "requisition_line[#{@requisition_line.id}][need_by_date]", :id => "requisition_line_#{@requisition_line.id}_need_by_date") %>
+    <div style="clear:both"></div>
+    <div class="wrapped_form_element">
+        <label>Attachments</label>
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => true, :attach_to => @requisition_line, :attachment_name => "requisition_line[#{@requisition_line.id}]", :intents => ['Supplier','Internal']} %>
+    </div></td>
+</tr>
+</tbody>

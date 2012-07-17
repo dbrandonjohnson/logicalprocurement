@@ -1,0 +1,25 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= wrapped_text_field({:name => 'Name',:required => true}, 'account_field_type', 'name') %>
+<%= wrapped_text_field({:name => 'Code',:required => true}, 'account_field_type', 'code',{:size => 5}) %>
+<%= wrapped_select({:name => 'Validation Regular Expression', :required => true}, 'account_field_select_type', 'validation_regex', @validation_type, :selected => @selected_regex )-%>
+
+<%= wrapped_text_field({ :name => '', :id => 'account_field_type_id',:hint => 'Example: [A-Za-z0-9]+', :style => @display_style} , 'account_field_type', 'validation_regex', :style => @display_style) %>
+<%= observe_field 'account_field_select_type_validation_regex', :url => { :controller => 'account_field_types', :action=> 'validation_type' }, :with => 'value' -%>
+<br/>

@@ -1,0 +1,39 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% content_for(:page_head) do -%>
+    <style type="text/css">
+        body { background: white url('/plugin_assets/coupa_engine/images/coupa_flower_bg.png') no-repeat fixed top right; }
+    </style>
+<% end -%>
+
+<%= javascript_tag(%(dojo.addOnLoad(function() { $('user_login').focus() }))) %>
+
+<div id="titlebar">Welcome!</div>
+<div id="content">    
+    <div style="padding:15px;">
+        <%= start_form_tag :action => 'login'  %>
+        <%= wrapped_text_field 'Username', 'user', 'login', :size => 15 %>
+        <%= wrapped_password_field 'Password', 'user', 'password', :size => 15 %>
+        <div class="page_buttons_left">
+            <div class="page_button"><%= rollover_submit_tag 'Sign On' %></div>
+        </div>
+        <%= end_form_tag %>
+    </div>
+    <div style="height:300px"> </div>
+</div>

@@ -1,0 +1,60 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= nested_error_messages_for 'requisition_header', 'requisition_lines' %>
+<table class="tabular" id="cart_body">
+    <thead class="tabular">
+        <tr>
+        <th width="11%" colspan="2">&nbsp;</th>
+        <th width="45%">Item</th>
+        <th width="10%">Quantity</th>
+        <th width="15%">Unit</th>
+        <th width="8%">Price</th>
+        <th>Cur</th>
+        <th width="8%">Line Total</th>
+        <th width="3%"><%= image_tag('spinner.gif',:id => 'table_wait',:style => 'display:none;') %></th>
+        </tr>
+    </thead>
+    <tfoot class="tabular">
+    <tr>
+        <td colspan="7" align="right">Cart Total</td>
+        <td align="right" id="cart_total"><%= render_attribute(@requisition_header.total(session[:user].default_currency)) %></td>
+        <td>&nbsp;</td>
+    </tr>
+    </tfoot><span></span><%= render :partial => "requisition_line", :collection => @requisition_header.requisition_lines %><tbody id="dummy_body" class="tabular">
+    <tr id="dummy_row" class="dimmed">
+        <td align="center">&nbsp;</td>
+        <td align="center">
+            <%= select_tag("dummy_row_type","<option value=\"RequisitionQuantityLine\" selected=\"selected\">Qty</option><option value=\"RequisitionAmountLine\">Amt</option>",:disabled => true,  :onClick => "add_line(#{@requisition_header.id}); return false;") %>
+        </td>
+        <td><%= text_field_tag("dummy_row_description",'New requisition line', 
+                  :style => "color:#999", :size => 80, :disabled => false, 
+                  :onFocus => "add_line(#{@requisition_header.id}); return false;") %>
+        </td>
+        <td><%= text_field_tag("dummy_row_quantity", '', :size => 5, :disabled => true) %>
+        </td>
+        <td nowrap="nowrap"><%= text_field_tag("dummy_row_uom",'',:size => 5, :disabled => true) %></td>
+        <td align="right"><%= text_field_tag("dummy_row_unit_price","", :size => 12, :disabled => true) %></td>
+        <td><%= select_tag("dummy_row_currency",options_for_select(Currency.find(:all,:conditions => ['enabled_flag = ?',true]).collect{|cur| [cur.code,cur.id]}), :disabled => true) %></td>
+        <td nowrap="nowrap" align="right"><%= render_attribute(Money.new(0,session[:user].default_currency)) %>
+        </td>
+        <td align="center">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+

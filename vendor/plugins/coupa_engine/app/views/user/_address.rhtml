@@ -1,0 +1,38 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% if view_only %>
+  <% if @address.nil? %>
+    <div style="margin: 10px;"><label>No Default Address</label></div>
+  <% else %>
+    <%# All the spaces are to fix rendering %>
+    <div class="inline_form_element"><label>Line 1</label><%= @address.street1 %>&nbsp;</div>
+    <div class="inline_form_element"><label>Line 2</label><%= @address.street2 %>&nbsp;</div>
+    <div class="inline_form_element"><label>City</label><%= @address.city %>&nbsp;</div>
+    <div class="inline_form_element"><label>State</label><%= @address.state %>&nbsp;</div>
+    <div class="inline_form_element"><label>Postal code</label><%= @address.postal_code %>&nbsp;</div>
+    <div class="inline_form_element"><label>Country</label><%= @address.country.name %>&nbsp;</div>
+  <% end %>
+<% else %>
+  <%= inline_text_field({:name => 'Line 1'}, 'address', 'street1') %>
+  <%= inline_text_field 'Line 2', 'address', 'street2' %>
+  <%= inline_text_field({:name => 'City'}, 'address', 'city') %>
+  <%= inline_text_field 'State', 'address', 'state', :id => 'state_field' %>
+  <%= inline_text_field({:name=>'Postal code'}, 'address', 'postal_code') %>
+  <%= inline_select({:name => 'Country'}, 'address', 'country_id', Country.find(:all,:order => 'position').collect{ |c| [c.name, c.id]}) %>
+<% end %>

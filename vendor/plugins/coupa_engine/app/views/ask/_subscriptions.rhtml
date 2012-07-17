@@ -1,0 +1,50 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="subscriptions">
+    <% if @subscriptions.empty? -%>
+        <p>You have not subscribed to any category yet.</p>
+    <% end -%>
+
+    <% @subscriptions.each_with_index do |subscription,i| -%>
+        <% id = subscription.id -%>
+		<% moderator = AskModerator.find_by_ask_category_id_and_user_id(subscription.category.id, User.current_user.id)%>
+        <% display = moderator.nil? == false %>
+		<% moderator_tag = "moderator, " unless moderator.nil? %>
+		<div style="padding-top: 1em">
+            <% open_questions = subscription.category.open_questions.size %>
+            <div>
+                <%= link_to h(subscription.category.name), :action => :questions, :id => subscription.category.id %>
+                <%= link_to "(#{moderator_tag}#{open_questions} open question#{ 's' if open_questions > 1 || open_questions == 0})", :action => :open_questions, :id => subscription.category.id %>
+                &nbsp;
+                <%= link_to_remote image_tag('delete.png', :style => "vertical-align: middle"), :url => {:action => 'unsubscribe_from_subscriptions', :id => id} %></div>
+            <small style="padding-left: 2em">
+                <span>
+                    <%= check_box_tag "n#{id}", "1", subscription.email_notifications?, :disabled => display, :style => "border:none;" %>
+                    <label id="nl<%=id%>" for="n<%=id%>">receive via email</label>
+                    <em id="ns<%=id%>" style="display:none">saving...</em>
+                </span>
+            </small>
+        </div>
+        <%= observe_field "n#{id}",
+                :url => {:action => 'set_email_notifications', :id => id },
+                :loading => "Element.hide($('nl#{id}')); Element.show($('ns#{id}'))",
+                :complete => "Element.hide($('ns#{id}')); Element.show($('nl#{id}'))",
+                :with => "value" %>
+    <% end -%>
+</div>

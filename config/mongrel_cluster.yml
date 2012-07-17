@@ -1,0 +1,10 @@
+--- 
+user: mongrel
+cwd: /var/www/coupa-1.5/
+log_file: log/mongrel.log
+port: "5000"
+environment: production 
+group: mongrel
+address: 127.0.0.1
+pid_file: /var/www/coupa-1.5/tmp/mongrel.pid
+servers: 8 

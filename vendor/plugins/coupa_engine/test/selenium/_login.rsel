@@ -1,0 +1,4 @@
+open "/user/login"
+type "user_login", login
+type "user_password", password
+click_and_wait '//input[@name="Sign On"]'

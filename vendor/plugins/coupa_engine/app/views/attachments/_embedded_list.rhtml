@@ -1,0 +1,73 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% attachment_links = ((defined? intents) && intents) ? attach_to.attachment_links.find_all.select { |al| intents.include?(al.intent) } : attach_to.attachment_links.find_all %>
+
+<div id="<%= attachment_name %>_list">
+<% if editable %>
+<table><tr valign=top>
+    <td><%= select_tag "#{attachment_name}[attachment][type]", "<option value=\"AttachmentFile\">File</option><option value=\"AttachmentUrl\">URL</option><option value=\"AttachmentText\">Text</option>", :onchange => "$('#{attachment_name}_AttachmentFile','#{attachment_name}_AttachmentUrl','#{attachment_name}_AttachmentText').invoke('hide'); Element.show('#{attachment_name}_'+this.value);" %></td>
+    <td>
+      <div id="<%= attachment_name %>_AttachmentFile"><%= file_field_tag "#{attachment_name}[attachment][file]", :mime_extensions => {}, :size => 25 %></div>
+      <div id="<%= attachment_name %>_AttachmentUrl" style='display:none;'><%= text_field_tag "#{attachment_name}[attachment][url]", 'http://', :size => 42 %></div>
+      <div id="<%= attachment_name %>_AttachmentText" style="display:none;"><%= text_area_tag "#{attachment_name}[attachment][text]", '', :rows => 3, :cols => 40 %></div>
+    </td>
+    <% if (defined? intents) && intents %>
+        <td>&nbsp;Destination</td>
+        <td><%= select_tag "#{attachment_name}[attachment_link][intent]", options_from_collection_for_select(intents,'to_s','to_s') %></td>
+    <% end %>
+</tr></table>
+<%= hidden_field_tag "#{attachment_name}[attachment][file_temp]", nil, :style => 'border:none' %>
+<% end %>
+<% unless attachment_links.empty? %>
+<table id="<%= attachment_name %>_table" class="tabular">
+<thead class="tabular">
+    <tr>
+          <th>Attachment</th>
+        <% if editable && (defined? intents) && intents %>
+        <th>Destination</th>
+        <% end %>
+        <% if editable %>
+        <th>&nbsp;</th>
+        <% end %>
+    </tr>
+</thead>
+<tbody>
+<% attachment_links.each_with_index { |attachment_link,c| %>
+  <tr id="attach_<%= attachment_link.id %>" class="<%= (c % 2) == 0 ? 'stripe_even' : 'stripe_odd' %>">
+    <td>
+      <% if attachment_link.attachment.kind_of?(AttachmentFile) %>
+        <%= link_to(attachment_link.attachment[:file], url_for_file_column(attachment_link.attachment, 'file', :absolute => true)+ (defined?(supplier_view_key) ? "?supplier_view_key=#{supplier_view_key}" : '')) %>
+      <% elsif attachment_link.attachment.kind_of?(AttachmentUrl) %>
+        <%= link_to(attachment_link.attachment.url, attachment_link.attachment.url) %><%= !editable && attachment_link.intent == 'Internal' ? '&nbsp;(Internal Only)' : '' %>
+      <% elsif attachment_link.attachment.kind_of?(AttachmentText) %>
+        <%= h attachment_link.attachment.text %><%= !editable && attachment_link.intent == 'Internal' ? '&nbsp;<b>(Internal Only)</b>' : '' %></b>
+      <% end %>
+    </td>
+    <% if editable && (defined? intents) && intents %>
+    <td><%= select_tag "#{attachment_name}[attachment_links][#{attachment_link.id}][intent]", options_from_collection_for_select(intents,'to_s','to_s',attachment_link.intent) %></td>
+    <% end %>
+    <% if editable %>
+    <td><%= link_to_remote image_tag('delete'),  :url => { :controller => 'attachments', :action => 'embedded_destroy', :id => attachment_link }, :confirm => 'Are you sure?'  %></td>
+    <% end %>
+  </tr>
+<% } %>
+</tbody>
+</table>
+<% end %>
+</div>

@@ -1,0 +1,64 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <div class="inline_form_element"><label>Name</label><%= h @account_type.name %></div>
+    <div class="inline_form_element"><label>Currency</label><%= h @account_type.currency.code %></div>
+<div style="clear:left;"><h3>Accounting</h3></div>
+<% i = 1 %>
+<% while @account_type.instance_eval('segment_'+i.to_s+'_field_type_id') %> 
+      <div class="inline_form_element"><label>Segment <%= i.to_s %></label><%= h @account_type.instance_eval('segment_'+i.to_s+'_field_type').name %></div>
+<% i+=1 %>
+<% end %>
+<div style="clear:left;"><h3>Billing Contact</h3></div>
+<div class="inline_form_element"><label>First name</label><%= h @account_type.primary_contact.name_given %></div>
+<div class="inline_form_element"><label>Last name</label><%= h @account_type.primary_contact.name_family %></div>
+<div class="inline_form_element"><label>Email</label><%= h @account_type.primary_contact.email %></div>
+<div style="clear:left;"><h3>Billing Address</h3></div>
+<div class="inline_form_element"><label>Line 1</label><%= h @account_type.primary_address.street1 %></div>
+<div class="inline_form_element"><label>Line 2</label><%= h @account_type.primary_address.street2 %></div>
+<div class="inline_form_element"><label>City</label><%= h @account_type.primary_address.city %></div>
+<div class="inline_form_element"><label>State</label><%= h @account_type.primary_address.state %></div>
+<div class="inline_form_element"><label>Postal code</label><%= h @account_type.primary_address.postal_code %></div>
+<div class="inline_form_element"><label>Country</label><%= h @account_type.primary_address.country.name %></div>
+<BR/>
+<div class="inline_form_element"><label>PO Terms</label></div>
+    <div style="clear:left;">
+        <%= @account_type.po_terms %>
+    </div>
+</div>
+<div id="right_col">
+    <div class="portlet">
+        <div class="portlet_header">
+            <h3>Account Maintenance</h3>
+        </div>
+        <div class="portlet_body">
+            <ul style="line-height:12pt;">
+
+                <li><%= link_to 'Create new segment', :controller => 'account_field_types', :action => 'new' %></li>
+                <li><%= link_to 'Maintain segments', :controller => 'account_field_types', :action => 'index' %></li>
+                <li><%= link_to 'Create new set of books', :controller => 'account_types', :action => 'new' %></li>
+                <li><%= link_to 'Maintain sets of books', :controller => 'account_types', :action => 'index' %></li>
+                <li><%= link_to 'Create new account', :controller => 'accounts', :action => 'new' %></li>
+                <li><%= link_to 'Maintain accounts', :controller => 'accounts', :action => 'index' %></li>
+                <li><%= link_to 'Load accounts from a file', :controller => 'accounts', :action => 'bulk_loader' %></li>
+            </ul>
+        </div>
+    </div>
+</div>
+

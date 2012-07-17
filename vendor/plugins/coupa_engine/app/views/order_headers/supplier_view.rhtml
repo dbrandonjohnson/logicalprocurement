@@ -1,0 +1,43 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <h3>Attachments</h3>
+    <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => @order_header, :attachment_name => 'supplier_view', :supplier_view_key => @order_header.supplier_view_key} %>
+<br/>
+    <h3>Lines</h3>
+    <table class="tabular">
+        <thead class="tabular">
+            <tr>
+                <th>Line</th>
+                <th>Qty</th>
+                <th>Unit</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tfoot class="tabular">
+            <tr>
+                <td colspan="5" align="right">Total</td>
+                <td><%= render_attribute @order_header.total %></td>
+            </tr>
+        </tfoot>
+        <%= render :partial => 'supplier_view_line', :collection => @order_header.order_lines %>
+    </table>
+</div>

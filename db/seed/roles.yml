@@ -1,0 +1,25 @@
+--- 
+roles_004: 
+  name: Buyer
+  omnipotent: false
+  id: 4
+  description: Role for users in the procurement department
+  system_role: false
+roles_001: 
+  name: Guest
+  omnipotent: false
+  id: 1
+  description: Implicit role for all accessors of the site
+  system_role: true
+roles_002: 
+  name: Admin
+  omnipotent: true
+  id: 2
+  description: Full system access
+  system_role: true
+roles_003: 
+  name: User
+  omnipotent: false
+  id: 3
+  description: Default role for all logged-in users
+  system_role: true

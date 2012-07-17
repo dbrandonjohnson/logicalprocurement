@@ -1,0 +1,27 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+  <% if @order_header.versions.size > 1 %>
+  <%= javascript_tag( update_element_function 'titlebar_postamble', :content => render(:partial => 'revision_picker') ) %>
+  <%= observe_field "order_header_version", :url => {:action => 'show', :id => (@order_header.respond_to?(:order_header_id) ? @order_header.order_header_id : @order_header.id)}, :with => 'version', :update => 'order_body' %>
+  <% end %>
+  <div id="order_body">
+  <%= render(:partial => 'show_body', :locals => {:order_header => @order_header}) %>
+  </div>
+</div>

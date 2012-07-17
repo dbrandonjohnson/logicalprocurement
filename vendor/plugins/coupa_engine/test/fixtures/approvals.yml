@@ -1,0 +1,64 @@
+--- 
+approvals_001: 
+  status: pending_approval
+  approval_date: 
+  id: "1"
+  note: 
+  user_id: "3"
+  parent_id: 
+approvals_002: 
+  status: approved
+  approval_date: 2006-07-15 06:49:47
+  id: "2"
+  note: 
+  user_id: "1"
+  parent_id: 
+approvals_003: 
+  status: approved
+  approval_date: 2006-07-15 06:54:43
+  id: "3"
+  note: 
+  user_id: "1"
+  parent_id: 
+approvals_004: 
+  status: pending_approval
+  approval_date: 
+  id: "4"
+  note: 
+  user_id: "1"
+  parent_id: 
+approvals_005: 
+  status: pending_approval
+  approval_date: 
+  id: "15"
+  note: 
+  user_id: "1"
+  parent_id: 
+approvals_006: 
+  status: approved
+  approval_date: 2006-07-16 23:39:39
+  id: "8"
+  note: 
+  user_id: "1"
+  parent_id: 
+approvals_007: 
+  status: approved
+  approval_date: 2006-07-26 14:21:02
+  id: "10"
+  note: 
+  user_id: "1"
+  parent_id: 
+approvals_008: 
+  status: pending_approval
+  approval_date: 
+  id: "12"
+  note: 
+  user_id: "1"
+  parent_id: 
+approvals_009: 
+  status: pending_approval
+  approval_date: 
+  id: "13"
+  note: 
+  user_id: "1"
+  parent_id: 

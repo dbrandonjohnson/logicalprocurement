@@ -1,0 +1,45 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+<% for column in ApprovalLimit.content_columns %>
+<div class="inline_form_element"><label>Amount</label><%=render_attribute(@approval_limit.amount,:long) %></div>
+<div style="clear:both;"> </div><br/>
+<% end %>
+<h3>Users with this Limit</h3>
+<br/>
+<table class="tabular">
+    <thead class="tabular">
+        <tr>
+            <th>Login</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody class="tabular">
+        <% @users.each do |user| %>
+        <tr class="<%= cycle('stripe_even','stripe_odd') %>">
+            <td><%= link_to(user.login,{:controller => 'user', :action => 'show', :id => user.id}) %>
+            <td><%= h(user.fullname) %></td>
+            <td><%= link_to(image_tag('pencil', :title => 'Edit'), {:controller => 'user', :action => 'edit_user', :id => user.id}, :title => 'Edit') %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>

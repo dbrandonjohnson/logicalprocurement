@@ -1,0 +1,61 @@
+--- 
+addresses_003: 
+  address_owner_id: 
+  city: San Jose
+  name: Office
+  updated_at: 2006-07-26 17:04:06
+  postal_code: "95008"
+  created_by: "28"
+  street1: 103 Washington Ave
+  country_id: "223"
+  street2: ""
+  updated_by: "28"
+  id: "20"
+  address_owner_type: 
+  created_at: 2006-07-26 17:04:06
+  state: CA
+addresses_004: 
+  address_owner_id: 
+  city: Palo Alto
+  name: Supplier ABC
+  updated_at: 2006-07-15 05:46:16
+  postal_code: "94301"
+  created_by: "2"
+  street1: 500 Main Street
+  country_id: "223"
+  street2: ""
+  updated_by: "2"
+  id: "18"
+  address_owner_type: 
+  created_at: 2006-07-15 05:46:16
+  state: CA
+addresses_001: 
+  address_owner_id: 
+  city: Redwood City
+  name: Corporate Offices
+  updated_at: 2006-03-07 15:47:04
+  postal_code: "94029"
+  created_by: "1"
+  street1: 250 Sycamore Avenue
+  country_id: "223"
+  street2: ""
+  updated_by: "1"
+  id: "1"
+  address_owner_type: 
+  created_at: 2006-03-07 15:47:04
+  state: CA
+addresses_002: 
+  address_owner_id: 
+  city: San Jose
+  name: Main Address
+  updated_at: 2006-07-15 06:48:19
+  postal_code: "95008"
+  created_by: "2"
+  street1: 100 Washington Dr.
+  country_id: "223"
+  street2: ""
+  updated_by: "2"
+  id: "19"
+  address_owner_type: 
+  created_at: 2006-07-15 06:48:19
+  state: CA

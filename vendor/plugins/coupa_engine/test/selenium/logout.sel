@@ -1,0 +1,6 @@
+|open|/selenium/setup?clear_tables=sessions&fixtures=coupa_engine/all|
+|includePartial|coupa_engine/login|login=williams|password=welcome|
+|open|/|
+|verifyText|titlebar|Welcome, John!|
+|clickAndWait|link=Sign Out|
+|verifyText|titlebar|Welcome!|

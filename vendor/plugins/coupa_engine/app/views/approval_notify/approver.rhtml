@@ -1,0 +1,44 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<table cellspacing="0" cellpadding="0"><tr>
+<td colspan="2" style="padding:0px 15px 8px 15px;min-width:100px;text-align:center"><%= @requisition_header.requested_by.fullname %>
+</td>
+<% if @requisition_header.approval.user != @requisition_header.requested_by %>
+<td colspan="2" style="padding:0px 15px 8px 15px;min-width:100px;text-align:center"><%= @requisition_header.approval.user.fullname %></td>
+<% end %>
+    <% cur_approval = @requisition_header.approval %>
+    <% while cur_approval.children.first 
+        cur_approval = cur_approval.children.first %>
+<td colspan="2" style="padding:0px 15px 8px 15px;min-width:100px;text-align:center"><%= cur_approval.user.fullname %></td>
+    <% end %>
+    <td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+  <td><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/blank.gif" width="50" height="1"></td><td style="border-top:1px solid #ccc;"><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/user_go.png" style="position:relative;top:-8px;left:-8px;text-align:center;" title ="Submitted"><br/><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/blank.gif" width="50" height="1"></td>
+<% if @requisition_header.approval.user != @requisition_header.requested_by %>
+  <td style="border-top:1px solid #ccc;"><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/blank.gif" width="50" height="1"></td><td style="border-top:1px solid #ccc;vertical-align:top"><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/<%= @requisition_header.approval.status_icon %>" style="position:relative;top:-8px;left:-8px;text-align:center;" title ="Pending approval"><br/><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/blank.gif" width="50" height="1"></td>
+<% end %>
+      <% cur_approval = @requisition_header.approval %>
+      <% while cur_approval.children.first 
+          cur_approval = cur_approval.children.first %>
+  <td style="border-top:1px solid #ccc;"><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/blank.gif" width="50" height="1"></td><td style="border-top:1px solid #ccc;vertical-align:top;"><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/<%= cur_approval.status_icon %>" style="position:relative;top:-8px;left:-8px;text-align:center;" title ="<%= cur_approval.status.humanize %>"><br/><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/blank.gif" width="50" height="1"></td>
+      <% end %>
+<td style="border-top:1px solid #ccc;"><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/blank.gif" width="50" height="1"></td><td style="vertical-align:top"><img src="<%= "#{controller.request.protocol}#{controller.request.host_with_port}" %>/plugin_assets/coupa_engine/images/email_go.png" style="position:relative;top:-8px;left:-8px;text-align:center;" title ="Submitted"><br/><img src="plugin_assets/coupa_engine/images/blank.gif" width="50" height="1"></td>
+</tr>
+</table>

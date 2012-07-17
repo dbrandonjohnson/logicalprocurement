@@ -1,0 +1,73 @@
+|store|A New Item|item|
+|store|1|quantity|
+|store|100|price|
+|storeEval|${quantity} * ${price}|line_total|
+|store|A New Supplier|supplier_name|
+|store|Supplier ABC - Sample|parent_supplier|
+|store|First|contact_name_given|
+|store|Last|contact_name_family|
+|store|first.last@coupa.com|contact_email|
+|store|Nickname|address_name|
+|store|1125 E. Hillsdale Blvd|address_street1|
+|store|Suite 116|address_street2|
+|store|Foster City|address_city|
+|store|CA|address_state|
+|store|94404|address_postal_code|
+|store|United States|country|
+|open|/selenium/setup?clear_tables=sessions&fixtures=coupa_engine/all|
+|includePartial|coupa_engine/login|login=williams|password=welcome|
+|open|/|
+|clickAndWait|link=Shopping Cart|
+|click|//img[@alt='Add Lines']|
+|waitForVisible|requisition_line_n1_description|
+|type|requisition_line_n1_description|${item}|
+|waitForVisible|requisition_line_n1_supplier|
+|type|requisition_line_n1_quantity|${quantity}|
+|type|requisition_line_n1_unit_price|${price}|
+|type|requisition_line_n1_supplier|${supplier_name}|
+|waitForVisible|supplier_name|
+|verifyValue|supplier_name|${supplier_name}|
+|select|supplier_parent_id|label=${parent_supplier}|
+|type|contact_name_given|${contact_name_given}|
+|type|contact_name_family|${contact_name_family}|
+|type|contact_email|${contact_email}|
+|type|address_name|${address_name}|
+|type|address_street1|${address_street1}|
+|type|address_street2|${address_street2}|
+|type|address_city|${address_city}|
+|type|address_state|${address_state}|
+|type|address_postal_code|${address_postal_code}|
+|select|address_country_id|label=${country}|
+|click|Save|
+|waitForVisible|flash_notice|
+|verifyText|flash_notice|Supplier was successfully created.|
+|clickAndWait|//img[@alt='Checkout']|
+|assertText|titlebar|Checkout - Requisition #*|
+|storeEval|this.page().findElement('titlebar').innerHTML.substr(24)|req_header_id|
+|clickAndWait|//img[@alt='Submit for Approval']|
+|verifyText|flash_notice|Requisition #${req_header_id} submitted for approval.|
+|clickAndWait|link=My Account|
+|assertText|titlebar|My Account|
+|verifyTable|//div[2]/table.0.0|*Requisition #: ${req_header_id}*|
+|verifyTable|//div[2]/table.0.0|*Total: $${line_total}*|
+|verifyTable|//div[2]/table.0.0|*Status: Pending approval*|
+|verifyTable|//div[2]/table.0.1|*${quantity} Each of ${item}*|
+|clickAndWait|//img[@alt='Details for requisition #${req_header_id}']|
+|assertText|titlebar|Requisition #${req_header_id}|
+|verifyTable|//div[3]/div[1]/table.1.2|${item}|
+|verifyTable|//div[3]/div[1]/table.1.3|${quantity}|
+|verifyTable|//div[3]/div[1]/table.1.4|Each|
+|verifyTable|//div[3]/div[1]/table.1.5|$${price}*|
+|verifyTable|//div[3]/div[1]/table.1.6|$${line_total}*|
+|click|//img[@alt='Show details of requisition line 1']|
+|waitForVisible|//div[3]/div[1]/table/tbody/tr[3]/td|
+|verifyTable|//div[3]/div[1]/table.3.1|*${supplier_name}*|
+|clickAndWait|link=Admin|
+|clickAndWait|link=Suppliers|
+|assertText|titlebar|Suppliers|
+|verifyTable|//div[4]/table.1.0|${supplier_name}|
+|verifyTable|//div[4]/table.1.1|Draft|
+|verifyTable|//div[4]/table.1.2|${contact_name_given} ${contact_name_family}|
+|verifyTable|//div[4]/table.1.3|${address_city}|
+|verifyTable|//div[4]/table.1.4|${address_state}|
+|verifyTable|//div[4]/table.1.5|${country}|

@@ -1,0 +1,113 @@
+--- 
+requisition_lines_001: 
+  suggested_suppliers: 
+  status: 
+  uom_id: 1
+  item_id: 2320
+  source_part_num: 
+  form_response_id: 
+  updated_at: 2007-06-02 01:13:09 Z
+  need_by_date: 
+  punchout_site_id: 
+  currency_id: 1
+  released_by_buyer: 
+  deleted_at: 
+  created_by: 2
+  type: RequisitionQuantityLine
+  total: "9.99"
+  quantity: 1.0
+  updated_by: 1
+  line_num: 1
+  id: 1
+  requisition_line_template_id: 
+  description: Coupa Demodata Product Name
+  header_id: 292
+  supplier_id: 2
+  unit_price: "9.99"
+  contract_id: 1
+  order_line_id: 1
+  created_at: 2006-07-15 06:46:07 Z
+requisition_lines_002: 
+  suggested_suppliers: 
+  status: 
+  uom_id: 1
+  item_id: 2320
+  source_part_num: 
+  form_response_id: 
+  updated_at: 2007-06-02 01:13:09 Z
+  need_by_date: 
+  punchout_site_id: 
+  currency_id: 1
+  released_by_buyer: 
+  deleted_at: 
+  created_by: 1
+  type: RequisitionQuantityLine
+  total: "9.99"
+  quantity: 1.0
+  updated_by: 1
+  line_num: 1
+  id: 2
+  requisition_line_template_id: 
+  description: Coupa Demodata Product Name
+  header_id: 294
+  supplier_id: 2
+  unit_price: "9.99"
+  contract_id: 1
+  order_line_id: 2
+  created_at: 2006-07-15 06:53:11 Z
+requisition_lines_003: 
+  suggested_suppliers: ""
+  status: draft
+  uom_id: 
+  item_id: 
+  source_part_num: 
+  form_response_id: 
+  updated_at: 2007-06-02 01:13:09 Z
+  need_by_date: 
+  punchout_site_id: 
+  currency_id: 1
+  released_by_buyer: 
+  deleted_at: 
+  created_by: 2
+  type: RequisitionAmountLine
+  total: "100.0"
+  quantity: 1.0
+  updated_by: 1
+  line_num: 1
+  id: 8
+  requisition_line_template_id: 
+  description: Sample Services
+  header_id: 299
+  supplier_id: 2
+  unit_price: "100.0"
+  contract_id: 1
+  order_line_id: 3
+  created_at: 2006-07-16 23:38:01 Z
+requisition_lines_004: 
+  suggested_suppliers: 
+  status: 
+  uom_id: 1
+  item_id: 2320
+  source_part_num: 
+  form_response_id: 
+  updated_at: 2007-06-02 01:13:09 Z
+  need_by_date: 
+  punchout_site_id: 
+  currency_id: 1
+  released_by_buyer: 
+  deleted_at: 
+  created_by: 1
+  type: RequisitionQuantityLine
+  total: "9.99"
+  quantity: 1.0
+  updated_by: 1
+  line_num: 1
+  id: 10
+  requisition_line_template_id: 
+  description: Coupa Demodata Product Name
+  header_id: 296
+  supplier_id: 2
+  unit_price: "9.99"
+  contract_id: 1
+  order_line_id: 4
+  created_at: 2006-07-26 14:20:49 Z

@@ -1,0 +1,1191 @@
+--- 
+countries_025: 
+  name: Bhutan
+  code: BT
+  id: 26
+  position: 27
+countries_051: 
+  name: Costa Rica
+  code: CR
+  id: 52
+  position: 53
+countries_106: 
+  name: Jamaica
+  code: JM
+  id: 107
+  position: 108
+countries_132: 
+  name: Malta
+  code: MT
+  id: 133
+  position: 134
+countries_213: 
+  name: Trinidad &amp; Tobago
+  code: TT
+  id: 214
+  position: 215
+countries_026: 
+  name: Bolivia
+  code: BO
+  id: 27
+  position: 28
+countries_052: 
+  name: Croatia
+  code: HR
+  id: 53
+  position: 54
+countries_107: 
+  name: Japan
+  code: JP
+  id: 108
+  position: 109
+countries_133: 
+  name: Marshall Islands
+  code: MH
+  id: 134
+  position: 135
+countries_214: 
+  name: Tunisia
+  code: TN
+  id: 215
+  position: 216
+countries_027: 
+  name: Bosnia-Herzegovina
+  code: BA
+  id: 28
+  position: 29
+countries_053: 
+  name: Cuba
+  code: CU
+  id: 54
+  position: 55
+countries_080: 
+  name: Gibraltar
+  code: GI
+  id: 81
+  position: 82
+countries_108: 
+  name: Jordan
+  code: JO
+  id: 109
+  position: 110
+countries_134: 
+  name: Martinique (Fr.)
+  code: MQ
+  id: 135
+  position: 136
+countries_160: 
+  name: Norway
+  code: "NO"
+  id: 161
+  position: 162
+countries_215: 
+  name: Turkey
+  code: TR
+  id: 216
+  position: 217
+countries_028: 
+  name: Botswana
+  code: BW
+  id: 29
+  position: 30
+countries_054: 
+  name: Cyprus
+  code: CY
+  id: 55
+  position: 56
+countries_081: 
+  name: Great Britain (UK)
+  code: GB
+  id: 82
+  position: 83
+countries_109: 
+  name: Kazachstan
+  code: KZ
+  id: 110
+  position: 111
+countries_135: 
+  name: Mauritania
+  code: MR
+  id: 136
+  position: 137
+countries_161: 
+  name: Oman
+  code: OM
+  id: 162
+  position: 163
+countries_216: 
+  name: Turkmenistan
+  code: TM
+  id: 217
+  position: 218
+countries_029: 
+  name: Bouvet Island
+  code: BV
+  id: 30
+  position: 31
+countries_055: 
+  name: Czech Republic
+  code: CZ
+  id: 56
+  position: 57
+countries_082: 
+  name: Greece
+  code: GR
+  id: 83
+  position: 84
+countries_136: 
+  name: Mauritius
+  code: MU
+  id: 137
+  position: 138
+countries_162: 
+  name: Pakistan
+  code: PK
+  id: 163
+  position: 164
+countries_217: 
+  name: Turks &amp; Caicos Islands
+  code: TC
+  id: 218
+  position: 219
+countries_056: 
+  name: Czechoslovakia
+  code: CS
+  id: 57
+  position: 58
+countries_137: 
+  name: Mexico
+  code: MX
+  id: 138
+  position: 139
+countries_163: 
+  name: Palau
+  code: PW
+  id: 164
+  position: 165
+countries_190: 
+  name: Somalia
+  code: SO
+  id: 191
+  position: 192
+countries_218: 
+  name: Tuvalu
+  code: TV
+  id: 219
+  position: 220
+countries_057: 
+  name: Denmark
+  code: DK
+  id: 58
+  position: 59
+countries_083: 
+  name: Greenland
+  code: GL
+  id: 84
+  position: 85
+countries_138: 
+  name: Micronesia
+  code: FM
+  id: 139
+  position: 140
+countries_164: 
+  name: Panama
+  code: PA
+  id: 165
+  position: 166
+countries_191: 
+  name: South Africa
+  code: ZA
+  id: 192
+  position: 193
+countries_219: 
+  name: Uganda
+  code: UG
+  id: 220
+  position: 221
+countries_058: 
+  name: Djibouti
+  code: DJ
+  id: 59
+  position: 60
+countries_084: 
+  name: Grenada
+  code: GD
+  id: 85
+  position: 86
+countries_139: 
+  name: Moldavia
+  code: MD
+  id: 140
+  position: 141
+countries_165: 
+  name: Papua New
+  code: PG
+  id: 166
+  position: 167
+countries_192: 
+  name: Spain
+  code: ES
+  id: 193
+  position: 194
+countries_085: 
+  name: Guadeloupe (Fr.)
+  code: GP
+  id: 86
+  position: 87
+countries_166: 
+  name: Paraguay
+  code: PY
+  id: 167
+  position: 168
+countries_059: 
+  name: Dominica
+  code: DM
+  id: 60
+  position: 61
+countries_086: 
+  name: Guam (US)
+  code: GU
+  id: 87
+  position: 88
+countries_167: 
+  name: Peru
+  code: PE
+  id: 168
+  position: 169
+countries_193: 
+  name: Sri Lanka
+  code: LK
+  id: 194
+  position: 195
+countries_168: 
+  name: Philippines
+  code: PH
+  id: 169
+  position: 170
+countries_194: 
+  name: St. Helena
+  code: SH
+  id: 195
+  position: 196
+countries_087: 
+  name: Guatemala
+  code: GT
+  id: 88
+  position: 89
+countries_169: 
+  name: Pitcairn
+  code: PN
+  id: 170
+  position: 171
+countries_195: 
+  name: St. Pierre &amp; Miquelon
+  code: PM
+  id: 196
+  position: 197
+countries_088: 
+  name: Guiana (Fr.)
+  code: GF
+  id: 89
+  position: 90
+countries_196: 
+  name: St. Tome and Principe
+  code: ST
+  id: 197
+  position: 198
+countries_089: 
+  name: Guinea
+  code: GN
+  id: 90
+  position: 91
+countries_197: 
+  name: St.Kitts Nevis Anguilla
+  code: KN
+  id: 198
+  position: 199
+countries_198: 
+  name: St.Vincent &amp; Grenadines
+  code: VC
+  id: 199
+  position: 200
+countries_199: 
+  name: Sudan
+  code: SD
+  id: 200
+  position: 201
+countries_010: 
+  name: Argentina
+  code: AR
+  id: 11
+  position: 12
+countries_011: 
+  name: Armenia
+  code: AM
+  id: 12
+  position: 13
+countries_012: 
+  name: Aruba
+  code: AW
+  id: 13
+  position: 14
+countries_200: 
+  name: Suriname
+  code: SR
+  id: 201
+  position: 202
+countries_013: 
+  name: Australia
+  code: AU
+  id: 14
+  position: 15
+countries_120: 
+  name: Liberia
+  code: LR
+  id: 121
+  position: 122
+countries_201: 
+  name: Svalbard &amp; Jan Mayen Is
+  code: SJ
+  id: 202
+  position: 203
+countries_014: 
+  name: Austria
+  code: AT
+  id: 15
+  position: 16
+countries_040: 
+  name: Cayman Islands
+  code: KY
+  id: 41
+  position: 42
+countries_121: 
+  name: Libya
+  code: LY
+  id: 122
+  position: 123
+countries_202: 
+  name: Swaziland
+  code: SZ
+  id: 203
+  position: 204
+countries_015: 
+  name: Azerbaidjan
+  code: AZ
+  id: 16
+  position: 17
+countries_041: 
+  name: Central African Rep.
+  code: CF
+  id: 42
+  position: 43
+countries_122: 
+  name: Liechtenstein
+  code: LI
+  id: 123
+  position: 124
+countries_203: 
+  name: Sweden
+  code: SE
+  id: 204
+  position: 205
+countries_230: 
+  name: Virgin Islands (British)
+  code: VG
+  id: 231
+  position: 232
+countries_016: 
+  name: Bahamas
+  code: BS
+  id: 17
+  position: 18
+countries_042: 
+  name: Chad
+  code: TD
+  id: 43
+  position: 44
+countries_123: 
+  name: Lithuania
+  code: LT
+  id: 124
+  position: 125
+countries_204: 
+  name: Switzerland
+  code: CH
+  id: 205
+  position: 206
+countries_231: 
+  name: Virgin Islands (US)
+  code: VI
+  id: 232
+  position: 233
+countries_017: 
+  name: Bahrain
+  code: BH
+  id: 18
+  position: 19
+countries_043: 
+  name: Chile
+  code: CL
+  id: 44
+  position: 45
+countries_070: 
+  name: Fiji
+  code: FJ
+  id: 71
+  position: 72
+countries_124: 
+  name: Luxembourg
+  code: LU
+  id: 125
+  position: 126
+countries_150: 
+  name: Netherlands
+  code: NL
+  id: 151
+  position: 152
+countries_205: 
+  name: Syria
+  code: SY
+  id: 206
+  position: 207
+countries_232: 
+  name: Wallis &amp; Futuna Islands
+  code: WF
+  id: 233
+  position: 234
+countries_018: 
+  name: Banglades
+  code: BD
+  id: 19
+  position: 20
+countries_044: 
+  name: China
+  code: CN
+  id: 45
+  position: 46
+countries_071: 
+  name: Finland
+  code: FI
+  id: 72
+  position: 73
+countries_125: 
+  name: Macau
+  code: MO
+  id: 126
+  position: 127
+countries_151: 
+  name: Neutral Zone
+  code: NT
+  id: 152
+  position: 153
+countries_206: 
+  name: Tadjikistan
+  code: TJ
+  id: 207
+  position: 208
+countries_233: 
+  name: Western Sahara
+  code: EH
+  id: 234
+  position: 235
+countries_019: 
+  name: Barbados
+  code: BB
+  id: 20
+  position: 21
+countries_045: 
+  name: Christmas Island
+  code: CX
+  id: 46
+  position: 47
+countries_126: 
+  name: Macedonia
+  code: MK
+  id: 127
+  position: 128
+countries_152: 
+  name: New Caledonia (Fr.)
+  code: NC
+  id: 153
+  position: 154
+countries_207: 
+  name: Taiwan
+  code: TW
+  id: 208
+  position: 209
+countries_234: 
+  name: Yemen
+  code: YE
+  id: 235
+  position: 236
+countries_046: 
+  name: Cocos (Keeling) Isl.
+  code: CC
+  id: 47
+  position: 48
+countries_072: 
+  name: France
+  code: FR
+  id: 73
+  position: 74
+countries_127: 
+  name: Madagascar
+  code: MG
+  id: 128
+  position: 129
+countries_153: 
+  name: New Zealand
+  code: NZ
+  id: 154
+  position: 155
+countries_180: 
+  name: Samoa
+  code: WS
+  id: 181
+  position: 182
+countries_208: 
+  name: Tanzania
+  code: TZ
+  id: 209
+  position: 210
+countries_235: 
+  name: Yugoslavia
+  code: YU
+  id: 236
+  position: 237
+countries_047: 
+  name: Colombia
+  code: CO
+  id: 48
+  position: 49
+countries_073: 
+  name: France (European Ter.)
+  code: FX
+  id: 74
+  position: 75
+countries_128: 
+  name: Malawi
+  code: MW
+  id: 129
+  position: 130
+countries_154: 
+  name: Nicaragua
+  code: NI
+  id: 155
+  position: 156
+countries_181: 
+  name: San Marino
+  code: SM
+  id: 182
+  position: 183
+countries_209: 
+  name: Thailand
+  code: TH
+  id: 210
+  position: 211
+countries_236: 
+  name: Zaire
+  code: ZR
+  id: 237
+  position: 238
+countries_048: 
+  name: Comoros
+  code: KM
+  id: 49
+  position: 50
+countries_074: 
+  name: French Southern Terr.
+  code: TF
+  id: 75
+  position: 76
+countries_129: 
+  name: Malaysia
+  code: MY
+  id: 130
+  position: 131
+countries_155: 
+  name: Niger
+  code: NE
+  id: 156
+  position: 157
+countries_237: 
+  name: Zambia
+  code: ZM
+  id: 238
+  position: 239
+countries_049: 
+  name: Congo
+  code: CG
+  id: 50
+  position: 51
+countries_075: 
+  name: Gabon
+  code: GA
+  id: 76
+  position: 77
+countries_156: 
+  name: Nigeria
+  code: NG
+  id: 157
+  position: 158
+countries_182: 
+  name: Saudi Arabia
+  code: SA
+  id: 183
+  position: 184
+countries_238: 
+  name: Zimbabwe
+  code: ZW
+  id: 239
+  position: 240
+countries_076: 
+  name: Gambia
+  code: GM
+  id: 77
+  position: 78
+countries_157: 
+  name: Niue
+  code: NU
+  id: 158
+  position: 159
+countries_183: 
+  name: Senegal
+  code: SN
+  id: 184
+  position: 185
+countries_077: 
+  name: Georgia
+  code: GE
+  id: 78
+  position: 79
+countries_158: 
+  name: Norfolk Island
+  code: NF
+  id: 159
+  position: 160
+countries_184: 
+  name: Seychelles
+  code: SC
+  id: 185
+  position: 186
+countries_078: 
+  name: Germany
+  code: DE
+  id: 79
+  position: 80
+countries_159: 
+  name: Northern Mariana Isl.
+  code: MP
+  id: 160
+  position: 161
+countries_185: 
+  name: Sierra Leone
+  code: SL
+  id: 186
+  position: 187
+countries_079: 
+  name: Ghana
+  code: GH
+  id: 80
+  position: 81
+countries_186: 
+  name: Singapore
+  code: SG
+  id: 187
+  position: 188
+countries_187: 
+  name: Slovak Republic
+  code: SK
+  id: 188
+  position: 189
+countries_188: 
+  name: Slovenia
+  code: SI
+  id: 189
+  position: 190
+countries_189: 
+  name: Solomon Islands
+  code: SB
+  id: 190
+  position: 191
+countries_001: 
+  name: Afghanistan
+  code: AF
+  id: 2
+  position: 3
+countries_002: 
+  name: Albania
+  code: AL
+  id: 3
+  position: 4
+countries_110: 
+  name: Kenya
+  code: KE
+  id: 111
+  position: 112
+countries_003: 
+  name: Algeria
+  code: DZ
+  id: 4
+  position: 5
+countries_111: 
+  name: Kiribati
+  code: KI
+  id: 112
+  position: 113
+countries_004: 
+  name: American Samoa
+  code: AS
+  id: 5
+  position: 6
+countries_030: 
+  name: Brazil
+  code: BR
+  id: 31
+  position: 32
+countries_112: 
+  name: Korea (North)
+  code: KP
+  id: 113
+  position: 114
+countries_005: 
+  name: Andorra
+  code: AD
+  id: 6
+  position: 7
+countries_031: 
+  name: British Indian O. Terr.
+  code: IO
+  id: 32
+  position: 33
+countries_113: 
+  name: Korea (South)
+  code: KR
+  id: 114
+  position: 115
+countries_220: 
+  name: Ukraine
+  code: UK
+  id: 221
+  position: 222
+countries_006: 
+  name: Angola
+  code: AO
+  id: 7
+  position: 8
+countries_032: 
+  name: Brunei Darussalam
+  code: BN
+  id: 33
+  position: 34
+countries_140: 
+  name: Monaco
+  code: MC
+  id: 141
+  position: 142
+countries_221: 
+  name: United Arab Emirates
+  code: AE
+  id: 222
+  position: 223
+countries_007: 
+  name: Anguilla
+  code: AI
+  id: 8
+  position: 9
+countries_033: 
+  name: Bulgaria
+  code: BG
+  id: 34
+  position: 35
+countries_060: 
+  name: Dominican Republi
+  code: DO
+  id: 61
+  position: 62
+countries_114: 
+  name: Kuwait
+  code: KW
+  id: 115
+  position: 116
+countries_141: 
+  name: Mongolia
+  code: MN
+  id: 142
+  position: 143
+countries_222: 
+  name: United States
+  code: US
+  id: 223
+  position: 1
+countries_008: 
+  name: Antarctica
+  code: AQ
+  id: 9
+  position: 10
+countries_034: 
+  name: Burkina Faso
+  code: BF
+  id: 35
+  position: 36
+countries_115: 
+  name: Kyrgistan
+  code: KG
+  id: 116
+  position: 117
+countries_223: 
+  name: Uruguay
+  code: UY
+  id: 224
+  position: 225
+countries_009: 
+  name: Antigua and Barbuda
+  code: AG
+  id: 10
+  position: 11
+countries_035: 
+  name: Burundi
+  code: BI
+  id: 36
+  position: 37
+countries_061: 
+  name: East Timor
+  code: TP
+  id: 62
+  position: 63
+countries_116: 
+  name: Laos
+  code: LA
+  id: 117
+  position: 118
+countries_142: 
+  name: Montserrat
+  code: MS
+  id: 143
+  position: 144
+countries_224: 
+  name: US Minor outlying Isl.
+  code: UM
+  id: 225
+  position: 226
+countries_170: 
+  name: Poland
+  code: PL
+  id: 171
+  position: 172
+countries_036: 
+  name: Cambodia
+  code: KH
+  id: 37
+  position: 38
+countries_062: 
+  name: Ecuador
+  code: EC
+  id: 63
+  position: 64
+countries_117: 
+  name: Latvia
+  code: LV
+  id: 118
+  position: 119
+countries_143: 
+  name: Morocco
+  code: MA
+  id: 144
+  position: 145
+countries_225: 
+  name: Uzbekistan
+  code: UZ
+  id: 226
+  position: 227
+countries_037: 
+  name: Cameroon
+  code: CM
+  id: 38
+  position: 39
+countries_063: 
+  name: Egypt
+  code: EG
+  id: 64
+  position: 65
+countries_090: 
+  name: Guinea Bissau
+  code: GW
+  id: 91
+  position: 92
+countries_118: 
+  name: Lebanon
+  code: LB
+  id: 119
+  position: 120
+countries_144: 
+  name: Mozambique
+  code: MZ
+  id: 145
+  position: 146
+countries_226: 
+  name: Vanuatu
+  code: VU
+  id: 227
+  position: 228
+countries_038: 
+  name: Canada
+  code: CA
+  id: 39
+  position: 40
+countries_064: 
+  name: El Salvador
+  code: SV
+  id: 65
+  position: 66
+countries_091: 
+  name: Guyana
+  code: GY
+  id: 92
+  position: 93
+countries_119: 
+  name: Lesotho
+  code: LS
+  id: 120
+  position: 121
+countries_145: 
+  name: Myanmar
+  code: MM
+  id: 146
+  position: 147
+countries_171: 
+  name: Polynesia (Fr.)
+  code: PF
+  id: 172
+  position: 173
+countries_227: 
+  name: Vatican City State
+  code: VA
+  id: 228
+  position: 229
+countries_039: 
+  name: Cape Verde
+  code: CV
+  id: 40
+  position: 41
+countries_065: 
+  name: Equatorial Guinea
+  code: GQ
+  id: 66
+  position: 67
+countries_092: 
+  name: Haiti
+  code: HT
+  id: 93
+  position: 94
+countries_146: 
+  name: Namibia
+  code: NA
+  id: 147
+  position: 148
+countries_172: 
+  name: Portugal
+  code: PT
+  id: 173
+  position: 174
+countries_228: 
+  name: Venezuela
+  code: VE
+  id: 229
+  position: 230
+countries_066: 
+  name: Estonia
+  code: EE
+  id: 67
+  position: 68
+countries_093: 
+  name: Heard &amp; McDonald Isl.
+  code: HM
+  id: 94
+  position: 95
+countries_147: 
+  name: Nauru
+  code: NR
+  id: 148
+  position: 149
+countries_173: 
+  name: Puerto Rico (US)
+  code: PR
+  id: 174
+  position: 175
+countries_229: 
+  name: Vietnam
+  code: VN
+  id: 230
+  position: 231
+countries_067: 
+  name: Ethiopia
+  code: ET
+  id: 68
+  position: 69
+countries_148: 
+  name: Nepal
+  code: NP
+  id: 149
+  position: 150
+countries_174: 
+  name: Qatar
+  code: QA
+  id: 175
+  position: 176
+countries_068: 
+  name: Falkland Isl.(Malvinas)
+  code: FK
+  id: 69
+  position: 70
+countries_094: 
+  name: Honduras
+  code: HN
+  id: 95
+  position: 96
+countries_149: 
+  name: Netherland Antilles
+  code: AN
+  id: 150
+  position: 151
+countries_175: 
+  name: Reunion (Fr.)
+  code: RE
+  id: 176
+  position: 177
+countries_069: 
+  name: Faroe Islands
+  code: FO
+  id: 70
+  position: 71
+countries_095: 
+  name: Hong Kong
+  code: HK
+  id: 96
+  position: 97
+countries_176: 
+  name: Romania
+  code: RO
+  id: 177
+  position: 178
+countries_096: 
+  name: Hungary
+  code: HU
+  id: 97
+  position: 98
+countries_177: 
+  name: Russian Federation
+  code: RU
+  id: 178
+  position: 179
+countries_097: 
+  name: Iceland
+  code: IS
+  id: 98
+  position: 99
+countries_178: 
+  name: Rwanda
+  code: RW
+  id: 179
+  position: 180
+countries_098: 
+  name: India
+  code: IN
+  id: 99
+  position: 100
+countries_179: 
+  name: Saint Lucia
+  code: LC
+  id: 180
+  position: 181
+countries_099: 
+  name: Indonesia
+  code: ID
+  id: 100
+  position: 101
+countries_100: 
+  name: Iran
+  code: IR
+  id: 101
+  position: 102
+countries_020: 
+  name: Belarus
+  code: BY
+  id: 21
+  position: 22
+countries_101: 
+  name: Iraq
+  code: IQ
+  id: 102
+  position: 103
+countries_021: 
+  name: Belgium
+  code: BE
+  id: 22
+  position: 23
+countries_102: 
+  name: Ireland
+  code: IE
+  id: 103
+  position: 104
+countries_022: 
+  name: Belize
+  code: BZ
+  id: 23
+  position: 24
+countries_103: 
+  name: Israel
+  code: IL
+  id: 104
+  position: 105
+countries_210: 
+  name: Togo
+  code: TG
+  id: 211
+  position: 212
+countries_023: 
+  name: Benin
+  code: BJ
+  id: 24
+  position: 25
+countries_104: 
+  name: Italy
+  code: IT
+  id: 105
+  position: 106
+countries_130: 
+  name: Maldives
+  code: MV
+  id: 131
+  position: 132
+countries_211: 
+  name: Tokelau
+  code: TK
+  id: 212
+  position: 213
+countries_024: 
+  name: Bermuda
+  code: BM
+  id: 25
+  position: 26
+countries_050: 
+  name: Cook Islands
+  code: CK
+  id: 51
+  position: 52
+countries_105: 
+  name: Ivory Coast
+  code: CI
+  id: 106
+  position: 107
+countries_131: 
+  name: Mali
+  code: ML
+  id: 132
+  position: 133
+countries_212: 
+  name: Tonga
+  code: TO
+  id: 213
+  position: 214

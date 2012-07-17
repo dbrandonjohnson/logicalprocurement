@@ -1,0 +1,42 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% content_for(:page_head) do -%>
+  <%= javascript_include_tag('edit_cart', 'supplier_selector', :plugin => 'coupa_engine') %>
+<% end -%>
+<% if @focus_field -%>
+<%= javascript_tag(%(dojo.addOnLoad(function() { $('#{@focus_field}').focus() }))) %>
+<% end -%>
+
+
+<div id="widecontent">
+    <%= start_form_tag({:action => 'update', :id => @requisition_header}, :name => 'cart_form',:multipart => true) %>
+    <%= hidden_field_tag 'checkout_flag' %>
+    <div id="cart_region">
+        <%= render :partial => 'form' %>
+    </div>
+    <%= drop_receiving_element("cart_region", :url => { :controller => "requisition_headers", :action => "add", :quantity => '1.0', :req => @requisition_header.id }, :hoverclass => 'shopping_cart_hover') %>
+    <div class="page_buttons_right">
+        <div class="page_button"><%= rollover_link_to_function 'Checkout', '$(\'checkout_flag\').value = \'true\';document.cart_form.submit();' %></div>
+        <div class="page_button"><%= rollover_submit_tag 'Update Cart' %></div>
+        <div class="page_button"><%= rollover_link_to_remote 'Clear Cart', :url => {:controller => 'requisition_headers', :action => 'clear_cart', :id => @requisition_header.id}, :confirm => 'Are you sure?'%></div>
+        <!-- <div class="page_button"><%= rollover_link_to_function 'Add Lines', 'add_line();'%></div> -->
+
+    </div>
+    <%= end_form_tag %>
+</div>

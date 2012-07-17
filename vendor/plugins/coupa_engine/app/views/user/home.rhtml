@@ -1,0 +1,56 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= javascript_tag(%(dojo.addOnLoad(function() { $('search').focus() }))) %>
+<div id="titlebar">Welcome, <%= session[:user].firstname %>!</div>
+<div id="content">
+    <table width="100%">
+    <tr>
+        <td width="50%" valign="top">
+        <h3>To Do</h3>
+        <div style="padding:5px;">
+            <% notifications = Notification.find(:all,:conditions => ['user_id = ? AND (read_flag IS NULL OR read_flag = ?)',session[:user].id,false], :order => 'created_at DESC',:limit => 5) %>
+            <% if notifications.size > 0 
+                notifications.each do |note| %>
+                <%= link_to(note.subject,:controller => 'inbox', :action => 'show', :id => note.id) %><br/>
+            <%     end 
+               else %>
+            <span style="color:#999">There are no To Do items.</span>
+            <% end %>
+        </div>
+        </td>
+        <td width="50%" valign="top" style="padding-left:5px;">
+        <%= render_component :controller => 'requisition_headers', :action => 'quick_access' %>
+        </td>
+    </tr>
+	</table>
+
+<!-- CURRENT BUDGETS -->
+		<%= render :partial => 'personal_budgets' %>	
+<!--  -->
+
+<!-- RECENT NEWS -->
+        <%= render_component :controller => 'feed', :action => 'home'%>
+<!--  -->
+   
+	</div>
+</div>
+<div id="right_col">
+    <%= render_component :controller => 'requisition_headers', :action => 'portlet' %>
+    <%= render_component :controller => 'tag', :action => 'cloud_portlet' , :params => {:limit => {:limit => 60}}%>
+</div>

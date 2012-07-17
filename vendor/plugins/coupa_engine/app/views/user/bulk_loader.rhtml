@@ -1,0 +1,39 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <h3>Start a New Bulk Load</h3>
+    <%= error_messages_for 'data_source' %>
+    <p>Steps for loading users:</p>
+    <ol style="line-height:12pt;">
+        <li>Define <%= link_to 'approval limits', :controller => 'approval_limits', :action => 'index' %>.</li>
+        <li>Download the <%= link_to 'CSV template', :action => :list_csv, :template_only => true %> or the <%= link_to 'current list of users', :action => :list_csv %>.</li>
+        <li>Fill in or update the CSV file.
+            <ul>
+                <li>The first column, "Action," must contain either "Add" or "Update".
+                <li>Fields marked with a "*" are mandatory.</li>
+                <li>Related fields marked with a "**" indicate that one of the set is mandatory.</li>
+                <li>Additionally, when updating records, the ID column is mandatory</li>
+            </ul>
+        </li>
+        <li>Load the updated file here:
+            <%= form_tag({:action => 'load_file'},{:multipart => true}) %>
+            <%= file_column_field 'data_source', 'file'  %><br/><%= rollover_submit_tag 'Go!' %></form>
+        </li>
+    </ol>
+</div>

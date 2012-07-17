@@ -1,0 +1,71 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% if view_only %>
+  <div class="inline_form_element"><label>First name</label><%= @user.firstname %>&nbsp;</div>
+  <div class="inline_form_element"><label>Last name</label><%= @user.lastname %>&nbsp;</div>
+  <div class="inline_form_element"><label>Email</label><%= @user.email %>&nbsp;</div>
+  <div class="inline_form_element"><label>Phone (Work)</label><%= @user.phone_work %>&nbsp;</div>
+  <div class="inline_form_element"><label>Phone (Mobile)</label><%= @user.phone_mobile %>&nbsp;</div>
+  <div class="inline_form_element"><label>Login</label><%= @user.login %>&nbsp;</div>
+  <div class="inline_form_element"><label>Approval limit</label><%= nil_on_fail{render_attribute @user.approval_limit.amount} %>&nbsp;</div>
+  <div class="inline_form_element"><label>Manager</label><%= nil_on_fail{User.find_by_id(@user.manager_id).fullname} || '&nbsp;' %>&nbsp;</div>
+  <div class="inline_form_element"><label>Default currency</label><%= nil_on_fail{@user.default_currency.code} %>&nbsp;</div>
+  <div class="inline_form_element"><label>Default account</label><%= nil_on_fail{@user.default_account.name} %>&nbsp;</div>
+  <div class="inline_form_element"><label>User status</label><%= @user.status.humanize %>&nbsp;</div>
+<% else %>
+  <% if @user.id %>
+    <div class="inline_form_element"><label>Login</label><%= @user.login %></div>
+  <% else %>
+    <%= inline_text_field({:name => 'Login',:required => true}, 'user', 'login') %>
+  <% end %>
+  <%= inline_text_field({:name => 'First name',:required => true}, 'user', 'firstname') %>
+  <%= inline_text_field({:name => 'Last name',:required => true}, 'user', 'lastname')  %>
+  <%= inline_text_field({:name => 'Email',:required => true}, 'user', 'email') %>
+  <%= inline_text_field({:name => 'Phone (Work)', :required => false}, 'user', 'phone_work') %>
+  <%= inline_text_field({:name => 'Phone (Mobile)', :required => false}, 'user', 'phone_mobile') %>
+
+  <div class="inline_form_element"><label>Manager</label>
+        <%= tag(:input, { "type" => "text",
+                          "name" => "user[manager]",
+                          "id" => "user_manager",
+                          "value" => nil_on_fail{User.find_by_id(user.manager_id).fullname},
+                          "size" => 20,
+                          "autocomplete" => "off" , 
+                          "style" => ''}) %>
+            <div id="user_manager_auto_complete" 
+                class="autocomplete" style="white-space:normal;"></div>&nbsp;<%=
+             image_tag('spinner.gif',
+                :id => "user_manager_wait",
+                :style => "display:none;")%><%=
+            auto_complete_field("user_manager",
+                :url => {:controller => 'user', :action => 'auto_complete', :id => user.id},
+                :indicator => "user_manager_wait",
+                :param_name => 'user',
+                :select => 'name' ) %></td>
+  </div>
+
+  <div class="inline_form_element"><label>Approval limit</label>
+    <%= select "user", "approval_limit_id", ApprovalLimit.find(:all, :order => 'amount').collect{ |a| [(render_attribute(a.amount,:long)),a.id] }, :include_blank => true %>
+  </div>
+
+  <div class="inline_form_element"><label>Default currency</label>
+     <%= currency_selector "user", "default_currency" %>
+  </div>
+  <%= inline_account_picker_field 'Default account', 'user', 'default_account' %>
+<% end %>

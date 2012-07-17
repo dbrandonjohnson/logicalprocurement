@@ -1,0 +1,49 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="product_review_container">
+<h3 style="margin-left:-5px;"><table><tr><td style="font-size:11pt;padding:0px;">Employee Reviews</td><td><%= small_rollover_link_to_function 'Rate It', "dojo.widget.byId('pr_add').show();dojo.widget.byId('pr_add').tabStart = $('product_review_title');" %></td></tr></table></h3>
+<script type="text/javascript">
+<!--
+    function update_rating(val) {
+        document.getElementById('product_review_rating').value = val;
+        document.getElementById('review_rating_<%=@item_id%>_current').style.width = ''+val * 0.7+'px';
+        return false;
+    }
+-->
+</script>
+<div id="pr_add" style="display:none;" class="dojo-dialog">
+  <%= form_remote_tag( :url => {:controller => 'product_reviews', :action => 'embedded_add',:id => @item_id}, :html => {:id => "add_review_form"} ) %>
+    <div id="pr_add_container" class="form_response">
+        <%= render :partial => "add" %>
+    </div>
+    <div style="position:absolute">
+    <table><tr><td><%= rollover_submit_tag 'Add review'%></td>
+      <td><%= rollover_link_to_function 'Cancel',"dojo.widget.byId('pr_add').hide(); $('add_review_form').reset();"%></td>
+    </tr></table>
+    </div>
+  </form>
+  <div>
+<br/>
+<br/>
+  </div>
+</div>
+<div id="product_review_list">
+    <%= render :partial => "list" %>
+</div>
+</div>

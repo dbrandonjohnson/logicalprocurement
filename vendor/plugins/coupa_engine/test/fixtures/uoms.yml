@@ -1,0 +1,6 @@
+--- 
+uoms_001: 
+  name: Each
+  allowable_precision: "0"
+  code: EA
+  id: "1"

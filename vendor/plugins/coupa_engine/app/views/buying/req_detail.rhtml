@@ -1,0 +1,132 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% content_for(:page_head) do -%>
+    <%= javascript_include_tag('req_detail', :plugin => 'coupa_engine') %>
+<% end -%>
+
+<div id="wide_content">
+<%= nested_error_messages_for 'requisition_header', 'requisition_lines' %>
+<h3>Requisition Header</h3>
+<%= form_tag({:action => 'update', :id => @requisition_header.id},{:id => 'req_form',:multipart => true}) %>
+<div style="width:35%; float: left;">
+    <div class="inline_form_element"><label>Number</label><%= @requisition_header.id %></div>
+    <div class="inline_form_element"><label>Requested by</label><%= @requisition_header.requested_by.fullname %></div>
+    </div>
+    <div style="width:60%; float: right;">
+        <%= inline_text_area 'Justification', "requisition_header", "justification", :rows => 2 , :cols => 35 %>
+    </div>
+    <div style="clear:both;"></div>
+    <br/>
+    <div>
+        <div style="float:left;width:40%;margin-right:10px;">
+            <h3>Shipping<span class="req"> * </span></h3>
+            <div style="padding:10px 15px;">
+                <%= address_picker_field 'requisition_header','ship_to_address',{:highlight => (@requisition_header.ship_to_address ? false : true) } %>
+            </div>
+        </div> 
+        <div style="float:left;width:40%;">
+            <h3>Billing<span class="req"> * </span></h3>
+            <div style="float:left;padding:10px 15px;">
+                <div style="float:left;">
+                    <table><tr><td valign="top">
+                    <% if @requisition_header.account %>
+                    Account Description:&nbsp;<%= h @requisition_header.account.name %><br/>
+                    Account Code:&nbsp;<%= @requisition_header.account.code %></td>
+                    <% else %>
+                    <div class="missing">
+                        <span style="color:#999;">No account selected </span>
+                    </div>
+                    <% end %>
+                    <td valign="top" style="padding-left:10px;">
+					          <%= small_rollover_link_to('Change',{:action => 'change_billing', :id => @requisition_header })%></td></tr></table>
+                </div>
+            </div>         
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+    <div style="clear:both;">
+    <h3>Lines</h3>
+    <br/>
+    <table class="tabular" id="req_body">
+        <thead class="tabular">
+            <tr>
+            <th>Line</th>
+            <th>Type</th>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Unit</th>
+            <th>Price</th>
+            <th>Cur</th>
+            <th>Total</th>
+            <th><%= image_tag('spinner.gif',:id => 'table_wait',:style => 'display:none;') %></th>
+            </tr>
+        </thead>
+        <tfoot class="tabular">
+        <tr>
+            <td colspan="7" align="right">Cart Total</td>
+            <td align="right" id="cart_total"><%= render_attribute @requisition_header.total %></td>
+            <td>&nbsp;</td>
+        </tr>
+        </tfoot>
+        <%= render :partial => "requisition_line", :collection => @requisition_header.requisition_lines %>
+        <tbody id="dummy">
+        <tr id="dummy_row" class="dimmed">
+            <td align="center">&nbsp;</td>
+            <td align="center">
+                <%= select_tag("dummy_row_type","<option value=\"RequisitionQuantityLine\" selected=\"selected\">Qty</option><option value=\"RequisitionAmountLine\">Amt</option>",:disabled => true,  :onClick => remote_function(:url => {:action => 'add_line', :id => @requisition_header.id},:loading => "$('table_wait').show();",:complete => "$('table_wait').hide();")) %>
+            </td>
+            <td><%= text_field_tag("dummy_row_description",'New requisition line', 
+                :style => "color:#999", :size => 30, :disabled => false, 
+                :onFocus =>remote_function(:url => {:action => 'add_line', :id => @requisition_header.id},
+                  :update => 'dummy', 
+                  :position => :before, 
+                  :complete => "EventSelectors.assign(Rules);$('table_wait').hide();getPreviousSiblingElement($('dummy')).getElementsByClassName('accatalog_item')[0].focus()",
+                  :loading => "$('table_wait').show();")+";return false;") %>
+            </td>
+            <td><%= text_field_tag("dummy_row_quantity", '', :size => 5, :disabled => true) %>
+            </td>
+            <td nowrap="nowrap"><%= text_field_tag("dummy_row_uom",'',:size => 5, :disabled => true) %></td>
+            <td align="right" nowrap="nowrap"><%= text_field_tag("dummy_row_unit_price","", :size => 5, :disabled => true) %></td>
+            <td><%= select_tag("dummy_row_currency",options_for_select(Currency.find(:all,:conditions => ['enabled_flag = ?',true]).collect{|cur| [cur.code,cur.id]}), :disabled => true) %></td>
+            <td nowrap="nowrap" align="right"><%= render_attribute(Money.new(0,session[:user].default_currency ? session[:user].default_currency : Currency.find(:first,:conditions => ['enabled = ?',true]))) %>
+            </td>
+            <td align="center">&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <br/>
+
+    <div style="padding:10px 15px;">
+        <div class="inline_form_element"><label>Attachments</label>
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => true, :attach_to => @requisition_header, :attachment_name => 'requisition_header', :intents => ['Supplier','Internal']} %>
+    </div>
+    <%= inline_text_area 'Note to Requester', 'requisition_header','buyer_note', :cols => 40, :rows => 5, :style => 'float:left' %>
+    <br/>
+
+    <div style="clear:both;"></div>
+    <%= hidden_field_tag 'req_submit_type' %>
+    <div class="page_buttons_right">
+        <div class="page_button"><%= rollover_link_to_remote('Return to Requester', :url => { :action => 'approve_and_submit', :id => @requisition_header }, :with => "Form.serialize('req_form')", :complete => 'confirm_return(request);')  %></div>
+        <div class="page_button"><%= rollover_submit_tag 'Save' %></div>
+        <div class="page_button"><%= rollover_link_to 'Cancel', :controller => 'requisition_headers', :action => 'index', :filter => 1 %></div>
+    </div>
+    </form>
+</div>
+

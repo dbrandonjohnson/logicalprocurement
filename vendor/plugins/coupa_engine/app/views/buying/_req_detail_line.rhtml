@@ -1,0 +1,40 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% @requisition_line = req_detail_line %>
+<tr class="<%= req_detail_line_counter % 2 ? 'stripe_even' : 'stripe_odd' %>">
+    <td align="center"><%= req_detail_line.line_num %></td>
+    <td align="center"><%= image_tag req_detail_line.class.type_icon %></td>
+    <td><%= text_field 'requisition_line[]','description' %></td>
+    <td><%= text_field('requisition_line[]','formatted_quantity',:size=> 5) if req_detail_line.respond_to?(:formatted_quantity) %></td>
+    <td><%= text_field('requisition_line[]','uom',:size=> 8) unless req_detail_line.uom.blank? %></td>
+    <td align="right"><%= text_field 'requisition_line[]','unit_price', :size => 5 %></td>
+    <td align="right"><%= render_attribute req_detail_line.total %></td>
+</tr>
+<tr><td style="padding:0px;"></td></tr>
+<tr class="<%= req_detail_line_counter % 2 ? 'stripe_even' : 'stripe_odd' %>">
+    <td colspan="7">
+        <table><tr><td valign="top">
+            <%= inline_text_field 'Suggested Suppliers', 'requisition_line[]','suggested_suppliers' %>
+        </td><td valign="top">
+            <%= inline_text_field 'Supplier', 'requisition_line[]','supplier' %>
+            <%= inline_text_field 'Contract', 'requisition_line[]', 'contract' %>
+            <%= inline_check_box 'Release without contract', 'requisition_line[]', 'released_by_buyer', :style => "border:none;"%>
+        </td></tr></table>
+    </td>
+</tr>

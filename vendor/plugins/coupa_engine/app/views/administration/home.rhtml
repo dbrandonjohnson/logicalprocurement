@@ -1,0 +1,45 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="titlebar">Administration</div>
+<div id="wide_content">
+  <% AdminStructure.administration_home_columns.each_with_index do |administration_home_column,i| %>
+  <% prev_col_closed = (i==0) %>
+  <% col_open = false %>
+    <% for hname in administration_home_column.headers %>
+    <%   header = AdminStructure.headers.send(hname.name) %>
+      <% if header.links.inject(false) { |auth,link| auth || authorized?(:controller => link[:link_to][:controller], :action => link[:link_to][:action])} %>
+      <% if !prev_col_closed %>
+      </div>
+      <%  prev_col_closed = true %>
+      <% end %>
+      <% if !col_open %>
+      <div style="float:left;width:30%;margin-right:10px;">
+      <% col_open = true %>
+      <% end %>
+      <h3><%= header.to_s %></h3>
+      <ul style="line-height:12pt;padding:5px 20px;">
+        <% for link in header.links %>
+        <%= link_if_authorized link.to_s, link[:link_to], :wrap_in => "li "%>
+        <% end %>
+      </ul>
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+= Blueprint =
+=============
+
+Blueprint is a general purpose Ruby meta-language that you can use to describe hierarchical data structures, similar to XML, but directly in Ruby. This gives you the ability to define a dynamic data structure that can be based on queries to other sources, like say, a database.
+
+The point of Blueprint, the reason it was created, was to be able to define the information architecture of an application that a UI can use to procedurally build itself. It allows you to pull out the data from views and the structural relationship management of that data from controllers and deal with it as a separate concern.
+
+So it's sort of like using XML and XSLT, but without actually using them. With Blueprint, you define a data structure similar to XML that's code, not data, meaning it can be dynamic (like code that generates XML). Then you can query that data structure within Ruby with a chain of method calls that feels similar to something like XPath, and use that data in your views. It's especially good for defining navigational structure.
+
+This gives you a layer between your views and models that transcends controllers... if that makes sense.

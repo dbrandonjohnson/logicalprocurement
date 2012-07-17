@@ -1,0 +1,97 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+  <table>
+    <tr>
+      <td>
+    <div class="inline_form_element"><label>Name</label><%= @supplier.name %></div>
+    <div class="inline_form_element"><label>Status</label><%= @supplier.status.humanize %></div>    
+    <div class="inline_form_element"><label>Parent Company</label><%= @supplier.parent ? "#{link_to(@supplier.parent.name,:action => 'show', :id => @supplier.parent.id)}#{link_to(image_tag('chart_organisation'),:action => 'show_hierarchy', :id => @supplier.id)}" : "<span style=\"color:#999\">None</span>" %></div>
+    <div class="inline_form_element"><label>Account number</label><%= @supplier.account_number %></div>
+    <div class="inline_form_element"><label>Primary Contact</label><div style="float:left;padding:0px;margin:0px;"><%= contact_to_html(@supplier.primary_contact) %></div></div>
+    <div style="clear:both"></div>
+    <div class="inline_form_element"><label>Primary Address</label><div style="display:block;width:250px;float:left;padding:0px;margin:0px;"><%= address_to_html(@supplier.primary_address) %></div></div>
+    </td>
+    <td valign="top">
+      <div class="inline_form_element"><label>On Hold</label><%= @supplier.on_hold ? 'Yes' : 'No' %> 
+      <% if @supplier.on_hold -%>
+      <span class="hint">(<% ooh = @supplier.orders_on_hold %><%= ooh %> purchase order<%= ooh == 1 ? '' : 's' %> pending)</span>
+      <% end -%>
+      </div>
+    </td>
+    </tr>
+  </table>
+  <div style="clear:both"></div>
+    <h3>Additional Settings</h3>
+    <div style="padding:5px">
+      <div class="inline_form_element" style="clear:both;">
+        <label>PO Transmission</label><%= @supplier.po_method %>
+      </div>
+    </div>
+    <% if @supplier.po_method == 'cxml' %>
+    <div style="clear:both;"></div>
+    <h3>cXML Configuration</h3>
+      <div class="inline_form_element"><label>cXML URL</label><%= @supplier.cxml_url %></div>
+      <div class="inline_form_element"><label>cXML Domain</label><%= @supplier.cxml_domain %></div>
+      <div class="inline_form_element"><label>cXML Identity</label><%= @supplier.cxml_identity %></div>
+      <div class="inline_form_element"><label>cXML Supplier Domain</label><%= @supplier.cxml_supplier_domain %></div>
+      <div class="inline_form_element"><label>cXML Supplier Identity</label><%= @supplier.cxml_supplier_identity %></div>
+      <div class="inline_form_element"><label>cXML Secret</label><%= @supplier.cxml_secret %></div>
+      <div class="inline_form_element"><label>cXML Protocol</label><%= @supplier.cxml_protocol %></div>
+    <% end %>
+    <div style="clear:both"></div>
+    <h3>Contracts</h3>
+    <div style="padding:5px;">
+    <table class="tabular">
+        <thead class="tabular">
+      <tr>
+        <th>Number</th>
+        <th>Version</th>
+        <th>Name</th>
+        <th>Starts</th>
+        <th>Expires</th>
+        <th>Min Value</th>
+        <th>Max Value</th>
+        <th>Terms</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+    <tbody class="tabular">
+    <% for contract in @supplier.contracts %>
+      <tr class="<%= cycle('stripe_even','stripe_odd') %>">
+        <td><%= contract.number %></td>
+        <td><%= contract.version %></td>
+        <td><%= contract.name %></td>
+        <td><%= contract.start_date ?  contract.start_date.to_date.to_formatted_s(:long) : '' %></td>
+        <td><%= contract.end_date ? contract.end_date.to_date.to_formatted_s(:long) : '' %></td>
+        <td><%= contract.minimum_value %></td>
+        <td><%= contract.maximum_value %></td>
+        <td><%= contract.terms %></td>
+        <td><%= contract.status.humanize %></td>
+        <td nowrap="nowrap"><%= link_to image_tag('application_view_detail', :title => 'Details'), :controller => 'contracts', :action => 'show', :id => contract %>
+            <%= link_to image_tag('pencil', :title => 'Edit'), :controller => 'contracts', :action => 'edit', :id => contract %>
+            <%= link_to image_tag('delete'), { :controller => 'contracts', :action => 'destroy', :id => contract }, :confirm => 'Are you sure?', :post => true %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+    </div>
+    <%= link_to 'Supplier List', :action => 'list' %>
+</div>

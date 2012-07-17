@@ -1,0 +1,88 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="wide_content">
+    <div style="float:left;width:200px;">
+        <h3>Shipping</h3>
+        <div style="padding:10px 15px;">
+            <% if  @requisition_header.ship_to_address then %>
+            <%= h @requisition_header.requested_by.fullname %><br/>
+            <%= render :partial => 'addresses/address', :locals => {:address =>@requisition_header.ship_to_address}%>
+            <% else %>
+            <span style="color:#999;">No address selected</span>
+            <% end %>
+        </div>
+    </div>
+    <div style="float:left;width:200px;margin-left:20px;">
+        <h3>Billing</h3>
+        <div style="padding:10px 15px;">
+            <% if @requisition_header.account then %>
+            <span>Account Code: </span><span><%= @requisition_header.account.code %></span>
+            <% else %>
+            <span style="color:#999;">No account selected</span>
+            <% end %>
+            <BR/>
+            <% if @requisition_header.pcard %>
+            <span>PCard:</span<span> <%= @requisition_header.pcard.number_masked %></span>
+            <% end %>
+        </div>        
+    </div>
+    <div style="float:left;width:200px;margin-left:20px;">
+        <h3>Purchase Orders</h3>
+        <div style="padding:10px 15px;">
+          <% if @requisition_header.ordered?  || @requisition_header.partially_received? || @requisition_header.received? %>
+          <% @requisition_header.requisition_lines.collect{ |line| line.order_line }.compact.
+              collect{ |line| line.order_header }.compact.uniq.each { |header| %>
+              <b>Order:</b> <%= [:created,:sent,:acknowledged,:closed].index(header.current_state) ? link_to("##{header.id}", :controller => 'order_headers', :action => 'show', :id => header.id) : "##{header.id}" %> (<%= header.status.humanize %>)<br/>
+          <% }  %>
+          <% else %>
+          <span style="color:#999">None</span>
+          <% end %>
+        </div>        
+    </div>    
+    <div style="clear:left">
+        <h3>Cart</h3>
+        <div style="clear:both;padding:10px 15px;">
+        <%= render :partial => 'cart' %>
+        </div>
+        <h3>Approvals</h3>
+        <div style="padding:10px 15px;">
+            <div style="clear:both">
+                <%= render :partial => 'approver' %>
+            </div>
+        </div>
+        <h3>Justification</h3>
+        <div style="padding:10px 15px;">
+            <%= @requisition_header.justification %>
+        </div>
+        <h3>Attachments</h3>
+        <div style="padding:10px 15px;">
+          <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => @requisition_header, :attachment_name => 'requisition_header'} %>
+        </div>
+        </div>
+        <% if @requisition_header.pending_approval? && @requisition_header.current_approval && @requisition_header.current_approval.user_id == session[:user].id %>
+          <div style="float:right;">
+              <div style="float:left; padding:5px;"><%= rollover_link_to 'Approve', {:action => 'approve', :id => @requisition_header} %></div>              
+              <div style="float:left; padding:5px;"><%= rollover_link_to_remote 'Reject', :url => {:action => 'reject_popup', :id => @requisition_header} %></div>
+          </div>
+          <div id="reject_popup_insert" \>
+        <% end %>
+    </div>
+</div>
+<div id="right_col">
+</div>

@@ -1,0 +1,45 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<h1>Listing product_reviews</h1>
+
+<table>
+  <tr>
+  <% for column in ProductReview.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for product_review in @product_reviews %>
+  <tr>
+  <% for column in ProductReview.content_columns %>
+    <td><%=h product_review.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => product_review %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => product_review %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => product_review }, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @product_review_pages.current.previous } if @product_review_pages.current.previous %>
+<%= link_to 'Next page', { :page => @product_review_pages.current.next } if @product_review_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New product_review', :action => 'new' %>

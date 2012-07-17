@@ -1,0 +1,40 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="req_line_<%= cart_item.id %>" style="padding:5px;"
+    class="<%= (cart_item_counter % 2) == 0 ? 'stripe_even' : 'stripe_odd' %>" 
+    onMouseOver="Element.show('req_line_<%= cart_item.id %>_remove');return false;"     
+    onMouseOut="Element.hide('req_line_<%= cart_item.id %>_remove');return false;">
+<div style="background-color:transparent;position:absolute;width:1%;left:85%;">
+    <%= link_to_remote(image_tag('delete.png'),
+            {:url =>{
+                :controller =>"requisition_headers",
+                :action=>"portlet_remove",
+                :id=>cart_item.header_id,
+                :line_id=>cart_item.id}}, 
+            {:id => "req_line_#{cart_item.id}_remove", 
+            :class => "portlet_row_button", 
+            :style => "display:none"})
+                %>
+</div>
+<%= (cart_item.is_a?(RequisitionQuantityLine) && cart_item.item_id) ? link_to(truncate(cart_item.description,45), 
+    { :controller => 'catalog_items', :action => 'show', :id => cart_item.item_id }) :     
+    truncate(cart_item.description,45) %>
+<br/>
+<small><%= cart_item.is_a?(RequisitionQuantityLine) ? "#{cart_item.formatted_quantity} @ " : '' %><%= render_attribute(cart_item.unit_price) %> <%= cart_item.uom.code if cart_item.is_a?(RequisitionQuantityLine) %></small>
+</div>

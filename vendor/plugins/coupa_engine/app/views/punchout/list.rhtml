@@ -1,0 +1,54 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <%= pagination_links @site_pages %>
+    <table class="tabular">
+        <thead class="tabular">
+            <tr>
+                <th>Site</th>
+                <% if session[:user].admin? -%>
+                <th>Actions</th>
+                <% end -%>
+            </tr>
+        </thead>
+        <tbody class="tabular">  
+        <% for site in @sites %>
+            <tr class="<%= cycle('stripe_even','stripe_odd') %>">
+                <td><%= link_to h(site.name), :action => 'go', :id => site %><br /><small><%= h(site.description) %></small></td>
+                <% if session[:user].admin? -%>
+                <td align="center">
+                    <%= link_to image_tag('pencil', :alt => 'Edit'), :action => 'edit', :id => site %>&nbsp;
+                    <%= link_to image_tag('wrench', :alt => 'Punchout Test'), :action => 'test', :id => site %>&nbsp;
+                    <%= link_to image_tag('delete', :alt => 'Delete'), { :action => 'destroy', :id => site }, :confirm => 'Are you sure?', :post => true %>
+                </td>
+                <% end -%>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+
+    <div class="page_buttons_left">
+        <div class="page_button"><%= rollover_link_if_authorized 'New site', :action => 'new' %></div>
+    </div>
+</div>
+
+<div id="right_col">
+    <%= render_component :controller => 'requisition_headers', :action => 'portlet' %>
+    <%= render_component :controller => 'tag', :action => 'cloud_portlet', :params => {:limit => {:limit => 60}} %>
+</div>

@@ -1,0 +1,35 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+<%= @tstr %>
+    <br />
+
+    <%= rollover_link_if_authorized 'New policy', :action => 'new' %>
+<% if session[:user].authorized?('policies','set_default_policy') %>
+<br/>
+<h3>Set Default Policy</h3>
+<%= form_remote_tag :url => {:action => 'set_default_policy'} %>
+<%= inline_select('Policy', 'setup', 'value',  Policy.find(:all,:order => 'name').collect {|p| [ p.name, p.id.to_s ] }, { :include_blank => true })%>
+<%= rollover_submit_tag 'Save' %>
+</form>
+<% end %>
+</div>
+<div id="right_col">
+    <%= render_component :controller => 'requisition_headers', :action => 'portlet' %>
+</div>

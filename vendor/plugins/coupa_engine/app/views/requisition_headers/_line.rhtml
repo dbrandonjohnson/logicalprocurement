@@ -1,0 +1,58 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<tr class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td align="center">
+        <%= toggle_switch_for("requisition_line_#{line.id}_more", :description => "details of requisition line #{line.line_num}") %>
+    </td>
+    <td align="center"><%= image_tag(line.class.type_icon,:title => (line.kind_of?(RequisitionQuantityLine) ? 'Quantity-base line' : 'Amount-based line')) %></td>
+    <td><%= (line.is_a?(RequisitionQuantityLine) && line.item_id) ? link_to(line.description, 
+            { :controller => 'catalog_items', :action => 'show', :id => line.item_id }) :     
+            line.description %><%= '&nbsp;'+image_tag('attach.png', :title => 'This line has attachments',:style => 'vertical-align:middle;') if line.attachments.size > 0 %>
+    </td>
+    <td width="10%"><%= line.formatted_quantity if line.is_a? RequisitionQuantityLine %></td>
+    <td><%= line.uom.name if line.is_a? RequisitionQuantityLine %></td>
+    <td align="right"><%= render_attribute(line.unit_price,:long) %></td>
+    <td align="right"><%= render_attribute(line.total,:long) %></td>
+</tr>
+<tr style="display:none" class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td colspan="7">&nbsp;</td>
+</tr>
+<tr id="requisition_line_<%= line.id %>_more" style="display:none" class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td colspan="2">&nbsp;</td>
+    <td colspan="5">
+    <h4>Additional Information</h4>
+    <div class="inline_form_element">
+        <label>Supplier</label>
+        <% if line.supplier then %>
+        <%= line.supplier.name %>
+        <% else %>
+        <span style="color:#666">None specified</span>
+        <% end %>
+    </div>
+    <% if line.need_by_date -%>
+        <%= inline_immutable_field_tag('Need by date', "requisition_line[#{line.id}][need_by_date]", line.need_by_date.to_date, :id => "requisition_line_#{line.id}_need_by_date") %>
+    <% elsif line.lead_time -%>
+        <%= inline_immutable_field_tag('Lead time', "requisition_line[#{line.id}][lead_time]", pluralize(line.lead_time, 'day'), :id => "requisition_line_#{line.id}_lead_time") %>
+    <% end -%>
+    <div style="clear:both"></div>
+    <div class="wrapped_form_element">
+        <label>Attachments</label>
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => line, :attachment_name => "requisition_line[#{@rootName}]", :intents => ['Supplier','Internal']} %>
+    </div></td>
+</tr>

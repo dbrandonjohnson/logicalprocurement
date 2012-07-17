@@ -1,0 +1,50 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= form_tag({:controller => 'search', :action => 'results'}, {:method => 'get', :style => 'padding:0px;display:inline;'}) %>
+<div id="header">
+    <table width="100%" cellpadding="0"><tr><td align="left">
+    <% if user? %>
+    <table cellpadding="0" style="display:inline;"><tr><td style="font-size:8.5pt;"><%= link_to 'Home', :controller => 'user', :action => 'home' %>&nbsp;|&nbsp;
+    <%= link_to 'Tags', :controller => 'tag', :action => 'index' %>&nbsp;|&nbsp;
+    <%= link_to 'How to Buy', :controller => 'policies', :action => 'index' %>&nbsp;|&nbsp;
+    <%= link_to 'Ask an Expert', :controller => 'ask', :action => 'index' %>&nbsp;|&nbsp;</td><td style="font-size:8.5pt;">Search&nbsp;</td><td><%= text_field_tag 'search', @search_string, :id => 'search', :size => 25, :style => 'font-size:8pt;margin-top:2px;padding:1px;' %></td><td style="padding-left:5px;">
+        <%= image_submit_tag 'zoom.png', :style => "border:none;margin-top:2px;", :alt => 'Search' %></td></tr></table>
+    <% end %>
+    </td>
+    <td align="right" style="font-size:8.5pt;">
+    <% if user? %>
+        <%= current_user.fullname %><%= punchout_status %>&nbsp;&nbsp;<%= mail_status %>&nbsp;|&nbsp;
+        <% if authorized?(:controller => 'administration', :action => 'home') -%>
+            <%= link_to 'Admin', :controller => 'administration', :action => 'home' %>&nbsp;|&nbsp;
+        <% end -%>
+        <%= link_to 'My Account', :controller => 'user', :action => 'account' %>&nbsp;|&nbsp;
+        <%= link_to 'Help', Setup.lookup('help url') || 'http://trac.coupa.com/wiki/UserGuide' %>&nbsp;|&nbsp;
+        <%= link_to 'Sign Out', :controller => 'user', :action => 'logout' %>
+    <% end %>
+    </td>
+    </tr></table>
+</div>
+    </form>
+<div style="float:right;padding:0px;margin:5px 0px 0px;">
+    <%= render :partial => 'layouts/logo' %>
+</div>
+<div id="flash_container">
+    <%= render :partial => 'layouts/flash' %>
+</div>
+<br/>

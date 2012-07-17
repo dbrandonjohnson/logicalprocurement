@@ -1,0 +1,7 @@
+--- 
+currencies_001: 
+  name: US Dollars
+  symbol: $
+  code: USD
+  id: "1"
+  min_accountable_unit: "0.01"

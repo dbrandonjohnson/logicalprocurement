@@ -1,0 +1,33 @@
+--- 
+setup_001: 
+  updated_at: 2006-08-30 23:07:18 Z
+  created_by: 2
+  updated_by: 1
+  id: 1
+  value: "1"
+  key: ultimate approver
+  created_at: 2006-07-15 05:48:42 Z
+setup_002: 
+  updated_at: 2006-11-14 07:13:06 Z
+  created_by: 1
+  updated_by: 1
+  id: 2
+  value: "1"
+  key: route_to_buyer_on_draft_supplier
+  created_at: 2006-11-13 22:44:06 Z
+setup_003: 
+  updated_at: 2006-11-14 07:13:06 Z
+  created_by: 1
+  updated_by: 1
+  id: 3
+  value: "1"
+  key: route_to_buyer_on_no_contract
+  created_at: 2006-11-13 22:44:06 Z
+setup_004: 
+  updated_at: 2007-07-15 21:00:05 Z
+  created_by: 1
+  updated_by: 1
+  id: 4
+  value: 
+  key: allow_self_approval
+  created_at: 2007-07-15 21:00:05 Z

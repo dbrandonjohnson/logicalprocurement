@@ -1,0 +1,88 @@
+From seggy.umboh@gmail.com  Fri Jun 16 01:41:31 2006
+Return-Path: <seggy.umboh@gmail.com>
+X-Original-To: requisitions@coupa-development.no-ip.org
+Delivered-To: development_requisitions@coupa.no-ip.org
+Received: from wx-out-0102.google.com (wx-out-0102.google.com [66.249.82.199])
+	by coupa.no-ip.org (Postfix) with ESMTP id 25E6F2570035
+	for <requisitions@coupa-development.no-ip.org>; Fri, 16 Jun 2006 01:41:31 -0700 (PDT)
+Received: by wx-out-0102.google.com with SMTP id h26so446434wxd
+        for <requisitions@coupa-development.no-ip.org>; Fri, 16 Jun 2006 01:42:25 -0700 (PDT)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws;
+        s=beta; d=gmail.com;
+        h=received:message-id:date:from:to:subject:in-reply-to:mime-version:content-type:references;
+        b=rAeEWK9iFIgRHTD5lejc7D6KjVtURZYVrg2utiOWBYwlc4vK9ZLCNgbddMEqYVJ1lWH7ZhpKzjfa/aCbWDJdaWivO13OVBKITTpg2yzZMgLL88/sEJ1cXnVZw9MnfwnEHGlaVw8DE1m9ROsc2MsSOu/7WEIS1E9GOpSHsA6hc4w=
+Received: by 10.70.132.14 with SMTP id f14mr3662089wxd;
+        Fri, 16 Jun 2006 01:42:25 -0700 (PDT)
+Received: by 10.70.58.9 with HTTP; Fri, 16 Jun 2006 01:42:24 -0700 (PDT)
+Message-ID: <a153de6d0606160142t12c8bf82y1f19c68a319c7cc0@mail.gmail.com>
+Date: Fri, 16 Jun 2006 01:42:24 -0700
+From: "Seggy Umboh" <seggy.umboh@gmail.com>
+To: "Coupa Requisitions" <requisitions@coupa-development.no-ip.org>
+Subject: Re: Coupa requisition email template
+In-Reply-To: <44911d588e793_265b..fdbfd4ba422b@coupa.tmail>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_53998_26114368.1150447344217"
+References: <44911d588e793_265b..fdbfd4ba422b@coupa.tmail>
+
+------=_Part_53998_26114368.1150447344217
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+On 6/15/06, Coupa Requisitions <requisitions@coupa-development.no-ip.org>
+wrote:
+>
+>  This is a requisition email template from Coupa. To use it, simply fill
+> in the quantities desired in the highlighted boxes and reply to Coupa
+> Requisitions <requisitions@coupa-development.no-ip.org>.
+>     Item Price Quantity   [image: 3] Motorola RAZR V3 Phone $249.99 2  [image:
+> 4] Motorola PEBL Phone $299.99 1
+>
+
+------=_Part_53998_26114368.1150447344217
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+<br><br><div><span class="gmail_quote">On 6/15/06, <b class="gmail_sendername">Coupa Requisitions</b> &lt;<a href="mailto:requisitions@coupa-development.no-ip.org">requisitions@coupa-development.no-ip.org</a>&gt; wrote:</span>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;"><div>
+	
+		
+	
+	<div>
+		<p>This is a requisition email template from Coupa. To use it, simply fill in the quantities desired in the highlighted boxes and reply to <a href="mailto:requisitions@coupa-development.no-ip.org" target="_blank" onclick="return top.js.OpenExtLink(window,event,this)">
+Coupa Requisitions</a>.</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>&nbsp;</th>
+					<th>Item</th>
+					<th>Price</th>
+					<th>Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td><img alt="3" src="http://coupa-development.no-ip.org/catalog_item/image/3/B000A6KMTI.01._PE20_SCMZZZZZZZ_.jpg" height="64"></td>
+					<td>Motorola RAZR V3 Phone</td>
+					<td align="right">$249.99</td>
+					<td style="border: medium double blue; background-color: yellow;" align="right">2</td>
+				</tr>
+				
+				<tr>
+					<td><img alt="4" src="http://coupa-development.no-ip.org/catalog_item/image/4/B000E929EW.01._SCMZZZZZZZ_.jpg" height="64"></td>
+					<td>Motorola PEBL Phone</td>
+					<td align="right">$299.99</td>
+					<td style="border: medium double blue; background-color: yellow;" align="right">1</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+
+</div></blockquote></div><br>
+
+------=_Part_53998_26114368.1150447344217--

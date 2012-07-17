@@ -1,0 +1,10 @@
+--- 
+plugin_schema_info_001: 
+  plugin_name: login_engine
+  version: 1
+plugin_schema_info_002: 
+  plugin_name: user_engine
+  version: 3
+plugin_schema_info_003: 
+  plugin_name: coupa_engine
+  version: 52

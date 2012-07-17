@@ -1,0 +1,34 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= error_messages_for 'site' %>
+
+<%= inline_text_field({:name => "Name", :required => true}, "site", "name")  %>
+<%= inline_text_field({:name => "Punchout URL", :required => true}, "site", "url")  %>
+<%= inline_text_field "Description", "site", "description"  %>
+<div id="supplier_name_indicator" style="float:left;padding-top:16px;margin-left:-16px;display:none"><%= image_tag('spinner.gif') %></div>
+<%= inline_text_field_with_auto_complete({:name => "Supplier", :required => true}, "supplier", "name", {}, :indicator => 'supplier_name_indicator', :after_update_element => "function(element,value) {new Ajax.Request('/punchout/update_contract_selector', {postBody:'supplier_name='+value.innerHTML, evalScripts:true})}") %>
+<%= render :partial => 'contract_selector' %>
+<%= inline_text_field "Tags", "site", "tag_list" %>
+<%= inline_text_field("Lead time (days)", "site", "lead_time") %>
+<%= inline_text_field({ :name => "Supplier Domain", :hint => "e.g. DUNS", :required => true }, "site", "domain")  %>
+<%= inline_text_field({:name => "Supplier Identity", :required => true}, "site", "identity")  %>
+<%= inline_text_field({:name => "Shared Secret", :required => true}, "site", "secret")  %>
+<%= inline_text_field({:name => "Buyer Domain", :hint => "e.g. DUNS", :required => true }, "site", "sender_domain")  %>
+<%= inline_text_field({:name => "Buyer Identity", :required => true}, "site", "sender_identity")  %>
+<%= inline_text_field({:name => "Protocol", :hint => "e.g. cXML 1.2.014", :required => true }, "site", "protocol")  %>

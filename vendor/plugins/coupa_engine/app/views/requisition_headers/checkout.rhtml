@@ -1,0 +1,79 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="wide_content">
+    <%= error_messages_for 'requisition_header' %>
+    <% if @requisition_header.buyer_note && !@requisition_header.buyer_note.empty? %>
+    <h3>Note from Buyer</h3>
+    <div style="padding:0px 15px;">
+        <p><%= h @requisition_header.buyer_note %></p>
+    </div>
+    <% end %>
+    <div style="float:left;width:40%;">
+        <h3>Shipping<span class="req"> * </span></h3>
+        <div style="float:right;"><%= small_rollover_link_to('Change',{ :action => 'change_shipping', :id => @requisition_header })%></div>
+        <div style="padding:10px 15px;">
+          <% if  @requisition_header.ship_to_address then %>
+          <%= render :partial => 'addresses/address', :locals => {:address =>@requisition_header.ship_to_address}%><br/>
+          Attn: <%= nil_on_fail{@requisition_header.ship_to_attention} %>
+          <% else %>
+          <span style="color:#999;">No address selected</span>
+          <% end %>
+        </div>
+    </div>
+    <div style="float:left;width:40%;margin-left:20px;">
+        <h3>Billing<span class="req"> * </span></h3>
+        <div style="float:right;"><%= small_rollover_link_to('Change',{:action => 'change_billing', :id => @requisition_header })%></div>
+        <div style="padding:10px 15px;">
+            <% if @requisition_header.account then %>
+            Account Code:&nbsp;<%= @requisition_header.account.code %>
+            <% else %>
+            <span style="color:#999;">No account selected</span>
+            <% end %>
+        </div>        
+    </div>
+    <div style="clear:left">
+    <%= form_tag({ :action => 'save', :id => @requisition_header.id } , { :id => 'req_form', :multipart => true }) %>
+    <%= hidden_field_tag 'submit_type', 'save', :id => 'submit_type' %>
+        <h3>Cart</h3>
+        <div style="float:right;"><%= small_rollover_link_to('Edit or Delete Items',{:action => 'edit_cart', :id => @requisition_header }) %></div>
+        <div style="clear:both;padding:10px 15px;">
+        <%= render :partial => 'cart' %>
+        </div>
+        <h3>Approvals</h3>
+        <div style="padding:10px 15px;">
+            <div style="clear:both">
+                <%= render :partial => 'approver' %>
+            </div>
+        </div>
+        <h3>Justification</h3>
+        <div style="padding:10px 15px;">
+            <%= text_area 'requisition_header', 'justification', 'cols' => 80, 'rows' => 3 %>
+        </div>
+        <h3>Attachments</h3>
+        <div style="padding:10px 15px;">
+          <%= render :partial => 'attachments/embedded_list', :locals => {:editable => true, :attach_to => @requisition_header, :attachment_name => 'requisition_header', :intents => ['Supplier','Internal']} %>
+        </div>
+        <div style="float:right;">
+            <table><tr><td>
+            <%= rollover_submit_tag 'Save' %></td><td><%= rollover_link_to_function('Submit for Approval',"document.getElementById('submit_type').value='submit';document.getElementById('req_form').submit();") unless @requisition_header.approval.nil? %></td></tr></table>
+</div>
+        </div>
+    </form>
+    </div>
+</div>

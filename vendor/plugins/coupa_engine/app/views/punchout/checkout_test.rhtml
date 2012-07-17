@@ -1,0 +1,77 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <p>Your punchout test is now complete. The items retrieved are:</p>
+    
+    <h3>URL Encoded</h3>
+    <% unless @urlencoded_errors.empty? -%>
+    Errors:
+    <ol>
+        <% for error in @urlencoded_errors -%>
+        <li><%= error %></li>
+        <% end -%>
+    </ol>
+    <% end -%>
+    <% if @urlencoded_header -%>
+    <table class="tabular">
+        <thead class="tabular">
+            <tr><th>Id</th><th>Description</th><th>Quantity</th><th>UOM</th><th>Price</th></tr>
+        </thead>
+        <tbody class="tabular">
+            <% for line in @urlencoded_header.requisition_lines -%>
+            <tr><td align="right"><%= line.source_part_num %></td><td><%= line.description %></td><td align="right"><%= line.quantity %></td><td><%= line.uom %></td><td align="right"><%= render_attribute line.unit_price %></td></tr>
+            <% end -%>
+        </tbody>
+        <tfoot class="tabular">
+            <strong>Total: <%= render_attribute @urlencoded_header.requisition_lines.inject(Money.new(0,'USD')) { |m,v| m + v.total } %></strong>
+        </tfoot>
+    </table>
+    <% end -%>
+    
+    <br />
+    
+    <h3>Base64 Encoded</h3>
+    <% unless @base64_errors.empty? -%>
+    Errors:
+    <ol>
+        <% for error in @base64_errors -%>
+        <li><%= error %></li>
+        <% end -%>
+    </ol>
+    <% end -%>
+    <% if @base64_header -%>
+    <table class="tabular">
+        <thead class="tabular">
+            <tr><th>Id</th><th>Description</th><th>Quantity</th><th>UOM</th><th>Price</th></tr>
+        </thead>
+        <tbody class="tabular">
+            <% for line in @base64_header.requisition_lines -%>
+            <tr><td align="right"><%= line.source_part_num %></td><td><%= line.description %></td><td align="right"><%= line.quantity %></td><td><%= line.uom %></td><td align="right"><%= render_attribute line.unit_price %></td></tr>
+            <% end -%>
+        </tbody>
+        <tfoot class="tabular">
+            <strong>Total: <%= render_attribute @base64_header.requisition_lines.inject(Money.new(0,'USD')) { |m,v| m + v.total } %></strong>
+        </tfoot>
+    </table>
+    <% end -%>
+    
+    <div class="page_buttons_left">
+        <div class="page_button"><%= rollover_link_to 'Return to Punchout Sites', :action => 'list' %></div>
+    </div>
+</div>

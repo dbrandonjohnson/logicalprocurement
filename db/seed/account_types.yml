@@ -1,0 +1,32 @@
+--- 
+account_types_001: 
+  po_terms: <ul>\n<li>Please send 2 copies of your invoice.</li>\n<li>Enter this order in accordance with the prices, terms, delivery method, and specifications listed above.</li>\n<li>Please notify us immediately if you are unable to ship as specified.</li>\n<li>Send all correspondence to:<br>\n250 Sycamore Avenue<br>Redwood City, CA 94029<br>United States\n<br></li>\n</ul>\n
+  name: Sample COA
+  primary_contact_id: 1
+  segment_11_field_type_id: 
+  segment_1_field_type_id: 1
+  updated_at: 2007-06-28 02:07:50 Z
+  currency_id: 1
+  segment_16_field_type_id: 
+  segment_9_field_type_id: 
+  primary_address_id: 1
+  created_by: 2
+  segment_14_field_type_id: 
+  segment_4_field_type_id: 
+  segment_19_field_type_id: 
+  segment_15_field_type_id: 
+  updated_by: 
+  id: 1
+  segment_2_field_type_id: 
+  segment_17_field_type_id: 
+  segment_10_field_type_id: 
+  segment_7_field_type_id: 
+  segment_3_field_type_id: 
+  segment_18_field_type_id: 
+  segment_8_field_type_id: 
+  segment_12_field_type_id: 
+  segment_5_field_type_id: 
+  segment_20_field_type_id: 
+  segment_13_field_type_id: 
+  segment_6_field_type_id: 
+  created_at: 2006-07-14 23:12:06 Z

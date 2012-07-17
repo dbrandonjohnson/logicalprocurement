@@ -1,0 +1,24 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<p>See attached.<p>
+<%     has_att = false
+    @order_header.order_lines.each{ |line| has_att = has_att || (line.attachments.size > 0)}
+    if @order_header.attachments.size > 0 || has_att %>
+<p><b>Note:</b> This PO has additional file attachments.  To view them online, <%= link_to 'please click here', {:controller => 'order_headers', :action => 'supplier_view', :id => @order_header.supplier_view_key, :only_path => false}, :target => '_top' %>.</p>
+<%     end %>

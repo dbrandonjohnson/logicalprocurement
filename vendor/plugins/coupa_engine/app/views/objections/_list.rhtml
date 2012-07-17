@@ -1,0 +1,54 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="list">
+
+  <% if @objections.empty? %>
+    <p>There are no reported employee reviews pending.</p>
+  <% else %>
+    <table class="tabular" width=640>
+      <thead class="tabular">
+       <tr>
+        <th width=15%>Item</th>
+        <th width=35%>Review</th>
+        <th width=10%>Author</th>
+        <th width=10%>Raised By</th>
+        <th width=10%>Date</th>
+        <th width=10% colspan=2>Actions</th>
+       </tr>
+      </thead>
+      <tbody>
+       <% @objections.each_with_index { |objection,i| %>
+       <tr class="<%= (i%2 == 0) ? "stripe_even" : "stripe_odd" %>">
+        <td><%= link_to objection.product_review.catalog_item.name, :controller => 'catalog_items', :action => 'show', :id => objection.product_review.catalog_item.id %></td>
+        <td><%=h objection.product_review.title %>: <%=h objection.product_review.text %></td>
+        <td><%=h get_reviewer(objection.product_review) %></td>
+        <td><%=h objection.created_by.fullname %></td>
+        <td><%= render_attribute(objection.created_at.to_date) %></td>
+        <td><%= rollover_link_to 'Remove Review', :action => 'remove_review', :id => objection %></td>
+        <td><%= rollover_link_to 'Dismiss Complaint', :action => 'dismiss_objection', :id => objection %></td>
+       </tr>
+       <% } %>
+      </tbody>
+    </table>
+  <% end %>
+
+<br />
+
+</div>
+

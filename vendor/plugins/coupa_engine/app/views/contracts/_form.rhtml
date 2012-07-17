@@ -1,0 +1,68 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="contract_form">    
+    <%= error_messages_for 'contract' %>
+
+    <%= hidden_field 'contract', 'version'  %>
+    <%= hidden_field_tag 'publish' %>
+    
+    <%= inline_text_field({:name => 'Name', :required => true}, 'contract', 'name')  %>
+    <% if @existing_contract.nil? -%>
+    <%= inline_text_field({:name => 'Number', :required => true}, 'contract', 'number', :size => 6) %>
+    <% end -%>
+    
+    <div class="inline_form_element"><label>Status</label><span style="color:#999"><%= @contract.status.titleize %></span></div>
+    <%= inline_date_picker_field({:name => 'Start Date', :required => true}, 'contract', 'start_date') %>
+    <%= inline_date_picker_field({:name => 'End Date', :required => true}, 'contract', 'end_date') %>
+    
+    <% if @existing_contract -%>
+    <%= hidden_field 'supplier', 'name' %>
+    <div class="inline_form_element"><label>Supplier<span class="req"> * </span></label><%= @contract.supplier.name %></div>
+    <% else -%>
+    <%= inline_text_field_with_auto_complete 'Supplier', 'supplier', 'name'  %>
+    <% end -%>
+        
+    <%= inline_address_picker_field 'Bill to address', 'contract', 'bill_to_address' %>
+
+    <%= inline_file_column_field 'Legal agreement', 'contract', 'legal_agreement' %>
+
+    <%= inline_file_column_field 'Catalog', 'contract', 'catalog', :hint => "download the #{link_to 'catalog template', Engines::RailsExtensions::PublicAssetHelpers.plugin_asset_path('coupa_engine', 'templates', 'template.cif')}" %>
+
+    <%= inline_check_box 'Preferred', 'contract', 'preferred_flag' %>    
+    <% if @existing_contract && !@existing_contract.catalog_items.empty? -%>
+    <div class="inline_form_element">
+        <label>Catalog Items</label>
+        <span id="catalog_item_count"><%= @existing_contract.catalog_items.count %></span>&nbsp;&nbsp;
+        <% unless @existing_contract.catalog_items.empty? -%><small id="show_catalog_items">[<%= link_to_function 'show', "Element.show('catalog_items');Element.hide('show_catalog_items');Element.show('hide_catalog_items')" %>]</small><small id="hide_catalog_items" style="display:none">[<%= link_to_function 'hide', "Element.hide('catalog_items');Element.hide('hide_catalog_items');Element.show('show_catalog_items')" %>]</small><% end -%>
+    </div>
+    
+    <div id="catalog_items" style="display:none">
+        <h3 style="padding-top:1em; clear:both">Catalog Items</h3>
+        <div style="padding:10px 15px;">
+            Loading...
+            <%= javascript_tag "dojo.addOnLoad(function() { dojo.io.updateNode('catalog_items', '#{url_for :action => 'gallery_summary', :id => @existing_contract.id}') })" %>
+        </div>
+    </div>
+    <% end -%>
+
+    <h3 style="padding-top:1em; clear:both">Attachments</h3>
+    <div style="padding:10px 15px;">
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => true, :attach_to => @contract, :attachment_name => 'contract'} %>
+    </div>
+</div>

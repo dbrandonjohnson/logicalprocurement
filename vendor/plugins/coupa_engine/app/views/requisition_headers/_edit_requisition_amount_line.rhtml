@@ -1,0 +1,112 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% @rootName = @index || "new_req_line" -%>
+<tr id="requisition_line_<%= @rootName %>_main" class="<%= cycle("stripe_even","stripe_odd")%>">
+    <td align="center">
+        <%= toggle_switch_for("requisition_line_#{@rootName}_more", :description => "supplier details for requisition line #{@rootName}") %>
+    </td>
+    <td align="center">
+    <% unless @requisition_line.id || @requisition_line.catalog_item %>
+    <%= select_tag "requisition_line[#{@rootName}][type]", "<option value=\"RequisitionQuantityLine\">Qty</option><option value=\"RequisitionAmountLine\" selected=\"selected\">Amt</option>", :onchange => "replace_line('#{@rootName}', new_qty_line)" %>
+    <% else %>
+    <%= image_tag(@requisition_line.class.type_icon,:title => 'Amount-based line') %>
+    <%= tag(:input,{"type" => "hidden", "name" => "requisition_line[#{@rootName}][type]", "value" => @requisition_line.class })%>
+    <% end %>
+        <%= tag(:input,{"type" => "hidden", "name" => "requisition_line[#{@rootName}][id]", "value" => @requisition_line.id })%>
+    </td>
+    <td><%= (@requisition_line.catalog_item.nil? ? tag(:input,{"type" => "text", "name" => "requisition_line[#{@rootName}][description]", "id" => "requisition_line_#{@rootName}_description", "class" => 'grab_cat', "value" => @requisition_line.description}) : 
+            link_to( @requisition_line.catalog_item.name, :controller => 'catalog_items', :action => 'show',
+            :id => @requisition_line.catalog_item.id)) %>
+        </td>
+    <td>&nbsp;
+        <%= tag :input, { "type" => "hidden", 
+                      "id" => "requisition_line_#{@rootName}_catalog_item", 
+                      "name" => "requisition_line[#{@rootName}][catalog_item]",
+                      "value" => @requisition_line.item_id } %>
+        <%= tag :input, { "type" => "hidden", 
+                      "id" => "requisition_line_#{@rootName}_supplier_id", 
+                      "name" => "requisition_line[#{@rootName}][supplier_id]",
+                      "value" => @requisition_line.supplier_id } %>
+        </td>
+    <td nowrap="nowrap">&nbsp;</td>
+    <td align="right"><%= !@requisition_line.catalog_item.nil? ?
+                             render_attribute(@requisition_line.unit_price) : 
+                            tag(:input,{"type" => "text", "name" => "requisition_line[#{@rootName}][unit_price]", "id" => "requisition_line_#{@rootName}_unit_price", "size" => "5", "value" => @requisition_line.unit_price.amount}) %></td>
+    <td><%= !@requisition_line.catalog_item.nil? ||     
+            (@requisition_line.requisition_line_template &&
+             @requisition_line.requisition_line_template.currency_locked) ?
+            render_attribute(@requisition_line.currency) : select_tag("requisition_line[#{@rootName}][currency_id]",options_from_collection_for_select(Currency.find(:all,:conditions => ['enabled_flag = ?',true]),"id","code",@requisition_line.currency_id)) %></td>
+    <td nowrap="nowrap" align="right"><%= render_attribute(@requisition_line.total) %></td>
+    <td align="center"><%= link_to_remote(image_tag('delete.png'),
+                :url =>{
+                    :controller =>"requisition_headers",
+                    :action=>"remove",
+                    :id=>@requisition_header.id,
+                    :line_id=>@requisition_line.id,
+                    :root=>@rootName}) %></td>
+</tr>
+<tr id="requisition_line_<%= @rootName %>_hidden" class="<%= cycle('stripe_even','stripe_odd') %>" style="display:none"><td colspan="9">&nbsp;</td></tr>
+<tr id="requisition_line_<%= @rootName %>_more" class="<%= cycle('stripe_even','stripe_odd') %>" style="display:none">
+    <td colspan="2">&nbsp;</td>
+    <td colspan="7">
+    <h4>Additional Information</h4>
+    <% if @requisition_line.catalog_item then %>
+    <%= inline_immutable_field_tag("Supplier", "requisition_line[#{@rootName}][supplier]", @requisition_line.supplier.name, :id => "requisition_line_#{@rootName}_supplier") %>
+    <% else %>
+    <div class="inline_form_element">
+        <label>Supplier</label>
+        <table cellspacing="0" cellpadding="0" valign="top">
+            <tr>
+                <td valign="top">
+                    <span>
+                        <%= tag(:input, { "type" => "text", 
+                            "name" => "requisition_line[#{@rootName}][supplier]", 
+                            "id" => "requisition_line_#{@rootName}_supplier", 
+                            "value" => @requisition_line.supplier ? 
+                            @requisition_line.supplier.name : '',
+                            "autocomplete" => "off",
+                            "class" => "acsupplier" }) %>
+                    </span>
+                    <div id="requisition_line_<%= @rootName %>_supplier_auto_complete" class="autocomplete" style="white-space:normal;display:none;"></div>&nbsp;
+                    <%= image_tag('spinner.gif', :id => "requisition_line_#{@rootName}_supplier_wait", :style => "display:none;") %>
+                </td>
+                <td valign="top">
+                    <div id="requisition_line_<%= @rootName %>_supp_edit_btn" <%= (@requisition_line.supplier.nil? || @requisition_line.supplier.status == 'active') ? 'style="display:none"' : '' %>>
+                        <%= small_rollover_link_to_remote( 'Edit', :url => {:action => 'edit_draft_supplier', :update_field_root => @rootName }, :submit => "requisition_line_#{@rootName}_main") %>
+                    </div>
+                </td>
+                <td>
+                    <div id="requisition_line_<%= @rootName %>_supplier_name"><%= @requisition_line.supplier ? @requisition_line.supplier.name : '' %></div>
+                    <div id="requisition_line_<%= @rootName %>_supplier_address"><%= @requisition_line.supplier ? address_to_html(@requisition_line.supplier.primary_address) : '' %></div>
+                    <div id="requisition_line_<%= @rootName %>_supplier_email"><%= @requisition_line.supplier ? @requisition_line.supplier.primary_contact.email : '' %></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="clear:both"></div>
+    <% end %>
+    <%= inline_immutable_field_tag(@requisition_line.lead_time.nil? ? { :name => 'Lead time', :style => 'display:none' } : 'Lead time', "requisition_line[#{@rootName}][lead_time]", pluralize(@requisition_line.lead_time, 'day'), :id => "requisition_line_#{@rootName}_lead_time") %>
+    <%= inline_date_picker_field(@requisition_line.lead_time.nil? ? 'Need by date' : { :name => 'Need by date', :style => 'display:none' }, 'requisition_line', 'need_by_date', :name => "requisition_line[#{@rootName}][need_by_date]", :id => "requisition_line_#{@rootName}_need_by_date") %>
+    <div style="clear:both"></div>
+    <div class="wrapped_form_element">
+        <label>Attachments</label>
+        <%= render_component :controller => 'attachments', :action => 'embedded_list', 
+            :params => {:editable => true, :attach_to => @requisition_line, :field_object => "requisition_line[#{@rootName}]", :intents => ['Supplier','Internal']} %>
+    </div></td>
+</tr>

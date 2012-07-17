@@ -1,0 +1,29 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div class="stripe_<%= cycle "even", "odd" %>">
+    <div style="float:right"><small><%= link_to image_tag("delete.png"), {:action => 'delete_question', :id => question.id}, :confirm => 'Are you sure?' if question.eligible_to_delete? %></small></div>
+    <div><h3><%= link_to h(question.text), {:action => 'question', :id => question.id} %></h3></div>
+    <div>
+        <div style="width:50%; float:left;">Asked by <%= question.created_by.fullname %></div>
+        <div style="width:20%; float:left; text-align: center;"><%= render_attribute(question.created_at.to_date) %></div>
+        <div style="width:15%; float:left; text-align: center;"><%= question.answers.size %> answer<%= 's' if question.answers.size != 1 %></div>
+        <div style="width:15%; float: left; text-align: right;"><%= question.status %></div> 
+    </div>  
+    <div style="clear:both;"></div>
+</div>

@@ -1,0 +1,31 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div style="width:180px;float:left;padding:5px;margin:0;">
+    <div style="height:30px;padding:5px;">
+    <b><%= link_to truncate(gallery_summary.name,45), :controller => 'catalog_items', :action => 'show', :id => gallery_summary.id %></b>
+    </div>
+    <div style="padding:2px;margin:3px;float:left;" id="item_<%= gallery_summary.id %>_div" class="draggable"><%= link_to(image_tag(image_url(gallery_summary),{:id=>"item_#{gallery_summary.id}", :height => 60}),:controller => 'catalog_items', :action => 'show', :id => gallery_summary.id) %><%= image_tag('handle.png', :class => "drag_handle", :style => "display:none;", :alt => "Drag from here")%></div>
+    <div style="clear:left;"></div>
+    <table><tr><td><b><%= render_attribute gallery_summary.list_price, (Currency.find_all_by_enabled_flag(true).size > 1 ? :long : '')%></b></td><td><%= small_rollover_link_to_remote 'Add to Cart', :url => { :controller => "requisition_headers", :action => "portlet_add", :quantity => '1.0', :id => "item_#{gallery_summary.id}" }%></td></tr></table>
+    <ul class='star-rating'>
+        <li class='current-rating' style='width:<%= (gallery_summary.avg_rating ||= 0).round * 0.7 %>px;'>&nbsp;</li>
+    </ul>
+</div>
+<%= draggable_element "item_#{gallery_summary.id}_div", :revert => true, :ghosting => true, :handle => "'drag_handle'", :reverteffect => "function(element, top_offset, left_offset) 
+	  { new Effect.MoveBy(element, -top_offset, -left_offset, {duration:0});}" %>

@@ -1,0 +1,9 @@
+--- 
+approval_limits_001: 
+  currency_id: "1"
+  id: "1"
+  amount: "1000"
+approval_limits_002: 
+  currency_id: 
+  id: "3"
+  amount: "5000"

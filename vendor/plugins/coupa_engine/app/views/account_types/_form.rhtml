@@ -1,0 +1,103 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= error_messages_for 'account_type' %>
+<%= error_messages_for 'contact' %>
+<%= error_messages_for 'address' %>
+<% content_for("page_scripts") do %>
+//dojo.require("dojo.widget.Editor2");
+//dojo.require("dojo.widget.*");
+dojo.require("coupa.widget.Editor2");
+
+var editorWidget;
+
+function addSegment()
+{
+  last_field++;
+  Element.show($('segment_'+last_field+'_element'));  
+
+  if (last_field == 20) {
+    Element.hide($('add_button'));
+  }
+  return false;
+}
+
+function replaceTerms(newTerms) {
+  // Added to clear IE's weird buffer
+  editorWidget.replaceEditorContent('');  
+  editorWidget.replaceEditorContent(newTerms);  
+  editorWidget.onLoad();
+}
+
+function init() {
+  editorWidget = dojo.widget.createWidget("coupa:Editor2", { toolbarTemplatePath: dojo.uri.moduleUri("coupa", 'widget/templates/EditToolbar.html') }, $('terms_edit'));     
+}
+
+dojo.addOnLoad(init);
+
+<% end %>
+
+<%= inline_text_field({:name => 'Name', :required => true}, 'account_type', 'name') %>
+<% curs = Currency.find_all_by_enabled_flag(true) %>
+<% if curs.size > 1 && !@account_type.id %>
+<%= inline_text_field_selector({:name => 'Currency',:required => true}, 'account_type', 'currency') %>
+<% else %>
+<% @account_type.currency ||= curs.first %>
+<div class="inline_form_element"><label>Currency</label><%= render_attribute @account_type.currency %> </div>
+<%= hidden_field 'account_type', 'currency_id' %>
+<% end %>
+<br>
+<h3>Accounting</h3>
+<div class="inline_form_element">
+<% last_segment = "segment_1" %>
+<% ['segment_1', 'segment_2', 'segment_3', 'segment_4', 'segment_5',
+    'segment_6', 'segment_7', 'segment_8', 'segment_9', 'segment_10',
+    'segment_11', 'segment_12', 'segment_13', 'segment_14', 'segment_15',
+    'segment_16', 'segment_17', 'segment_18', 'segment_19', 'segment_20'].each do |field| %>
+<% empty_field = @account_type["#{field}_field_type_id"].to_s.empty? %>
+<% last_segment = field unless empty_field %>
+<div class="inline_form_element" style="display:<%= !empty_field || (field == "segment_1") ? "block" : "none" %>;" id="<%= field %>_element">
+    <label><%= field.humanize %><%= field == 'segment_1' ? '<span class="req"> * </span>' : '' %></label><%= collection_select 'account_type', "#{field}_field_type_id", @account_field_types, 'id', 'name', :include_blank => true %>
+</div>
+<% end %>
+<div style="display: block; margin: 5px;"><%= image_tag('add', :id => 'add_button', :onclick => 'addSegment();') %></div> 
+<script type="text/javascript">
+last_field = "<%= last_segment.sub(/segment_/, "") %>"
+</script>
+</div>
+<h3>Billing Contact</h3>
+<%= inline_text_field({:name => 'First name',:required => true}, 'contact', 'name_given') %>
+<%= inline_text_field({:name => 'Last name',:required => true}, 'contact', 'name_family')  %>
+<%= inline_text_field({:name => 'Email',:required => true}, 'contact', 'email')  %>
+<h3>Billing Address</h3>
+<%= inline_text_field({:name => 'Line 1',:required => true}, 'address', 'street1') %>
+<%= inline_text_field 'Line 2', 'address', 'street2' %>
+<%= inline_text_field({:name => 'City',:required => true}, 'address', 'city') %>
+<%= inline_text_field 'State', 'address', 'state', :id => 'state_field' %>
+<%= inline_text_field 'Postal code', 'address', 'postal_code' %>
+<%= inline_select({:name => 'Country',:required => true}, 'address', 'country_id', Country.find(:all,:order => 'position').collect{ |c| [c.name, c.id]}) %>
+
+<p>
+    <div class="inline_form_element">
+        <label>PO Terms</label>
+        <div style="float:right;"><%= link_to_remote "Use Default Terms", :url => { :action => 'update_default' }, :with => "Form.serialize($('main_form'))" %></div>
+        <div style="clear:both;"></div>
+        <fieldset><%= text_area "account_type", "po_terms", :id => 'terms_edit' %></fieldset> 
+    </div>
+    <BR/>
+</p>

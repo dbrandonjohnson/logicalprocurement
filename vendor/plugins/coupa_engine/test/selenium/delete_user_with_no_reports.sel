@@ -1,0 +1,14 @@
+There seems to be a bug in Selenium where the browserbot does not honor the return code of an action
+after a confirmation. We are not able to test that the delete_user action redirects to the list action
+so we manually open that page.
+
+|open|/selenium/setup?clear_tables=sessions&fixtures=coupa_engine/all|
+|includePartial|coupa_engine/login|login=williams|password=welcome|
+|open|/|
+|clickAndWait|link=Admin|
+|clickAndWait|link=Users|
+|verifyTextPresent|Ben Jarvis|
+|clickAndWait|//img[@alt="Delete jarvis"]|
+|verifyConfirmation|Are you sure you wish to delete the user jarvis?|
+|verifyText|flash_notice|User 'jarvis' has been deleted.|
+|verifyTextNotPresent|Ben Jarvis|

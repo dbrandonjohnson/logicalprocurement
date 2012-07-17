@@ -1,0 +1,56 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%# The table form is put here so that we can use it for items in the data table %>
+<% if table_options[:searchable] %>
+<%= form_remote_tag :url => {:action => "search_#{table_options[:name]}_table"},
+                :html => { :id => "#{table_options[:name]}_data_table_form" },
+                :loading => "Element.show('#{table_options[:name]}_wait');",
+                :complete => "Element.hide('#{table_options[:name]}_wait');" %>
+<% end %>
+<table class="tabular">
+    <thead>
+        <tr class="top_bar"><td colspan="<%= table_columns.collect{|col| col[:display] ? 1 : nil}.compact.size %>">
+            <div style="float:right">
+            <%= render :partial => 'layouts/table_pagination_links', :locals => {:table_row_pages => table_row_pages, :table_options => table_options} %>
+            </div>
+            <% if table_options[:searchable] -%>
+            <table><tr>
+              <% if table_options[:filters] 
+                  options = [['All','0']]
+                  table_options[:filters].each_with_index{ |object, index| options << [ object[:label], index+1 ] } -%>
+              <td><%= select_tag('filter', options_for_select(options,table_options[:selected_filter]),:id => "#{table_options[:name]}_filter") -%>
+                <%= observe_field "#{table_options[:name]}_filter", :url => {:action => "search_#{table_options[:name]}_table"}, :with => "Form.serialize('#{table_options[:name]}_data_table_form')+'&='" %></td>
+              <% end -%>
+              <td><%= text_field_tag 'search' %></td><td><%= image_submit_tag('zoom.png', :title => "Search", :style => "border:none;") %></td><td><%= image_tag('spinner.gif', 
+                :id => table_options[:name]+"_wait", 
+                :style => "display:none;") %></td></tr></table>
+            <% end %>
+        </td>
+</tr>
+        <tr id="<%= "#{table_options[:name]}_thead" %>">
+    <%= render :partial => 'layouts/table_header', :locals => {:table_columns => table_columns, :table_options => table_options} %>
+        </tr>
+    </thead>
+    <tbody id="<%= "#{table_options[:name]}_tbody" %>">
+        <%= render :partial => 'layouts/table_row', :collection => table_rows, :locals => {:table_columns => table_columns, :table_options => table_options} %>
+    </tbody>
+</table>
+<% if table_options[:searchable] %>
+<%= end_form_tag %>
+<% end %>

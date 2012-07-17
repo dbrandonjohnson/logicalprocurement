@@ -1,0 +1,287 @@
+# Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+require 'pdf/simpletable'
+self.extend(CoupaHelper)
+self.extend(ERB::Util)
+
+pdf.select_font "Helvetica"
+pdf.stroke_color Color::RGB::Gray
+pdf.fill_color   Color::RGB::Gray
+company_key = Setup.find_by_key('company name')
+pdf.text '<b>'+company_key.value+'</b>', :font_size => 20, :justification => :right unless company_key.blank?
+pdf.text '<b>PURCHASE ORDER</b>', :font_size => 20, :justification => :right
+pdf.stroke_color Color::RGB::Black
+pdf.fill_color   Color::RGB::Black
+if (logo = Attachment.find_by_id(Setup.lookup('company logo'))) && File.exists?(logo.file)
+      # PDF::Writer doesn't support palette transparency values so rescue all errors
+      # and replace w/ our default logo
+      pdf.add_image_from_file(logo.file,20,725,nil,33) rescue pdf.add_image_from_file(RAILS_ROOT+'/public/plugin_assets/coupa_engine/images/coupa.png',20,725,nil,33) 
+else
+      pdf.add_image_from_file(RAILS_ROOT+'/public/plugin_assets/coupa_engine/images/coupa.png',20,725,nil,33)
+end
+
+
+pdf.text "\n"
+PDF::SimpleTable.new do |tab|
+        tab.column_order = %w(po_number)     
+        tab.columns["po_number"] = PDF::SimpleTable::Column.new("po_number") { |col|
+          col.heading = "PO Number"
+          col.heading.justification = :left
+          col.heading.bold = true
+          col.width = 108
+        }
+        tab.show_lines    = :all
+        tab.show_headings = true
+        tab.orientation   = :right
+        tab.position      = :left
+
+        data = [{ 'po_number' => "#{@order_header.id}#{@order_header.versions.size > 1 ? '-'+@order_header.version.to_s : ''}" }]
+
+        tab.data.replace data
+        tab.render_on(pdf)
+end
+pdf.text "\n"
+
+#pdf.text "\n\n\nThe following number must appear on all related correspondence, shipping papers, and invoices:\n<b>PO NUMBER: #{@order_header.id}</b>\n\n", :font_size => 9, :justification=> :left
+
+pdf.start_columns(3)
+pdf.text "<b>Supplier</b>\n", :font_size => 11
+pdf.text "#{@order_header.supplier.name}\n"
+pdf.text "#{address_to_string @order_header.supplier.primary_address}"
+pdf.text "Attn: #{@order_header.supplier.primary_contact.fullname}\n"
+pdf.start_new_page
+pdf.text "<b>Ship To</b>\n"
+if @order_header.ship_to_address
+  pdf.text "#{address_to_string @order_header.ship_to_address}"
+else
+  pdf.text "#{nil_on_fail{address_to_string @order_header.ship_to_user.default_address}}\n"
+end
+pdf.text "Attn: #{nil_on_fail{@order_header.ship_to_attention}}\n"
+pdf.start_new_page
+pdf.text "<b>Bill To</b>\n"
+if nil_on_fail{@order_header.pcard}
+  pdf.text "P-Card\nName: #{@order_header.pcard.name}\nCard #: #{@order_header.pcard.number}\nExpiration Date: #{@order_header.pcard.expiry}"
+else	
+  pdf.text "#{company_key.value}" unless company_key.blank? 
+  pdf.text "#{@order_header.bill_to_info}\n"
+  pdf.text "Attn: #{@order_header.bill_to_name}\n"
+  pdf.text "Acct ##{@order_header.supplier.account_number}\n" unless @order_header.supplier.account_number.blank?
+end
+
+pdf.stop_columns
+
+attachments = @order_header.attachment_links.printable_for_supplier
+
+pdf.text "\n"
+
+unless attachments.empty?
+  pdf.text "<b>Attachments</b>"
+  attachments.each { |attach|
+    case attach
+      when AttachmentUrl:
+        pdf.text "  <C:bullet/><c:alink uri=\"#{attach.url}\">#{attach.url}</c:alink>"
+      when AttachmentText:
+	pdf.text "  <C:bullet/>#{h attach.text}"
+    end
+  }
+  pdf.text "\n"
+end
+
+PDF::SimpleTable.new do |tab|
+        tab.column_order = %w(po_date requisitioner currency contract)
+
+        tab.columns["po_date"] = PDF::SimpleTable::Column.new("po_date") { |col|
+          col.heading = "Date"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.width = 135
+        }
+        tab.columns["requisitioner"] = PDF::SimpleTable::Column.new("requisitioner") { |col|
+          col.heading = "Requisitioner"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.width = 211
+        }
+        tab.columns["currency"] = PDF::SimpleTable::Column.new("currency") { |col|
+          col.heading = "Currency"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.justification = :center
+          col.width = 97
+        }
+        tab.columns["contract"] = PDF::SimpleTable::Column.new("contract") { |col|
+          col.heading = "Contract"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.justification = :center
+          col.width = 97
+        }
+
+        tab.show_lines    = :all
+        tab.show_headings = true
+        tab.orientation   = :center
+        tab.position      = :center
+
+        requestors = @order_header.order_lines.collect(&:requisition_line).collect(&:requisition_header).collect(&:requested_by).uniq.compact
+
+        # Really important that nils don't occur in here as they mess up
+        # column order
+        data = [
+          { "po_date" => "#{@order_header.created_at.to_date.to_formatted_s(:long)}", 
+            "requisitioner" => "#{requestors.collect(&:fullname)}\n"+
+                               "#{requestors.collect(&:email)}",
+            "currency" => nil_on_fail{@order_header.order_lines[0].price.currency.code} || " ",  "contract" => (@order_header.order_lines[0].contract ? [@order_header.order_lines[0].contract.number,@order_header.order_lines[0].contract.version].compact.join('-') : " ")}
+          ]
+
+        tab.data.replace data
+        tab.render_on(pdf)
+end
+pdf.text "\n"
+PDF::SimpleTable.new do |tab|
+        tab.column_order.push(*%w(part_num desc need_by_date qty unit unit_price total))
+
+        tab.columns["qty"] = PDF::SimpleTable::Column.new("qty") { |col|
+          col.heading = "Qty"
+          col.heading.justification = :center
+          col.justification = :right
+          col.heading.bold = true
+          col.width = 75
+        }
+        tab.columns["unit"] = PDF::SimpleTable::Column.new("unit") { |col|
+          col.heading = "Unit"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.width = 40
+        }
+        tab.columns["part_num"] = PDF::SimpleTable::Column.new("part_num") { |col|
+          col.heading = "Item"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.width = 75
+        }
+        tab.columns["desc"] = PDF::SimpleTable::Column.new("desc") { |col|
+          col.heading = "Description"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.width = 140
+        }
+        tab.columns["need_by_date"] = PDF::SimpleTable::Column.new("need_by_date") { |col|
+          col.heading = "Need by"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.justification = :right
+          col.width = 70
+        }
+        tab.columns["unit_price"] = PDF::SimpleTable::Column.new("unit_price") { |col|
+          col.heading = "Unit Price"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.justification = :right
+          col.width = 70
+        }
+        tab.columns["total"] = PDF::SimpleTable::Column.new("total") { |col|
+          col.heading = "Total"
+          col.heading.justification = :center
+          col.heading.bold = true
+          col.justification = :right
+          col.width = 70
+        }
+
+        tab.show_lines    = :all
+        tab.show_headings = true
+        tab.orientation   = :center
+        tab.position      = :center
+
+        data = []
+        @order_header.order_lines.each do |line|
+          # First get our description
+          description = line.description
+
+          if nil_on_fail{line.asset_tags} && Setup.lookup('asset tagging')
+            if !line.asset_tags.empty?
+	      description += "\n  Asset Tags: "
+              first_printed = true
+              line.asset_tags.each_with_index { |asset,idx| 
+		 description += ", " unless first_printed
+                 description += asset.tag.to_s
+                 first_printed = false
+  	      }
+            end
+	  end
+
+          # Now add our form responses, if they exist
+          if nil_on_fail{line.form_response.response}
+	    line.form_response.labels.each { |name, value| 
+	      description += "\n  %-s: %-s" % [ name, value.is_a?(Array) ? value.join(", ") : value  ] unless value.empty?
+            }
+	  end
+
+          line_attachments = line.attachment_links.printable_for_supplier
+          unless line_attachments.empty?
+            description += "\n  Attachments:"
+            line_attachments.each do |attach| 
+              case attach
+                when AttachmentUrl: 
+                  description += "\n  <C:bullet/><c:alink uri=\"#{attach.url}\">#{attach.url}</c:alink>" 
+                when AttachmentText:
+                  description += "\n  <C:bullet/>#{h attach.text}"
+              end
+            end
+          end
+
+          data << { "qty" => line.formatted_quantity,
+            "unit" => line.respond_to?(:uom) && line.uom ? line.uom.name : ' ',
+            "part_num" => (line.catalog_item ? line.catalog_item.source_part_num : (line.source_part_num ? line.source_part_num : ' ')),
+            "desc" => description,
+            "need_by_date" => line.need_by_date ? line.need_by_date.to_date.to_formatted_s() : ' ',
+            "unit_price" => number_to_currency(line.price.amount, :unit => ''),
+            "total" => number_to_currency(line.total.amount, :unit => '')
+          }
+        end
+
+        tab.data.replace data
+        tab.render_on(pdf)
+end
+PDF::SimpleTable.new do |tab|
+        tab.column_order.push(*%w(value))
+
+        tab.columns["value"] = PDF::SimpleTable::Column.new("unit") { |col|
+        col.justification = :right
+          col.width = 70
+        }
+
+        tab.show_lines    = :inner
+        tab.show_headings = false
+        tab.shade_rows    = :none
+        tab.orientation   = :left
+        tab.position      = :right
+
+        data = [{
+            "value" => number_to_currency(@order_header.total.amount, :unit => '') },
+          ]
+
+        tab.data.replace data
+        tab.render_on(pdf)
+end
+
+pdf.add_text(450, pdf.y, 'Total')
+
+pdf.text "\n"
+pdf.start_columns
+pdf.text @po_term_string.to_s
+pdf.start_new_page
+pdf.stop_columns

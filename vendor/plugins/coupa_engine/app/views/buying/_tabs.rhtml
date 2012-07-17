@@ -1,0 +1,126 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="tab_container" style="position:absolute;">
+    <div id="tab_navigation" style="left:-75;" class="left_tab"><div style="background-color:#fcc;" class="left_tab_header"><div style="float:right"><%= image_tag 'anchor.png' %></div>Navigation</div>
+        <div id="tab_navigation_region" 
+             class="left_tab_region" 
+             style="display:none;width:90px;">
+            <div style="padding:0px;">
+                <ul style="padding:0px;">
+                    <li><%= link_to_remote 'Contracts', :url => {:action => 'nav', :id => 'contracts'} %></li>
+                    <li><%= link_to_remote 'Requisitions', :url => {:action => 'nav', :id => 'requisition_headers'} %></li>
+                    <li><%= link_to_remote 'Purchase Orders', :url => {:action => 'nav', :id => 'order_headers'} %></li>
+                    <li><%= link_to_remote 'Suppliers', :url => {:action => 'nav', :id => 'suppliers'} %></li>
+                    <li><%= link_to_remote 'Policies', :url => {:action => 'nav', :id => 'policies'} %></li>
+                    <li><%= link_to_remote 'Employee Reviews', :url => {:action => 'nav', :id => 'product_reviews'} %></li>
+                    <li><%= link_to_remote 'Ask an Expert', :url => {:action => 'nav', :id => 'ask'} %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="tab_catalog" style="left:-75;" class="left_tab"><div style="background-color:#cfc;" class="left_tab_header"><div style="float:right"><%= image_tag 'basket.png' %></div>Catalog</div>
+        <div id="tab_catalog_region" 
+             class="left_tab_region" 
+             style="display:none;width:300px;">
+                <%= render_component :controller => 'catalog_items', :action => 'mini' %>
+        </div>
+    </div>
+    <div id="tab_suppliers" style="left:-75;" 
+         class="left_tab"><div style="background-color:#ccf;" class="left_tab_header"><div style="float:right"><%= image_tag 'group.png' %></div>Suppliers</div>
+        <div id="tab_suppliers_region" 
+             class="left_tab_region" 
+             style="display:none;width:260px;">
+                <%= render_component :controller => 'suppliers', :action => 'mini' %>
+        </div>
+    </div>
+    <div id="tab_orders" style="left:-75;" class="left_tab"><div style="background-color:#ffc;" class="left_tab_header"><div style="float:right"><%= image_tag 'package.png' %></div>Orders</div>
+        <div id="tab_orders_region" class="left_tab_region" style="display:none;width:300px;">
+                <%= render_component :controller => 'order_headers', :action => 'mini' %>
+        </div>
+    </div>
+    <div id="tab_contracts" style="left:-75;" class="left_tab">
+        <div style="background-color:#cff;" class="left_tab_header">
+            <div style="float:right"><%= image_tag 'briefcase.png' %></div>Contracts</div>
+        <div id="tab_contracts_region" class="left_tab_region" style="display:none">
+            <div>Contracts</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+<!--
+function Tab(is_on) {
+    this.is_on = false;
+    this.region_is_on = false;
+    
+    this.tab_on = function(e){
+        if(this.is_on && typeof this.timeoutID == "number") {
+          window.clearTimeout(this.timeoutID);
+          delete this.timeoutID;
+        }
+        else if (!this.is_on) {
+          this.is_on = true;
+          new Effect.MoveBy(e.target.parentNode,0,65,{duration:0.2,queue:'end'});
+        }
+    }
+    
+    this.tab_off = function(elem,evt) {
+        if (this.is_on && !this.region_is_on) {
+        this.timeoutID = setTimeout(
+            "t=eval('"+elem.parentNode.id+"_tab');if (t.is_on && !t.region_is_on) {t.is_on=false;"+
+            "new Effect.MoveBy(document.getElementById('"+
+            elem.parentNode.id+"'),0,-65,{duration:0.2,queue:'end'});}",
+            1000);
+        }
+    }
+    
+    this.tab_activate = function(e) {
+        if (this.region_is_on) {
+            this.region_is_on = false;
+            new Effect.Fade(e.target.parentNode.id+'_region',{duration:0.3,queue:'end'});
+        } else {
+            this.region_is_on = true;
+            new Effect.Appear(e.target.parentNode.id+'_region',{duration:0.3,queue:'end'});
+        }
+    }
+};
+var tab_navigation_tab = new Tab();
+var tab_catalog_tab = new Tab();
+var tab_suppliers_tab = new Tab();
+var tab_orders_tab = new Tab();
+var tab_contracts_tab = new Tab();
+
+
+Rules['.left_tab_header:mouseover'] = function(element,event) {
+    eval(element.parentNode.id+'_tab').tab_on(event);
+  };
+  
+Rules['.left_tab_header:mouseout'] = function(element,event) {
+    eval(element.parentNode.id+'_tab').tab_off(element,event);
+  };
+    
+Rules['.left_tab_header:click'] = function(element, event) {
+    eval(element.parentNode.id+'_tab').tab_activate(event);
+  };
+
+Rules['.left_tab_region:click,.left_tab_region:mouseover,.left_tab_region:mouseout'] = function(element,event)             { 
+    event.cancelBubble = true; 
+};
+
+-->
+</script>

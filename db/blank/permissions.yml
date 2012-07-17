@@ -1,0 +1,3356 @@
+--- 
+permissions_649: 
+  action: submit_to_remote
+  id: 2961
+  description: 
+  controller: requisition_headers
+permissions_510: 
+  action: search_requisition_line_table
+  id: 1825
+  description: 
+  controller: receipts
+permissions_320: 
+  action: index
+  id: 1015
+  description: 
+  controller: ask
+permissions_130: 
+  action: show
+  id: 721
+  description: 
+  controller: attachment_links
+permissions_511: 
+  action: sort_requisition_line_table
+  id: 1826
+  description: 
+  controller: receipts
+permissions_321: 
+  action: unsubscribe_from_subscribers
+  id: 1016
+  description: 
+  controller: ask
+permissions_131: 
+  action: index
+  id: 722
+  description: 
+  controller: attachment_links
+permissions_512: 
+  action: index
+  id: 1827
+  description: 
+  controller: receipts
+permissions_322: 
+  action: unsubscribe_from_subscriptions
+  id: 1017
+  description: 
+  controller: ask
+permissions_132: 
+  action: update
+  id: 724
+  description: 
+  controller: attachment_links
+permissions_560: 
+  action: change_line_type
+  id: 1875
+  description: 
+  controller: invoices
+permissions_513: 
+  action: set_asset_tags_received
+  id: 1828
+  description: 
+  controller: receipts
+permissions_370: 
+  action: create_from_req_via_email
+  id: 1078
+  description: 
+  controller: order_headers
+permissions_180: 
+  action: update
+  id: 814
+  description: 
+  controller: projects
+permissions_323: 
+  action: portlet
+  id: 1018
+  description: 
+  controller: ask
+permissions_133: 
+  action: set_ultimate_approver
+  id: 726
+  description: 
+  controller: approval_limits
+permissions_561: 
+  action: destroy
+  id: 1876
+  description: 
+  controller: invoices
+permissions_514: 
+  action: new_response
+  id: 1829
+  description: 
+  controller: quotes
+permissions_371: 
+  action: sort_order_header_table
+  id: 1080
+  description: 
+  controller: order_headers
+permissions_181: 
+  action: new
+  id: 816
+  description: 
+  controller: approvals
+permissions_324: 
+  action: closed_questions
+  id: 1019
+  description: 
+  controller: ask
+permissions_134: 
+  action: new
+  id: 727
+  description: 
+  controller: approval_limits
+permissions_562: 
+  action: pick_lines
+  id: 1877
+  description: 
+  controller: invoices
+permissions_515: 
+  action: response_line_types
+  id: 1830
+  description: 
+  controller: quotes
+permissions_372: 
+  action: search_order_header_table
+  id: 1082
+  description: 
+  controller: order_headers
+permissions_182: 
+  action: list
+  id: 817
+  description: 
+  controller: approvals
+permissions_325: 
+  action: query
+  id: 1021
+  description: 
+  controller: ask
+permissions_135: 
+  action: list
+  id: 728
+  description: 
+  controller: approval_limits
+permissions_563: 
+  action: update_tolerances
+  id: 1878
+  description: 
+  controller: invoices
+permissions_516: 
+  action: request_line_types
+  id: 1831
+  description: 
+  controller: quotes
+permissions_373: 
+  action: update_contract_selector
+  id: 1098
+  description: 
+  controller: punchout
+permissions_183: 
+  action: edit
+  id: 818
+  description: 
+  controller: approvals
+permissions_326: 
+  action: set_category_name
+  id: 1022
+  description: 
+  controller: ask
+permissions_136: 
+  action: edit
+  id: 729
+  description: 
+  controller: approval_limits
+permissions_564: 
+  action: flip_po
+  id: 1879
+  description: 
+  controller: invoices
+permissions_374: 
+  action: auto_complete_for_supplier_name
+  id: 1104
+  description: 
+  controller: punchout
+permissions_184: 
+  action: destroy
+  id: 819
+  description: 
+  controller: approvals
+permissions_327: 
+  action: set_email_notifications
+  id: 1023
+  description: 
+  controller: ask
+permissions_137: 
+  action: destroy
+  id: 730
+  description: 
+  controller: approval_limits
+permissions_565: 
+  action: show
+  id: 1880
+  description: 
+  controller: invoices
+permissions_517: 
+  action: add_response_line
+  id: 1832
+  description: 
+  controller: quotes
+permissions_375: 
+  action: sort_contract_table
+  id: 1114
+  description: 
+  controller: contracts
+permissions_185: 
+  action: create
+  id: 820
+  description: 
+  controller: approvals
+permissions_328: 
+  action: questions_asked
+  id: 1025
+  description: 
+  controller: ask
+permissions_138: 
+  action: create
+  id: 731
+  description: 
+  controller: approval_limits
+permissions_566: 
+  action: add_line
+  id: 1881
+  description: 
+  controller: invoices
+permissions_518: 
+  action: add_quote_supplier
+  id: 1833
+  description: 
+  controller: quotes
+permissions_376: 
+  action: search_contract_table
+  id: 1121
+  description: 
+  controller: contracts
+permissions_186: 
+  action: show
+  id: 821
+  description: 
+  controller: approvals
+permissions_329: 
+  action: new
+  id: 1026
+  description: 
+  controller: requisition_lines
+permissions_139: 
+  action: show
+  id: 732
+  description: 
+  controller: approval_limits
+permissions_567: 
+  action: index
+  id: 1882
+  description: 
+  controller: invoices
+permissions_519: 
+  action: rfq_manager
+  id: 1834
+  description: 
+  controller: quotes
+permissions_377: 
+  action: open_period
+  id: 1144
+  description: 
+  controller: budgets
+permissions_187: 
+  action: index
+  id: 822
+  description: 
+  controller: approvals
+permissions_568: 
+  action: sort_invoice_header_table
+  id: 1883
+  description: 
+  controller: invoices
+permissions_378: 
+  action: edit_period
+  id: 1145
+  description: 
+  controller: budgets
+permissions_188: 
+  action: update
+  id: 824
+  description: 
+  controller: approvals
+permissions_569: 
+  action: render_tolerances_form
+  id: 1884
+  description: 
+  controller: invoices
+permissions_001: 
+  action: new
+  id: 1
+  description: 
+  controller: role
+permissions_379: 
+  action: search_period_table
+  id: 1146
+  description: 
+  controller: budgets
+permissions_189: 
+  action: new
+  id: 826
+  description: 
+  controller: order_lines
+permissions_002: 
+  action: list
+  id: 2
+  description: 
+  controller: role
+permissions_620: 
+  action: list
+  id: 2389
+  description: 
+  controller: tasks
+permissions_430: 
+  action: destroy
+  id: 1595
+  description: 
+  controller: business_groups
+permissions_240: 
+  action: update_widget_properties
+  id: 917
+  description: 
+  controller: forms
+permissions_050: 
+  action: list_csv
+  id: 599
+  description: 
+  controller: suppliers
+permissions_003: 
+  action: edit
+  id: 3
+  description: 
+  controller: role
+permissions_621: 
+  action: edit
+  id: 2390
+  description: 
+  controller: tasks
+permissions_431: 
+  action: create
+  id: 1599
+  description: 
+  controller: business_groups
+permissions_241: 
+  action: update_section_properties
+  id: 918
+  description: 
+  controller: forms
+permissions_051: 
+  action: update
+  id: 600
+  description: 
+  controller: suppliers
+permissions_004: 
+  action: destroy
+  id: 4
+  description: 
+  controller: role
+permissions_622: 
+  action: destroy
+  id: 2391
+  description: 
+  controller: tasks
+permissions_432: 
+  action: show
+  id: 1601
+  description: 
+  controller: business_groups
+permissions_242: 
+  action: edit
+  id: 919
+  description: 
+  controller: forms
+permissions_052: 
+  action: auto_complete
+  id: 602
+  description: 
+  controller: suppliers
+permissions_005: 
+  action: show
+  id: 5
+  description: 
+  controller: role
+permissions_670: 
+  action: auto_complete_for_moderator_user
+  id: 2982
+  description: 
+  controller: ask
+permissions_623: 
+  action: create
+  id: 2392
+  description: 
+  controller: tasks
+permissions_480: 
+  action: auto_complete_for_approval_limit_currency
+  id: 1795
+  description: 
+  controller: approval_limits
+permissions_433: 
+  action: index
+  id: 1602
+  description: 
+  controller: business_groups
+permissions_290: 
+  action: show
+  id: 982
+  description: 
+  controller: requisition_headers
+permissions_243: 
+  action: reorder
+  id: 920
+  description: 
+  controller: forms
+permissions_053: 
+  action: list
+  id: 603
+  description: 
+  controller: objections
+permissions_006: 
+  action: index
+  id: 6
+  description: 
+  controller: role
+permissions_671: 
+  action: select_item
+  id: 2983
+  description: 
+  controller: buying
+permissions_624: 
+  action: show
+  id: 2393
+  description: 
+  controller: tasks
+permissions_481: 
+  action: picker
+  id: 1796
+  description: 
+  controller: addresses
+permissions_434: 
+  action: update
+  id: 1606
+  description: 
+  controller: business_groups
+permissions_291: 
+  action: save
+  id: 983
+  description: 
+  controller: requisition_headers
+permissions_244: 
+  action: update_form_properties
+  id: 921
+  description: 
+  controller: forms
+permissions_054: 
+  action: dismiss_objection
+  id: 604
+  description: 
+  controller: objections
+permissions_007: 
+  action: new
+  id: 7
+  description: 
+  controller: permission
+permissions_625: 
+  action: index
+  id: 2394
+  description: 
+  controller: tasks
+permissions_482: 
+  action: csv_template
+  id: 1797
+  description: 
+  controller: accounts
+permissions_435: 
+  action: sort_business_group_table
+  id: 1608
+  description: 
+  controller: business_groups
+permissions_292: 
+  action: change_shipping
+  id: 984
+  description: 
+  controller: requisition_headers
+permissions_245: 
+  action: create
+  id: 922
+  description: 
+  controller: forms
+permissions_055: 
+  action: index
+  id: 605
+  description: 
+  controller: objections
+permissions_008: 
+  action: list
+  id: 8
+  description: 
+  controller: permission
+permissions_626: 
+  action: update
+  id: 2395
+  description: 
+  controller: tasks
+permissions_483: 
+  action: auto_complete
+  id: 1798
+  description: 
+  controller: accounts
+permissions_436: 
+  action: search_business_group_table
+  id: 1612
+  description: 
+  controller: business_groups
+permissions_293: 
+  action: index
+  id: 985
+  description: 
+  controller: requisition_headers
+permissions_246: 
+  action: remove_container
+  id: 923
+  description: 
+  controller: forms
+permissions_056: 
+  action: remove_review
+  id: 607
+  description: 
+  controller: objections
+permissions_009: 
+  action: edit
+  id: 9
+  description: 
+  controller: permission
+permissions_484: 
+  action: change_pcard_for_user
+  id: 1799
+  description: 
+  controller: user
+permissions_437: 
+  action: search_requisition_header_table
+  id: 1630
+  description: 
+  controller: buying
+permissions_294: 
+  action: portlet
+  id: 986
+  description: 
+  controller: requisition_headers
+permissions_247: 
+  action: add_container
+  id: 924
+  description: 
+  controller: forms
+permissions_057: 
+  action: object
+  id: 608
+  description: 
+  controller: objections
+permissions_627: 
+  action: po_send_methods
+  id: 2396
+  description: 
+  controller: suppliers
+permissions_485: 
+  action: filter_parameters
+  id: 1800
+  description: 
+  controller: user
+permissions_438: 
+  action: edit_draft_supplier
+  id: 1632
+  description: 
+  controller: buying
+permissions_295: 
+  action: update
+  id: 989
+  description: 
+  controller: requisition_headers
+permissions_248: 
+  action: index
+  id: 925
+  description: 
+  controller: forms
+permissions_058: 
+  action: new
+  id: 620
+  description: 
+  controller: contacts
+permissions_628: 
+  action: invoice_matching_levels
+  id: 2397
+  description: 
+  controller: suppliers
+permissions_486: 
+  action: auto_complete
+  id: 1801
+  description: 
+  controller: user
+permissions_439: 
+  action: sort_requisition_header_table
+  id: 1634
+  description: 
+  controller: buying
+permissions_296: 
+  action: reject
+  id: 990
+  description: 
+  controller: requisition_headers
+permissions_249: 
+  action: remove_widget
+  id: 927
+  description: 
+  controller: forms
+permissions_059: 
+  action: list
+  id: 621
+  description: 
+  controller: contacts
+permissions_629: 
+  action: sort_uom_table
+  id: 2398
+  description: 
+  controller: uoms
+permissions_487: 
+  action: edit_address
+  id: 1802
+  description: 
+  controller: user
+permissions_297: 
+  action: portlet_remove
+  id: 991
+  description: 
+  controller: requisition_headers
+permissions_488: 
+  action: new
+  id: 1803
+  description: 
+  controller: tax_codes
+permissions_298: 
+  action: resend
+  id: 992
+  description: 
+  controller: requisition_headers
+permissions_300: 
+  action: checkout
+  id: 995
+  description: 
+  controller: requisition_headers
+permissions_110: 
+  action: home
+  id: 698
+  description: 
+  controller: account
+permissions_489: 
+  action: sort_tax_code_table
+  id: 1804
+  description: 
+  controller: tax_codes
+permissions_301: 
+  action: subscribe_from_subscriptions
+  id: 996
+  description: 
+  controller: ask
+permissions_111: 
+  action: new
+  id: 700
+  description: 
+  controller: punchout
+permissions_299: 
+  action: edit_cart
+  id: 994
+  description: 
+  controller: requisition_headers
+permissions_302: 
+  action: answer_question
+  id: 997
+  description: 
+  controller: ask
+permissions_112: 
+  action: list
+  id: 701
+  description: 
+  controller: punchout
+permissions_540: 
+  action: acknowledge
+  id: 1855
+  description: 
+  controller: order_headers
+permissions_350: 
+  action: create
+  id: 1051
+  description: 
+  controller: accounts
+permissions_160: 
+  action: update
+  id: 780
+  description: 
+  controller: order_headers
+permissions_303: 
+  action: add_moderator
+  id: 998
+  description: 
+  controller: ask
+permissions_113: 
+  action: auto_complete_for_contract_name
+  id: 702
+  description: 
+  controller: punchout
+permissions_541: 
+  action: new
+  id: 1856
+  description: 
+  controller: exchange_rates
+permissions_351: 
+  action: show
+  id: 1052
+  description: 
+  controller: accounts
+permissions_161: 
+  action: send_via_email
+  id: 781
+  description: 
+  controller: order_headers
+permissions_304: 
+  action: delete_category
+  id: 999
+  description: 
+  controller: ask
+permissions_114: 
+  action: edit
+  id: 703
+  description: 
+  controller: punchout
+permissions_542: 
+  action: list
+  id: 1857
+  description: 
+  controller: exchange_rates
+permissions_352: 
+  action: index
+  id: 1053
+  description: 
+  controller: accounts
+permissions_162: 
+  action: new
+  id: 783
+  description: 
+  controller: attachments
+permissions_305: 
+  action: search
+  id: 1000
+  description: 
+  controller: ask
+permissions_115: 
+  action: related
+  id: 704
+  description: 
+  controller: punchout
+permissions_590: 
+  action: sort_requisition_line_template_table
+  id: 2359
+  description: 
+  controller: requisition_line_templates
+permissions_543: 
+  action: get_rates
+  id: 1858
+  description: 
+  controller: exchange_rates
+permissions_353: 
+  action: list_csv
+  id: 1055
+  description: 
+  controller: accounts
+permissions_163: 
+  action: embedded_list
+  id: 784
+  description: 
+  controller: attachments
+permissions_306: 
+  action: open_questions
+  id: 1001
+  description: 
+  controller: ask
+permissions_116: 
+  action: destroy
+  id: 705
+  description: 
+  controller: punchout
+permissions_591: 
+  action: options_from_collection_for_select
+  id: 2360
+  description: 
+  controller: requisition_line_templates
+permissions_544: 
+  action: sort_exchange_rate_table
+  id: 1859
+  description: 
+  controller: exchange_rates
+permissions_354: 
+  action: update
+  id: 1056
+  description: 
+  controller: accounts
+permissions_164: 
+  action: list
+  id: 785
+  description: 
+  controller: attachments
+permissions_307: 
+  action: close_question
+  id: 1002
+  description: 
+  controller: ask
+permissions_117: 
+  action: checkout_test
+  id: 706
+  description: 
+  controller: punchout
+permissions_592: 
+  action: reject_popup
+  id: 2361
+  description: 
+  controller: requisition_headers
+permissions_545: 
+  action: load_file
+  id: 1860
+  description: 
+  controller: exchange_rates
+permissions_355: 
+  action: update_segment_fields
+  id: 1057
+  description: 
+  controller: accounts
+permissions_165: 
+  action: edit
+  id: 786
+  description: 
+  controller: attachments
+permissions_118: 
+  action: create
+  id: 707
+  description: 
+  controller: punchout
+permissions_593: 
+  action: compare_responses
+  id: 2362
+  description: 
+  controller: quotes
+permissions_546: 
+  action: bulk_loader
+  id: 1861
+  description: 
+  controller: exchange_rates
+permissions_356: 
+  action: home
+  id: 1060
+  description: 
+  controller: feed
+permissions_166: 
+  action: destroy
+  id: 787
+  description: 
+  controller: attachments
+permissions_308: 
+  action: questions
+  id: 1003
+  description: 
+  controller: ask
+permissions_119: 
+  action: test
+  id: 708
+  description: 
+  controller: punchout
+permissions_594: 
+  action: create_supplier
+  id: 2363
+  description: 
+  controller: quotes
+permissions_547: 
+  action: auto_complete_for_exchange_rate_from_currency
+  id: 1862
+  description: 
+  controller: exchange_rates
+permissions_357: 
+  action: new
+  id: 1062
+  description: 
+  controller: addresses
+permissions_167: 
+  action: embedded_destroy
+  id: 788
+  description: 
+  controller: attachments
+permissions_309: 
+  action: remove_moderator
+  id: 1004
+  description: 
+  controller: ask
+permissions_595: 
+  action: rtf
+  id: 2364
+  description: 
+  controller: quotes
+permissions_548: 
+  action: auto_complete_for_exchange_rate_to_currency
+  id: 1863
+  description: 
+  controller: exchange_rates
+permissions_358: 
+  action: list
+  id: 1063
+  description: 
+  controller: addresses
+permissions_168: 
+  action: attach
+  id: 789
+  description: 
+  controller: attachments
+permissions_596: 
+  action: view_response
+  id: 2365
+  description: 
+  controller: quotes
+permissions_549: 
+  action: create
+  id: 1864
+  description: 
+  controller: exchange_rates
+permissions_359: 
+  action: edit
+  id: 1064
+  description: 
+  controller: addresses
+permissions_169: 
+  action: create
+  id: 790
+  description: 
+  controller: attachments
+permissions_597: 
+  action: transfer_to_requisition
+  id: 2366
+  description: 
+  controller: quotes
+permissions_600: 
+  action: order_from_quote
+  id: 2369
+  description: 
+  controller: quotes
+permissions_598: 
+  action: activate_supplier
+  id: 2367
+  description: 
+  controller: quotes
+permissions_410: 
+  action: export
+  id: 1220
+  description: 
+  controller: reporting
+permissions_220: 
+  action: show
+  id: 882
+  description: 
+  controller: policies
+permissions_030: 
+  action: account
+  id: 354
+  description: 
+  controller: user
+permissions_601: 
+  action: delete_response
+  id: 2370
+  description: 
+  controller: quotes
+permissions_599: 
+  action: supplier_view
+  id: 2368
+  description: 
+  controller: quotes
+permissions_411: 
+  action: budget
+  id: 1222
+  description: 
+  controller: reporting
+permissions_221: 
+  action: index
+  id: 883
+  description: 
+  controller: policies
+permissions_031: 
+  action: req_feed
+  id: 355
+  description: 
+  controller: user
+permissions_602: 
+  action: pick
+  id: 2371
+  description: 
+  controller: accounts
+permissions_412: 
+  action: sort_account_field_type_table
+  id: 1243
+  description: 
+  controller: account_field_types
+permissions_222: 
+  action: update
+  id: 885
+  description: 
+  controller: policies
+permissions_032: 
+  action: load_file
+  id: 486
+  description: 
+  controller: user
+permissions_650: 
+  action: update_element_function_without_deprecation
+  id: 2962
+  description: 
+  controller: requisition_headers
+permissions_603: 
+  action: picker
+  id: 2372
+  description: 
+  controller: accounts
+permissions_460: 
+  action: edit_supplier
+  id: 1775
+  description: 
+  controller: requisition_headers
+permissions_413: 
+  action: search_account_field_type_table
+  id: 1251
+  description: 
+  controller: account_field_types
+permissions_270: 
+  action: destroy
+  id: 955
+  description: 
+  controller: contracts
+permissions_080: 
+  action: create
+  id: 646
+  description: 
+  controller: account_types
+permissions_223: 
+  action: results
+  id: 887
+  description: 
+  controller: search
+permissions_033: 
+  action: bulk_loader
+  id: 487
+  description: 
+  controller: user
+permissions_651: 
+  action: periodically_call_remote
+  id: 2963
+  description: 
+  controller: requisition_headers
+permissions_604: 
+  action: picker_search
+  id: 2373
+  description: 
+  controller: accounts
+permissions_461: 
+  action: update_default
+  id: 1776
+  description: 
+  controller: account_types
+permissions_414: 
+  action: set_requisition_routing
+  id: 1302
+  description: 
+  controller: approval_limits
+permissions_271: 
+  action: create
+  id: 956
+  description: 
+  controller: contracts
+permissions_081: 
+  action: show
+  id: 647
+  description: 
+  controller: account_types
+permissions_224: 
+  action: tag
+  id: 888
+  description: 
+  controller: search
+permissions_034: 
+  action: load_progress
+  id: 488
+  description: 
+  controller: user
+permissions_652: 
+  action: remote_function
+  id: 2964
+  description: 
+  controller: requisition_headers
+permissions_462: 
+  action: auto_complete_for_account_type_currency
+  id: 1777
+  description: 
+  controller: account_types
+permissions_415: 
+  action: auto_complete_unfiltered
+  id: 1344
+  description: 
+  controller: suppliers
+permissions_272: 
+  action: show
+  id: 957
+  description: 
+  controller: contracts
+permissions_082: 
+  action: index
+  id: 648
+  description: 
+  controller: account_types
+permissions_225: 
+  action: header
+  id: 889
+  description: 
+  controller: search
+permissions_035: 
+  action: index
+  id: 489
+  description: 
+  controller: user
+permissions_653: 
+  action: export_to_xml
+  id: 2965
+  description: 
+  controller: reporting
+permissions_605: 
+  action: picker_update_segment_fields
+  id: 2374
+  description: 
+  controller: accounts
+permissions_463: 
+  action: add_segment
+  id: 1778
+  description: 
+  controller: account_types
+permissions_416: 
+  action: search_supplier_table
+  id: 1345
+  description: 
+  controller: suppliers
+permissions_273: 
+  action: auto_complete_for_supplier_name
+  id: 958
+  description: 
+  controller: contracts
+permissions_083: 
+  action: update
+  id: 650
+  description: 
+  controller: account_types
+permissions_226: 
+  action: new
+  id: 892
+  description: 
+  controller: requisition_line_templates
+permissions_036: 
+  action: list_csv
+  id: 490
+  description: 
+  controller: user
+permissions_654: 
+  action: update_statuses
+  id: 2966
+  description: 
+  controller: reporting
+permissions_606: 
+  action: update_tabform_properties
+  id: 2375
+  description: 
+  controller: forms
+permissions_464: 
+  action: method_missing
+  id: 1779
+  description: 
+  controller: account_approvers
+permissions_417: 
+  action: sort_supplier_table
+  id: 1350
+  description: 
+  controller: suppliers
+permissions_274: 
+  action: index
+  id: 959
+  description: 
+  controller: contracts
+permissions_084: 
+  action: new
+  id: 652
+  description: 
+  controller: catalog_items
+permissions_227: 
+  action: update_contracts
+  id: 894
+  description: 
+  controller: requisition_line_templates
+permissions_037: 
+  action: new
+  id: 585
+  description: 
+  controller: suppliers
+permissions_655: 
+  action: remove
+  id: 2967
+  description: 
+  controller: buying
+permissions_607: 
+  action: add_choice
+  id: 2376
+  description: 
+  controller: forms
+permissions_465: 
+  action: csv_template
+  id: 1780
+  description: 
+  controller: account_approvers
+permissions_275: 
+  action: update
+  id: 961
+  description: 
+  controller: contracts
+permissions_085: 
+  action: list
+  id: 653
+  description: 
+  controller: catalog_items
+permissions_228: 
+  action: list
+  id: 895
+  description: 
+  controller: requisition_line_templates
+permissions_038: 
+  action: list
+  id: 586
+  description: 
+  controller: suppliers
+permissions_656: 
+  action: invited_suppliers
+  id: 2968
+  description: 
+  controller: quotes
+permissions_608: 
+  action: new
+  id: 2377
+  description: 
+  controller: catalog_headers
+permissions_466: 
+  action: auto_complete_for_account_approver_approver
+  id: 1781
+  description: 
+  controller: account_approvers
+permissions_418: 
+  action: search_role_table
+  id: 1452
+  description: 
+  controller: role
+permissions_276: 
+  action: email_template
+  id: 963
+  description: 
+  controller: requisition_headers
+permissions_086: 
+  action: mini
+  id: 654
+  description: 
+  controller: catalog_items
+permissions_229: 
+  action: edit
+  id: 897
+  description: 
+  controller: requisition_line_templates
+permissions_039: 
+  action: mini
+  id: 587
+  description: 
+  controller: suppliers
+permissions_657: 
+  action: remove
+  id: 2969
+  description: 
+  controller: invoices
+permissions_609: 
+  action: list
+  id: 2378
+  description: 
+  controller: catalog_headers
+permissions_467: 
+  action: add_approver
+  id: 1782
+  description: 
+  controller: account_approvers
+permissions_419: 
+  action: sort_role_table
+  id: 1458
+  description: 
+  controller: role
+permissions_277: 
+  action: submit_for_approval
+  id: 964
+  description: 
+  controller: requisition_headers
+permissions_087: 
+  action: search
+  id: 655
+  description: 
+  controller: catalog_items
+permissions_658: 
+  action: pool
+  id: 2970
+  description: 
+  controller: invoices
+permissions_468: 
+  action: load_file
+  id: 1783
+  description: 
+  controller: account_approvers
+permissions_278: 
+  action: new
+  id: 965
+  description: 
+  controller: requisition_headers
+permissions_088: 
+  action: edit
+  id: 656
+  description: 
+  controller: catalog_items
+permissions_659: 
+  action: show_owned_budget_line
+  id: 2971
+  description: 
+  controller: budgets
+permissions_469: 
+  action: bulk_loader
+  id: 1784
+  description: 
+  controller: account_approvers
+permissions_279: 
+  action: list
+  id: 967
+  description: 
+  controller: requisition_headers
+permissions_089: 
+  action: tags
+  id: 657
+  description: 
+  controller: catalog_items
+permissions_520: 
+  action: edit_response
+  id: 1835
+  description: 
+  controller: quotes
+permissions_330: 
+  action: list
+  id: 1027
+  description: 
+  controller: requisition_lines
+permissions_140: 
+  action: index
+  id: 733
+  description: 
+  controller: approval_limits
+permissions_521: 
+  action: search_quote_request_table
+  id: 1836
+  description: 
+  controller: quotes
+permissions_331: 
+  action: edit
+  id: 1028
+  description: 
+  controller: requisition_lines
+permissions_141: 
+  action: update
+  id: 735
+  description: 
+  controller: approval_limits
+permissions_522: 
+  action: sort_quote_request_table
+  id: 1837
+  description: 
+  controller: quotes
+permissions_332: 
+  action: destroy
+  id: 1029
+  description: 
+  controller: requisition_lines
+permissions_142: 
+  action: home
+  id: 748
+  description: 
+  controller: administration
+permissions_570: 
+  action: search_invoice_header_table
+  id: 1885
+  description: 
+  controller: invoices
+permissions_523: 
+  action: new_request
+  id: 1838
+  description: 
+  controller: quotes
+permissions_380: 
+  action: create_budget_line
+  id: 1147
+  description: 
+  controller: budgets
+permissions_190: 
+  action: list
+  id: 827
+  description: 
+  controller: order_lines
+permissions_333: 
+  action: create
+  id: 1030
+  description: 
+  controller: requisition_lines
+permissions_143: 
+  action: invalid_credentials
+  id: 750
+  description: 
+  controller: punchin
+permissions_571: 
+  action: update
+  id: 1886
+  description: 
+  controller: invoices
+permissions_524: 
+  action: delete_request
+  id: 1839
+  description: 
+  controller: quotes
+permissions_381: 
+  action: new_period
+  id: 1148
+  description: 
+  controller: budgets
+permissions_191: 
+  action: edit
+  id: 828
+  description: 
+  controller: order_lines
+permissions_334: 
+  action: show
+  id: 1031
+  description: 
+  controller: requisition_lines
+permissions_144: 
+  action: override_session
+  id: 751
+  description: 
+  controller: punchin
+permissions_572: 
+  action: tolerances
+  id: 1887
+  description: 
+  controller: invoices
+permissions_525: 
+  action: update_response
+  id: 1840
+  description: 
+  controller: quotes
+permissions_382: 
+  action: update_period
+  id: 1149
+  description: 
+  controller: budgets
+permissions_192: 
+  action: destroy
+  id: 829
+  description: 
+  controller: order_lines
+permissions_335: 
+  action: index
+  id: 1032
+  description: 
+  controller: requisition_lines
+permissions_145: 
+  action: start
+  id: 752
+  description: 
+  controller: punchin
+permissions_573: 
+  action: set_active
+  id: 1888
+  description: 
+  controller: forms
+permissions_526: 
+  action: add_request_line
+  id: 1841
+  description: 
+  controller: quotes
+permissions_383: 
+  action: show_budget_line
+  id: 1150
+  description: 
+  controller: budgets
+permissions_193: 
+  action: create
+  id: 830
+  description: 
+  controller: order_lines
+permissions_336: 
+  action: update
+  id: 1034
+  description: 
+  controller: requisition_lines
+permissions_146: 
+  action: keep_session
+  id: 753
+  description: 
+  controller: punchin
+permissions_574: 
+  action: list
+  id: 1889
+  description: 
+  controller: currencies
+permissions_527: 
+  action: update_request
+  id: 1842
+  description: 
+  controller: quotes
+permissions_384: 
+  action: load_file
+  id: 1153
+  description: 
+  controller: budgets
+permissions_194: 
+  action: show
+  id: 831
+  description: 
+  controller: order_lines
+permissions_337: 
+  action: errors
+  id: 1036
+  description: 
+  controller: data_sources
+permissions_147: 
+  action: setup
+  id: 754
+  description: 
+  controller: punchin
+permissions_575: 
+  action: sort_currency_table
+  id: 1890
+  description: 
+  controller: currencies
+permissions_385: 
+  action: show_period
+  id: 1154
+  description: 
+  controller: budgets
+permissions_195: 
+  action: index
+  id: 832
+  description: 
+  controller: order_lines
+permissions_338: 
+  action: start
+  id: 1037
+  description: 
+  controller: data_sources
+permissions_148: 
+  action: new
+  id: 767
+  description: 
+  controller: order_headers
+permissions_576: 
+  action: search_currency_table
+  id: 1891
+  description: 
+  controller: currencies
+permissions_528: 
+  action: index
+  id: 1843
+  description: 
+  controller: quotes
+permissions_386: 
+  action: update_segments
+  id: 1156
+  description: 
+  controller: budgets
+permissions_196: 
+  action: update
+  id: 834
+  description: 
+  controller: order_lines
+permissions_339: 
+  action: index
+  id: 1038
+  description: 
+  controller: data_sources
+permissions_149: 
+  action: list
+  id: 768
+  description: 
+  controller: order_headers
+permissions_577: 
+  action: show
+  id: 1892
+  description: 
+  controller: currencies
+permissions_529: 
+  action: edit_request
+  id: 1844
+  description: 
+  controller: quotes
+permissions_387: 
+  action: bulk_loader
+  id: 1157
+  description: 
+  controller: budgets
+permissions_197: 
+  action: new
+  id: 846
+  description: 
+  controller: account_field_types
+permissions_578: 
+  action: enable
+  id: 1893
+  description: 
+  controller: currencies
+permissions_200: 
+  action: destroy
+  id: 849
+  description: 
+  controller: account_field_types
+permissions_010: 
+  action: destroy
+  id: 10
+  description: 
+  controller: permission
+permissions_388: 
+  action: create_period
+  id: 1159
+  description: 
+  controller: budgets
+permissions_198: 
+  action: list
+  id: 847
+  description: 
+  controller: account_field_types
+permissions_579: 
+  action: index
+  id: 1894
+  description: 
+  controller: currencies
+permissions_201: 
+  action: create
+  id: 850
+  description: 
+  controller: account_field_types
+permissions_011: 
+  action: show
+  id: 11
+  description: 
+  controller: permission
+permissions_389: 
+  action: delete_budget_line
+  id: 1160
+  description: 
+  controller: budgets
+permissions_199: 
+  action: edit
+  id: 848
+  description: 
+  controller: account_field_types
+permissions_202: 
+  action: show
+  id: 851
+  description: 
+  controller: account_field_types
+permissions_012: 
+  action: index
+  id: 12
+  description: 
+  controller: permission
+permissions_630: 
+  action: search_uom_table
+  id: 2399
+  description: 
+  controller: uoms
+permissions_440: 
+  action: edit_supplier
+  id: 1639
+  description: 
+  controller: buying
+permissions_203: 
+  action: index
+  id: 852
+  description: 
+  controller: account_field_types
+permissions_013: 
+  action: new
+  id: 13
+  description: 
+  controller: user
+permissions_250: 
+  action: update
+  id: 928
+  description: 
+  controller: forms
+permissions_060: 
+  action: edit
+  id: 622
+  description: 
+  controller: contacts
+permissions_631: 
+  action: toggle_taxation
+  id: 2400
+  description: 
+  controller: invoices
+permissions_441: 
+  action: new_supplier
+  id: 1649
+  description: 
+  controller: requisition_headers
+permissions_204: 
+  action: update
+  id: 854
+  description: 
+  controller: account_field_types
+permissions_014: 
+  action: delete
+  id: 14
+  description: 
+  controller: user
+permissions_251: 
+  action: set_title
+  id: 930
+  description: 
+  controller: forms
+permissions_061: 
+  action: vcf
+  id: 623
+  description: 
+  controller: contacts
+permissions_632: 
+  action: approve
+  id: 2401
+  description: 
+  controller: invoices
+permissions_442: 
+  action: search_requisition_header_table
+  id: 1650
+  description: 
+  controller: requisition_headers
+permissions_205: 
+  action: update_contracts
+  id: 857
+  description: 
+  controller: buying
+permissions_015: 
+  action: list
+  id: 15
+  description: 
+  controller: user
+permissions_252: 
+  action: delete_choice
+  id: 931
+  description: 
+  controller: forms
+permissions_062: 
+  action: destroy
+  id: 624
+  description: 
+  controller: contacts
+permissions_633: 
+  action: change_status
+  id: 2402
+  description: 
+  controller: user
+permissions_490: 
+  action: create
+  id: 1805
+  description: 
+  controller: tax_codes
+permissions_443: 
+  action: sort_requisition_header_table
+  id: 1653
+  description: 
+  controller: requisition_headers
+permissions_206: 
+  action: change_billing
+  id: 858
+  description: 
+  controller: buying
+permissions_016: 
+  action: restore_deleted
+  id: 16
+  description: 
+  controller: user
+permissions_253: 
+  action: show_content
+  id: 932
+  description: 
+  controller: inbox
+permissions_063: 
+  action: create
+  id: 625
+  description: 
+  controller: contacts
+permissions_634: 
+  action: activate_supplier
+  id: 2404
+  description: ""
+  controller: buying
+permissions_491: 
+  action: search_tax_code_table
+  id: 1806
+  description: 
+  controller: tax_codes
+permissions_444: 
+  action: new_supplier_form
+  id: 1660
+  description: 
+  controller: requisition_headers
+permissions_207: 
+  action: pool_feed
+  id: 859
+  description: 
+  controller: buying
+permissions_017: 
+  action: forgot_password
+  id: 17
+  description: 
+  controller: user
+permissions_254: 
+  action: show
+  id: 933
+  description: 
+  controller: inbox
+permissions_064: 
+  action: show
+  id: 626
+  description: 
+  controller: contacts
+permissions_635: 
+  action: sort_form_table
+  id: 2947
+  description: 
+  controller: forms
+permissions_492: 
+  action: index
+  id: 1807
+  description: 
+  controller: tax_codes
+permissions_445: 
+  action: edit_business_groups
+  id: 1698
+  description: 
+  controller: user
+permissions_208: 
+  action: req_detail
+  id: 863
+  description: 
+  controller: buying
+permissions_018: 
+  action: delete_user
+  id: 18
+  description: 
+  controller: user
+permissions_255: 
+  action: rss
+  id: 934
+  description: 
+  controller: inbox
+permissions_065: 
+  action: index
+  id: 627
+  description: 
+  controller: contacts
+permissions_636: 
+  action: destroy
+  id: 2948
+  description: 
+  controller: forms
+permissions_493: 
+  action: new_supplier
+  id: 1808
+  description: 
+  controller: suppliers
+permissions_446: 
+  action: sort_user_table
+  id: 1699
+  description: 
+  controller: user
+permissions_019: 
+  action: logout
+  id: 19
+  description: 
+  controller: user
+permissions_256: 
+  action: index
+  id: 935
+  description: 
+  controller: inbox
+permissions_066: 
+  action: update
+  id: 629
+  description: 
+  controller: contacts
+permissions_637: 
+  action: search_form_table
+  id: 2949
+  description: 
+  controller: forms
+permissions_494: 
+  action: csv_template
+  id: 1809
+  description: 
+  controller: suppliers
+permissions_447: 
+  action: search_user_table
+  id: 1700
+  description: 
+  controller: user
+permissions_209: 
+  action: index
+  id: 864
+  description: 
+  controller: buying
+permissions_257: 
+  action: popup
+  id: 938
+  description: 
+  controller: form_responses
+permissions_067: 
+  action: new
+  id: 631
+  description: 
+  controller: uoms
+permissions_495: 
+  action: edit_draft_supplier
+  id: 1810
+  description: 
+  controller: suppliers
+permissions_448: 
+  action: search_account_type_table
+  id: 1731
+  description: 
+  controller: account_types
+permissions_258: 
+  action: update_popup
+  id: 939
+  description: 
+  controller: form_responses
+permissions_068: 
+  action: list
+  id: 632
+  description: 
+  controller: uoms
+permissions_638: 
+  action: update_page_tag
+  id: 2950
+  description: 
+  controller: requisition_headers
+permissions_496: 
+  action: edit_supplier
+  id: 1811
+  description: 
+  controller: suppliers
+permissions_449: 
+  action: sort_account_type_table
+  id: 1747
+  description: 
+  controller: account_types
+permissions_259: 
+  action: pop_popup
+  id: 940
+  description: 
+  controller: form_responses
+permissions_069: 
+  action: edit
+  id: 633
+  description: 
+  controller: uoms
+permissions_639: 
+  action: form_remote_for
+  id: 2951
+  description: 
+  controller: requisition_headers
+permissions_497: 
+  action: new_supplier_form
+  id: 1812
+  description: 
+  controller: suppliers
+permissions_500: 
+  action: pop_popup
+  id: 1815
+  description: 
+  controller: requisition_lines
+permissions_498: 
+  action: popup
+  id: 1813
+  description: 
+  controller: requisition_lines
+permissions_310: 
+  action: moderators
+  id: 1005
+  description: 
+  controller: ask
+permissions_120: 
+  action: index
+  id: 709
+  description: 
+  controller: punchout
+permissions_501: 
+  action: auto_complete_for_currency_code
+  id: 1816
+  description: 
+  controller: requisition_line_templates
+permissions_499: 
+  action: update_popup
+  id: 1814
+  description: 
+  controller: requisition_lines
+permissions_311: 
+  action: subscribe_from_subscribers
+  id: 1006
+  description: 
+  controller: ask
+permissions_121: 
+  action: go
+  id: 711
+  description: 
+  controller: punchout
+permissions_502: 
+  action: change_line_type
+  id: 1817
+  description: 
+  controller: requisition_headers
+permissions_312: 
+  action: subscriptions
+  id: 1007
+  description: 
+  controller: ask
+permissions_122: 
+  action: update
+  id: 712
+  description: 
+  controller: punchout
+permissions_550: 
+  action: load_progress
+  id: 1865
+  description: 
+  controller: exchange_rates
+permissions_503: 
+  action: add_milestone
+  id: 1818
+  description: 
+  controller: requisition_headers
+permissions_313: 
+  action: questions_answered
+  id: 1008
+  description: 
+  controller: ask
+permissions_123: 
+  action: login
+  id: 714
+  description: 
+  controller: punchout
+permissions_360: 
+  action: get_address_page
+  id: 1065
+  description: 
+  controller: addresses
+permissions_170: 
+  action: show
+  id: 791
+  description: 
+  controller: attachments
+permissions_551: 
+  action: index
+  id: 1866
+  description: 
+  controller: exchange_rates
+permissions_504: 
+  action: add_line
+  id: 1819
+  description: 
+  controller: requisition_headers
+permissions_314: 
+  action: delete_question
+  id: 1009
+  description: 
+  controller: ask
+permissions_124: 
+  action: checkout
+  id: 715
+  description: 
+  controller: punchout
+permissions_361: 
+  action: destroy
+  id: 1066
+  description: 
+  controller: addresses
+permissions_171: 
+  action: index
+  id: 792
+  description: 
+  controller: attachments
+permissions_552: 
+  action: search_exchange_rate_table
+  id: 1867
+  description: 
+  controller: exchange_rates
+permissions_505: 
+  action: list
+  id: 1820
+  description: 
+  controller: receipts
+permissions_315: 
+  action: subscribers
+  id: 1010
+  description: 
+  controller: ask
+permissions_125: 
+  action: new
+  id: 716
+  description: 
+  controller: attachment_links
+permissions_362: 
+  action: dialog_form
+  id: 1067
+  description: 
+  controller: addresses
+permissions_172: 
+  action: update
+  id: 794
+  description: 
+  controller: attachments
+permissions_553: 
+  action: list_csv
+  id: 1868
+  description: 
+  controller: exchange_rates
+permissions_316: 
+  action: post_question
+  id: 1011
+  description: 
+  controller: ask
+permissions_126: 
+  action: list
+  id: 717
+  description: 
+  controller: attachment_links
+permissions_363: 
+  action: choose
+  id: 1068
+  description: 
+  controller: addresses
+permissions_173: 
+  action: new
+  id: 806
+  description: 
+  controller: projects
+permissions_554: 
+  action: search_order_line_table
+  id: 1869
+  description: 
+  controller: invoices
+permissions_506: 
+  action: asset_tags_popup
+  id: 1821
+  description: 
+  controller: receipts
+permissions_317: 
+  action: create_category
+  id: 1012
+  description: 
+  controller: ask
+permissions_127: 
+  action: edit
+  id: 718
+  description: 
+  controller: attachment_links
+permissions_364: 
+  action: create
+  id: 1069
+  description: 
+  controller: addresses
+permissions_174: 
+  action: list
+  id: 807
+  description: 
+  controller: projects
+permissions_555: 
+  action: default_tax_info
+  id: 1870
+  description: 
+  controller: invoices
+permissions_507: 
+  action: set_asset_tags
+  id: 1822
+  description: 
+  controller: receipts
+permissions_318: 
+  action: question
+  id: 1013
+  description: 
+  controller: ask
+permissions_128: 
+  action: destroy
+  id: 719
+  description: 
+  controller: attachment_links
+permissions_365: 
+  action: show
+  id: 1070
+  description: 
+  controller: addresses
+permissions_175: 
+  action: edit
+  id: 808
+  description: 
+  controller: projects
+permissions_556: 
+  action: add_blank_line
+  id: 1871
+  description: 
+  controller: invoices
+permissions_508: 
+  action: update_requisitions
+  id: 1823
+  description: 
+  controller: receipts
+permissions_129: 
+  action: create
+  id: 720
+  description: 
+  controller: attachment_links
+permissions_366: 
+  action: index
+  id: 1071
+  description: 
+  controller: addresses
+permissions_176: 
+  action: destroy
+  id: 809
+  description: 
+  controller: projects
+permissions_557: 
+  action: list
+  id: 1872
+  description: 
+  controller: invoices
+permissions_509: 
+  action: asset_received_popup
+  id: 1824
+  description: 
+  controller: receipts
+permissions_319: 
+  action: categories
+  id: 1014
+  description: 
+  controller: ask
+permissions_367: 
+  action: create_from_dialog
+  id: 1072
+  description: 
+  controller: addresses
+permissions_177: 
+  action: create
+  id: 810
+  description: 
+  controller: projects
+permissions_558: 
+  action: edit
+  id: 1873
+  description: 
+  controller: invoices
+permissions_368: 
+  action: update
+  id: 1074
+  description: 
+  controller: addresses
+permissions_178: 
+  action: show
+  id: 811
+  description: 
+  controller: projects
+permissions_559: 
+  action: sort_order_line_table
+  id: 1874
+  description: 
+  controller: invoices
+permissions_369: 
+  action: remove
+  id: 1076
+  description: 
+  controller: requisition_headers
+permissions_179: 
+  action: index
+  id: 812
+  description: 
+  controller: projects
+permissions_610: 
+  action: edit
+  id: 2379
+  description: 
+  controller: catalog_headers
+permissions_420: 
+  action: company
+  id: 1521
+  description: 
+  controller: administration
+permissions_230: 
+  action: related
+  id: 898
+  description: 
+  controller: requisition_line_templates
+permissions_040: 
+  action: search
+  id: 588
+  description: 
+  controller: suppliers
+permissions_611: 
+  action: destroy
+  id: 2380
+  description: 
+  controller: catalog_headers
+permissions_421: 
+  action: feeds
+  id: 1524
+  description: 
+  controller: administration
+permissions_231: 
+  action: destroy
+  id: 899
+  description: 
+  controller: requisition_line_templates
+permissions_041: 
+  action: edit
+  id: 589
+  description: 
+  controller: suppliers
+permissions_612: 
+  action: create
+  id: 2381
+  description: 
+  controller: catalog_headers
+permissions_422: 
+  action: update_feeds
+  id: 1534
+  description: 
+  controller: administration
+permissions_232: 
+  action: add_to_requisition
+  id: 900
+  description: 
+  controller: requisition_line_templates
+permissions_042: 
+  action: load_file
+  id: 590
+  description: 
+  controller: suppliers
+permissions_660: 
+  action: remove_logo
+  id: 2972
+  description: 
+  controller: administration
+permissions_613: 
+  action: show
+  id: 2382
+  description: 
+  controller: catalog_headers
+permissions_470: 
+  action: destroy
+  id: 1785
+  description: 
+  controller: account_approvers
+permissions_423: 
+  action: update_company_info
+  id: 1536
+  description: 
+  controller: administration
+permissions_233: 
+  action: create
+  id: 901
+  description: 
+  controller: requisition_line_templates
+permissions_043: 
+  action: destroy
+  id: 591
+  description: 
+  controller: suppliers
+permissions_280: 
+  action: change_billing
+  id: 970
+  description: 
+  controller: requisition_headers
+permissions_090: 
+  action: destroy
+  id: 658
+  description: 
+  controller: catalog_items
+permissions_661: 
+  action: search_catalog_item_table
+  id: 2973
+  description: 
+  controller: catalog_items
+permissions_614: 
+  action: index
+  id: 2383
+  description: 
+  controller: catalog_headers
+permissions_471: 
+  action: load_progress
+  id: 1786
+  description: 
+  controller: account_approvers
+permissions_424: 
+  action: search_account_table
+  id: 1580
+  description: 
+  controller: accounts
+permissions_234: 
+  action: show
+  id: 904
+  description: 
+  controller: requisition_line_templates
+permissions_044: 
+  action: bulk_loader
+  id: 592
+  description: 
+  controller: suppliers
+permissions_281: 
+  action: add
+  id: 972
+  description: 
+  controller: requisition_headers
+permissions_091: 
+  action: create
+  id: 659
+  description: 
+  controller: catalog_items
+permissions_662: 
+  action: load_file
+  id: 2974
+  description: 
+  controller: catalog_items
+permissions_615: 
+  action: update
+  id: 2384
+  description: 
+  controller: catalog_headers
+permissions_472: 
+  action: search_account_approver_table
+  id: 1787
+  description: 
+  controller: account_approvers
+permissions_425: 
+  action: sort_account_table
+  id: 1582
+  description: 
+  controller: accounts
+permissions_235: 
+  action: index
+  id: 905
+  description: 
+  controller: requisition_line_templates
+permissions_045: 
+  action: load_progress
+  id: 593
+  description: 
+  controller: suppliers
+permissions_282: 
+  action: edit
+  id: 973
+  description: 
+  controller: requisition_headers
+permissions_092: 
+  action: tags_search
+  id: 660
+  description: 
+  controller: catalog_items
+permissions_663: 
+  action: bulk_loader
+  id: 2975
+  description: 
+  controller: catalog_items
+permissions_473: 
+  action: sort_account_approver_table
+  id: 1788
+  description: 
+  controller: account_approvers
+permissions_426: 
+  action: new
+  id: 1587
+  description: 
+  controller: business_groups
+permissions_236: 
+  action: update
+  id: 910
+  description: 
+  controller: requisition_line_templates
+permissions_046: 
+  action: create
+  id: 594
+  description: 
+  controller: suppliers
+permissions_283: 
+  action: withdraw
+  id: 974
+  description: 
+  controller: requisition_headers
+permissions_093: 
+  action: show
+  id: 661
+  description: 
+  controller: catalog_items
+permissions_664: 
+  action: load_progress
+  id: 2976
+  description: 
+  controller: catalog_items
+permissions_616: 
+  action: approve_and_submit
+  id: 2385
+  description: 
+  controller: buying
+permissions_474: 
+  action: index
+  id: 1789
+  description: 
+  controller: account_approvers
+permissions_427: 
+  action: list
+  id: 1588
+  description: 
+  controller: business_groups
+permissions_237: 
+  action: admin_related
+  id: 913
+  description: 
+  controller: requisition_line_templates
+permissions_047: 
+  action: show
+  id: 595
+  description: 
+  controller: suppliers
+permissions_284: 
+  action: ask
+  id: 975
+  description: 
+  controller: requisition_headers
+permissions_094: 
+  action: index
+  id: 662
+  description: 
+  controller: catalog_items
+permissions_665: 
+  action: sort_catalog_item_table
+  id: 2977
+  description: 
+  controller: catalog_items
+permissions_617: 
+  action: change_line_type
+  id: 2386
+  description: 
+  controller: buying
+permissions_475: 
+  action: list_csv
+  id: 1790
+  description: 
+  controller: account_approvers
+permissions_428: 
+  action: graph
+  id: 1591
+  description: 
+  controller: business_groups
+permissions_238: 
+  action: new
+  id: 915
+  description: 
+  controller: forms
+permissions_048: 
+  action: index
+  id: 596
+  description: 
+  controller: suppliers
+permissions_285: 
+  action: destroy
+  id: 976
+  description: 
+  controller: requisition_headers
+permissions_095: 
+  action: tags_add
+  id: 664
+  description: 
+  controller: catalog_items
+permissions_666: 
+  action: list_csv
+  id: 2978
+  description: 
+  controller: catalog_items
+permissions_618: 
+  action: options_from_collection_for_select
+  id: 2387
+  description: 
+  controller: buying
+permissions_476: 
+  action: update_segment_form
+  id: 1791
+  description: 
+  controller: account_approvers
+permissions_239: 
+  action: add_widget
+  id: 916
+  description: 
+  controller: forms
+permissions_049: 
+  action: show_hierarchy
+  id: 597
+  description: 
+  controller: suppliers
+permissions_286: 
+  action: create
+  id: 978
+  description: 
+  controller: requisition_headers
+permissions_096: 
+  action: update
+  id: 665
+  description: 
+  controller: catalog_items
+permissions_667: 
+  action: retrieve
+  id: 2979
+  description: 
+  controller: attachments
+permissions_619: 
+  action: new
+  id: 2388
+  description: 
+  controller: tasks
+permissions_477: 
+  action: po
+  id: 1792
+  description: 
+  controller: punchin
+permissions_429: 
+  action: edit
+  id: 1592
+  description: 
+  controller: business_groups
+permissions_287: 
+  action: portlet_add
+  id: 979
+  description: 
+  controller: requisition_headers
+permissions_097: 
+  action: auto_complete
+  id: 667
+  description: 
+  controller: catalog_items
+permissions_668: 
+  action: sort_ask_category_table
+  id: 2980
+  description: 
+  controller: ask
+permissions_478: 
+  action: sort_approval_limit_table
+  id: 1793
+  description: 
+  controller: approval_limits
+permissions_100: 
+  action: remove_taggings
+  id: 672
+  description: 
+  controller: tag
+permissions_288: 
+  action: approve
+  id: 980
+  description: 
+  controller: requisition_headers
+permissions_098: 
+  action: search
+  id: 668
+  description: 
+  controller: tag
+permissions_669: 
+  action: search_ask_category_table
+  id: 2981
+  description: 
+  controller: ask
+permissions_479: 
+  action: search_approval_limit_table
+  id: 1794
+  description: 
+  controller: approval_limits
+permissions_101: 
+  action: admin_remove_tagging
+  id: 673
+  description: 
+  controller: tag
+permissions_289: 
+  action: clear_cart
+  id: 981
+  description: 
+  controller: requisition_headers
+permissions_099: 
+  action: add
+  id: 669
+  description: 
+  controller: tag
+permissions_102: 
+  action: admin
+  id: 674
+  description: 
+  controller: tag
+permissions_530: 
+  action: auto_complete_for_quote_supplier_name
+  id: 1845
+  description: 
+  controller: quotes
+permissions_340: 
+  action: new
+  id: 1041
+  description: 
+  controller: accounts
+permissions_150: 
+  action: create_from_req
+  id: 769
+  description: 
+  controller: order_headers
+permissions_103: 
+  action: manage
+  id: 679
+  description: 
+  controller: tag
+permissions_531: 
+  action: view_request
+  id: 1846
+  description: 
+  controller: quotes
+permissions_341: 
+  action: list
+  id: 1042
+  description: 
+  controller: accounts
+permissions_151: 
+  action: mini
+  id: 770
+  description: 
+  controller: order_headers
+permissions_104: 
+  action: index
+  id: 683
+  description: 
+  controller: tag
+permissions_532: 
+  action: set_default_policy
+  id: 1847
+  description: 
+  controller: policies
+permissions_342: 
+  action: search
+  id: 1043
+  description: 
+  controller: accounts
+permissions_152: 
+  action: search
+  id: 771
+  description: 
+  controller: order_headers
+permissions_105: 
+  action: portlet
+  id: 685
+  description: 
+  controller: tag
+permissions_580: 
+  action: gallery_summary
+  id: 1895
+  description: 
+  controller: contracts
+permissions_533: 
+  action: new
+  id: 1848
+  description: 
+  controller: payment_terms
+permissions_343: 
+  action: edit
+  id: 1044
+  description: 
+  controller: accounts
+permissions_153: 
+  action: edit
+  id: 772
+  description: 
+  controller: order_headers
+permissions_106: 
+  action: remove_tagging
+  id: 687
+  description: 
+  controller: tag
+permissions_390: 
+  action: load_progress
+  id: 1164
+  description: 
+  controller: budgets
+permissions_581: 
+  action: add_milestone
+  id: 1896
+  description: 
+  controller: buying
+permissions_534: 
+  action: search_payment_term_table
+  id: 1849
+  description: 
+  controller: payment_terms
+permissions_344: 
+  action: load_file
+  id: 1045
+  description: 
+  controller: accounts
+permissions_154: 
+  action: destroy
+  id: 773
+  description: 
+  controller: order_headers
+permissions_107: 
+  action: cloud_portlet
+  id: 688
+  description: 
+  controller: tag
+permissions_391: 
+  action: update_budget_line
+  id: 1166
+  description: 
+  controller: budgets
+permissions_582: 
+  action: add_line
+  id: 1897
+  description: 
+  controller: buying
+permissions_535: 
+  action: sort_payment_term_table
+  id: 1850
+  description: 
+  controller: payment_terms
+permissions_345: 
+  action: destroy
+  id: 1046
+  description: 
+  controller: accounts
+permissions_155: 
+  action: supplier_view
+  id: 774
+  description: 
+  controller: order_headers
+permissions_108: 
+  action: tag_cloud
+  id: 690
+  description: 
+  controller: tag
+permissions_392: 
+  action: search_budget_line_table
+  id: 1167
+  description: 
+  controller: budgets
+permissions_583: 
+  action: search_address_table
+  id: 2352
+  description: 
+  controller: administration
+permissions_536: 
+  action: create
+  id: 1851
+  description: 
+  controller: payment_terms
+permissions_346: 
+  action: update_segments
+  id: 1047
+  description: 
+  controller: accounts
+permissions_156: 
+  action: create
+  id: 775
+  description: 
+  controller: order_headers
+permissions_109: 
+  action: admin_remove_taggings
+  id: 693
+  description: 
+  controller: tag
+permissions_393: 
+  action: sort_budget_line_table
+  id: 1168
+  description: 
+  controller: budgets
+permissions_584: 
+  action: sort_address_table
+  id: 2353
+  description: 
+  controller: administration
+permissions_537: 
+  action: index
+  id: 1852
+  description: 
+  controller: payment_terms
+permissions_347: 
+  action: bulk_loader
+  id: 1048
+  description: 
+  controller: accounts
+permissions_157: 
+  action: show
+  id: 776
+  description: 
+  controller: order_headers
+permissions_394: 
+  action: edit_budget_line
+  id: 1169
+  description: 
+  controller: budgets
+permissions_585: 
+  action: new_address
+  id: 2354
+  description: 
+  controller: administration
+permissions_538: 
+  action: add_comment
+  id: 1853
+  description: 
+  controller: order_headers
+permissions_348: 
+  action: choose
+  id: 1049
+  description: 
+  controller: accounts
+permissions_158: 
+  action: pdf
+  id: 777
+  description: 
+  controller: order_headers
+permissions_395: 
+  action: auto_complete_segment
+  id: 1170
+  description: 
+  controller: budgets
+permissions_586: 
+  action: update_address
+  id: 2355
+  description: 
+  controller: administration
+permissions_349: 
+  action: load_progress
+  id: 1050
+  description: 
+  controller: accounts
+permissions_159: 
+  action: index
+  id: 778
+  description: 
+  controller: order_headers
+permissions_396: 
+  action: index
+  id: 1171
+  description: 
+  controller: budgets
+permissions_587: 
+  action: edit_address
+  id: 2356
+  description: 
+  controller: administration
+permissions_539: 
+  action: cancel
+  id: 1854
+  description: 
+  controller: order_headers
+permissions_397: 
+  action: new_budget_line
+  id: 1173
+  description: 
+  controller: budgets
+permissions_588: 
+  action: create_address
+  id: 2357
+  description: 
+  controller: administration
+permissions_400: 
+  action: delete_period
+  id: 1181
+  description: 
+  controller: budgets
+permissions_210: 
+  action: tabs
+  id: 867
+  description: 
+  controller: buying
+permissions_020: 
+  action: edit
+  id: 20
+  description: 
+  controller: user
+permissions_398: 
+  action: update_budget_segments
+  id: 1175
+  description: 
+  controller: budgets
+permissions_589: 
+  action: search_requisition_line_template_table
+  id: 2358
+  description: 
+  controller: requisition_line_templates
+permissions_401: 
+  action: sort_period_table
+  id: 1183
+  description: 
+  controller: budgets
+permissions_211: 
+  action: update
+  id: 870
+  description: 
+  controller: buying
+permissions_021: 
+  action: change_password_for_user
+  id: 21
+  description: 
+  controller: user
+permissions_399: 
+  action: list_csv
+  id: 1180
+  description: 
+  controller: budgets
+permissions_402: 
+  action: sort_policy_table
+  id: 1187
+  description: 
+  controller: policies
+permissions_212: 
+  action: pool
+  id: 874
+  description: 
+  controller: buying
+permissions_022: 
+  action: edit_user
+  id: 22
+  description: 
+  controller: user
+permissions_640: 
+  action: remote_form_for
+  id: 2952
+  description: 
+  controller: requisition_headers
+permissions_450: 
+  action: update_mini_segments
+  id: 1748
+  description: 
+  controller: reporting
+permissions_403: 
+  action: search_policy_table
+  id: 1194
+  description: 
+  controller: policies
+permissions_260: 
+  action: manage_destroy
+  id: 943
+  description: 
+  controller: product_reviews
+permissions_070: 
+  action: destroy
+  id: 634
+  description: 
+  controller: uoms
+permissions_213: 
+  action: new
+  id: 875
+  description: 
+  controller: policies
+permissions_023: 
+  action: signup
+  id: 23
+  description: 
+  controller: user
+permissions_641: 
+  action: observe_form
+  id: 2953
+  description: 
+  controller: requisition_headers
+permissions_451: 
+  action: update_users
+  id: 1749
+  description: 
+  controller: reporting
+permissions_404: 
+  action: update_segments
+  id: 1206
+  description: 
+  controller: reporting
+permissions_261: 
+  action: embedded_list
+  id: 944
+  description: 
+  controller: product_reviews
+permissions_071: 
+  action: create
+  id: 635
+  description: 
+  controller: uoms
+permissions_214: 
+  action: list
+  id: 876
+  description: 
+  controller: policies
+permissions_024: 
+  action: show
+  id: 24
+  description: 
+  controller: user
+permissions_642: 
+  action: evaluate_remote_response
+  id: 2954
+  description: 
+  controller: requisition_headers
+permissions_452: 
+  action: auto_complete_for_search_params_user
+  id: 1750
+  description: 
+  controller: reporting
+permissions_405: 
+  action: req_value_chart
+  id: 1207
+  description: 
+  controller: reporting
+permissions_262: 
+  action: embedded_add
+  id: 945
+  description: 
+  controller: product_reviews
+permissions_072: 
+  action: show
+  id: 636
+  description: 
+  controller: uoms
+permissions_215: 
+  action: search
+  id: 877
+  description: 
+  controller: policies
+permissions_025: 
+  action: edit_roles
+  id: 25
+  description: 
+  controller: user
+permissions_643: 
+  action: update_element_function_with_deprecation
+  id: 2955
+  description: 
+  controller: requisition_headers
+permissions_453: 
+  action: auto_complete_for_search_params_supplier
+  id: 1751
+  description: 
+  controller: reporting
+permissions_406: 
+  action: date_range
+  id: 1212
+  description: 
+  controller: reporting
+permissions_263: 
+  action: manage_edit
+  id: 946
+  description: 
+  controller: product_reviews
+permissions_073: 
+  action: index
+  id: 637
+  description: 
+  controller: uoms
+permissions_216: 
+  action: edit
+  id: 878
+  description: 
+  controller: policies
+permissions_026: 
+  action: login
+  id: 26
+  description: 
+  controller: user
+permissions_644: 
+  action: observe_field
+  id: 2956
+  description: 
+  controller: requisition_headers
+permissions_454: 
+  action: browse_by_supplier
+  id: 1752
+  description: 
+  controller: search
+permissions_264: 
+  action: manage
+  id: 947
+  description: 
+  controller: product_reviews
+permissions_074: 
+  action: update
+  id: 639
+  description: 
+  controller: uoms
+permissions_217: 
+  action: related
+  id: 879
+  description: 
+  controller: policies
+permissions_027: 
+  action: home
+  id: 27
+  description: 
+  controller: user
+permissions_645: 
+  action: update_page
+  id: 2957
+  description: 
+  controller: requisition_headers
+permissions_455: 
+  action: receive_requisition
+  id: 1753
+  description: 
+  controller: receipts
+permissions_407: 
+  action: update_budget_report
+  id: 1213
+  description: 
+  controller: reporting
+permissions_265: 
+  action: embedded_destroy
+  id: 948
+  description: 
+  controller: product_reviews
+permissions_075: 
+  action: auto_complete
+  id: 641
+  description: 
+  controller: uoms
+permissions_218: 
+  action: destroy
+  id: 880
+  description: 
+  controller: policies
+permissions_028: 
+  action: change_password
+  id: 28
+  description: 
+  controller: user
+permissions_646: 
+  action: link_to_remote
+  id: 2958
+  description: 
+  controller: requisition_headers
+permissions_456: 
+  action: update_requisition
+  id: 1770
+  description: 
+  controller: receipts
+permissions_408: 
+  action: index
+  id: 1215
+  description: 
+  controller: reporting
+permissions_266: 
+  action: new
+  id: 951
+  description: 
+  controller: contracts
+permissions_076: 
+  action: new
+  id: 642
+  description: 
+  controller: account_types
+permissions_219: 
+  action: create
+  id: 881
+  description: 
+  controller: policies
+permissions_029: 
+  action: registrations
+  id: 101
+  description: 
+  controller: user
+permissions_647: 
+  action: form_remote_tag
+  id: 2959
+  description: 
+  controller: requisition_headers
+permissions_457: 
+  action: graph
+  id: 1772
+  description: 
+  controller: user
+permissions_409: 
+  action: chart
+  id: 1219
+  description: 
+  controller: reporting
+permissions_267: 
+  action: delete_item
+  id: 952
+  description: 
+  controller: contracts
+permissions_077: 
+  action: list
+  id: 643
+  description: 
+  controller: account_types
+permissions_648: 
+  action: update_element_function
+  id: 2960
+  description: 
+  controller: requisition_headers
+permissions_458: 
+  action: edit_draft_supplier
+  id: 1773
+  description: 
+  controller: requisition_headers
+permissions_268: 
+  action: list
+  id: 953
+  description: 
+  controller: contracts
+permissions_078: 
+  action: edit
+  id: 644
+  description: 
+  controller: account_types
+permissions_459: 
+  action: quick_access
+  id: 1774
+  description: 
+  controller: requisition_headers
+permissions_269: 
+  action: edit
+  id: 954
+  description: 
+  controller: contracts
+permissions_079: 
+  action: destroy
+  id: 645
+  description: 
+  controller: account_types

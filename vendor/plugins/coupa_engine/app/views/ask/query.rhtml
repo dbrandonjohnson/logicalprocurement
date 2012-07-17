@@ -1,0 +1,35 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <% unless !@similar_questions or @similar_questions.empty? -%>
+        <div id="similar_questions" style="padding-bottom:1em">
+            <h3>You might also want to look at these previously answered questions</h3>
+            <% @similar_questions.each do |question| -%>
+                <p><%= link_to h(truncate(question.text, 80)), :action => 'question', :id => question.id %></p>
+            <% end -%>
+        </div>
+    <% end -%>
+    
+    <h3 style="padding-top:1em">Ask a question</h3>
+    <%= render :partial => 'question_form' %>
+</div>
+<div id="right_col">
+    <%= render_component :controller => 'requisition_headers', :action => 'portlet' %>
+    <%= render_component :controller => 'tag', :action => 'cloud_portlet', :params => {:limit => {:limit => 60}} %>
+</div>

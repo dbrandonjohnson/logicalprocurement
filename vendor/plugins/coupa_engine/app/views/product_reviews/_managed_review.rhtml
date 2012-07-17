@@ -1,0 +1,43 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<tr id="product_review_<%= managed_review.id %>" class="<%= managed_review_counter % 2 == 0 ? 'stripe_even' : 'stripe_odd' %>"><td style="padding:10px;">
+<div style="float:right;"><%= link_to_function image_tag('pencil.png',:title => 'Edit'), "dojo.widget.byId('pr_#{managed_review.id}').show();" %>&nbsp;<%= link_to_remote image_tag('delete.png',:title => 'Delete'), :url => {:controller => 'product_reviews', :action => 'manage_destroy', :id => managed_review.id}, :confirm => 'Are you sure?' %>
+</div>
+<div>
+<%= image_tag(image_url(managed_review.catalog_item),:height => 30)%>
+<%= link_to managed_review.catalog_item.name, :controller => 'catalog_items', :action => 'show', :id => managed_review.catalog_item.id %>
+<div style="clear:both;">
+<table width="100%"><tr><td>
+<ul class='star-rating'>
+    <li class='current-rating' style='width:<%= managed_review.rating.round * 0.7 %>px;'>&nbsp;</li>
+</ul></td>
+<td align="center"><b><%= managed_review.title %></b></td>
+<td align="right"><%= get_review_date(managed_review) %></td>
+</tr>
+</table>
+</div>
+<div style="clear:both;">
+<%= managed_review.text %>
+</div>
+</div>
+<div id="pr_<%= managed_review.id %>" style="display:none;" class="dojo-dialog">
+    <%= render :partial => "edit", :locals => {:product_review => managed_review} %>
+</div>
+</td>
+</tr>

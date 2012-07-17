@@ -1,0 +1,47 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= form_remote_tag(:url => {:controller => 'accounts', :action => 'picker_search'},:html => {:id => 'search_form', :name => 'search_form'}) %>
+<table cellspacing="0" cellpadding="0">
+    <tr>
+        <% if @account_types.size > 0 %>
+        <td valign="top" style="padding-top:6px;">
+<%= select_tag('account_type',options_from_collection_for_select(@account_types,'id','name',@account_type.id),
+    :onchange => remote_function(:url => { :controller => 'accounts', :action => 'picker_search', :id => 'value', :field_root_id => field_root_id, :update_segments => true },
+                                 :with =>"Form.serialize('search_form')",
+                                 :loading => "$('segment_wait').show();",
+                                 :loaded => "$('segment_wait').hide();")) %>
+        </td>
+        <% else %>
+        <%= hidden_field_tag 'account_type', @account_type.id, :style => 'border:none' %>
+        <% end %>
+        <%= hidden_field_tag 'field_root_id', field_root_id %>
+        <td valign="top">
+<table cellspacing="0" cellpadding="0"><tr>
+    <% @account_type.segment_field_types.each_with_index do |sft,i| %>
+        <td><%= text_field_tag "segment_#{i+1}",nil,:size => 5 %><br/><small><span style="color:999;"><%= sft.code %></span></small></td>
+    <% end %>
+    </tr></table>
+        </td>
+        <td valign="top" style="padding-top:7px;"><%= image_submit_tag('zoom', :style => "border:none;", :title => 'Search') %><%= image_tag('spinner.gif', 
+    :id => "segment_wait", 
+    :style => "display:none;")%>
+        </td>
+    </tr>
+</table>
+</form>

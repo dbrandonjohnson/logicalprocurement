@@ -1,0 +1,58 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= error_messages_for 'role' %>
+<!--[form:role]-->
+
+<div id="role_details">
+  <div class="inline_form_element"><label for="role_name">Name</label>
+  <%= text_field 'role', 'name'  %></div>
+
+  <div class="inline_form_element"><label for="role_description">Description</label>
+  <%= text_area 'role', 'description', {:rows => 5}  %></div>
+</div>
+
+<div id="role_permissions">
+  <h3>Permissions</h3>
+<br/>
+  <table id="role_permission_table" class="tabular">
+
+    <% @all_actions.sort.each do |controller_name, permissions|
+        controller_id = controller_name.gsub("/", "_") 
+        #perms_id = controller_id + "_perms"
+     %>
+      <tr class="<%= cycle('stripe_odd','stripe_even') %>">
+        <td><%= controller_name.humanize %>
+           <ul>
+           <li><a href="#" onclick="checkAll('permissions_<%= controller_id %>[]'); return false;">Check all</a></li>
+           <li><a href="#" onclick="uncheckAll('permissions_<%= controller_id %>[]'); return false;">Uncheck all</a></li>
+          </ul>
+        </td>
+        <td>
+         <ul>
+         <%      permissions.each do |permission| %>
+               <li style="display:block;float:left;width:250px;"><input type="checkbox" id="<%= controller_id + "_" + permission.action %>" name="permissions_<%= controller_id %>[]" value="<%= permission.id %>" <% if @role.permissions.include?(permission) %>checked="checked"<% end %>/><%= link_if_authorized(permission.action.humanize, {:controller => "permission", :action => "show", :id => permission}, {:title => permission.description, :show_text => true}) %></li>
+         <%  end %>
+         </ul>
+        </td>
+      </tr>
+  <% end %>
+  </table>
+</div>
+
+<!--[eoform:role]-->

@@ -1,0 +1,31 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% content_for(:page_head) do -%>
+    <%= javascript_include_tag('account_picker', :plugin => 'coupa_engine') %>
+<% end -%>
+
+<%= hidden_field(object_name, method_name + '_id') %>
+    <span id="<%= field_root_id %>">
+        <%= value ? value.code : content_tag(:span, 'No account selected', :style => "color:#999") %>
+    </span>
+<% if linked_form %>
+        <%= link_to_remote(image_tag('zoom.png',:title => 'Choose an account',:style => 'max-height:16px;vertical-align:middle;'), :url => {:controller => 'accounts', :action => 'pick', :field_root_id => field_root_id, :linked_account_type_field => linked_account_type_field}, :submit => linked_form) %>
+<% else %>
+<%= link_to_remote(image_tag('zoom.png',:title => 'Choose an account',:style => 'max-height:16px;vertical-align:middle;'), :url => {:controller => 'accounts', :action => 'pick', :field_root_id => field_root_id, :restrict_to_account_type_ids => restrict_to_account_type_ids}) %>
+<% end %>

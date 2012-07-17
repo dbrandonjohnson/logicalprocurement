@@ -1,0 +1,61 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<tr class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td align="center">
+        <%= toggle_switch_for("order_line_#{line.id}_more", :description => "details of order line #{line.line_num}") %>
+    </td>
+    <td align="center"><%= line.line_num %></td>
+    <td align="center"><%= image_tag(line.type_icon,:title => (line.kind_of?(OrderQuantityLine) ? 'Quantity-base line' : 'Amount-based line')) %></td>
+    <td><%= (line.is_a?(OrderQuantityLine) && line.item_id) ? link_to(line.description, 
+            { :controller => 'catalog_items', :action => 'show', :id => line.item_id }) :     
+            line.description %>
+    </td>
+    <td width="10%"><%= line.formatted_quantity if line.is_a? OrderQuantityLine %></td>
+    <td><%= line.uom.name if line.is_a? OrderQuantityLine %></td>
+    <td align="right"><%= render_attribute line.price %></td>
+    <td align="right"><%= render_attribute line.total %></td>
+    <td align="right"><%= line.kind_of?(OrderQuantityLine) ? line.received : render_attribute(line.received) %></td>
+</tr>
+<tr style="display:none" class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td colspan="7">&nbsp;</td>
+</tr>
+<tr id="order_line_<%= line.id %>_more" style="display:none" class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td colspan="1">&nbsp;</td>
+    <td colspan="8">
+    <h4>Additional Information</h4>
+    <div class="inline_form_element">
+        <label>Account</label>
+        <% if line.account then %>
+        <%= line.account.code %>
+        <% else %>
+        <span style="color:#666">None specified</span>
+        <% end %>
+    </div>
+    <div class="inline_form_element">
+      <label>Need by date</label>
+      <%= render_attribute(line.need_by_date ? line.need_by_date.to_date : '') %>
+    </div>
+    <div style="clear:both"></div>
+    <div class="wrapped_form_element">
+        <label>Attachments</label>
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => line, :attachment_name => "order_line[#{line.id}]", :intents => ['Supplier','Internal']} %>
+    </div>
+    <div style="clear:both"></div>
+</td>
+</tr>

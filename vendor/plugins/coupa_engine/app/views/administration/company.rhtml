@@ -1,0 +1,30 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <%= form_tag :action => 'update_company_info' %>
+    <%= wrapped_text_field_tag 'Company Name',  'company_name', @company_name %>
+    <h3>System Options</h3>
+    <div style="padding:5px;">
+      <%= check_box_tag 'draft_supplier',1, Setup.find_or_create_by_key('route_to_buyer_on_draft_supplier').value, :style => "border:none;" %><label>Route requisitions to the buyer if the supplier is in draft status</label><br/>
+      <%= check_box_tag  'no_contract',1,Setup.find_or_create_by_key('route_to_buyer_on_no_contract').value, :style => "border:none;"  %><label>Route requisitions to the buyer if no contract is specified</label><br/>
+      <%= check_box_tag  'allow_self_approval',1,Setup.find_or_create_by_key('allow_self_approval').value, :style => "border:none;"  %><label>Do not route for approval if requester has sufficient spending authority</label><br/>
+    </div>
+    <%= rollover_submit_tag 'Save' %>
+    </form>
+</div>

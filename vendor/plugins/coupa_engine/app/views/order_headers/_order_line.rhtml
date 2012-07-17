@@ -1,0 +1,58 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% @order_line = order_line %>
+<tbody id="order_line_<%= @order_line.id %>" class="tabular">
+<tr id="order_line_<%= @order_line.id %>_main" class="<%= cycle("stripe_even","stripe_odd")%>">
+    <td align="center">
+        <%= toggle_switch_for("order_line_#{@order_line.id}_more", :description => "supplier details for order line #{@order_line.id}") %>
+    </td>
+    <td align="center"><%= @order_line.line_num %></td>
+    <td align="center">
+        <%= image_tag(@order_line.type_icon) %>
+        <%= hidden_field "order_line[]", "id" %>
+    </td>
+    <td><%= line_description_field "order_line[]" %></td>
+    <td><%= line_quantity_field("order_line[]") %>
+        <%= hidden_field("order_line[]", "item_id") %>
+    </td>
+    <td nowrap="nowrap"><%= line_uom_field("order_line[]") %></td>
+    <td align="right">
+    <% if @order_line.price_editable? -%>
+        <%= text_field("order_line[]","price", :size => 5) -%>
+    <% else -%>
+        <%= render_attribute(@order_line.price) -%>
+    <% end -%>
+    </td>
+    <td nowrap="nowrap" align="right"><%= render_attribute(@order_line.total) %></td>
+    <td><%= render_attribute(@order_line.received) %></td>
+    <td align="center"><%= link_to_function(image_tag('delete.png'),"$('order_line_#{@order_line.id}').hide();$('order_line_#{@order_line.id}_delete').value=1;")+hidden_field_tag("order_line[#{@order_line.id}][delete]",nil,:id => "order_line_#{@order_line.id}_delete") unless @order_line.received %></td>
+</tr>
+<tr id="order_line_<%= @order_line.id %>_hidden" class="<%= cycle('stripe_even','stripe_odd') %>" style="display:none"><td colspan="11">&nbsp;</td></tr>
+<tr id="order_line_<%= @order_line.id %>_more" class="<%= cycle('stripe_even','stripe_odd') %>" style="display:none">
+    <td>&nbsp;</td>
+    <td colspan="9">
+    <h4>Additional Information</h4>
+    <%= inline_date_picker_field('Need by date', 'order_line', 'need_by_date', :name => "order_line[#{@order_line.id}][need_by_date]", :id => "order_line_#{@order_line.id}_need_by_date") %>
+    <div style="clear:both"></div>
+    <div class="wrapped_form_element">
+        <label>Attachments</label>
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => true, :attach_to => @order_line, :attachment_name => "order_line[#{@order_line.id}]", :intents => ['Supplier','Internal']} %>
+    </div></td>
+</tr>
+</tbody>

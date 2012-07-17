@@ -1,0 +1,9 @@
+|open|/selenium/setup?clear_tables=sessions&fixtures=coupa_engine/all|
+|open|/|
+|verifyTitle|Coupa|
+|verifyText|titlebar|Welcome!|
+|verifyText|flash_message|You need to log in.|
+|includePartial|coupa_engine/login|login=williams|password=welcome|
+|verifyTitle|Coupa|
+|verifyText|titlebar|Welcome, John!|
+|verifyText|flash_notice|Login successful|

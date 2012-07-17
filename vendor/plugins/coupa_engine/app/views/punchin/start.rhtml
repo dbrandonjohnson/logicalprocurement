@@ -1,0 +1,47 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <% if session[:user].id.to_s == params[:id] and session[:punchout] -%>
+        <p>Welcome to the Coupa Punchout Server! This server is only for testing purposes, it can only send out a hardcoded shopping cart. This is the cart content that will be transmitted back to your buying application:</p>
+        <table class="tabular">
+            <thead class="tabular">
+                <tr><th>Id</th><th>Description</th><th>Quantity</th><th>UOM</th><th>Currency</th><th>Price</th></tr>
+            </thead>
+            <tbody class="tabular">
+                <tr><td align="right">3</td><td>Motorola RAZR V3 Phone</td><td align="right">2</td><td>EA</td><td>USD</td><td align="right">249.99</td></tr>
+                <tr><td align="right">4</td><td>Motorola PEBL Phone</td><td align="right">1</td><td>EA</td><td>USD</td><td align="right">299.99</td></tr>
+            </tbody>
+            <tfoot class="tabular">
+                <strong>Total: 799.97</strong>
+            </tfoot>
+        </table>
+
+        <form method="post" action="<%= @punchin_session.checkout_url %>">
+            <input type="hidden" name="cxml-urlencoded" value="<%= @urlencoded_data %>" />
+            <input type="hidden" name="cxml-base64" value="<%= @base64_data %>" />
+            <%= rollover_submit_tag 'Checkout' %>
+        </form>
+    <% else -%>
+        <p>You are already logged in as <%= "punchout user " if session[:punchout] %><%= session[:user].fullname %>. Do you really wish to leave this session and start a new punchout session?</p>
+        <div class="page_buttons_left">
+            <div class="page_button"><%= rollover_link_to 'Create new punchout session', params.merge(:action => 'override_session') %></div>
+            <div class="page_button"><%= rollover_link_to 'Keep current session', :action => 'keep_session' %></div>
+        </div>
+    <% end -%>
+</div>

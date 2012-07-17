@@ -1,0 +1,48 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<tr class="<%= line_counter % 2 == 0 ? 'stripe_even' : 'stripe_odd' %>">
+    <td align="center"><%= image_tag(line.class.type_icon,:alt => 'File') %></td>
+    <% url =
+          case line.source_for
+            when "CatalogItem" : {:controller => "catalog_items", :action => "list"}
+            when "User"        : {:controller => "user", :action => "index"}
+          else
+             {:controller => line.source_for.underscore.pluralize, :action => 'index'}  
+          end
+    %>
+    <td><%= link_if_authorized(line.source_for.underscore.humanize.pluralize,url,:show_text => true) %></td>
+    <td><%= line.kind_of?(DataFileSource) && authorized?(:controller => (line.source_for == "User" ? "user" : line.source_for.underscore.pluralize),:action => 'load_file') ? link_to(line[:file],"/"<< line.file_options[:base_url] << "/"<< line.file_relative_path) : '' %></td>
+    <td><%= line.created_at.to_formatted_s(:long)%></td>
+    <td><%= line.status.humanize %>
+<%       if line.status == 'loading' then
+         begin
+             w = MiddleMan.get_worker(line.job_key)
+         rescue
+            w = nil
+         end
+         if w then
+            %>, <%= w.progress %>% Complete<%
+         else
+            %>, stalled<% 
+         end 
+      elsif line.status == 'done' && line.error_text then
+        %>, <%= link_to('with errors', :action => 'errors', :id => line.id) -%>
+   <% end %></td>
+    <td><%= (authorized?(:controller => (line.source_for == "User" ? "user" : line.source_for.underscore.pluralize),:action => 'load_file') ? link_if_authorized('[Start]', :action => 'start', :id => line.id) : '') if line.status == 'pending' %></td>
+</tr>

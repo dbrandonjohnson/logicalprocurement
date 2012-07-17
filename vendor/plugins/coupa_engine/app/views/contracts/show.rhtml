@@ -1,0 +1,87 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">    
+    <div class="inline_form_element"><label>Name</label><%= h @contract.name %></div>
+    <div class="inline_form_element"><label>Number</label><%= h @contract.number %></div>
+    <div class="inline_form_element"><label>Status</label><span style="color:#999"><%= @contract.status.titleize %></span></div>
+    
+    <% if @contract.start_date or @contract.end_date -%>
+    <div class="inline_form_element"><label>Effective</label><%= @contract.start_date ? @contract.start_date.to_date.to_formatted_s(:long) : '[unset]' %> to <%=  @contract.end_date ? @contract.end_date.to_date.to_formatted_s(:long) : '[unset]' %></div>
+    <% end -%>
+    
+    <% if @contract.supplier -%>
+    <div class="inline_form_element"><label>Supplier</label><%= h @contract.supplier.name %></div>
+    <% end -%>
+    
+    <% if @contract.minimum_value and @contract.maximum_value -%>
+    <div class="inline_form_element"><label>Value</label><%= @contract.minimum_value %> to <%= @contract.maximum_value %></div>
+    <% end -%>
+    
+    <% if @contract.minimum_value and !@contract.maximum_value -%>
+    <div class="inline_form_element"><label>Minimum Value</label><%= @contract.minimum_value %></div>
+    <% end -%>
+    
+    <% if !@contract.minimum_value and @contract.maximum_value -%>
+    <div class="inline_form_element"><label>Maximum Value</label><%= @contract.maximum_value %></div>
+    <% end -%>
+    
+    <% if @contract.bill_to_address -%>
+    <div class="inline_form_element"><label>Bill-to Address</label><div style="display:block;float:left;"><%= render :partial => 'addresses/address', :locals => {:address => @contract.bill_to_address} %></div></div>
+    <div style="clear:left;"> </div>
+    <% end -%>
+    
+    <% if @contract.legal_agreement -%>
+    <div class="inline_form_element"><label>Legal agreement</label><%= link_to File.basename(@contract.legal_agreement), url_for_file_column('contract', 'legal_agreement') %></div>
+    <% end -%>
+    
+    <% if @contract.catalog -%>
+    <div class="inline_form_element">
+        <label>Catalog</label>
+        <%= link_to File.basename(@contract.catalog), url_for_file_column('contract', 'catalog') %>
+        <% if @catalog_loader_worker -%>&nbsp;&nbsp;(<%= @catalog_loader_worker.status %>)<% end -%>
+    </div>
+    <% end -%>
+
+    <div class="inline_form_element">
+        <label>Preferred</label>
+        <%= @contract.preferred_flag ? 'Yes' : 'No' %>
+    </div>
+    
+    <div class="inline_form_element">
+        <label>Catalog Items</label>
+        <%= @catalog_items.count == 0 ? 'None' : @catalog_items.count %>&nbsp;&nbsp;
+        <% unless @catalog_items.empty? -%><small id="show_catalog_items">[<%= link_to_function 'show', "$('catalog_items','show_catalog_items','hide_catalog_items').each(Element.toggle)" %>]</small><small id="hide_catalog_items" style="display:none">[<%= link_to_function 'hide', "$('catalog_items','hide_catalog_items','show_catalog_items').each(Element.toggle)" %>]</small><% end -%>
+    </div>
+    
+    <% unless @catalog_items.empty? -%>
+    <div id="catalog_items" style="display:none">
+        <h3 style="padding-top:1em; clear:both">Catalog Items</h3>
+        <div style="padding:10px 15px;">
+            Loading...
+            <%= javascript_tag "dojo.addOnLoad(function() { dojo.io.updateNode('catalog_items', '#{url_for :action => 'gallery_summary', :id => (@contract.draft? ? @contract.replaces : @contract).id}') })" %>
+        </div>
+    </div>
+    <% end -%>
+    
+    <h3 style="padding-top:1em; clear:both">Attachments</h3>
+    <div style="padding:10px 15px;">
+      <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => @contract, :attachment_name => 'contract'} %>
+    </div>
+
+</div>

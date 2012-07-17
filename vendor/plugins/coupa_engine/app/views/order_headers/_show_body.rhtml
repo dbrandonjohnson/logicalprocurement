@@ -1,0 +1,112 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% @order_header = order_header %>
+<table width="90%"><tr>
+  <td width="50%">
+    <div class="inline_form_element"><label>Status</label><%= @order_header.status.humanize %></div>
+    <div class="inline_form_element"><label>Created At</label><%= @order_header.updated_at.to_date.to_formatted_s(:long) %></div>
+    <div class="inline_form_element"><label>Requisition #</label><% if @order_header.order_lines.size > 0 -%>
+      <% req_line = @order_header.order_lines[0].requisition_line || RequisitionLine.find_by_order_line_id(@order_header.order_lines[0].order_line_id()) -%>
+      <%= link_to(req_line.header_id,:controller => 'requisition_headers', :action => 'show', :id => req_line.header_id) -%>
+      <% end %>
+      </div>
+    <% if ['sent','created'].index(@order_header.status) && session[:user].authorized?(:order_headers,:acknowledge)%>
+      <div class="inline_form_element">
+        <label>Acknowledged</label>
+        <% if @order_header.respond_to?(:order_header_id) %>
+          <% if @order_header.version == @order_header.versions[-1].version %>
+          <%= check_box 'order_header', 'acknowledged_flag' %>
+          <%= observe_field 'order_header_acknowledged_flag', :url => {:action => 'acknowledge', :id => @order_header.order_header_id}, :with => 'flag' %>
+          <% else %>
+            <%= @order_header.acknowledged_flag ? 'Yes' : 'No' %>
+          <% end %>
+        <% else %>
+          <%= check_box 'order_header', 'acknowledged_flag' %>
+          <%= observe_field 'order_header_acknowledged_flag', :url => {:action => 'acknowledge', :id => @order_header.id}, :with => 'flag' %>
+        <% end %>
+      </div>
+    <% else %>
+    &nbsp;
+    <% end %>
+  </td>
+</tr></table>
+<div style="clear:both;"></div>
+<div style="float:left;width:250px;">
+    <h3>Supplier</h3>
+    <div style="padding:10px 15px;">
+        <% if  @order_header.supplier then %>
+        <%= h @order_header.supplier.name %><br/>
+        <%= render :partial => 'addresses/address', :locals => {:address =>@order_header.supplier.primary_address}%>
+        <% else %>
+        <span style="color:#999;">No supplier</span>
+        <% end %>
+    </div>
+</div>
+<div style="float:left;width:250px;margin-left:20px;">
+  <h3>Shipping To</h3>
+  <div style="padding:10px 15px;">
+    <% if  @order_header.ship_to_address then %>
+    <%= render :partial => 'addresses/address', :locals => {:address =>@order_header.ship_to_address}%><br/>
+    Attn: <%= @order_header.ship_to_attention %>
+    <% else %>
+    <span style="color:#999;">No address selected</span>
+    <% end %>
+  </div>
+</div>
+<div style="clear:left">
+    <h3>Lines</h3>
+    <div style="clear:both;padding:10px 15px;">
+      <table class="tabular">
+          <thead class="tabular">
+          <tr>
+              <th>&nbsp;</th>
+              <th>Line</th>
+              <th>Type</th>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Unit</th>
+              <th>Price</th>
+              <th>Total</th>
+              <th>Received</th>
+          </tr>
+          </thead>
+          <tbody class="tabular">
+              <%= render :partial => 'line', :collection => @order_header.order_lines %>
+          </tbody>
+          <tfoot class="tabular">
+          <tr>
+              <td align="right" colspan="7">Total</td>
+              <td align="right"><%= render_attribute @order_header.total, :long %></td>
+              <td>&nbsp;</td>
+          </tr>
+          </tfoot>
+      </table>        
+    </div>
+    <% if (@order_header.attachments.size > 0) || (@order_header.respond_to?(:order_header_id) && @order_header.order_header.attachments.size > 0) %>
+    <h3>Attachments</h3>
+    <div style="padding:10px 15px;">
+      <% if @order_header.respond_to?(:order_header_id) %>
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => @order_header.order_header, :intents => ['Supplier','Internal']} %>
+      <% else %>
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => @order_header, :intents => ['Supplier','Internal']} %>
+      <% end %>
+    </div>
+    <% end %>
+    <%= rollover_link_to 'Download PDF', :action => 'pdf', :id => @order_header.id %>    
+</div>

@@ -1,0 +1,30 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <%= error_messages_for 'catalog_item' %>
+    <%= inline_text_field({:name => 'Name', :required => true},'catalog_item', 'name', :size => 60)  %>
+    <%= inline_text_area({:name => 'Description', :required => true},'catalog_item', 'description', :rows => 10, :cols => 60)  %>
+    <%= inline_select({:name => 'Contract', :required => true},'catalog_item', 'contract_id', Contract.find(:all,:conditions => ['contracts.status = ?','published'],:include => :supplier,:order => 'suppliers.name,contracts.name').collect{ |u| ["#{u.supplier.name} - #{u.name}", u.id]})%>
+    <%= inline_select({:name => 'Unit of Measure', :required => true},'catalog_item', 'uom_id', Uom.find_all.collect{ |u| [u.name, u.id]})%>
+    <%= inline_text_field_tag({:name => 'List Price', :required => true},'catalog_item[list_price(1)]',@catalog_item.list_price ? @catalog_item.list_price.amount : nil, :size => 8)  %>
+    <%= inline_select_tag({:name => 'Currency', :required => true},'catalog_item[list_price(2)]',options_for_select(Currency.find(:all,:conditions => ['enabled_flag = ?',true]).collect{ |c| [c.code,c.id]},@catalog_item.list_price ? @catalog_item.list_price.currency_id : nil))%>
+    <%= inline_text_field({:name => 'Supplier Part #'},'catalog_item','source_part_num',:size => 15)%>
+    <%= inline_text_field({:name => 'Lead Time',:hint => 'in days'},'catalog_item','lead_time',:size => 4)%>
+    <%= inline_file_column_field("Image","catalog_item", "image")%></p>
+</div>

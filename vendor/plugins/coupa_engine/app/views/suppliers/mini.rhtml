@@ -1,0 +1,42 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div>
+<%= form_remote_tag :update => "tab_suppliers_region", :url => { :controller => "suppliers", 
+                    :action => "mini" }, :html => { :action => url_for(
+                    :controller => "suppliers", :action => "mini") } %>
+<table border="0"><tr><td><%= wrapped_text_field_tag 'Search', 'id' %></td><td valign="bottom"><%= rollover_submit_tag 'Go!'%></td></tr></table>
+</form>
+<table class="tabular">
+    <thead class="tabular">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% if @suppliers.size > 0 %>
+    <%= render :partial => 'mini_line', :collection => @suppliers %>
+    <% else %>
+        <tr>
+            <td colspan="2" class="stripe_even">No suppliers.</td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+</div>

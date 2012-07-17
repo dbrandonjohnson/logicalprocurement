@@ -1,0 +1,37 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% content_for(:page_head) do -%>
+    <%= javascript_include_tag('address_picker', :plugin => 'coupa_engine') %>
+<% end -%>
+
+<%= hidden_field(object_name, method_name + '_id') %>
+<div class="clearfix">
+    <div id="<%= field_root_id %>" style="float: left">
+      <%= "<div class='missing'>" if highlight %>
+        <%= value ? render(:partial => 'addresses/address', :locals => { :address => value }) : content_tag(:span, 'No address selected', :style => "color:#999") %>
+      <%= "</div>" if highlight %>
+    </div>
+    <div style="float: left; padding-left: 1em">
+        <%= small_rollover_link_to_function "Change", "show_address_picker('#{field_root_id}')" %>
+    </div>
+</div>
+
+<div id="<%= field_root_id %>_picker" dojotype="dojo:Dialog" style="display:none">
+    <%= render :partial => 'addresses/picker', :locals => {:field_root_id => field_root_id} %>
+</div>

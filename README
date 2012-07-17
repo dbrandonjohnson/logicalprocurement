@@ -1,0 +1,42 @@
+INTRODUCTION
+
+Thank you for downloading Coupa eProcurement Express! 
+
+INSTALLATION
+
+Before you can run the Coupa eProcurement server, you may need to install some
+prerequisite components. All of the prerequisites are freely available online:
+
+  http://sourceforge.net/project/showfiles.php?group_id=173226&package_id=198389&release_id=523814
+
+For specific instructions for your platform, please read the appropriate file:
+
+  Windows 2000/2003/XP/Vista: Installation_Guide_Express_Edition-Windows.pdf
+
+TECHNICAL QUICK START
+
+1. Install prerequisites
+ * MySQL database v4.0+ (http://www.mysql.com)
+ * Ruby programming language v1.8.5 or 1.8.6 (http://www.ruby-lang.org)
+ * RubyGems package manager for Ruby (http://www.rubygems.org).  Note that the Ruby One-Click Installer may have included RubyGems
+ * Gems to install via RubyGems: 
+   - Ruby on Rails application framework v1.2.3 (gem install rails)
+   - Ferret fulltext search engine (gem install ferret)
+   - Rails Ferret interface (gem install acts_as_ferret) 
+   - Native MySQL database bindings (gem install mysql)
+   - Rich Text Format library (gem install rtf)
+   - VPIM contact library (gem install vpim)
+2. Configure database connection
+  * Create a database for Coupa eProcurement to use in MySQL
+  * Modify database.yml (in the config directory) to point to the database you created
+3. Load the database schema via rake
+  * rake db:schema:load
+4. Load seed data with sample data or blank database
+  * For blank database:  rake db:seed:load SRC=db/blank
+  * For seed data with some sample transactions:  rake db:seed:load   
+5. Start the servers from the directory that you placed the source code
+  * ruby script/backgroundrb/start
+  * ruby script/server 
+6. Start using Coupa
+  * Go to http://127.0.0.1:3000
+  * Log in as username "admin", password "welcome"

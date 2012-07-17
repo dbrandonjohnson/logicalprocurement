@@ -1,0 +1,31 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="new_supplier_dialog" dojotype="dojo:Dialog" style="display:none">
+    <h3 style="font-size: 12pt;font-weight: bold;color: #369;">Enter New Supplier Information</h3>
+    <%= form_remote_tag :url => {:controller => 'suppliers', :action => 'new_supplier'}%>
+    <%= hidden_field_tag 'update_field_root', @update_field_root %>
+    <div id="supplier_form_partial" class="form_response">
+    <%= render :partial => 'suppliers/mini_form' %>
+    </div>
+    <div class="page_buttons_left">
+        <div class="page_button"><%= rollover_link_to_function 'Cancel', "hide_and_destroy('new_supplier_dialog');" %></div>
+        <div class="page_button"><%= rollover_submit_tag 'Save' %></div>
+    </div>
+    </form>
+</div>

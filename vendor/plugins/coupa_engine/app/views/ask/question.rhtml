@@ -1,0 +1,39 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% content_for("page_scripts") do -%>
+<%= javascriptize_helpers [:answer_button, :close_button, :hide_answer_form, :hide_close_form] %>
+<% end -%>
+
+<div id="content">
+    <%= render :partial => 'answers' %>
+
+    <table id="answer_buttons" style="padding-top:1em">
+        <tr>
+            <td><%= rollover_link_to_function('Answer', 'answer_button()') if @question.eligible_to_answer? %></td>
+            <td><%= rollover_link_to_function('Close', 'close_button()') if @question.eligible_to_close? %></td>
+        </tr>
+    </table>
+    <%= render :partial => 'answer_form' %>
+    <%= render :partial => 'close_form' %>
+</div>
+
+<div id="right_col">
+    <%= render_component :controller => 'requisition_headers', :action => 'portlet' %>
+    <%= render_component :controller => 'tag', :action => 'cloud_portlet', :params => {:limit => {:limit => 60}} %>
+</div>

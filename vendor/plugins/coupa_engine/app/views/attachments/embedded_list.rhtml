@@ -1,0 +1,59 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="<%= attachment_name %>_list">
+<% if editable %>
+<table><tr>
+    <td><%#= select_tag %></td>
+    <td><%= file_field_tag "#{@attachment_name}[attachment][file]", :mime_extensions => {} %></td>
+    <% if intents %>
+        <td>&nbsp;Destination</td>
+        <td><%= select_tag "#{attachment_name}[attachment_link][intent]", options_from_collection_for_select(intents,'to_s','to_s') %></td>
+    <% end %>
+</tr></table>
+<%= hidden_field_tag "#{attachment_name}[attachment][file_temp]", nil, :style => 'border:none' %>
+<% end %>
+<% if attachment_links.size > 0 %>
+<table id="<%= attachment_name %>_table" class="tabular">
+<thead class="tabular">
+    <tr>
+          <th>File</th>
+        <% if editable && intents %>
+        <th>Destination</th>
+        <% end %>
+        <% if editable %>
+        <th>&nbsp;</th>
+        <% end %>
+    </tr>
+</thead>
+<tbody>
+<% attachment_links.each_with_index { |attachment_link,c| %>
+  <tr id="attach_<%= attachment_link.id %>"  class="<%= (c % 2) == 0 ? 'stripe_even' : 'stripe_odd' %>">
+    <td><a href="<%= "#{request.relative_url_root}/#{attachment_link.attachment.file_options[:base_url]}/#{attachment_link.attachment.file_relative_path}" %>"><%= h attachment_link.attachment[:file]%></a></td>
+    <% if editable && intents %>
+    <td><%= select_tag "#{attachment_name}[attachment_links][#{attachment_link.id}][intent]", options_from_collection_for_select(intents,'to_s','to_s',attachment_link.intent) %></td>
+    <% end %>
+    <% if editable %>
+    <td><%= link_to_remote image_tag('delete'),  :url => { :controller => 'attachments', :action => 'embedded_destroy', :id => attachment_link }, :confirm => 'Are you sure?'  %></td>
+    <% end %>
+  </tr>
+<% } %>
+</tbody>
+</table>
+<% end %>
+</div>

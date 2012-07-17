@@ -1,0 +1,21 @@
+--- 
+catalog_items_001: 
+  form_id: 
+  uom_id: 1
+  name: Coupa Demodata Product Name
+  catalog_header_id: 2
+  source_part_num: sample-1
+  updated_at: 2007-03-02 17:44:59 Z
+  list_price: "9.99"
+  created_by: 
+  cached_at: 
+  updated_by: 1
+  product_reviews_count: 1
+  id: 2320
+  description: This is a sample item description that the user would see.
+  list_price_currency_id: 1
+  contract_id: 1
+  lead_time: 
+  image: 
+  created_at: 
+  avg_rating: 100.0

@@ -1,0 +1,55 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    <h3>Requisitions</h3>
+    <%= form_tag :controller => 'user', :action => 'account' %>
+    <table border="0"><tr><td><label for="list_mode"><b>View:</b></label></td><td><select name="list_mode" id="list_mode">
+        <option value="open"<%= @list_mode == 'open' ? 'selected' : ''%>>Open Reqs</option>
+        <option value="pending_approval"<%= @list_mode == 'pending_approval' ? 'selected' : ''%>>Reqs Pending Approval</option>
+        <option value="pending_receipt"<%= @list_mode == 'pending_receipt' ? 'selected' : ''%>>Reqs Pending Receipt</option>
+        <option value="completed" <%= @list_mode == 'completed' ? 'selected' : ''%>>Ordered Reqs</option>
+        <option value="all" <%= @list_mode == 'all' ? 'selected' : ''%>>All Reqs</option>
+        </select></td><td><%= rollover_submit_tag 'Go!' %></td></tr></table>
+    </form>
+    <% if @requisition_header_pages.length > 1 %>
+    <div style="padding:5px;border:1px solid #cce;border-bottom:none">
+<%= pagination_links_each(@requisition_header_pages,{}) do |n|
+           link_to(n.to_s,:page => n,:list_mode => @list_mode)
+        end
+%>
+    </div>
+    <% end %>
+    <div style="border:1px solid #cce">
+    <%= render :partial => 'req', :collection => @requisition_headers, :spacer_template => 'req_spacer' %>
+    </div>
+</div>
+<div id="right_col">
+    <div class="portlet">
+        <div class="portlet_header">
+            <h3>My Content</h3>
+        </div>
+        <div class="portlet_body">
+            <br/>
+            <ul style="line-height:12pt;">
+                <li><%= link_to 'Tags', :controller => 'tag', :action => 'manage' %></li>
+                <li><%= link_to 'Employee Reviews', :controller => 'product_reviews', :action => 'manage' %></li>
+            </ul><br/>
+        </div>
+    </div>
+</div>

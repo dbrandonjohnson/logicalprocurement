@@ -1,0 +1,904 @@
+--- 
+permissions_roles_004: 
+  role_id: "2"
+  permission_id: "1"
+permissions_roles_030: 
+  role_id: "2"
+  permission_id: "27"
+permissions_roles_111: 
+  role_id: "3"
+  permission_id: "354"
+permissions_roles_300: 
+  role_id: "4"
+  permission_id: "788"
+permissions_roles_005: 
+  role_id: "2"
+  permission_id: "2"
+permissions_roles_031: 
+  role_id: "2"
+  permission_id: "28"
+permissions_roles_112: 
+  role_id: "3"
+  permission_id: "1065"
+permissions_roles_301: 
+  role_id: "4"
+  permission_id: "789"
+permissions_roles_006: 
+  role_id: "2"
+  permission_id: "3"
+permissions_roles_032: 
+  role_id: "3"
+  permission_id: "876"
+permissions_roles_113: 
+  role_id: "3"
+  permission_id: "1067"
+permissions_roles_220: 
+  role_id: "4"
+  permission_id: "935"
+permissions_roles_007: 
+  role_id: "2"
+  permission_id: "4"
+permissions_roles_033: 
+  role_id: "3"
+  permission_id: "877"
+permissions_roles_114: 
+  role_id: "3"
+  permission_id: "1068"
+permissions_roles_140: 
+  role_id: "4"
+  permission_id: "881"
+permissions_roles_221: 
+  role_id: "4"
+  permission_id: "767"
+permissions_roles_008: 
+  role_id: "2"
+  permission_id: "5"
+permissions_roles_034: 
+  role_id: "3"
+  permission_id: "882"
+permissions_roles_060: 
+  role_id: "3"
+  permission_id: "1001"
+permissions_roles_115: 
+  role_id: "3"
+  permission_id: "1072"
+permissions_roles_141: 
+  role_id: "4"
+  permission_id: "882"
+permissions_roles_222: 
+  role_id: "4"
+  permission_id: "768"
+permissions_roles_223: 
+  role_id: "4"
+  permission_id: "769"
+permissions_roles_009: 
+  role_id: "2"
+  permission_id: "6"
+permissions_roles_035: 
+  role_id: "3"
+  permission_id: "883"
+permissions_roles_061: 
+  role_id: "3"
+  permission_id: "1002"
+permissions_roles_116: 
+  role_id: "3"
+  permission_id: "701"
+permissions_roles_142: 
+  role_id: "4"
+  permission_id: "883"
+permissions_roles_250: 
+  role_id: "4"
+  permission_id: "944"
+permissions_roles_224: 
+  role_id: "4"
+  permission_id: "771"
+permissions_roles_036: 
+  role_id: "3"
+  permission_id: "964"
+permissions_roles_062: 
+  role_id: "3"
+  permission_id: "1003"
+permissions_roles_117: 
+  role_id: "3"
+  permission_id: "702"
+permissions_roles_143: 
+  role_id: "4"
+  permission_id: "885"
+permissions_roles_251: 
+  role_id: "4"
+  permission_id: "945"
+permissions_roles_225: 
+  role_id: "4"
+  permission_id: "772"
+permissions_roles_037: 
+  role_id: "3"
+  permission_id: "965"
+permissions_roles_063: 
+  role_id: "3"
+  permission_id: "1006"
+permissions_roles_118: 
+  role_id: "3"
+  permission_id: "706"
+permissions_roles_144: 
+  role_id: "4"
+  permission_id: "964"
+permissions_roles_170: 
+  role_id: "4"
+  permission_id: "1001"
+permissions_roles_252: 
+  role_id: "4"
+  permission_id: "946"
+permissions_roles_226: 
+  role_id: "4"
+  permission_id: "775"
+permissions_roles_038: 
+  role_id: "3"
+  permission_id: "967"
+permissions_roles_064: 
+  role_id: "3"
+  permission_id: "1007"
+permissions_roles_090: 
+  role_id: "3"
+  permission_id: "934"
+permissions_roles_119: 
+  role_id: "3"
+  permission_id: "708"
+permissions_roles_145: 
+  role_id: "4"
+  permission_id: "965"
+permissions_roles_171: 
+  role_id: "4"
+  permission_id: "1002"
+permissions_roles_253: 
+  role_id: "4"
+  permission_id: "947"
+permissions_roles_227: 
+  role_id: "4"
+  permission_id: "776"
+permissions_roles_039: 
+  role_id: "3"
+  permission_id: "970"
+permissions_roles_065: 
+  role_id: "3"
+  permission_id: "1008"
+permissions_roles_091: 
+  role_id: "3"
+  permission_id: "935"
+permissions_roles_146: 
+  role_id: "4"
+  permission_id: "967"
+permissions_roles_172: 
+  role_id: "4"
+  permission_id: "1003"
+permissions_roles_280: 
+  role_id: "4"
+  permission_id: "683"
+permissions_roles_254: 
+  role_id: "4"
+  permission_id: "948"
+permissions_roles_228: 
+  role_id: "4"
+  permission_id: "777"
+permissions_roles_066: 
+  role_id: "3"
+  permission_id: "1011"
+permissions_roles_092: 
+  role_id: "3"
+  permission_id: "769"
+permissions_roles_147: 
+  role_id: "4"
+  permission_id: "970"
+permissions_roles_173: 
+  role_id: "4"
+  permission_id: "1004"
+permissions_roles_281: 
+  role_id: "4"
+  permission_id: "685"
+permissions_roles_255: 
+  role_id: "4"
+  permission_id: "19"
+permissions_roles_229: 
+  role_id: "4"
+  permission_id: "778"
+permissions_roles_067: 
+  role_id: "3"
+  permission_id: "1013"
+permissions_roles_093: 
+  role_id: "3"
+  permission_id: "776"
+permissions_roles_148: 
+  role_id: "4"
+  permission_id: "972"
+permissions_roles_174: 
+  role_id: "4"
+  permission_id: "1005"
+permissions_roles_282: 
+  role_id: "4"
+  permission_id: "687"
+permissions_roles_256: 
+  role_id: "4"
+  permission_id: "20"
+permissions_roles_068: 
+  role_id: "3"
+  permission_id: "1014"
+permissions_roles_094: 
+  role_id: "3"
+  permission_id: "777"
+permissions_roles_149: 
+  role_id: "4"
+  permission_id: "973"
+permissions_roles_175: 
+  role_id: "4"
+  permission_id: "1006"
+permissions_roles_283: 
+  role_id: "4"
+  permission_id: "688"
+permissions_roles_257: 
+  role_id: "4"
+  permission_id: "27"
+permissions_roles_069: 
+  role_id: "3"
+  permission_id: "1015"
+permissions_roles_095: 
+  role_id: "3"
+  permission_id: "595"
+permissions_roles_176: 
+  role_id: "4"
+  permission_id: "1007"
+permissions_roles_284: 
+  role_id: "4"
+  permission_id: "690"
+permissions_roles_258: 
+  role_id: "4"
+  permission_id: "28"
+permissions_roles_096: 
+  role_id: "3"
+  permission_id: "602"
+permissions_roles_177: 
+  role_id: "4"
+  permission_id: "1008"
+permissions_roles_285: 
+  role_id: "4"
+  permission_id: "693"
+permissions_roles_259: 
+  role_id: "4"
+  permission_id: "354"
+permissions_roles_097: 
+  role_id: "3"
+  permission_id: "1042"
+permissions_roles_178: 
+  role_id: "4"
+  permission_id: "1009"
+permissions_roles_286: 
+  role_id: "4"
+  permission_id: "603"
+permissions_roles_098: 
+  role_id: "3"
+  permission_id: "1047"
+permissions_roles_179: 
+  role_id: "4"
+  permission_id: "1010"
+permissions_roles_287: 
+  role_id: "4"
+  permission_id: "604"
+permissions_roles_099: 
+  role_id: "3"
+  permission_id: "1049"
+permissions_roles_288: 
+  role_id: "4"
+  permission_id: "607"
+permissions_roles_289: 
+  role_id: "4"
+  permission_id: "608"
+permissions_roles_100: 
+  role_id: "3"
+  permission_id: "1052"
+permissions_roles_101: 
+  role_id: "3"
+  permission_id: "943"
+permissions_roles_020: 
+  role_id: "2"
+  permission_id: "17"
+permissions_roles_021: 
+  role_id: "2"
+  permission_id: "18"
+permissions_roles_102: 
+  role_id: "3"
+  permission_id: "944"
+permissions_roles_210: 
+  role_id: "4"
+  permission_id: "665"
+permissions_roles_022: 
+  role_id: "2"
+  permission_id: "19"
+permissions_roles_103: 
+  role_id: "3"
+  permission_id: "945"
+permissions_roles_211: 
+  role_id: "4"
+  permission_id: "667"
+permissions_roles_023: 
+  role_id: "2"
+  permission_id: "20"
+permissions_roles_104: 
+  role_id: "3"
+  permission_id: "946"
+permissions_roles_130: 
+  role_id: "3"
+  permission_id: "688"
+permissions_roles_212: 
+  role_id: "4"
+  permission_id: "748"
+permissions_roles_024: 
+  role_id: "2"
+  permission_id: "21"
+permissions_roles_050: 
+  role_id: "3"
+  permission_id: "986"
+permissions_roles_105: 
+  role_id: "3"
+  permission_id: "947"
+permissions_roles_131: 
+  role_id: "3"
+  permission_id: "690"
+permissions_roles_213: 
+  role_id: "4"
+  permission_id: "887"
+permissions_roles_025: 
+  role_id: "2"
+  permission_id: "22"
+permissions_roles_051: 
+  role_id: "3"
+  permission_id: "989"
+permissions_roles_106: 
+  role_id: "3"
+  permission_id: "948"
+permissions_roles_132: 
+  role_id: "3"
+  permission_id: "608"
+permissions_roles_240: 
+  role_id: "4"
+  permission_id: "595"
+permissions_roles_214: 
+  role_id: "4"
+  permission_id: "888"
+permissions_roles_026: 
+  role_id: "2"
+  permission_id: "23"
+permissions_roles_052: 
+  role_id: "3"
+  permission_id: "990"
+permissions_roles_107: 
+  role_id: "3"
+  permission_id: "19"
+permissions_roles_133: 
+  role_id: "3"
+  permission_id: "788"
+permissions_roles_241: 
+  role_id: "4"
+  permission_id: "596"
+permissions_roles_215: 
+  role_id: "4"
+  permission_id: "732"
+permissions_roles_027: 
+  role_id: "2"
+  permission_id: "24"
+permissions_roles_053: 
+  role_id: "3"
+  permission_id: "991"
+permissions_roles_108: 
+  role_id: "3"
+  permission_id: "20"
+permissions_roles_134: 
+  role_id: "3"
+  permission_id: "789"
+permissions_roles_160: 
+  role_id: "4"
+  permission_id: "990"
+permissions_roles_242: 
+  role_id: "4"
+  permission_id: "599"
+permissions_roles_028: 
+  role_id: "2"
+  permission_id: "25"
+permissions_roles_054: 
+  role_id: "3"
+  permission_id: "992"
+permissions_roles_080: 
+  role_id: "3"
+  permission_id: "660"
+permissions_roles_109: 
+  role_id: "3"
+  permission_id: "27"
+permissions_roles_135: 
+  role_id: "4"
+  permission_id: "875"
+permissions_roles_161: 
+  role_id: "4"
+  permission_id: "991"
+permissions_roles_216: 
+  role_id: "4"
+  permission_id: "1060"
+permissions_roles_243: 
+  role_id: "4"
+  permission_id: "600"
+permissions_roles_029: 
+  role_id: "2"
+  permission_id: "26"
+permissions_roles_055: 
+  role_id: "3"
+  permission_id: "994"
+permissions_roles_081: 
+  role_id: "3"
+  permission_id: "661"
+permissions_roles_136: 
+  role_id: "4"
+  permission_id: "876"
+permissions_roles_162: 
+  role_id: "4"
+  permission_id: "992"
+permissions_roles_217: 
+  role_id: "4"
+  permission_id: "932"
+permissions_roles_270: 
+  role_id: "4"
+  permission_id: "708"
+permissions_roles_244: 
+  role_id: "4"
+  permission_id: "602"
+permissions_roles_056: 
+  role_id: "3"
+  permission_id: "995"
+permissions_roles_082: 
+  role_id: "3"
+  permission_id: "664"
+permissions_roles_137: 
+  role_id: "4"
+  permission_id: "877"
+permissions_roles_163: 
+  role_id: "4"
+  permission_id: "994"
+permissions_roles_218: 
+  role_id: "4"
+  permission_id: "933"
+permissions_roles_271: 
+  role_id: "4"
+  permission_id: "709"
+permissions_roles_245: 
+  role_id: "4"
+  permission_id: "1042"
+permissions_roles_057: 
+  role_id: "3"
+  permission_id: "996"
+permissions_roles_083: 
+  role_id: "3"
+  permission_id: "667"
+permissions_roles_138: 
+  role_id: "4"
+  permission_id: "878"
+permissions_roles_164: 
+  role_id: "4"
+  permission_id: "995"
+permissions_roles_190: 
+  role_id: "4"
+  permission_id: "1022"
+permissions_roles_219: 
+  role_id: "4"
+  permission_id: "934"
+permissions_roles_272: 
+  role_id: "4"
+  permission_id: "711"
+permissions_roles_246: 
+  role_id: "4"
+  permission_id: "1047"
+permissions_roles_058: 
+  role_id: "3"
+  permission_id: "997"
+permissions_roles_084: 
+  role_id: "3"
+  permission_id: "887"
+permissions_roles_139: 
+  role_id: "4"
+  permission_id: "880"
+permissions_roles_165: 
+  role_id: "4"
+  permission_id: "996"
+permissions_roles_191: 
+  role_id: "4"
+  permission_id: "1023"
+permissions_roles_273: 
+  role_id: "4"
+  permission_id: "714"
+permissions_roles_247: 
+  role_id: "4"
+  permission_id: "1049"
+permissions_roles_059: 
+  role_id: "3"
+  permission_id: "1000"
+permissions_roles_085: 
+  role_id: "3"
+  permission_id: "888"
+permissions_roles_166: 
+  role_id: "4"
+  permission_id: "997"
+permissions_roles_192: 
+  role_id: "4"
+  permission_id: "1025"
+permissions_roles_274: 
+  role_id: "4"
+  permission_id: "715"
+permissions_roles_248: 
+  role_id: "4"
+  permission_id: "1052"
+permissions_roles_086: 
+  role_id: "3"
+  permission_id: "732"
+permissions_roles_167: 
+  role_id: "4"
+  permission_id: "998"
+permissions_roles_193: 
+  role_id: "4"
+  permission_id: "858"
+permissions_roles_275: 
+  role_id: "4"
+  permission_id: "668"
+permissions_roles_249: 
+  role_id: "4"
+  permission_id: "943"
+permissions_roles_087: 
+  role_id: "3"
+  permission_id: "1060"
+permissions_roles_168: 
+  role_id: "4"
+  permission_id: "999"
+permissions_roles_194: 
+  role_id: "4"
+  permission_id: "859"
+permissions_roles_276: 
+  role_id: "4"
+  permission_id: "669"
+permissions_roles_088: 
+  role_id: "3"
+  permission_id: "932"
+permissions_roles_169: 
+  role_id: "4"
+  permission_id: "1000"
+permissions_roles_195: 
+  role_id: "4"
+  permission_id: "863"
+permissions_roles_277: 
+  role_id: "4"
+  permission_id: "672"
+permissions_roles_089: 
+  role_id: "3"
+  permission_id: "933"
+permissions_roles_196: 
+  role_id: "4"
+  permission_id: "864"
+permissions_roles_278: 
+  role_id: "4"
+  permission_id: "673"
+permissions_roles_197: 
+  role_id: "4"
+  permission_id: "870"
+permissions_roles_279: 
+  role_id: "4"
+  permission_id: "674"
+permissions_roles_198: 
+  role_id: "4"
+  permission_id: "874"
+permissions_roles_199: 
+  role_id: "4"
+  permission_id: "652"
+permissions_roles_010: 
+  role_id: "2"
+  permission_id: "7"
+permissions_roles_011: 
+  role_id: "2"
+  permission_id: "8"
+permissions_roles_012: 
+  role_id: "2"
+  permission_id: "9"
+permissions_roles_200: 
+  role_id: "4"
+  permission_id: "653"
+permissions_roles_013: 
+  role_id: "2"
+  permission_id: "10"
+permissions_roles_120: 
+  role_id: "3"
+  permission_id: "709"
+permissions_roles_201: 
+  role_id: "4"
+  permission_id: "655"
+permissions_roles_014: 
+  role_id: "2"
+  permission_id: "11"
+permissions_roles_040: 
+  role_id: "3"
+  permission_id: "972"
+permissions_roles_121: 
+  role_id: "3"
+  permission_id: "711"
+permissions_roles_202: 
+  role_id: "4"
+  permission_id: "656"
+permissions_roles_015: 
+  role_id: "2"
+  permission_id: "12"
+permissions_roles_041: 
+  role_id: "3"
+  permission_id: "973"
+permissions_roles_122: 
+  role_id: "3"
+  permission_id: "714"
+permissions_roles_203: 
+  role_id: "4"
+  permission_id: "657"
+permissions_roles_230: 
+  role_id: "4"
+  permission_id: "780"
+permissions_roles_016: 
+  role_id: "2"
+  permission_id: "13"
+permissions_roles_042: 
+  role_id: "3"
+  permission_id: "974"
+permissions_roles_123: 
+  role_id: "3"
+  permission_id: "715"
+permissions_roles_204: 
+  role_id: "4"
+  permission_id: "658"
+permissions_roles_231: 
+  role_id: "4"
+  permission_id: "781"
+permissions_roles_017: 
+  role_id: "2"
+  permission_id: "14"
+permissions_roles_043: 
+  role_id: "3"
+  permission_id: "978"
+permissions_roles_124: 
+  role_id: "3"
+  permission_id: "668"
+permissions_roles_150: 
+  role_id: "4"
+  permission_id: "974"
+permissions_roles_205: 
+  role_id: "4"
+  permission_id: "659"
+permissions_roles_232: 
+  role_id: "4"
+  permission_id: "585"
+permissions_roles_018: 
+  role_id: "2"
+  permission_id: "15"
+permissions_roles_044: 
+  role_id: "3"
+  permission_id: "979"
+permissions_roles_070: 
+  role_id: "3"
+  permission_id: "1016"
+permissions_roles_125: 
+  role_id: "3"
+  permission_id: "669"
+permissions_roles_151: 
+  role_id: "4"
+  permission_id: "978"
+permissions_roles_206: 
+  role_id: "4"
+  permission_id: "660"
+permissions_roles_233: 
+  role_id: "4"
+  permission_id: "586"
+permissions_roles_045: 
+  role_id: "3"
+  permission_id: "980"
+permissions_roles_071: 
+  role_id: "3"
+  permission_id: "1017"
+permissions_roles_126: 
+  role_id: "3"
+  permission_id: "672"
+permissions_roles_152: 
+  role_id: "4"
+  permission_id: "979"
+permissions_roles_207: 
+  role_id: "4"
+  permission_id: "661"
+permissions_roles_019: 
+  role_id: "2"
+  permission_id: "16"
+permissions_roles_260: 
+  role_id: "4"
+  permission_id: "1065"
+permissions_roles_234: 
+  role_id: "4"
+  permission_id: "588"
+permissions_roles_046: 
+  role_id: "3"
+  permission_id: "981"
+permissions_roles_072: 
+  role_id: "3"
+  permission_id: "1018"
+permissions_roles_127: 
+  role_id: "3"
+  permission_id: "683"
+permissions_roles_153: 
+  role_id: "4"
+  permission_id: "980"
+permissions_roles_208: 
+  role_id: "4"
+  permission_id: "662"
+permissions_roles_261: 
+  role_id: "4"
+  permission_id: "1067"
+permissions_roles_235: 
+  role_id: "4"
+  permission_id: "589"
+permissions_roles_073: 
+  role_id: "3"
+  permission_id: "1019"
+permissions_roles_128: 
+  role_id: "3"
+  permission_id: "685"
+permissions_roles_154: 
+  role_id: "4"
+  permission_id: "981"
+permissions_roles_180: 
+  role_id: "4"
+  permission_id: "1011"
+permissions_roles_209: 
+  role_id: "4"
+  permission_id: "664"
+permissions_roles_047: 
+  role_id: "3"
+  permission_id: "982"
+permissions_roles_262: 
+  role_id: "4"
+  permission_id: "1068"
+permissions_roles_236: 
+  role_id: "4"
+  permission_id: "590"
+permissions_roles_074: 
+  role_id: "3"
+  permission_id: "1021"
+permissions_roles_129: 
+  role_id: "3"
+  permission_id: "687"
+permissions_roles_155: 
+  role_id: "4"
+  permission_id: "982"
+permissions_roles_181: 
+  role_id: "4"
+  permission_id: "1012"
+permissions_roles_048: 
+  role_id: "3"
+  permission_id: "983"
+permissions_roles_263: 
+  role_id: "4"
+  permission_id: "1072"
+permissions_roles_237: 
+  role_id: "4"
+  permission_id: "592"
+permissions_roles_156: 
+  role_id: "4"
+  permission_id: "983"
+permissions_roles_182: 
+  role_id: "4"
+  permission_id: "1013"
+permissions_roles_049: 
+  role_id: "3"
+  permission_id: "984"
+permissions_roles_075: 
+  role_id: "3"
+  permission_id: "1023"
+permissions_roles_290: 
+  role_id: "4"
+  permission_id: "951"
+permissions_roles_264: 
+  role_id: "4"
+  permission_id: "1036"
+permissions_roles_238: 
+  role_id: "4"
+  permission_id: "593"
+permissions_roles_157: 
+  role_id: "4"
+  permission_id: "984"
+permissions_roles_183: 
+  role_id: "4"
+  permission_id: "1014"
+permissions_roles_076: 
+  role_id: "3"
+  permission_id: "1025"
+permissions_roles_291: 
+  role_id: "4"
+  permission_id: "952"
+permissions_roles_265: 
+  role_id: "4"
+  permission_id: "1037"
+permissions_roles_239: 
+  role_id: "4"
+  permission_id: "594"
+permissions_roles_158: 
+  role_id: "4"
+  permission_id: "986"
+permissions_roles_184: 
+  role_id: "4"
+  permission_id: "1015"
+permissions_roles_077: 
+  role_id: "3"
+  permission_id: "653"
+permissions_roles_292: 
+  role_id: "4"
+  permission_id: "953"
+permissions_roles_266: 
+  role_id: "4"
+  permission_id: "1038"
+permissions_roles_159: 
+  role_id: "4"
+  permission_id: "989"
+permissions_roles_185: 
+  role_id: "4"
+  permission_id: "1016"
+permissions_roles_078: 
+  role_id: "3"
+  permission_id: "655"
+permissions_roles_293: 
+  role_id: "4"
+  permission_id: "954"
+permissions_roles_267: 
+  role_id: "4"
+  permission_id: "701"
+permissions_roles_186: 
+  role_id: "4"
+  permission_id: "1017"
+permissions_roles_079: 
+  role_id: "3"
+  permission_id: "657"
+permissions_roles_294: 
+  role_id: "4"
+  permission_id: "955"
+permissions_roles_268: 
+  role_id: "4"
+  permission_id: "702"
+permissions_roles_187: 
+  role_id: "4"
+  permission_id: "1018"
+permissions_roles_295: 
+  role_id: "4"
+  permission_id: "956"
+permissions_roles_269: 
+  role_id: "4"
+  permission_id: "706"
+permissions_roles_188: 
+  role_id: "4"
+  permission_id: "1019"
+permissions_roles_296: 
+  role_id: "4"
+  permission_id: "957"
+permissions_roles_189: 
+  role_id: "4"
+  permission_id: "1021"
+permissions_roles_297: 
+  role_id: "4"
+  permission_id: "958"
+permissions_roles_298: 
+  role_id: "4"
+  permission_id: "959"
+permissions_roles_001: 
+  role_id: "1"
+  permission_id: "26"
+permissions_roles_299: 
+  role_id: "4"
+  permission_id: "961"
+permissions_roles_002: 
+  role_id: "1"
+  permission_id: "17"
+permissions_roles_003: 
+  role_id: "1"
+  permission_id: "23"
+permissions_roles_110: 
+  role_id: "3"
+  permission_id: "28"

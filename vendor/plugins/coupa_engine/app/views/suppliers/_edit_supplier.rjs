@@ -1,0 +1,27 @@
+# Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+page << "dojo.widget.byId('edit_supplier_dialog').hide();"
+page << "dojo.widget.byId('edit_supplier_dialog').destroy();"
+
+page.replace_html("#{@update_field_root}_name","#{@supplier.name} #{'<i>(Draft)</i>' if @supplier.draft?}")
+page.replace_html("#{@update_field_root}_email",@supplier.primary_contact.email)
+page.replace_html("#{@update_field_root}_address",address_to_html(@supplier.primary_address))                
+page["#{@update_field_root}"].value = @supplier.name
+page["#{@update_field_root}_id"].value = @supplier.id
+page["#{@update_field_root}_edit_btn"].hide if @supplier.active?
+page["#{@update_field_root}_activate_btn"].hide if @supplier.active?
+page.reload_flash

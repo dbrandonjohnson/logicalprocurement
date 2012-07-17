@@ -1,0 +1,28 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+    Welcome back to Coupa eProcurement! You are currently logged in as <%= "punchout user " if session[:punchout] %><%= session[:user].fullname %>. You will need to leave this session and authenticate as the correct buyer in order to proceed with your punchout checkout process.
+    <%= start_form_tag %>
+    <%= wrapped_text_field 'Username', 'user', 'login' %>
+    <%= wrapped_password_field 'Password', 'user', 'password' %>
+    <%= hidden_field_tag 'cxml-urlencoded', params['cxml-urlencoded'] if params['cxml-urlencoded'] %>
+    <%= hidden_field_tag 'cxml-base64', params['cxml-base64'] if params['cxml-base64'] %>
+    <%= rollover_submit_tag 'Sign On' %>
+    <%= end_form_tag %>
+</div>

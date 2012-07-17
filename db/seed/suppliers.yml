@@ -1,0 +1,25 @@
+--- 
+suppliers_001: 
+  status: active
+  name: Supplier ABC - Sample
+  cxml_supplier_domain: 
+  po_method: email
+  primary_contact_id: 1
+  updated_at: 2007-04-09 22:32:35 Z
+  cxml_identity: 
+  on_hold: 
+  invoice_matching_level: 2-way
+  primary_address_id: 18
+  created_by: 1
+  corporate_url: ""
+  cxml_domain: 
+  cxml_url: 
+  updated_by: 1
+  id: 2
+  storefront_url: ""
+  cxml_protocol: 
+  account_number: 
+  cxml_secret: 
+  parent_id: 
+  cxml_supplier_identity: 
+  created_at: 2006-02-22 12:24:00 Z

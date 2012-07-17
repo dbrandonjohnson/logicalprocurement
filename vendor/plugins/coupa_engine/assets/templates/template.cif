@@ -1,0 +1,15 @@
+CIF_I_V3.0	
+CHARSET:	NOT USED
+LOADMODE:	NOT USED
+CODEFORMAT:	NOT USED
+CURRENCY:	USD
+SUPPLIERID_DOMAIN:	NOT USED
+ITEMCOUNT:	NOT USED
+TIMESTAMP:	NOT USED
+UNUOM:	NOT USED
+COMMENTS:	NOT USED
+FIELDNAMES: Supplier Part ID,Item Description,Unit Price,Unit of Measure,Image,ShortName	
+DATA	
+Part ID1,This is a great blue ballpoint pen,10,EA,http://www.coupa.com/blog/Coupa_CMYK.png,Blue Pen	
+Part ID2,This organizer holds all of your office supplies,12.50,EA,http://www.coupa.com/blog/Coupa_CMYK.png,Desk Organizer
+ENDOFDATA	

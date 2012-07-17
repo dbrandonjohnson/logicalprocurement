@@ -1,0 +1,66 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= error_messages_for 'supplier' %>
+<%= error_messages_for 'contact' %>
+<%= error_messages_for 'address' %>
+<%= hidden_field_tag 'publish' %>
+<h3>Name &amp; Relationship</h3>
+<table><tr><td>
+<%= inline_text_field({:name => 'Name', :required => true}, 'supplier', 'name',:id => 'supplier_name')  %>
+<% if @supplier.id %>
+<%= inline_select 'Parent Company', 'supplier', 'parent_id', Supplier.find(:all, :conditions => ['suppliers.id <> ?',@supplier.id]).collect{ |a| [a.name,a.id] }, :include_blank => true %>
+<% else %>
+<%= inline_select 'Parent Company', 'supplier', 'parent_id', Supplier.find_all.collect{ |a| [a.name,a.id] }, :include_blank => true %>
+<% end %>
+<%= inline_text_field({:name => 'Account number', :required => false}, 'supplier', 'account_number') %>
+</td><td valign="top">
+<div><label>On Hold</label><%= check_box 'supplier', 'on_hold' %>
+  <% if @supplier.on_hold -%>
+  <span class="hint">(<% ooh = @supplier.orders_on_hold %><%= ooh %> purchase order<%= ooh == 1 ? '' : 's' %> pending)</span>
+  <% end -%>
+</td></tr></table>
+<h3>Primary Contact</h3>
+<%= inline_text_field({:name => 'First name',:required => true}, 'contact', 'name_given') %>
+<%= inline_text_field({:name => 'Last name',:required => true}, 'contact', 'name_family')  %>
+<%= inline_text_field({:name => 'Email',:required => true}, 'contact', 'email')  %>
+<%= inline_text_field({:name => 'Phone (Work)',:required => false}, 'contact', 'phone_work')  %>
+<%= inline_text_field({:name => 'Phone (Mobile)',:required => false}, 'contact', 'phone_mobile')  %>
+<h3>Primary Address</h3>
+<%= inline_text_field({:name => 'Line 1',:required => true}, 'address', 'street1')  %>
+<%= inline_text_field 'Line 2', 'address', 'street2'  %>
+<%= inline_text_field({:name => 'City',:required => true}, 'address', 'city')  %>
+<%= inline_text_field 'State', 'address', 'state'  %>
+<%= inline_text_field({:name => 'Postal code',:required => true}, 'address', 'postal_code')  %>
+<%= inline_select({:name => 'Country',:required => true}, 'address', 'country_id', Country.find(:all,:order => 'position').collect{ |c| [c.name, c.id]}) %>
+<h3>Additional Settings</h3>
+<%= inline_select('PO Transmission', 'supplier', 'po_method', SuppliersController.po_send_methods, {}, { :onchange => "$F('supplier_po_method') == 'cxml' ? $('cxml').show() : $('cxml').hide();" } ) %>
+
+<%# cXML Authentication info %>
+<div id="cxml" style="clear:both;display:<%= @supplier.po_method == 'cxml' ? 'block' : 'none' %>;">
+<h3>cXML Configuration</h3>
+  <%= inline_text_field({ :name => "PO URL", :required => true }, "supplier", "cxml_url")  %>
+  <%= inline_text_field({ :name => "Our Domain", :required => true }, "supplier", "cxml_domain")  %>
+  <%= inline_text_field({:name => "Our Identity", :required => true}, "supplier", "cxml_identity")  %>
+  <%= inline_text_field({:name => "Supplier Domain", :required => true }, "supplier", "cxml_supplier_domain")  %>
+  <%= inline_text_field({:name => "Supplier Identity", :required => true}, "supplier", "cxml_supplier_identity")  %>
+  <%= inline_text_field({:name => "Shared Secret", :required => true}, "supplier", "cxml_secret")  %>
+  <%= inline_text_field({:name => "Protocol", :required => true }, "supplier", "cxml_protocol")  %>
+</div>
+
+<div style="clear:both"></div>

@@ -1,0 +1,35 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= error_messages_for :exchange_rate %>
+<div class="inline_form_element">
+  <label>From Currency<span class="req"> * </span></label>
+  <%= text_field_selector 'exchange_rate','from_currency' %>
+</div>
+<div class="inline_form_element">
+  <label>To Currency<span class="req"> * </span></label>
+  <%= text_field_selector 'exchange_rate','to_currency' %>
+</div>
+<div class="inline_form_element">
+  <label>Rate<span class="req"> * </span></label>
+  <%= text_field 'exchange_rate','rate' %>
+</div>
+<div class="inline_form_element">
+  <label>Rate date<span class="req"> * </span></label>
+  <%= date_picker_field 'exchange_rate','rate_date' %>
+</div>

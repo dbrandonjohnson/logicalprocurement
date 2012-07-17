@@ -1,0 +1,39 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<ul>
+    <% @catalog_items.each do |catalog_item| -%>
+    <li>
+        <%= image_tag(image_url(catalog_item),{:height => 50, :style => 'float:left;margin-right:2px;'}) %>
+        <span style="font-weight: bold;"><%= h(catalog_item.name) %></span><br/>
+        <span style="color:#999"><%= catalog_item.contract.supplier %></span><br/>
+        <span value="<%= catalog_item.list_price %>" style="color:#999"><%= render_attribute catalog_item.list_price %></span>
+        <span target="item_id" style="display:none"><%= catalog_item.id %></span>
+        <!-- Above is used by req-pool-edit, below is used by edit-cart.  they should converge to what's on top-->
+        <span class="acid" style="display:none"><%= catalog_item.id %></span>
+        <span class="acname" style="display:none"><%= catalog_item.name %></span>
+        <span class="acsupplier_object" style="display:none"><%= catalog_item.contract.supplier %></span>
+        <span class="acprice" style="display:none"><%= render_attribute catalog_item.list_price %></span></span>
+        <span class="accurrency" style="display:none"><%= catalog_item.list_price.currency.code %></span>
+        <span class="acuom" style="display:none"><%= catalog_item.uom.name %></span>
+        <span class="acsupplier_id" style="display:none"><%= catalog_item.contract.supplier.id %></span>
+        <span class="accontract" style="display:none"><%= catalog_item.contract_id %></span>
+        <span class="acleadtime" style="display:none"><%= pluralize(catalog_item.lead_time, "day") if catalog_item.lead_time %></span>
+    </li>
+    <% end -%>
+</ul>

@@ -1,0 +1,56 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div style="clear:both;" class="<%= (req_counter % 2) == 0 ? 'stripe_even' : 'stripe_odd' %>">
+    <table width="95%" border="0">
+        <tr>
+            <td valign="top" width="35%">
+                <b>Req #:</b> <%= link_to(req.id, {:controller => 'requisition_headers', :action => 'show', :id => req.id}, :title => 'Show details' )%><br/>
+                <b>Total:</b> <%= render_attribute req.total, (Currency.find_all_by_enabled_flag(true).size > 1 ? :long : '') %><br/>
+                <b>Submitted At:</b> <%= render_attribute(req.submitted_at ? req.submitted_at.to_date : req.submitted_at) %><br/>
+                <b>Req Status:</b> <%= req.status.humanize %><br/>
+                <% req.requisition_lines.collect{ |line| line.order_line }.compact.
+                    collect{ |line| line.order_header }.compact.uniq.each { |header| %>
+                      <b>Order:</b> <%= [:created,:sent,:acknowledged,:closed].index(header.current_state) ? link_to("##{header.id}", :controller => 'order_headers', :action => 'show', :id => header.id) : "##{header.id}" %> <%= [:cancelled,:supplier_hold,:currency_hold].index(header.current_state) ? '('+header.current_state.to_s.humanize+')' : '' %><br/>
+                <% } if req.ordered?  || req.partially_received? || req.received? %>
+            </td>
+            <td valign="top" width="55%">
+                <b>Items:</b>
+                <ul>
+                    <% req.requisition_lines.each { |line| %>
+                        <% if line.is_a? RequisitionQuantityLine %>
+                            <% if line.catalog_item %>
+                                <li><%= "#{line.formatted_quantity} #{line.uom ? line.uom.name : '(no UOM)'} of #{link_to line.description, :controller => 'catalog_items', :action => 'show', :id => line.catalog_item.id}" %></li>
+                            <% else %>
+                                <li><%= "#{line.formatted_quantity} #{line.uom ? line.uom.name : '(no UOM)'} of #{line.description}" %></li>
+                            <% end %>
+                        <% else %>
+                        <li><%= line.description %></li>
+                        <% end %>
+                    <% }%>
+                </ul>
+            </td>
+            <td valign="top" width="10%">
+                <%= link_to(image_tag('pencil', :title => "Edit requisition ##{req.id}"), {:controller => 'requisition_headers', :action => 'checkout', :id => req.id}, :title => 'Edit/Checkout') if req.status == 'draft' %>
+                <%= link_to_remote(image_tag('email_go', :title => "Resend requisition ##{req.id} for approval"),{:url => {:controller => 'requisition_headers', :action => 'resend', :id => req.id}}, :title => 'Resend approval request', :confirm => "Resend approval request?") if ['pending_approval'].index(req.status) %>
+                <%= link_to(image_tag('arrow_undo', :title => "Withdraw requisition ##{req.id}"), {:controller => 'requisition_headers', :action => 'withdraw', :id => req.id},:title => 'Withdraw', :confirm => "Withdraw requisition?") if ['pending_approval','pending_buyer_action','approved'].index(req.status) %>
+                <%= link_to(image_tag('lorry', :title => "Receive against requisition ##{req.id}"), {:controller => 'receipts', :action => 'receive_requisition', :id => req.id},:title => 'Receive') if ['ordered','partially_received'].index(req.status) %>
+            </td>
+        </tr>
+    </table>
+</div>

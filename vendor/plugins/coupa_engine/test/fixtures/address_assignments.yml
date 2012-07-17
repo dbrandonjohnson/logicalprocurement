@@ -1,0 +1,31 @@
+--- 
+address_assignments_001: 
+  addressable_type: User
+  addressable_id: "1"
+  id: "1"
+  address_id: "1"
+  address_type_id: 
+address_assignments_002: 
+  addressable_type: User
+  addressable_id: "28"
+  id: "13"
+  address_id: "20"
+  address_type_id: 
+address_assignments_003: 
+  addressable_type: Supplier
+  addressable_id: "2"
+  id: "12"
+  address_id: "18"
+  address_type_id: 
+address_assignments_004: 
+  addressable_type: User
+  addressable_id: "2"
+  id: "11"
+  address_id: "19"
+  address_type_id: 
+address_assignments_005: 
+  addressable_type: User
+  addressable_id: "2"
+  id: "10"
+  address_id: "18"
+  address_type_id: 

@@ -1,0 +1,35 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div style="width:180px;float:left;padding:5px;margin:0;" id="catalog_item_<%= gallery_summary.id %>">
+    <div style="height:30px;padding:5px;">
+        <b><%= link_to truncate(gallery_summary.name,45), :controller => 'catalog_items', :action => 'edit', :id => gallery_summary.id %></b>
+    </div>
+    <div style="padding:5px;">
+        <%= image_tag image_url(gallery_summary), :height => 60 %>
+    </div>
+    <table>
+        <tr>
+            <td><b><%= render_attribute gallery_summary.list_price %></b></td>
+            <td><%= small_rollover_link_to_remote 'Delete', :url => { :action => "delete_item", :id => gallery_summary.id } if controller.action_name == 'edit' %></td>
+        </tr>
+    </table>
+    <ul class='star-rating'>
+        <li class='current-rating' style='width:<%= (gallery_summary.avg_rating ||= 0).round * 0.7 %>px;'>&nbsp;</li>
+    </ul>
+</div>

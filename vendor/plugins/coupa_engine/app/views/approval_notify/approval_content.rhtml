@@ -1,0 +1,61 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div class="notification_content">
+    <p><%= @requisition_header.requested_by.fullname %> has submitted the following requisition for your review.</p>
+    <div style="float:left;width:250px;">
+        <h3>Shipping</h3>
+        <div style="padding:10px 15px;">
+            <%= render 'address', {:address => @requisition_header.ship_to_address}%><br/>
+            Attn: <%= nil_on_fail{@requisition_header.ship_to_attention} %>
+        </div>
+    </div>
+    <div style="float:left;width:250px;margin-left:20px;">
+        <h3>Billing</h3>
+        <div style="padding:10px 15px;">
+            <span>Account Code: </span><span><%= @requisition_header.account.code %></span><BR/>
+            <% if @requisition_header.pcard %>
+                <span>P-Card: </span><span><%= @requisition_header.pcard.number_masked %></span>
+            <% end %>
+        </div>        
+    </div>
+    <div style="clear:left">
+        <h3>Cart&nbsp;&nbsp;</h3>
+        <div style="padding:10px 15px;">
+            <%= render 'cart' %>
+        </div>
+        <h3>Approvals</h3>
+        <div style="padding:10px 15px;">
+            <div style="clear:both">
+                <%= render 'approver' %>
+            </div>
+        </div>
+        <% unless @requisition_header.justification.blank? %>
+          <h3>Justification</h3>
+          <div style="padding:10px 15px;">
+              <%= @requisition_header.justification %>
+          </div>
+        <% end %>
+        <% if @requisition_header.attachments.size > 0 %>
+          <h3>Attachments</h3>
+          <div style="padding:10px 15px;">
+             <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => @requisition_header, :attachment_name => 'requisition_header'} %>
+          </div>
+        <% end %>
+    </div>
+</div>

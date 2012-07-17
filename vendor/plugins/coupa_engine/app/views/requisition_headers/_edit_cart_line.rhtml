@@ -1,0 +1,153 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% @requisition_line = edit_cart_line %>
+<% if !@requisition_line.id.nil? %>
+<tr id="<%=  "req_line_#{@requisition_line.id}" %>" class="<%= (edit_cart_line_counter%2 == 0 ? "stripe_even" : "stripe_odd")%>">
+    <td align="center"><%= link_to_function image_tag('live_tree_branch_collapsed_icon.gif'),
+     "Effect.toggle('requisition_line_#{@requisition_line.id}_more','appear',{duration:0.5});" %>
+            <div id="requisition_line_<%= @requisition_line.id %>_more"
+                style="position:absolute;left:0%;text-align:left;display:none"
+                class="form_properties">
+                <div class="form_properties_title">Additional Information</div>
+                <% if !@requisition_line.catalog_item.blank? then %>
+                <div class="wrapped_form_element">
+                    <label>Supplier</label>
+                    <%= @requisition_line.supplier.name %>
+                </div>
+                <% else %>
+                <%= wrapped_text_field 'Suggested Suppliers', 'requisition_line[]', 'suggested_suppliers'%>
+                <% end %>
+                <div class="wrapped_form_element">
+                    <label>Attachments</label>
+                    <%= render_component :controller => 'attachments', :action => 'embedded_list', 
+                        :params => {:editable => true, :attach_to => @requisition_line, :field_object => 'requisition_line[]'} %>
+                </div>
+            </div>
+    </td>
+    <td align="center"><%= image_tag(@requisition_line.class.type_icon) %>
+    </td>
+    <td><%= (@requisition_line.catalog_item.nil? ? text_field("requisition_line[]", "description") : 
+            link_to( @requisition_line.catalog_item.name, :controller => 'catalog_items', :action => 'show',
+            :id => @requisition_line.catalog_item.id)) %>
+    </td>
+    <td><% if @requisition_line.is_a? RequisitionQuantityLine then
+            <%= text_field("requisition_line[]", "quantity", :size => 5)  %>
+         <%  else %>&nbsp;<% end %></td>
+    <td nowrap="nowrap"><%=  @requisition_line.is_a?(RequisitionQuantityLine) ? 
+                        ((@requisition_line.catalog_item.nil?) ? tag(:input, { "type" => "text", 
+                          "name" => "requisition_line[#{@requisition_line.id}][uom]", 
+                          "id" => "requisition_line_#{@requisition_line.id}_uom", 
+                          "value" => @requisition_line.uom ? 
+                            @requisition_line.uom.name : 
+                            Uom.find_by_code("EA").name, 
+                          "size" => 5,
+                          "autocomplete" => "off" }) +
+            "<div id=\"requisition_line_#{@requisition_line.id}_uom_auto_complete\" class=\"autocomplete\" style=\"white-space:normal;\"></div>&nbsp;"+
+                 image_tag('spinner.gif', 
+                    :id => "requisition_line_#{@requisition_line.id}_uom_wait", 
+                    :style => "display:none;")+
+                auto_complete_field("requisition_line_#{@requisition_line.id}_uom", 
+                    :url => {:controller => 'uoms', :action => 'auto_complete'},
+                    :indicator => "requisition_line_#{@requisition_line.id}_uom_wait",
+                    :param_name => 'id' )  : 
+            @requisition_line.uom.name) : '&nbsp;' %></td>
+    <td align="right"><%= (@requisition_line.is_a?(RequisitionQuantityLine) &&
+                             !@requisition_line.catalog_item.nil?) ?
+                             render_attribute(@requisition_line.unit_price) : 
+                            text_field("requisition_line[]", "unit_price", :size => 5) %></td>
+    <td align="right"><%= render_attribute @requisition_line.total %></td>
+    <td align="center"><%= link_to_remote(image_tag('delete.png'),
+                :url =>{
+                    :controller =>"requisition_headers",
+                    :action=>"remove",
+                    :id=>@requisition_header.id,
+                    :line_id=>@requisition_line.id}) %></td>
+<% else 
+    # a new, unsaved line
+    # TODO: make this less hacky
+    temp_id = rand(100000)  
+%>
+<tr id="<%= "new_line_#{temp_id}" %>" class="<%= (edit_cart_line_counter%2 == 0 ? "stripe_even" : "stripe_odd")%>">
+    <td align="center"><%= link_to_function image_tag('live_tree_branch_collapsed_icon.gif'),
+     "Effect.toggle('new_line_#{temp_id}_more','appear',{duration:0.5});" %><div id="new_line_<%= temp_id %>_more"
+        style="position:absolute;left:0%;text-align:left;display:none"
+        class="form_properties">
+        <div class="form_properties_title">Additional Information</div>
+        <div class="wrapped_form_element"><label>Suggested Suppliers</label><br/><%= tag :input, { "type" => "text", 
+                              "name" => "new_line[#{temp_id}][suggested_suppliers]",
+                               "id" => "new_line_#{temp_id}_suggested_suppliers", 
+                              "size" => 30 } %>
+        </div>
+        <div class="wrapped_form_element">
+            <label>Attachments</label>
+            <%= render_component :controller => 'attachments', :action => 'embedded_list', 
+                :params => {:editable => true, :attach_to => @requisition_line, :field_object => 'requisition_line[]'} %>
+        </div>
+    </div>
+    </td>
+    <td align="center"><%=
+            select_tag("new_line[#{temp_id}][type]","<option value=\"quantity\" selected=\"selected\">1,2,3</option><option value=\"amount\">$</option>",:id => "new_line_#{temp_id}_type", :style => "font-size:8pt;", :class => "change_line_type")
+ %>
+    </td>
+    <td nowrap="nowrap"><%= tag :input, { "type" => "text", 
+                          "name" => "new_line[#{temp_id}][description]", 
+                          "id" => "new_line_#{temp_id}_description", 
+                          "size" => 28, 
+                          "autocomplete" => "off",
+                          "class" => "accatalog_item" } %>
+        <div id="new_line_<%= temp_id %>_description_auto_complete" 
+            class="autocomplete" style="white-space:normal;"></div>&nbsp;<%= 
+                image_tag('spinner.gif', 
+                    :id => "new_line_#{temp_id}_description_wait", 
+                    :style => "display:none;")%><%= 
+                auto_complete_field("new_line_#{temp_id}_description", 
+                    :url => {:controller => 'catalog_items', :action => 'auto_complete'},
+                    :param_name => 'id', 
+                    :indicator => "new_line_#{temp_id}_description_wait",
+                    :after_update_element => 'capture_catalog_item_data', :select => 'acname' ) %></td>
+    <td><%= tag :input, { "type" => "text", 
+                          "name" => "new_line[#{temp_id}][quantity]",
+                           "id" => "new_line_#{temp_id}_quantity", 
+                          "value" => 1, 
+                          "size" => 5 } %><%=
+            tag :input, { "type" => "hidden", 
+                          "id" => "new_line_#{temp_id}_catalog_item", 
+                          "name" => "new_line[#{temp_id}][catalog_item]" } %></td>
+    <td nowrap="nowrap"><%= tag :input, { "type" => "text", 
+                          "name" => "new_line[#{temp_id}][uom]", 
+                          "id" => "new_line_#{temp_id}_uom", 
+                          "value" => Uom.find_by_code("EA").name, 
+                          "size" => 5,
+                          "autocomplete" => "off" }  %>
+            <div id="new_line_<%= temp_id %>_uom_auto_complete" class="autocomplete" style="white-space:normal;"></div>&nbsp;<%=
+                 image_tag('spinner.gif', 
+                    :id => "new_line_#{temp_id}_uom_wait", 
+                    :style => "display:none;")%><%=
+                auto_complete_field("new_line_#{temp_id}_uom", 
+                    :url => {:controller => 'uoms', :action => 'auto_complete'},
+                    :indicator => "new_line_#{temp_id}_uom_wait",
+                    :param_name => 'id' ) %></td>
+    <td align="right"><%= tag :input, { "type" => "text", "name" => "new_line[#{temp_id}][unit_price]", 
+                        "id" => "new_line_#{temp_id}_unit_price", "size" => 5 } %></td>
+    <td align="right"><%= render_attribute @requisition_line.total %></td>
+    <td align="center"><%= link_to_function( image_tag('delete.png'), update_page { |page|
+                         page.remove("new_line_#{temp_id}") 
+                        page << 'EventSelectors.assign(Rules);' }) %></td>
+<% end %>
+</tr>

@@ -1,0 +1,2741 @@
+--- 
+permissions_510: 
+  action: start
+  id: "1037"
+  description: 
+  controller: data_sources
+permissions_320: 
+  action: list
+  id: "847"
+  description: 
+  controller: account_field_types
+permissions_130: 
+  action: tags
+  id: "657"
+  description: 
+  controller: catalog_items
+permissions_511: 
+  action: index
+  id: "1038"
+  description: 
+  controller: data_sources
+permissions_321: 
+  action: edit
+  id: "848"
+  description: 
+  controller: account_field_types
+permissions_131: 
+  action: destroy
+  id: "658"
+  description: 
+  controller: catalog_items
+permissions_512: 
+  action: set_charset
+  id: "1039"
+  description: 
+  controller: data_sources
+permissions_322: 
+  action: destroy
+  id: "849"
+  description: 
+  controller: account_field_types
+permissions_132: 
+  action: create
+  id: "659"
+  description: 
+  controller: catalog_items
+permissions_513: 
+  action: add_url_params
+  id: "1040"
+  description: 
+  controller: data_sources
+permissions_370: 
+  action: edit
+  id: "897"
+  description: 
+  controller: requisition_line_templates
+permissions_180: 
+  action: create
+  id: "707"
+  description: 
+  controller: punchout
+permissions_323: 
+  action: create
+  id: "850"
+  description: 
+  controller: account_field_types
+permissions_133: 
+  action: tags_search
+  id: "660"
+  description: 
+  controller: catalog_items
+permissions_514: 
+  action: new
+  id: "1041"
+  description: 
+  controller: accounts
+permissions_371: 
+  action: related
+  id: "898"
+  description: 
+  controller: requisition_line_templates
+permissions_181: 
+  action: test
+  id: "708"
+  description: 
+  controller: punchout
+permissions_324: 
+  action: show
+  id: "851"
+  description: 
+  controller: account_field_types
+permissions_134: 
+  action: show
+  id: "661"
+  description: 
+  controller: catalog_items
+permissions_515: 
+  action: list
+  id: "1042"
+  description: 
+  controller: accounts
+permissions_372: 
+  action: destroy
+  id: "899"
+  description: 
+  controller: requisition_line_templates
+permissions_182: 
+  action: index
+  id: "709"
+  description: 
+  controller: punchout
+permissions_325: 
+  action: index
+  id: "852"
+  description: 
+  controller: account_field_types
+permissions_135: 
+  action: index
+  id: "662"
+  description: 
+  controller: catalog_items
+permissions_516: 
+  action: search
+  id: "1043"
+  description: 
+  controller: accounts
+permissions_373: 
+  action: add_to_requisition
+  id: "900"
+  description: 
+  controller: requisition_line_templates
+permissions_183: 
+  action: set_charset
+  id: "710"
+  description: 
+  controller: punchout
+permissions_326: 
+  action: set_charset
+  id: "853"
+  description: 
+  controller: account_field_types
+permissions_136: 
+  action: set_charset
+  id: "663"
+  description: 
+  controller: catalog_items
+permissions_374: 
+  action: create
+  id: "901"
+  description: 
+  controller: requisition_line_templates
+permissions_184: 
+  action: go
+  id: "711"
+  description: 
+  controller: punchout
+permissions_327: 
+  action: update
+  id: "854"
+  description: 
+  controller: account_field_types
+permissions_137: 
+  action: tags_add
+  id: "664"
+  description: 
+  controller: catalog_items
+permissions_517: 
+  action: edit
+  id: "1044"
+  description: 
+  controller: accounts
+permissions_375: 
+  action: country_options_for_select
+  id: "902"
+  description: 
+  controller: requisition_line_templates
+permissions_185: 
+  action: update
+  id: "712"
+  description: 
+  controller: punchout
+permissions_328: 
+  action: add_url_params
+  id: "855"
+  description: 
+  controller: account_field_types
+permissions_138: 
+  action: update
+  id: "665"
+  description: 
+  controller: catalog_items
+permissions_518: 
+  action: load_file
+  id: "1045"
+  description: 
+  controller: accounts
+permissions_376: 
+  action: collection_select
+  id: "903"
+  description: 
+  controller: requisition_line_templates
+permissions_186: 
+  action: add_url_params
+  id: "713"
+  description: 
+  controller: punchout
+permissions_329: 
+  action: time_zone_select
+  id: "856"
+  description: 
+  controller: buying
+permissions_139: 
+  action: add_url_params
+  id: "666"
+  description: 
+  controller: catalog_items
+permissions_519: 
+  action: destroy
+  id: "1046"
+  description: 
+  controller: accounts
+permissions_377: 
+  action: show
+  id: "904"
+  description: 
+  controller: requisition_line_templates
+permissions_187: 
+  action: login
+  id: "714"
+  description: 
+  controller: punchout
+permissions_378: 
+  action: index
+  id: "905"
+  description: 
+  controller: requisition_line_templates
+permissions_188: 
+  action: checkout
+  id: "715"
+  description: 
+  controller: punchout
+permissions_001: 
+  action: new
+  id: "1"
+  description: 
+  controller: role
+permissions_379: 
+  action: options_for_select
+  id: "906"
+  description: 
+  controller: requisition_line_templates
+permissions_189: 
+  action: new
+  id: "716"
+  description: 
+  controller: attachment_links
+permissions_002: 
+  action: list
+  id: "2"
+  description: 
+  controller: role
+permissions_430: 
+  action: show
+  id: "957"
+  description: 
+  controller: contracts
+permissions_240: 
+  action: new
+  id: "767"
+  description: 
+  controller: order_headers
+permissions_050: 
+  action: add_url_params
+  id: "431"
+  description: 
+  controller: user
+permissions_003: 
+  action: edit
+  id: "3"
+  description: 
+  controller: role
+permissions_431: 
+  action: auto_complete_for_supplier_name
+  id: "958"
+  description: 
+  controller: contracts
+permissions_241: 
+  action: list
+  id: "768"
+  description: 
+  controller: order_headers
+permissions_051: 
+  action: add_url_params
+  id: "451"
+  description: 
+  controller: permission
+permissions_004: 
+  action: destroy
+  id: "4"
+  description: 
+  controller: role
+permissions_432: 
+  action: index
+  id: "959"
+  description: 
+  controller: contracts
+permissions_242: 
+  action: create_from_req
+  id: "769"
+  description: 
+  controller: order_headers
+permissions_052: 
+  action: add_url_params
+  id: "452"
+  description: 
+  controller: role
+permissions_005: 
+  action: show
+  id: "5"
+  description: 
+  controller: role
+permissions_480: 
+  action: subscriptions
+  id: "1007"
+  description: 
+  controller: ask
+permissions_433: 
+  action: set_charset
+  id: "960"
+  description: 
+  controller: contracts
+permissions_290: 
+  action: list
+  id: "817"
+  description: 
+  controller: approvals
+permissions_243: 
+  action: mini
+  id: "770"
+  description: 
+  controller: order_headers
+permissions_053: 
+  action: load_file
+  id: "486"
+  description: 
+  controller: user
+permissions_006: 
+  action: index
+  id: "6"
+  description: 
+  controller: role
+permissions_481: 
+  action: questions_answered
+  id: "1008"
+  description: 
+  controller: ask
+permissions_434: 
+  action: update
+  id: "961"
+  description: 
+  controller: contracts
+permissions_291: 
+  action: edit
+  id: "818"
+  description: 
+  controller: approvals
+permissions_244: 
+  action: search
+  id: "771"
+  description: 
+  controller: order_headers
+permissions_054: 
+  action: bulk_loader
+  id: "487"
+  description: 
+  controller: user
+permissions_007: 
+  action: new
+  id: "7"
+  description: 
+  controller: permission
+permissions_482: 
+  action: delete_question
+  id: "1009"
+  description: 
+  controller: ask
+permissions_435: 
+  action: add_url_params
+  id: "962"
+  description: 
+  controller: contracts
+permissions_292: 
+  action: destroy
+  id: "819"
+  description: 
+  controller: approvals
+permissions_245: 
+  action: edit
+  id: "772"
+  description: 
+  controller: order_headers
+permissions_055: 
+  action: load_progress
+  id: "488"
+  description: 
+  controller: user
+permissions_008: 
+  action: list
+  id: "8"
+  description: 
+  controller: permission
+permissions_483: 
+  action: subscribers
+  id: "1010"
+  description: 
+  controller: ask
+permissions_436: 
+  action: email_template
+  id: "963"
+  description: 
+  controller: requisition_headers
+permissions_293: 
+  action: create
+  id: "820"
+  description: 
+  controller: approvals
+permissions_246: 
+  action: destroy
+  id: "773"
+  description: 
+  controller: order_headers
+permissions_056: 
+  action: index
+  id: "489"
+  description: 
+  controller: user
+permissions_009: 
+  action: edit
+  id: "9"
+  description: 
+  controller: permission
+permissions_484: 
+  action: post_question
+  id: "1011"
+  description: 
+  controller: ask
+permissions_437: 
+  action: submit_for_approval
+  id: "964"
+  description: 
+  controller: requisition_headers
+permissions_294: 
+  action: show
+  id: "821"
+  description: 
+  controller: approvals
+permissions_247: 
+  action: supplier_view
+  id: "774"
+  description: 
+  controller: order_headers
+permissions_057: 
+  action: list_csv
+  id: "490"
+  description: 
+  controller: user
+permissions_485: 
+  action: create_category
+  id: "1012"
+  description: 
+  controller: ask
+permissions_438: 
+  action: new
+  id: "965"
+  description: 
+  controller: requisition_headers
+permissions_295: 
+  action: index
+  id: "822"
+  description: 
+  controller: approvals
+permissions_248: 
+  action: create
+  id: "775"
+  description: 
+  controller: order_headers
+permissions_058: 
+  action: new
+  id: "585"
+  description: 
+  controller: suppliers
+permissions_486: 
+  action: question
+  id: "1013"
+  description: 
+  controller: ask
+permissions_439: 
+  action: escape_javascript
+  id: "966"
+  description: 
+  controller: requisition_headers
+permissions_296: 
+  action: set_charset
+  id: "823"
+  description: 
+  controller: approvals
+permissions_249: 
+  action: show
+  id: "776"
+  description: 
+  controller: order_headers
+permissions_059: 
+  action: list
+  id: "586"
+  description: 
+  controller: suppliers
+permissions_487: 
+  action: categories
+  id: "1014"
+  description: 
+  controller: ask
+permissions_297: 
+  action: update
+  id: "824"
+  description: 
+  controller: approvals
+permissions_488: 
+  action: index
+  id: "1015"
+  description: 
+  controller: ask
+permissions_298: 
+  action: add_url_params
+  id: "825"
+  description: 
+  controller: approvals
+permissions_300: 
+  action: list
+  id: "827"
+  description: 
+  controller: order_lines
+permissions_110: 
+  action: index
+  id: "637"
+  description: 
+  controller: uoms
+permissions_489: 
+  action: unsubscribe_from_subscribers
+  id: "1016"
+  description: 
+  controller: ask
+permissions_301: 
+  action: edit
+  id: "828"
+  description: 
+  controller: order_lines
+permissions_111: 
+  action: set_charset
+  id: "638"
+  description: 
+  controller: uoms
+permissions_299: 
+  action: new
+  id: "826"
+  description: 
+  controller: order_lines
+permissions_302: 
+  action: destroy
+  id: "829"
+  description: 
+  controller: order_lines
+permissions_112: 
+  action: update
+  id: "639"
+  description: 
+  controller: uoms
+permissions_540: 
+  action: dialog_form
+  id: "1067"
+  description: 
+  controller: addresses
+permissions_350: 
+  action: search
+  id: "877"
+  description: 
+  controller: policies
+permissions_160: 
+  action: remove_tagging
+  id: "687"
+  description: 
+  controller: tag
+permissions_303: 
+  action: create
+  id: "830"
+  description: 
+  controller: order_lines
+permissions_113: 
+  action: add_url_params
+  id: "640"
+  description: 
+  controller: uoms
+permissions_541: 
+  action: choose
+  id: "1068"
+  description: 
+  controller: addresses
+permissions_351: 
+  action: edit
+  id: "878"
+  description: 
+  controller: policies
+permissions_161: 
+  action: cloud_portlet
+  id: "688"
+  description: 
+  controller: tag
+permissions_304: 
+  action: show
+  id: "831"
+  description: 
+  controller: order_lines
+permissions_114: 
+  action: auto_complete
+  id: "641"
+  description: 
+  controller: uoms
+permissions_542: 
+  action: create
+  id: "1069"
+  description: 
+  controller: addresses
+permissions_352: 
+  action: related
+  id: "879"
+  description: 
+  controller: policies
+permissions_162: 
+  action: add_url_params
+  id: "689"
+  description: 
+  controller: tag
+permissions_305: 
+  action: index
+  id: "832"
+  description: 
+  controller: order_lines
+permissions_115: 
+  action: new
+  id: "642"
+  description: 
+  controller: account_types
+permissions_543: 
+  action: show
+  id: "1070"
+  description: 
+  controller: addresses
+permissions_353: 
+  action: destroy
+  id: "880"
+  description: 
+  controller: policies
+permissions_163: 
+  action: tag_cloud
+  id: "690"
+  description: 
+  controller: tag
+permissions_306: 
+  action: set_charset
+  id: "833"
+  description: 
+  controller: order_lines
+permissions_116: 
+  action: list
+  id: "643"
+  description: 
+  controller: account_types
+permissions_544: 
+  action: index
+  id: "1071"
+  description: 
+  controller: addresses
+permissions_354: 
+  action: create
+  id: "881"
+  description: 
+  controller: policies
+permissions_164: 
+  action: concat
+  id: "691"
+  description: 
+  controller: tag
+permissions_307: 
+  action: update
+  id: "834"
+  description: 
+  controller: order_lines
+permissions_117: 
+  action: edit
+  id: "644"
+  description: 
+  controller: account_types
+permissions_545: 
+  action: create_from_dialog
+  id: "1072"
+  description: 
+  controller: addresses
+permissions_355: 
+  action: show
+  id: "882"
+  description: 
+  controller: policies
+permissions_165: 
+  action: sanitize
+  id: "692"
+  description: 
+  controller: tag
+permissions_118: 
+  action: destroy
+  id: "645"
+  description: 
+  controller: account_types
+permissions_546: 
+  action: set_charset
+  id: "1073"
+  description: 
+  controller: addresses
+permissions_356: 
+  action: index
+  id: "883"
+  description: 
+  controller: policies
+permissions_166: 
+  action: admin_remove_taggings
+  id: "693"
+  description: 
+  controller: tag
+permissions_308: 
+  action: add_url_params
+  id: "835"
+  description: 
+  controller: order_lines
+permissions_119: 
+  action: create
+  id: "646"
+  description: 
+  controller: account_types
+permissions_547: 
+  action: update
+  id: "1074"
+  description: 
+  controller: addresses
+permissions_357: 
+  action: set_charset
+  id: "884"
+  description: 
+  controller: policies
+permissions_167: 
+  action: auto_link
+  id: "694"
+  description: 
+  controller: tag
+permissions_309: 
+  action: new
+  id: "836"
+  description: 
+  controller: catalog_headers
+permissions_548: 
+  action: add_url_params
+  id: "1075"
+  description: 
+  controller: addresses
+permissions_358: 
+  action: update
+  id: "885"
+  description: 
+  controller: policies
+permissions_168: 
+  action: textilize_without_paragraph
+  id: "695"
+  description: 
+  controller: tag
+permissions_359: 
+  action: add_url_params
+  id: "886"
+  description: 
+  controller: policies
+permissions_169: 
+  action: truncate
+  id: "696"
+  description: 
+  controller: tag
+permissions_410: 
+  action: add_url_params
+  id: "937"
+  description: 
+  controller: inbox
+permissions_220: 
+  action: set_charset
+  id: "747"
+  description: 
+  controller: administration
+permissions_030: 
+  action: set_charset
+  id: "272"
+  description: 
+  controller: user
+permissions_411: 
+  action: popup
+  id: "938"
+  description: 
+  controller: form_responses
+permissions_221: 
+  action: home
+  id: "748"
+  description: 
+  controller: administration
+permissions_031: 
+  action: set_charset
+  id: "293"
+  description: 
+  controller: permission
+permissions_412: 
+  action: update_popup
+  id: "939"
+  description: 
+  controller: form_responses
+permissions_222: 
+  action: add_url_params
+  id: "749"
+  description: 
+  controller: administration
+permissions_032: 
+  action: set_charset
+  id: "294"
+  description: 
+  controller: role
+permissions_460: 
+  action: button_to_function
+  id: "987"
+  description: 
+  controller: requisition_headers
+permissions_413: 
+  action: pop_popup
+  id: "940"
+  description: 
+  controller: form_responses
+permissions_270: 
+  action: list
+  id: "797"
+  description: 
+  controller: catalog_attributes
+permissions_080: 
+  action: remove_review
+  id: "607"
+  description: 
+  controller: objections
+permissions_223: 
+  action: invalid_credentials
+  id: "750"
+  description: 
+  controller: punchin
+permissions_033: 
+  action: word_wrap
+  id: "353"
+  description: 
+  controller: user
+permissions_461: 
+  action: set_charset
+  id: "988"
+  description: 
+  controller: requisition_headers
+permissions_414: 
+  action: set_charset
+  id: "941"
+  description: 
+  controller: form_responses
+permissions_271: 
+  action: edit
+  id: "798"
+  description: 
+  controller: catalog_attributes
+permissions_081: 
+  action: object
+  id: "608"
+  description: 
+  controller: objections
+permissions_224: 
+  action: override_session
+  id: "751"
+  description: 
+  controller: punchin
+permissions_034: 
+  action: account
+  id: "354"
+  description: 
+  controller: user
+permissions_462: 
+  action: update
+  id: "989"
+  description: 
+  controller: requisition_headers
+permissions_415: 
+  action: add_url_params
+  id: "942"
+  description: 
+  controller: form_responses
+permissions_272: 
+  action: destroy
+  id: "799"
+  description: 
+  controller: catalog_attributes
+permissions_082: 
+  action: add_url_params
+  id: "609"
+  description: 
+  controller: objections
+permissions_225: 
+  action: start
+  id: "752"
+  description: 
+  controller: punchin
+permissions_035: 
+  action: req_feed
+  id: "355"
+  description: 
+  controller: user
+permissions_463: 
+  action: reject
+  id: "990"
+  description: 
+  controller: requisition_headers
+permissions_416: 
+  action: manage_destroy
+  id: "943"
+  description: 
+  controller: product_reviews
+permissions_273: 
+  action: create
+  id: "800"
+  description: 
+  controller: catalog_attributes
+permissions_083: 
+  action: new
+  id: "610"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_226: 
+  action: keep_session
+  id: "753"
+  description: 
+  controller: punchin
+permissions_036: 
+  action: highlight
+  id: "356"
+  description: 
+  controller: user
+permissions_464: 
+  action: portlet_remove
+  id: "991"
+  description: 
+  controller: requisition_headers
+permissions_417: 
+  action: embedded_list
+  id: "944"
+  description: 
+  controller: product_reviews
+permissions_274: 
+  action: show
+  id: "801"
+  description: 
+  controller: catalog_attributes
+permissions_084: 
+  action: list
+  id: "611"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_227: 
+  action: setup
+  id: "754"
+  description: 
+  controller: punchin
+permissions_037: 
+  action: textilize
+  id: "357"
+  description: 
+  controller: user
+permissions_465: 
+  action: resend
+  id: "992"
+  description: 
+  controller: requisition_headers
+permissions_275: 
+  action: index
+  id: "802"
+  description: 
+  controller: catalog_attributes
+permissions_085: 
+  action: edit
+  id: "612"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_228: 
+  action: set_charset
+  id: "755"
+  description: 
+  controller: punchin
+permissions_038: 
+  action: reset_cycle
+  id: "358"
+  description: 
+  controller: user
+permissions_466: 
+  action: add_url_params
+  id: "993"
+  description: 
+  controller: requisition_headers
+permissions_418: 
+  action: embedded_add
+  id: "945"
+  description: 
+  controller: product_reviews
+permissions_276: 
+  action: set_charset
+  id: "803"
+  description: 
+  controller: catalog_attributes
+permissions_086: 
+  action: destroy
+  id: "613"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_229: 
+  action: add_url_params
+  id: "756"
+  description: 
+  controller: punchin
+permissions_039: 
+  action: strip_tags
+  id: "359"
+  description: 
+  controller: user
+permissions_467: 
+  action: edit_cart
+  id: "994"
+  description: 
+  controller: requisition_headers
+permissions_419: 
+  action: manage_edit
+  id: "946"
+  description: 
+  controller: product_reviews
+permissions_277: 
+  action: update
+  id: "804"
+  description: 
+  controller: catalog_attributes
+permissions_087: 
+  action: create
+  id: "614"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_468: 
+  action: checkout
+  id: "995"
+  description: 
+  controller: requisition_headers
+permissions_278: 
+  action: add_url_params
+  id: "805"
+  description: 
+  controller: catalog_attributes
+permissions_088: 
+  action: show
+  id: "615"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_469: 
+  action: subscribe_from_subscriptions
+  id: "996"
+  description: 
+  controller: ask
+permissions_279: 
+  action: new
+  id: "806"
+  description: 
+  controller: projects
+permissions_089: 
+  action: index
+  id: "616"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_520: 
+  action: update_segments
+  id: "1047"
+  description: 
+  controller: accounts
+permissions_330: 
+  action: update_contracts
+  id: "857"
+  description: 
+  controller: buying
+permissions_140: 
+  action: auto_complete
+  id: "667"
+  description: 
+  controller: catalog_items
+permissions_521: 
+  action: bulk_loader
+  id: "1048"
+  description: 
+  controller: accounts
+permissions_331: 
+  action: change_billing
+  id: "858"
+  description: 
+  controller: buying
+permissions_141: 
+  action: search
+  id: "668"
+  description: 
+  controller: tag
+permissions_522: 
+  action: choose
+  id: "1049"
+  description: 
+  controller: accounts
+permissions_332: 
+  action: pool_feed
+  id: "859"
+  description: 
+  controller: buying
+permissions_142: 
+  action: add
+  id: "669"
+  description: 
+  controller: tag
+permissions_523: 
+  action: load_progress
+  id: "1050"
+  description: 
+  controller: accounts
+permissions_380: 
+  action: set_charset
+  id: "907"
+  description: 
+  controller: requisition_line_templates
+permissions_190: 
+  action: list
+  id: "717"
+  description: 
+  controller: attachment_links
+permissions_333: 
+  action: time_zone_options_for_select
+  id: "860"
+  description: 
+  controller: buying
+permissions_143: 
+  action: highlight
+  id: "670"
+  description: 
+  controller: tag
+permissions_524: 
+  action: create
+  id: "1051"
+  description: 
+  controller: accounts
+permissions_381: 
+  action: option_groups_from_collection_for_select
+  id: "908"
+  description: 
+  controller: requisition_line_templates
+permissions_191: 
+  action: edit
+  id: "718"
+  description: 
+  controller: attachment_links
+permissions_334: 
+  action: country_options_for_select
+  id: "861"
+  description: 
+  controller: buying
+permissions_144: 
+  action: word_wrap
+  id: "671"
+  description: 
+  controller: tag
+permissions_525: 
+  action: show
+  id: "1052"
+  description: 
+  controller: accounts
+permissions_382: 
+  action: options_from_collection_for_select
+  id: "909"
+  description: 
+  controller: requisition_line_templates
+permissions_192: 
+  action: destroy
+  id: "719"
+  description: 
+  controller: attachment_links
+permissions_335: 
+  action: collection_select
+  id: "862"
+  description: 
+  controller: buying
+permissions_145: 
+  action: remove_taggings
+  id: "672"
+  description: 
+  controller: tag
+permissions_526: 
+  action: index
+  id: "1053"
+  description: 
+  controller: accounts
+permissions_383: 
+  action: update
+  id: "910"
+  description: 
+  controller: requisition_line_templates
+permissions_193: 
+  action: create
+  id: "720"
+  description: 
+  controller: attachment_links
+permissions_336: 
+  action: req_detail
+  id: "863"
+  description: 
+  controller: buying
+permissions_146: 
+  action: admin_remove_tagging
+  id: "673"
+  description: 
+  controller: tag
+permissions_527: 
+  action: set_charset
+  id: "1054"
+  description: 
+  controller: accounts
+permissions_384: 
+  action: add_url_params
+  id: "911"
+  description: 
+  controller: requisition_line_templates
+permissions_194: 
+  action: show
+  id: "721"
+  description: 
+  controller: attachment_links
+permissions_337: 
+  action: index
+  id: "864"
+  description: 
+  controller: buying
+permissions_147: 
+  action: admin
+  id: "674"
+  description: 
+  controller: tag
+permissions_385: 
+  action: country_select
+  id: "912"
+  description: 
+  controller: requisition_line_templates
+permissions_195: 
+  action: index
+  id: "722"
+  description: 
+  controller: attachment_links
+permissions_338: 
+  action: options_for_select
+  id: "865"
+  description: 
+  controller: buying
+permissions_148: 
+  action: strip_tags
+  id: "675"
+  description: 
+  controller: tag
+permissions_528: 
+  action: list_csv
+  id: "1055"
+  description: 
+  controller: accounts
+permissions_386: 
+  action: admin_related
+  id: "913"
+  description: 
+  controller: requisition_line_templates
+permissions_196: 
+  action: set_charset
+  id: "723"
+  description: 
+  controller: attachment_links
+permissions_339: 
+  action: set_charset
+  id: "866"
+  description: 
+  controller: buying
+permissions_149: 
+  action: textilize
+  id: "676"
+  description: 
+  controller: tag
+permissions_529: 
+  action: update
+  id: "1056"
+  description: 
+  controller: accounts
+permissions_387: 
+  action: select
+  id: "914"
+  description: 
+  controller: requisition_line_templates
+permissions_197: 
+  action: update
+  id: "724"
+  description: 
+  controller: attachment_links
+permissions_200: 
+  action: new
+  id: "727"
+  description: 
+  controller: approval_limits
+permissions_010: 
+  action: destroy
+  id: "10"
+  description: 
+  controller: permission
+permissions_388: 
+  action: new
+  id: "915"
+  description: 
+  controller: forms
+permissions_198: 
+  action: add_url_params
+  id: "725"
+  description: 
+  controller: attachment_links
+permissions_201: 
+  action: list
+  id: "728"
+  description: 
+  controller: approval_limits
+permissions_011: 
+  action: show
+  id: "11"
+  description: 
+  controller: permission
+permissions_389: 
+  action: add_widget
+  id: "916"
+  description: 
+  controller: forms
+permissions_199: 
+  action: set_ultimate_approver
+  id: "726"
+  description: 
+  controller: approval_limits
+permissions_202: 
+  action: edit
+  id: "729"
+  description: 
+  controller: approval_limits
+permissions_012: 
+  action: index
+  id: "12"
+  description: 
+  controller: permission
+permissions_440: 
+  action: list
+  id: "967"
+  description: 
+  controller: requisition_headers
+permissions_203: 
+  action: destroy
+  id: "730"
+  description: 
+  controller: approval_limits
+permissions_013: 
+  action: new
+  id: "13"
+  description: 
+  controller: user
+permissions_250: 
+  action: pdf
+  id: "777"
+  description: 
+  controller: order_headers
+permissions_060: 
+  action: mini
+  id: "587"
+  description: 
+  controller: suppliers
+permissions_441: 
+  action: javascript_cdata_section
+  id: "968"
+  description: 
+  controller: requisition_headers
+permissions_204: 
+  action: create
+  id: "731"
+  description: 
+  controller: approval_limits
+permissions_014: 
+  action: delete
+  id: "14"
+  description: 
+  controller: user
+permissions_251: 
+  action: index
+  id: "778"
+  description: 
+  controller: order_headers
+permissions_061: 
+  action: search
+  id: "588"
+  description: 
+  controller: suppliers
+permissions_442: 
+  action: javascript_tag
+  id: "969"
+  description: 
+  controller: requisition_headers
+permissions_205: 
+  action: show
+  id: "732"
+  description: 
+  controller: approval_limits
+permissions_015: 
+  action: list
+  id: "15"
+  description: 
+  controller: user
+permissions_252: 
+  action: set_charset
+  id: "779"
+  description: 
+  controller: order_headers
+permissions_062: 
+  action: edit
+  id: "589"
+  description: 
+  controller: suppliers
+permissions_490: 
+  action: unsubscribe_from_subscriptions
+  id: "1017"
+  description: 
+  controller: ask
+permissions_443: 
+  action: change_billing
+  id: "970"
+  description: 
+  controller: requisition_headers
+permissions_206: 
+  action: index
+  id: "733"
+  description: 
+  controller: approval_limits
+permissions_016: 
+  action: restore_deleted
+  id: "16"
+  description: 
+  controller: user
+permissions_253: 
+  action: update
+  id: "780"
+  description: 
+  controller: order_headers
+permissions_063: 
+  action: load_file
+  id: "590"
+  description: 
+  controller: suppliers
+permissions_491: 
+  action: portlet
+  id: "1018"
+  description: 
+  controller: ask
+permissions_444: 
+  action: link_to_function
+  id: "971"
+  description: 
+  controller: requisition_headers
+permissions_207: 
+  action: set_charset
+  id: "734"
+  description: 
+  controller: approval_limits
+permissions_017: 
+  action: forgot_password
+  id: "17"
+  description: 
+  controller: user
+permissions_254: 
+  action: send_via_email
+  id: "781"
+  description: 
+  controller: order_headers
+permissions_064: 
+  action: destroy
+  id: "591"
+  description: 
+  controller: suppliers
+permissions_492: 
+  action: closed_questions
+  id: "1019"
+  description: 
+  controller: ask
+permissions_445: 
+  action: add
+  id: "972"
+  description: 
+  controller: requisition_headers
+permissions_208: 
+  action: update
+  id: "735"
+  description: 
+  controller: approval_limits
+permissions_018: 
+  action: delete_user
+  id: "18"
+  description: 
+  controller: user
+permissions_255: 
+  action: add_url_params
+  id: "782"
+  description: 
+  controller: order_headers
+permissions_065: 
+  action: bulk_loader
+  id: "592"
+  description: 
+  controller: suppliers
+permissions_493: 
+  action: set_charset
+  id: "1020"
+  description: 
+  controller: ask
+permissions_446: 
+  action: edit
+  id: "973"
+  description: 
+  controller: requisition_headers
+permissions_019: 
+  action: logout
+  id: "19"
+  description: 
+  controller: user
+permissions_256: 
+  action: new
+  id: "783"
+  description: 
+  controller: attachments
+permissions_066: 
+  action: load_progress
+  id: "593"
+  description: 
+  controller: suppliers
+permissions_494: 
+  action: query
+  id: "1021"
+  description: 
+  controller: ask
+permissions_447: 
+  action: withdraw
+  id: "974"
+  description: 
+  controller: requisition_headers
+permissions_209: 
+  action: add_url_params
+  id: "736"
+  description: 
+  controller: approval_limits
+permissions_257: 
+  action: embedded_list
+  id: "784"
+  description: 
+  controller: attachments
+permissions_067: 
+  action: create
+  id: "594"
+  description: 
+  controller: suppliers
+permissions_495: 
+  action: set_category_name
+  id: "1022"
+  description: 
+  controller: ask
+permissions_448: 
+  action: ask
+  id: "975"
+  description: 
+  controller: requisition_headers
+permissions_258: 
+  action: list
+  id: "785"
+  description: 
+  controller: attachments
+permissions_068: 
+  action: show
+  id: "595"
+  description: 
+  controller: suppliers
+permissions_496: 
+  action: set_email_notifications
+  id: "1023"
+  description: 
+  controller: ask
+permissions_449: 
+  action: destroy
+  id: "976"
+  description: 
+  controller: requisition_headers
+permissions_259: 
+  action: edit
+  id: "786"
+  description: 
+  controller: attachments
+permissions_069: 
+  action: index
+  id: "596"
+  description: 
+  controller: suppliers
+permissions_497: 
+  action: add_url_params
+  id: "1024"
+  description: 
+  controller: ask
+permissions_500: 
+  action: list
+  id: "1027"
+  description: 
+  controller: requisition_lines
+permissions_498: 
+  action: questions_asked
+  id: "1025"
+  description: 
+  controller: ask
+permissions_310: 
+  action: list
+  id: "837"
+  description: 
+  controller: catalog_headers
+permissions_120: 
+  action: show
+  id: "647"
+  description: 
+  controller: account_types
+permissions_501: 
+  action: edit
+  id: "1028"
+  description: 
+  controller: requisition_lines
+permissions_499: 
+  action: new
+  id: "1026"
+  description: 
+  controller: requisition_lines
+permissions_311: 
+  action: edit
+  id: "838"
+  description: 
+  controller: catalog_headers
+permissions_121: 
+  action: index
+  id: "648"
+  description: 
+  controller: account_types
+permissions_502: 
+  action: destroy
+  id: "1029"
+  description: 
+  controller: requisition_lines
+permissions_312: 
+  action: destroy
+  id: "839"
+  description: 
+  controller: catalog_headers
+permissions_122: 
+  action: set_charset
+  id: "649"
+  description: 
+  controller: account_types
+permissions_503: 
+  action: create
+  id: "1030"
+  description: 
+  controller: requisition_lines
+permissions_313: 
+  action: create
+  id: "840"
+  description: 
+  controller: catalog_headers
+permissions_123: 
+  action: update
+  id: "650"
+  description: 
+  controller: account_types
+permissions_360: 
+  action: results
+  id: "887"
+  description: 
+  controller: search
+permissions_170: 
+  action: set_charset
+  id: "697"
+  description: 
+  controller: account
+permissions_504: 
+  action: show
+  id: "1031"
+  description: 
+  controller: requisition_lines
+permissions_314: 
+  action: show
+  id: "841"
+  description: 
+  controller: catalog_headers
+permissions_124: 
+  action: add_url_params
+  id: "651"
+  description: 
+  controller: account_types
+permissions_361: 
+  action: tag
+  id: "888"
+  description: 
+  controller: search
+permissions_171: 
+  action: home
+  id: "698"
+  description: 
+  controller: account
+permissions_505: 
+  action: index
+  id: "1032"
+  description: 
+  controller: requisition_lines
+permissions_315: 
+  action: index
+  id: "842"
+  description: 
+  controller: catalog_headers
+permissions_125: 
+  action: new
+  id: "652"
+  description: 
+  controller: catalog_items
+permissions_362: 
+  action: header
+  id: "889"
+  description: 
+  controller: search
+permissions_172: 
+  action: add_url_params
+  id: "699"
+  description: 
+  controller: account
+permissions_316: 
+  action: set_charset
+  id: "843"
+  description: 
+  controller: catalog_headers
+permissions_126: 
+  action: list
+  id: "653"
+  description: 
+  controller: catalog_items
+permissions_363: 
+  action: set_charset
+  id: "890"
+  description: 
+  controller: search
+permissions_173: 
+  action: new
+  id: "700"
+  description: 
+  controller: punchout
+permissions_506: 
+  action: set_charset
+  id: "1033"
+  description: 
+  controller: requisition_lines
+permissions_317: 
+  action: update
+  id: "844"
+  description: 
+  controller: catalog_headers
+permissions_127: 
+  action: mini
+  id: "654"
+  description: 
+  controller: catalog_items
+permissions_364: 
+  action: add_url_params
+  id: "891"
+  description: 
+  controller: search
+permissions_174: 
+  action: list
+  id: "701"
+  description: 
+  controller: punchout
+permissions_507: 
+  action: update
+  id: "1034"
+  description: 
+  controller: requisition_lines
+permissions_318: 
+  action: add_url_params
+  id: "845"
+  description: 
+  controller: catalog_headers
+permissions_128: 
+  action: search
+  id: "655"
+  description: 
+  controller: catalog_items
+permissions_365: 
+  action: new
+  id: "892"
+  description: 
+  controller: requisition_line_templates
+permissions_175: 
+  action: auto_complete_for_contract_name
+  id: "702"
+  description: 
+  controller: punchout
+permissions_508: 
+  action: add_url_params
+  id: "1035"
+  description: 
+  controller: requisition_lines
+permissions_129: 
+  action: edit
+  id: "656"
+  description: 
+  controller: catalog_items
+permissions_366: 
+  action: time_zone_select
+  id: "893"
+  description: 
+  controller: requisition_line_templates
+permissions_176: 
+  action: edit
+  id: "703"
+  description: 
+  controller: punchout
+permissions_509: 
+  action: errors
+  id: "1036"
+  description: 
+  controller: data_sources
+permissions_319: 
+  action: new
+  id: "846"
+  description: 
+  controller: account_field_types
+permissions_367: 
+  action: update_contracts
+  id: "894"
+  description: 
+  controller: requisition_line_templates
+permissions_177: 
+  action: related
+  id: "704"
+  description: 
+  controller: punchout
+permissions_368: 
+  action: list
+  id: "895"
+  description: 
+  controller: requisition_line_templates
+permissions_178: 
+  action: destroy
+  id: "705"
+  description: 
+  controller: punchout
+permissions_369: 
+  action: time_zone_options_for_select
+  id: "896"
+  description: 
+  controller: requisition_line_templates
+permissions_179: 
+  action: checkout_test
+  id: "706"
+  description: 
+  controller: punchout
+permissions_420: 
+  action: manage
+  id: "947"
+  description: 
+  controller: product_reviews
+permissions_230: 
+  action: new
+  id: "757"
+  description: 
+  controller: catalog_categories
+permissions_040: 
+  action: excerpt
+  id: "360"
+  description: 
+  controller: user
+permissions_421: 
+  action: embedded_destroy
+  id: "948"
+  description: 
+  controller: product_reviews
+permissions_231: 
+  action: list
+  id: "758"
+  description: 
+  controller: catalog_categories
+permissions_041: 
+  action: pluralize
+  id: "361"
+  description: 
+  controller: user
+permissions_422: 
+  action: set_charset
+  id: "949"
+  description: 
+  controller: product_reviews
+permissions_232: 
+  action: edit
+  id: "759"
+  description: 
+  controller: catalog_categories
+permissions_042: 
+  action: cycle
+  id: "362"
+  description: 
+  controller: user
+permissions_470: 
+  action: answer_question
+  id: "997"
+  description: 
+  controller: ask
+permissions_423: 
+  action: add_url_params
+  id: "950"
+  description: 
+  controller: product_reviews
+permissions_233: 
+  action: destroy
+  id: "760"
+  description: 
+  controller: catalog_categories
+permissions_043: 
+  action: strip_links
+  id: "363"
+  description: 
+  controller: user
+permissions_280: 
+  action: list
+  id: "807"
+  description: 
+  controller: projects
+permissions_090: 
+  action: set_charset
+  id: "617"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_471: 
+  action: add_moderator
+  id: "998"
+  description: 
+  controller: ask
+permissions_424: 
+  action: new
+  id: "951"
+  description: 
+  controller: contracts
+permissions_234: 
+  action: create
+  id: "761"
+  description: 
+  controller: catalog_categories
+permissions_044: 
+  action: simple_format
+  id: "364"
+  description: 
+  controller: user
+permissions_281: 
+  action: edit
+  id: "808"
+  description: 
+  controller: projects
+permissions_091: 
+  action: update
+  id: "618"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_472: 
+  action: delete_category
+  id: "999"
+  description: 
+  controller: ask
+permissions_425: 
+  action: delete_item
+  id: "952"
+  description: 
+  controller: contracts
+permissions_235: 
+  action: show
+  id: "762"
+  description: 
+  controller: catalog_categories
+permissions_045: 
+  action: sanitize
+  id: "365"
+  description: 
+  controller: user
+permissions_282: 
+  action: destroy
+  id: "809"
+  description: 
+  controller: projects
+permissions_092: 
+  action: add_url_params
+  id: "619"
+  description: 
+  controller: catalog_item_attribute_values
+permissions_473: 
+  action: search
+  id: "1000"
+  description: 
+  controller: ask
+permissions_426: 
+  action: list
+  id: "953"
+  description: 
+  controller: contracts
+permissions_236: 
+  action: index
+  id: "763"
+  description: 
+  controller: catalog_categories
+permissions_046: 
+  action: concat
+  id: "366"
+  description: 
+  controller: user
+permissions_283: 
+  action: create
+  id: "810"
+  description: 
+  controller: projects
+permissions_093: 
+  action: new
+  id: "620"
+  description: 
+  controller: contacts
+permissions_474: 
+  action: open_questions
+  id: "1001"
+  description: 
+  controller: ask
+permissions_427: 
+  action: edit
+  id: "954"
+  description: 
+  controller: contracts
+permissions_237: 
+  action: set_charset
+  id: "764"
+  description: 
+  controller: catalog_categories
+permissions_047: 
+  action: textilize_without_paragraph
+  id: "367"
+  description: 
+  controller: user
+permissions_284: 
+  action: show
+  id: "811"
+  description: 
+  controller: projects
+permissions_094: 
+  action: list
+  id: "621"
+  description: 
+  controller: contacts
+permissions_475: 
+  action: close_question
+  id: "1002"
+  description: 
+  controller: ask
+permissions_428: 
+  action: destroy
+  id: "955"
+  description: 
+  controller: contracts
+permissions_238: 
+  action: update
+  id: "765"
+  description: 
+  controller: catalog_categories
+permissions_048: 
+  action: truncate
+  id: "368"
+  description: 
+  controller: user
+permissions_285: 
+  action: index
+  id: "812"
+  description: 
+  controller: projects
+permissions_095: 
+  action: edit
+  id: "622"
+  description: 
+  controller: contacts
+permissions_476: 
+  action: questions
+  id: "1003"
+  description: 
+  controller: ask
+permissions_239: 
+  action: add_url_params
+  id: "766"
+  description: 
+  controller: catalog_categories
+permissions_049: 
+  action: auto_link
+  id: "369"
+  description: 
+  controller: user
+permissions_286: 
+  action: set_charset
+  id: "813"
+  description: 
+  controller: projects
+permissions_096: 
+  action: vcf
+  id: "623"
+  description: 
+  controller: contacts
+permissions_477: 
+  action: remove_moderator
+  id: "1004"
+  description: 
+  controller: ask
+permissions_429: 
+  action: create
+  id: "956"
+  description: 
+  controller: contracts
+permissions_287: 
+  action: update
+  id: "814"
+  description: 
+  controller: projects
+permissions_097: 
+  action: destroy
+  id: "624"
+  description: 
+  controller: contacts
+permissions_478: 
+  action: moderators
+  id: "1005"
+  description: 
+  controller: ask
+permissions_100: 
+  action: index
+  id: "627"
+  description: 
+  controller: contacts
+permissions_288: 
+  action: add_url_params
+  id: "815"
+  description: 
+  controller: projects
+permissions_098: 
+  action: create
+  id: "625"
+  description: 
+  controller: contacts
+permissions_479: 
+  action: subscribe_from_subscribers
+  id: "1006"
+  description: 
+  controller: ask
+permissions_101: 
+  action: set_charset
+  id: "628"
+  description: 
+  controller: contacts
+permissions_289: 
+  action: new
+  id: "816"
+  description: 
+  controller: approvals
+permissions_099: 
+  action: show
+  id: "626"
+  description: 
+  controller: contacts
+permissions_102: 
+  action: update
+  id: "629"
+  description: 
+  controller: contacts
+permissions_530: 
+  action: update_segment_fields
+  id: "1057"
+  description: 
+  controller: accounts
+permissions_340: 
+  action: tabs
+  id: "867"
+  description: 
+  controller: buying
+permissions_150: 
+  action: reset_cycle
+  id: "677"
+  description: 
+  controller: tag
+permissions_103: 
+  action: add_url_params
+  id: "630"
+  description: 
+  controller: contacts
+permissions_531: 
+  action: add_url_params
+  id: "1058"
+  description: 
+  controller: accounts
+permissions_341: 
+  action: option_groups_from_collection_for_select
+  id: "868"
+  description: 
+  controller: buying
+permissions_151: 
+  action: excerpt
+  id: "678"
+  description: 
+  controller: tag
+permissions_104: 
+  action: new
+  id: "631"
+  description: 
+  controller: uoms
+permissions_532: 
+  action: set_charset
+  id: "1059"
+  description: 
+  controller: feed
+permissions_342: 
+  action: options_from_collection_for_select
+  id: "869"
+  description: 
+  controller: buying
+permissions_152: 
+  action: manage
+  id: "679"
+  description: 
+  controller: tag
+permissions_105: 
+  action: list
+  id: "632"
+  description: 
+  controller: uoms
+permissions_533: 
+  action: home
+  id: "1060"
+  description: 
+  controller: feed
+permissions_343: 
+  action: update
+  id: "870"
+  description: 
+  controller: buying
+permissions_153: 
+  action: pluralize
+  id: "680"
+  description: 
+  controller: tag
+permissions_106: 
+  action: edit
+  id: "633"
+  description: 
+  controller: uoms
+permissions_390: 
+  action: update_widget_properties
+  id: "917"
+  description: 
+  controller: forms
+permissions_534: 
+  action: add_url_params
+  id: "1061"
+  description: 
+  controller: feed
+permissions_344: 
+  action: add_url_params
+  id: "871"
+  description: 
+  controller: buying
+permissions_154: 
+  action: cycle
+  id: "681"
+  description: 
+  controller: tag
+permissions_107: 
+  action: destroy
+  id: "634"
+  description: 
+  controller: uoms
+permissions_391: 
+  action: update_section_properties
+  id: "918"
+  description: 
+  controller: forms
+permissions_535: 
+  action: new
+  id: "1062"
+  description: 
+  controller: addresses
+permissions_345: 
+  action: country_select
+  id: "872"
+  description: 
+  controller: buying
+permissions_155: 
+  action: strip_links
+  id: "682"
+  description: 
+  controller: tag
+permissions_108: 
+  action: create
+  id: "635"
+  description: 
+  controller: uoms
+permissions_392: 
+  action: edit
+  id: "919"
+  description: 
+  controller: forms
+permissions_536: 
+  action: list
+  id: "1063"
+  description: 
+  controller: addresses
+permissions_346: 
+  action: select
+  id: "873"
+  description: 
+  controller: buying
+permissions_156: 
+  action: index
+  id: "683"
+  description: 
+  controller: tag
+permissions_109: 
+  action: show
+  id: "636"
+  description: 
+  controller: uoms
+permissions_393: 
+  action: reorder
+  id: "920"
+  description: 
+  controller: forms
+permissions_537: 
+  action: edit
+  id: "1064"
+  description: 
+  controller: addresses
+permissions_347: 
+  action: pool
+  id: "874"
+  description: 
+  controller: buying
+permissions_157: 
+  action: simple_format
+  id: "684"
+  description: 
+  controller: tag
+permissions_394: 
+  action: update_form_properties
+  id: "921"
+  description: 
+  controller: forms
+permissions_538: 
+  action: get_address_page
+  id: "1065"
+  description: 
+  controller: addresses
+permissions_348: 
+  action: new
+  id: "875"
+  description: 
+  controller: policies
+permissions_158: 
+  action: portlet
+  id: "685"
+  description: 
+  controller: tag
+permissions_395: 
+  action: create
+  id: "922"
+  description: 
+  controller: forms
+permissions_349: 
+  action: list
+  id: "876"
+  description: 
+  controller: policies
+permissions_159: 
+  action: set_charset
+  id: "686"
+  description: 
+  controller: tag
+permissions_396: 
+  action: remove_container
+  id: "923"
+  description: 
+  controller: forms
+permissions_539: 
+  action: destroy
+  id: "1066"
+  description: 
+  controller: addresses
+permissions_397: 
+  action: add_container
+  id: "924"
+  description: 
+  controller: forms
+permissions_400: 
+  action: remove_widget
+  id: "927"
+  description: 
+  controller: forms
+permissions_210: 
+  action: new
+  id: "737"
+  description: 
+  controller: tasks
+permissions_020: 
+  action: edit
+  id: "20"
+  description: 
+  controller: user
+permissions_398: 
+  action: index
+  id: "925"
+  description: 
+  controller: forms
+permissions_401: 
+  action: update
+  id: "928"
+  description: 
+  controller: forms
+permissions_211: 
+  action: list
+  id: "738"
+  description: 
+  controller: tasks
+permissions_021: 
+  action: change_password_for_user
+  id: "21"
+  description: 
+  controller: user
+permissions_399: 
+  action: set_charset
+  id: "926"
+  description: 
+  controller: forms
+permissions_402: 
+  action: add_url_params
+  id: "929"
+  description: 
+  controller: forms
+permissions_212: 
+  action: edit
+  id: "739"
+  description: 
+  controller: tasks
+permissions_022: 
+  action: edit_user
+  id: "22"
+  description: 
+  controller: user
+permissions_450: 
+  action: define_javascript_functions
+  id: "977"
+  description: 
+  controller: requisition_headers
+permissions_403: 
+  action: set_title
+  id: "930"
+  description: 
+  controller: forms
+permissions_260: 
+  action: destroy
+  id: "787"
+  description: 
+  controller: attachments
+permissions_070: 
+  action: show_hierarchy
+  id: "597"
+  description: 
+  controller: suppliers
+permissions_213: 
+  action: destroy
+  id: "740"
+  description: 
+  controller: tasks
+permissions_023: 
+  action: signup
+  id: "23"
+  description: 
+  controller: user
+permissions_451: 
+  action: create
+  id: "978"
+  description: 
+  controller: requisition_headers
+permissions_404: 
+  action: delete_choice
+  id: "931"
+  description: 
+  controller: forms
+permissions_261: 
+  action: embedded_destroy
+  id: "788"
+  description: 
+  controller: attachments
+permissions_071: 
+  action: set_charset
+  id: "598"
+  description: 
+  controller: suppliers
+permissions_214: 
+  action: create
+  id: "741"
+  description: 
+  controller: tasks
+permissions_024: 
+  action: show
+  id: "24"
+  description: 
+  controller: user
+permissions_452: 
+  action: portlet_add
+  id: "979"
+  description: 
+  controller: requisition_headers
+permissions_405: 
+  action: show_content
+  id: "932"
+  description: 
+  controller: inbox
+permissions_262: 
+  action: attach
+  id: "789"
+  description: 
+  controller: attachments
+permissions_072: 
+  action: list_csv
+  id: "599"
+  description: 
+  controller: suppliers
+permissions_215: 
+  action: show
+  id: "742"
+  description: 
+  controller: tasks
+permissions_025: 
+  action: edit_roles
+  id: "25"
+  description: 
+  controller: user
+permissions_453: 
+  action: approve
+  id: "980"
+  description: 
+  controller: requisition_headers
+permissions_406: 
+  action: show
+  id: "933"
+  description: 
+  controller: inbox
+permissions_263: 
+  action: create
+  id: "790"
+  description: 
+  controller: attachments
+permissions_073: 
+  action: update
+  id: "600"
+  description: 
+  controller: suppliers
+permissions_216: 
+  action: index
+  id: "743"
+  description: 
+  controller: tasks
+permissions_026: 
+  action: login
+  id: "26"
+  description: 
+  controller: user
+permissions_454: 
+  action: clear_cart
+  id: "981"
+  description: 
+  controller: requisition_headers
+permissions_264: 
+  action: show
+  id: "791"
+  description: 
+  controller: attachments
+permissions_074: 
+  action: add_url_params
+  id: "601"
+  description: 
+  controller: suppliers
+permissions_217: 
+  action: set_charset
+  id: "744"
+  description: 
+  controller: tasks
+permissions_027: 
+  action: home
+  id: "27"
+  description: 
+  controller: user
+permissions_455: 
+  action: show
+  id: "982"
+  description: 
+  controller: requisition_headers
+permissions_407: 
+  action: rss
+  id: "934"
+  description: 
+  controller: inbox
+permissions_265: 
+  action: index
+  id: "792"
+  description: 
+  controller: attachments
+permissions_075: 
+  action: auto_complete
+  id: "602"
+  description: 
+  controller: suppliers
+permissions_218: 
+  action: update
+  id: "745"
+  description: 
+  controller: tasks
+permissions_028: 
+  action: change_password
+  id: "28"
+  description: 
+  controller: user
+permissions_456: 
+  action: save
+  id: "983"
+  description: 
+  controller: requisition_headers
+permissions_408: 
+  action: index
+  id: "935"
+  description: 
+  controller: inbox
+permissions_266: 
+  action: set_charset
+  id: "793"
+  description: 
+  controller: attachments
+permissions_076: 
+  action: list
+  id: "603"
+  description: 
+  controller: objections
+permissions_219: 
+  action: add_url_params
+  id: "746"
+  description: 
+  controller: tasks
+permissions_029: 
+  action: registrations
+  id: "101"
+  description: 
+  controller: user
+permissions_457: 
+  action: change_shipping
+  id: "984"
+  description: 
+  controller: requisition_headers
+permissions_409: 
+  action: set_charset
+  id: "936"
+  description: 
+  controller: inbox
+permissions_267: 
+  action: update
+  id: "794"
+  description: 
+  controller: attachments
+permissions_077: 
+  action: dismiss_objection
+  id: "604"
+  description: 
+  controller: objections
+permissions_458: 
+  action: index
+  id: "985"
+  description: 
+  controller: requisition_headers
+permissions_268: 
+  action: add_url_params
+  id: "795"
+  description: 
+  controller: attachments
+permissions_078: 
+  action: index
+  id: "605"
+  description: 
+  controller: objections
+permissions_459: 
+  action: portlet
+  id: "986"
+  description: 
+  controller: requisition_headers
+permissions_269: 
+  action: new
+  id: "796"
+  description: 
+  controller: catalog_attributes
+permissions_079: 
+  action: set_charset
+  id: "606"
+  description: 
+  controller: objections

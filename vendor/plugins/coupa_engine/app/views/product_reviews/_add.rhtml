@@ -1,0 +1,31 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<h3>Write a Review</h3>
+<%= error_messages_for 'product_review' %>
+    <%= hidden_field 'product_review', 'catalog_item_id', :style => 'border:none'%>
+    <%= wrapped_text_field({:name => 'Headline', :required => true},'product_review', 'title') %>
+    <div class="wrapped_form_element"><label>Rating<span class="req"> * </span></label><%= hidden_field 'product_review', 'rating', :style => 'border:none' %>
+    <ul id='review_rating_<%= @item_id%>' class='star-rating'><li id="review_rating_<%= @item_id%>_current" class='current-rating' style='width:<%= (@product_review.rating * 0.7).round %>px;'>&nbsp;</li>
+        <li><a href="#review_rating_<%= @item_id%>" onClick="update_rating(20);return false;" title='1 star out of 5' class='one-star'>1</a></li>
+        <li><a href="#review_rating_<%= @item_id%>" onClick="update_rating(40);return false;" title='2 stars out of 5' class='two-stars'>2</a></li>
+        <li><a href="#review_rating_<%= @item_id%>" onClick="update_rating(60);return false;" title='3 stars out of 5' class='three-stars'>3</a></li>
+        <li><a href="#review_rating_<%= @item_id%>" onClick="update_rating(80);return false;" title='4 stars out of 5' class='four-stars'>4</a></li>
+        <li><a href="#review_rating_<%= @item_id%>" onClick="update_rating(100);return false;" title='5 stars out of 5' class='five-stars'>5</a></li>
+    </ul></div>
+    <%= wrapped_text_area({:name => 'Review', :required => true},'product_review', 'text', :cols => 60, :rows => 5) %>

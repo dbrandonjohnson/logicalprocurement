@@ -1,0 +1,72 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% view_only ||= false %>
+<% new_user ||= false %>
+
+<div id="left_column" style="float: left; margin: 0px 20px;">
+    <h3>User Details</h3>
+        <%= form_tag :action => 'edit_user', :id => @user unless view_only || new_user %>
+          <%= render :partial => 'edit_user', :locals => { :view_only => !authorized?(:action => "edit_user") || view_only, :user => @user } %>
+          <%= rollover_submit_tag 'Update Settings' unless view_only || new_user %>
+        <%= '</form>' unless view_only || new_user %>
+    <br/>
+<% if !view_only -%>
+    <h3>User Status</h3>
+      <%= form_tag :action => 'change_status', :id => @user unless view_only || new_user %>
+          <%= render :partial => 'edit_status', :locals => { :view_only => !authorized?(:action => "edit_user") || view_only, :user => @user } %>
+          <%= rollover_submit_tag 'Update Status' unless view_only || new_user %>
+      <%= end_form_tag unless view_only || new_user %>
+    <br/>
+<% end %>
+    <h3>Default Address</h3>
+        <%= form_tag :action => 'edit_address', :id => @user unless view_only || new_user %>
+          <%= render :partial => 'address', :locals => { :view_only => !authorized?(:action => "address") || view_only, :address => @user.default_address } %>
+          <%= hidden_field_tag "remove_address", nil %>
+          <div style="display:inline;">
+            <div style="margin: 5px; float: left;"><%= rollover_submit_tag(nil_on_fail{@address.id} ? 'Update Address' : 'Add Address', :name => 'update_button') unless view_only || new_user %></div>
+            <div style="margin: 5px; float: left;"><%= rollover_submit_tag('Remove Address', :id => 'update_button', :name => 'update_button', :onclick => "$('remove_address').value = 'true'") unless view_only || new_user || !nil_on_fail{@address.id} %></div>
+          </div>
+        <%= '</form>' unless view_only || new_user %>
+</div>
+<div id="right_column" style="float: left; margin: 0px 20px;">
+    <h3>Roles</h3>
+        <%= form_tag :action => 'edit_roles', :id => @user unless view_only || new_user %>
+          <%= render :partial => 'roles', :locals => { :view_only => !authorized?(:action => "edit_roles") || view_only, :user => @user } %>
+          <%= rollover_submit_tag 'Update Roles' unless view_only || new_user %>
+        <%= '</form>' unless view_only || new_user %>
+    <br/>
+    <% if !view_only %>
+      <h3>Password</h3>
+          <%= form_tag :action => 'change_password_for_user', :id => @user unless view_only || new_user %>
+            <%= render :partial => 'password', :locals => { :view_only => !authorized?(:action => "edit_roles") || view_only, :user => @user } %>
+            <%= rollover_submit_tag 'Change Password' unless view_only || new_user %>
+        <%= '</form>' unless view_only || new_user %>
+    <% end %>
+    <br/>
+    <h3>P-Card</h3>
+        <%= form_tag(:action => 'change_pcard_for_user', :id => @user) unless view_only || new_user %>
+          <%= render :partial => 'pcard', :locals => { :view_only => !authorized?(:action => "edit_roles") || view_only, :pcard => @user.pcard } %>
+          <%= hidden_field_tag "remove_pcard", nil %>
+          <div style="display:inline;">
+            <div style="margin: 5px; float: left;"><%= rollover_submit_tag(nil_on_fail{@user.pcard.id} ? 'Update P-card' : 'Add P-card', :name => 'update_button') unless view_only || new_user %></div>
+            <div style="margin: 5px; float: left;"><%= rollover_submit_tag('Remove P-card', :id => 'update_button', :name => 'update_button', :onclick => "$('remove_pcard').value = 'true'") unless view_only || new_user || !nil_on_fail{@user.pcard.id} %></div>
+          </div>
+        <%= '</form>' unless view_only || new_user %>
+</div>
+<div style="clear:both;"></div>

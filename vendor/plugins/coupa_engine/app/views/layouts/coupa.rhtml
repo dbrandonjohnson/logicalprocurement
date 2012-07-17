@@ -1,0 +1,37 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Coupa<%= @title.nil? ? '' : ": #{truncate(@title,80)}" %></title>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'event-selectors', 'dojo/dojo', 'coupa_engine', :plugin => 'coupa_engine' %>
+    <%= javascript_tag yield(:page_scripts) %>
+    <%= stylesheet_link_tag 'coupa_engine', :media => 'all', :plugin => 'coupa_engine' %>
+    <%= auto_discovery_link_tag(:rss, @feed_params) if !@feed_params.nil? %>
+    <%= yield(:page_head) %>
+</head>
+<body>
+<%= render :partial => "layouts/header" %>
+<%= @title.nil? ? '' : "<div id='titlebar'>#{h truncate(@title,80)}<span id='titlebar_postamble' ></span></div>" %>
+<%= yield(:layout) %>
+<%= render :partial => "layouts/footer" -%>
+<div id="tail"></div>
+</body>
+</html>

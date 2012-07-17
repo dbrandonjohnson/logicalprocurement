@@ -1,0 +1,15 @@
+--- 
+product_reviews_001: 
+  rating: "100"
+  updated_at: 2006-07-15 06:53:07
+  text: Does everything I need and only costs $9.99.  Perfect for the business user!
+  title: Great sample item
+  deleted_at: 
+  created_by: "1"
+  updated_by: "1"
+  catalog_item_id: "2320"
+  id: "1"
+  reviewed_at: 2006-07-15 06:53:07
+  reviewer: 
+  source_id: "0"
+  created_at: 2006-07-15 06:53:07

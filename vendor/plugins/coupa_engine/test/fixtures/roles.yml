@@ -1,0 +1,25 @@
+--- 
+roles_004: 
+  name: Buyer
+  omnipotent: "0"
+  id: "4"
+  description: Role for users in the procurement department
+  system_role: "0"
+roles_001: 
+  name: Guest
+  omnipotent: "0"
+  id: "1"
+  description: Implicit role for all accessors of the site
+  system_role: "1"
+roles_002: 
+  name: Admin
+  omnipotent: "1"
+  id: "2"
+  description: The system administrator, with REAL ULTIMATE POWER.
+  system_role: "1"
+roles_003: 
+  name: User
+  omnipotent: "0"
+  id: "3"
+  description: The default role for all logged-in users
+  system_role: "1"

@@ -1,0 +1,31 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% if view_only %>
+  <% if @pcard.nil? %>
+    <div style="margin:10px;"><label>No P-Card Attached</label></div>
+  <% else %>
+    <div class="inline_form_element"><label>Name on card</label><%= nil_on_fail{@pcard.name} || '&nbsp;' %></div>
+    <div class="inline_form_element"><label>Card number</label><%= nil_on_fail{@pcard.number} || '&nbsp;' %></div>
+    <div class="inline_form_element"><label>Expiration date</label><%= nil_on_fail{@pcard.expiry} || '&nbsp;' %></div>
+  <% end %>
+<% else %>
+  <%= inline_text_field({:name => "Name on card"}, 'pcard', "name") %>
+  <%= inline_text_field({:name => "Card number"},'pcard', "number") %>
+  <%= inline_text_field({:name => "Expiration date"}, 'pcard', "expiry") %>
+<% end %>

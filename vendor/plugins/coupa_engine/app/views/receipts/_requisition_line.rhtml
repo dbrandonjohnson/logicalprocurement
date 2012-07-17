@@ -1,0 +1,33 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<tr class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td align="left"><%= requisition_line.display_line_num %></td>
+    <td><%= requisition_line.description %></td>
+    <td><%= requisition_line.supplier.name %></td>
+    <td><%= (requisition_line.kind_of?(RequisitionQuantityLine) || requisition_line.kind_of?(RequisitionMilestoneQuantityLine)) ? requisition_line.order_line.formatted_quantity : '' %></td>
+    <td><%= requisition_line.uom ? requisition_line.uom.code : '' %></td>    
+    <td align="right"><%= render_attribute(requisition_line.order_line.price) %></td>
+    <td align="right"><%= render_attribute(requisition_line.order_line.total) %></td>
+    <td><%= render_attribute(requisition_line.need_by_date ? requisition_line.need_by_date.to_date : '') %></td>
+    <td align="center"><span id="item_<%= requisition_line.id %>_received"><%= requisition_line.kind_of?(RequisitionAmountLine) ? render_attribute(requisition_line.received) : requisition_line.formatted_received %></span><span style="display:none" id="requisition_line_<%= requisition_line.id %>_remaining"><%= requisition_line.formatted_remaining %></span></td>
+    <td align="left" style="white-space:nowrap">
+       <%= text_field_tag("requisition_line[#{requisition_line.id}][receive_amt]", nil, {:size => 5, :onchange => 'change_rcvd_value(event);', :id => "requisition_line_#{requisition_line.id}_receive_amt"}) %>&nbsp;
+        <label><%= check_box_tag( "requisition_line[#{requisition_line.id}][receive]", 'all', false, {:id => "requisition_line_#{requisition_line.id}_receive", :onchange => 'change_rcv_all(event);'}) %>All</label>&nbsp;
+    </td>
+</tr>

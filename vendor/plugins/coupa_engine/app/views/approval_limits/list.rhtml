@@ -1,0 +1,50 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+<%= @tstr %>
+<br />
+
+<%= rollover_link_to 'New approval limit', :action => 'new' %>
+<br/><br/>
+<h3>Set the Ultimate Approver</h3>
+<br/>
+    <%= form_tag :action => 'set_ultimate_approver' %>
+    <div class="inline_form_element"><label>Ultimate approver</label>
+          <%= tag(:input, { "type" => "text",
+                            "name" => "setup[value_i]",
+                            "id" => "setup_value_i",
+                            "value" => nil_on_fail{User.find(@setup.value_i).fullname},
+                            "size" => 20,
+                            "autocomplete" => "off" , 
+                            "style" => 'vertical-align:middle;'}) %>
+              <div id="setup_value_i_auto_complete" 
+                  class="autocomplete" style="white-space:normal;"></div>&nbsp;<%=
+               image_tag('spinner.gif',
+                  :id => "setup_value_i_wait",
+                  :style => "display:none;max-height:16px;vertical-align:middle;")%><%=
+              auto_complete_field("setup_value_i",
+                  :url => {:controller => 'user', :action => 'auto_complete', :id => @setup.value_i},
+                  :indicator => "setup_value_i_wait",
+                  :param_name => 'user',
+                  :select => 'name',
+                  :style => 'border:none;' ) %></td>
+    </div>
+    <table><tr><td><%= rollover_submit_tag 'Save' %></td></tr></table>
+    </form>
+</div>

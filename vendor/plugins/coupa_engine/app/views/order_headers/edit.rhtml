@@ -1,0 +1,92 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="content">
+  <%= nested_error_messages_for 'order_header', 'order_lines' %>
+  <%= form_tag({ :controller => 'order_headers', :action => 'update', :id => @order_header.id }, { :multipart => true } )%>
+  <table width="80%"><tr>
+    <td width="50%">
+      <div class="inline_form_element"><label>Status</label><%= @order_header.status.humanize %></div>
+      <div class="inline_form_element"><label>Created At</label><%= @order_header.created_at.to_date.to_formatted_s(:long) %></div>
+    </td>
+    <td width="50%" valign="top">
+      &nbsp;
+    </td>
+  </tr></table>
+  <div style="clear:both;"></div>
+  <div style="float:left;width:250px;">
+      <h3>Supplier</h3>
+      <div style="padding:10px 15px;">
+          <% if  @order_header.supplier then %>
+          <%= h @order_header.supplier.name %><br/>
+          <%= render :partial => 'addresses/address', :locals => {:address =>@order_header.supplier.primary_address}%>
+          <% else %>
+          <span style="color:#999;">No supplier</span>
+          <% end %>
+      </div>
+  </div>
+  <div style="float:left;width:250px;margin-left:20px;">
+    <h3>Shipping To</h3>
+    <div style="padding:10px 15px;">
+        <% if  @order_header.ship_to_address then %>
+        <%= h @order_header.ship_to_user.fullname %><br/>
+        <%= render :partial => 'addresses/address', :locals => {:address =>@order_header.ship_to_address}%>
+        <% else %>
+        <span style="color:#999;">No address selected</span>
+        <% end %>
+    </div>
+  </div>
+  <div style="clear:left">
+      <h3>Lines</h3>
+      <div style="clear:both;padding:10px 15px;">
+        <table class="tabular">
+            <thead class="tabular">
+            <tr>
+                <th>&nbsp;</th>
+                <th>Line</th>
+                <th>Type</th>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Unit</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Received</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <%= render :partial => 'order_line', :collection => @order_header.order_lines %>
+            <tfoot class="tabular">
+            <tr>
+                <td align="right" colspan="7">Total</td>
+                <td align="right"><%= render_attribute @order_header.total, :long %></td>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            </tfoot>
+        </table>        
+      </div>
+      <h3>Attachments</h3>
+      <div style="padding:10px 15px;">
+        <%= render :partial => 'attachments/embedded_list', :locals => {:editable => true, :attach_to => @order_header, :attachment_name => 'order_header', :intents => ['Supplier','Internal']} %>
+      </div>
+  </div>
+  <table align="right"><tr>
+    <td><%= rollover_link_to 'Cancel', :action => 'index' %></td>
+    <td><%= rollover_submit_tag 'Submit' %></td>
+  </tr></table>
+  </form>
+</div>

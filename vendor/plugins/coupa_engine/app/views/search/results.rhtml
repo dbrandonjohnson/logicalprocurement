@@ -1,0 +1,46 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="titlebar">
+    <% if @search_term %>
+        Search results for '<%= @search_term %>'
+    <% else %>
+        Listing items...
+    <% end %>
+</div>
+<div id="content">
+    <%= render :partial => 'policies/related' %>
+    <%= render :partial => 'punchout/related' %>
+<% if @catalog_items.size > 0 %>
+<div style="padding:3px 0px;border-bottom:1px solid silver;">
+  <div style="float:right;margin-top:-5px;">
+  <%= pagination_links_each(@catalog_item_pages,:params => {:search => @params[:search]}) do |n|
+             link_to(n.to_s,:page => n, :search => @params[:search])
+          end
+  %></div>
+  <div class="search_section_header">Catalog Items</div>
+    </div>
+    <div style="clear:both;width:100%;">
+    <%= render :partial => 'gallery_summary', :collection => @catalog_items %>
+    </div>
+<% end %>
+</div>
+<div id="right_col">
+    <%= render_component :controller => "requisition_headers", :action => "portlet" %>
+    <%= render_component :controller => 'tag', :action => 'cloud_portlet', :params => {:limit => {:limit => 60}} %>    
+</div>

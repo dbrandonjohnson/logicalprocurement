@@ -1,0 +1,39 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<tbody class="tabular">
+    <tr class="<%= cycle('stripe_even','stripe_odd') %>">
+        <td><%= supplier_view_line.line_num %></td>
+        <td><%= supplier_view_line.formatted_quantity %></td>
+        <td><%= supplier_view_line.uom.name if supplier_view_line.uom %></td>
+        <td><%= supplier_view_line.description %></td>
+        <td><%= render_attribute supplier_view_line.price %></td>
+        <td><%= render_attribute supplier_view_line.total %></td>
+    </tr>
+    <% if supplier_view_line.attachments.size > 0 %>
+    <tr class="<%= cycle('stripe_even','stripe_odd') %>" style="display:none;">
+        <td colspan="6"></td>
+    </tr>
+    <tr class="<%= cycle('stripe_even','stripe_odd') %>">
+        <td>&nbsp;</td>
+        <td colspan="5">
+          <%= render :partial => 'attachments/embedded_list', :locals => {:editable => false, :attach_to => supplier_view_line, :attachment_name => "supplier_view_line_#{supplier_view_line.id}", :supplier_view_key => supplier_view_line.order_header.supplier_view_key} %>
+        </td>
+    </tr>
+    <% end %>
+</tbody>

@@ -1,0 +1,24 @@
+--- 
+contracts_001: 
+  maximum_value: 
+  minimum_value: 
+  status: published
+  end_date: 2008-06-19 00:00:00 Z
+  start_date: 2006-06-07 00:00:00 Z
+  name: Equipment Contract - Sample
+  updated_at: 2006-07-15 05:46:24 Z
+  discount: 
+  currency_id: 
+  number: "44"
+  created_by: 1
+  legal_agreement: 
+  updated_by: 2
+  id: 1
+  version: 
+  catalog: 
+  bill_to_address_id: 18
+  terms: 
+  supplier_id: 1
+  created_at: 2006-05-19 22:58:35 Z
+  preferred_flag: true
+  

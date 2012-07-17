@@ -1,0 +1,5 @@
+open "/approval_limits"
+check "draft_supplier" if defined?(draft_supplier) && draft_supplier == "true"
+check "no_contract" if defined?(no_contract) && no_contract == "true"
+click_and_wait "//form[@action='/approval_limits/set_requisition_routing']//input[@name='Save']"
+assert_text "flash_notice", "Successfully updated requisition routing."

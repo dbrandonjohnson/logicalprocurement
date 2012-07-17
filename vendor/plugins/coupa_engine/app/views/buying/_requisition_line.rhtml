@@ -1,0 +1,140 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% @requisition_line = requisition_line %>
+<% @requisition_header = requisition_line.requisition_header %>
+<%  if @requisition_line.supplier
+      @contracts = Contract.find_all_by_supplier_id_and_status(@requisition_line.supplier_id,'published',
+                                                            :order => 'name ASC')
+    else
+      @contracts = {}
+    end %>
+    
+<tbody id="requisition_line_<%= @requisition_line.id %>" class="tabular">
+<tr id="requisition_line_<%= @requisition_line.id %>_main"  class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td align="center"><%= @requisition_line.display_line_num %></td>
+    <td align="center">
+        <% if @requisition_line.type_editable? -%>
+        <%= select_tag("requisition_line[#{@requisition_line.id}][type]",
+                       options_for_select(@line_types,@requisition_line.class.to_s),
+                       :id => "requisition_line_#{@requisition_line.id}_type") %>
+        <%= observe_field("requisition_line_#{@requisition_line.id}_type",:url => {:action => 'change_line_type', :id => @requisition_header.id},:loading => "$('table_wait').show();",:complete => "$('table_wait').hide();",:with => "id=Form.serialize('requisition_line_#{@requisition_line.id}_main')") %>
+        <% else -%>
+        <%= image_tag(@requisition_line.class.type_icon) %>
+        <%= hidden_field "requisition_line[]", "type" %>
+        <% end -%>
+        <%= hidden_field "requisition_line[]", "id" %>
+    </td>
+    <td><%= "<div class='missing' style='float:left'>" unless requisition_line.valid_description? %><%= line_description_field("requisition_line[]") %><%= "</div>" unless requisition_line.valid_description? %>
+
+        <%= '&nbsp;'+image_tag('attach.png', :title => 'This line has attachments',:style => 'vertical-align:middle;') if @requisition_line.attachments.size > 0 %></td>
+    <td>
+      <div id="requisition_line_<%=@requisition_line.id %>_quantity_container" <%= "class='missing'" unless requisition_line.valid_quantity? %>>
+        <%= line_quantity_field("requisition_line[]") %>
+      </div>
+        <%= hidden_field("requisition_line[]", "item_id") %>
+        <%= hidden_field("requisition_line[]", "supplier_id") %> 
+    </td>
+    <td nowrap="nowrap">
+      <div id="requisition_line_<%=@requisition_line.id %>_uom_container" <%= "class='missing'" unless requisition_line.valid_uom? %>> 
+      <%= line_uom_field("requisition_line[]") %>
+      </div>
+    </td>
+    <td align="right" nowrap="nowrap">
+    <% if @requisition_line.unit_price_editable? -%>
+        <div id="requisition_line_<%=@requisition_line.id %>_unit_price_container" <%= "class='missing'" unless requisition_line.valid_unit_price? %>>
+        <%= text_field("requisition_line[]","unit_price", :size => 20) -%>
+        </div>
+    <% else -%>
+        <%= render_attribute(@requisition_line.unit_price) -%>
+    <% end -%>
+    </td>
+    <td><% if @requisition_line.currency_editable? -%>
+          <% curs = Currency.find(:all,:conditions => ['enabled_flag = ?',true]) %>
+          <% if curs.size > 1 %>
+            <%= select("requisition_line[]","currency_id",curs.collect{|cur| [cur.code,cur.id]}) -%>
+          <% else %>
+            <%= render_attribute(@requisition_line.currency) -%>            
+            <%= hidden_field("requisition_line[]","currency_id") %>
+          <% end %>
+        <% else -%>
+        <%= render_attribute(@requisition_line.currency) -%>
+        <% end -%>
+        </td>
+    <td nowrap="nowrap" align="right"><%= render_attribute(@requisition_line.total) %>
+    </td>
+    <td align="left" nowrap><%= link_to_remote(image_tag('delete.png'),
+                :url =>{
+                    :controller =>"buying",
+                    :action=>"remove",
+                    :id=>@requisition_header.id,
+                    :line_id=>@requisition_line.id,
+                    :root=>@requisition_line.id}) %>
+                    </td>
+</tr>
+
+<tr id="requisition_line_<%= @requisition_line.id %>_hidden" class="<%= cycle('stripe_even','stripe_odd') %>" style="display:none"><td colspan="9">&nbsp;</td></tr>
+
+<tr id="requisition_line_<%= @requisition_line.id %>_more" class="<%= cycle('stripe_even','stripe_odd') %>">
+    <td colspan="2">&nbsp;</td>
+    <td colspan="7">
+      <h4>Additional Information</h4>
+      <div style="width: 50%; float: left;padding:0px;">
+          <div id="requisition_line_<%= @requisition_line.id %>_supplier_missing_indicator" style="float:left;padding:0px;" <%= "class='missing'" unless @requisition_line.valid_supplier? %>>
+              <div class="inline_form_element"><label>Supplier</label><% if @requisition_line.supplier_editable? -%><div style="vertical-align:top;margin:0px;padding:0px;">
+                      <%= text_field("requisition_line[]", "supplier", {"autocomplete" => "off", "style" => "display:inline; float: left;", "class" => "acsupplier", "size" => "30"}) %>
+                      <%= image_tag('spinner.gif', 
+                                :id => "requisition_line_#{@requisition_line.id}_supplier_wait", 
+                                :style => "float: left; display:none;max-height:16px;vertical-align:top;padding:1px 3px 1px 0px;")%>
+                      <div id="requisition_line_<%= @requisition_line.id %>_supplier_auto_complete" class="autocomplete" style="white-space:normal;display:none;float:left;"></div> 
+
+                  <% display_edit = !@requisition_line.supplier.nil? && @requisition_line.supplier.status != 'active' %>
+                  <div id="requisition_line_<%= @requisition_line.id %>_supplier_edit_btn" style="<%= display_edit ? "display:inline" : "display:none" %>;float:left; margin-left: 8px;"><%= small_rollover_link_to_remote( 'Edit', :url => {:controller => 'buying', :action => 'edit_draft_supplier', :update_field_root => "requisition_line_#{@requisition_line.id}_supplier"}, :with => "'supplier='+encodeURIComponent($F('requisition_line_#{@requisition_line.id}_supplier_id'))") %></div>   
+                  <% end -%>
+                  </div>
+
+                  <div style="clear:both;"></div>
+                  <%= !@requisition_line.supplier && !@requisition_line.supplier_editable? ? '<span style="color:#ccc">None selected</span>' : ''%>
+                  <div style="margin:5px;float:left;<%= @requisition_line.supplier ? '' : 'display:none;' %>" id="requisition_line_<%= @requisition_line.id %>_supplier_info">
+                      <span id="requisition_line_<%= @requisition_line.id %>_supplier_name"><%= @requisition_line.supplier ? @requisition_line.supplier.name : '' %></span><br/>
+                      <span id="requisition_line_<%= @requisition_line.id %>_supplier_address"><%= @requisition_line.supplier ? address_to_html(@requisition_line.supplier.primary_address) : '' %></span><br/>
+                      <span id="requisition_line_<%= @requisition_line.id %>_supplier_email"><%= @requisition_line.supplier ? @requisition_line.supplier.primary_contact.email : '' %></span><br/>
+                  </div>
+                  <div id="requisition_line_<%= @requisition_line.id %>_supplier_activate_btn" style="float:left;vertical-align:top;<%= "display:none;" unless @requisition_line.supplier && @requisition_line.supplier.draft? %>margin:30px;float:left;"><%= small_rollover_link_to_remote('Activate',:url => {:controller => 'buying', :action => 'activate_supplier', :update_field_root => "requisition_line_#{@requisition_line.id}_supplier"}, :with => "'supplier='+encodeURIComponent($F('requisition_line_#{@requisition_line.id}_supplier_id'))") %></div>
+              </div>
+           </div>
+      </div>
+
+        <div id="requisition_line_<%= @requisition_line.id %>_backing_document" <%= "class='missing'" unless @requisition_line.valid_backing? %> style="float:left;width:40%;">
+            <%= render :partial => "backing_document_selector", :locals => { :req_line => @requisition_line, :contracts => @contracts} %>
+        </div> 
+
+        <%= inline_immutable_field_tag(@requisition_line.lead_time.nil? ? { :name => 'Lead time', :style => 'display:none' } : 'Lead time', "requisition_line[#{@requisition_line.id}][lead_time]", pluralize(@requisition_line.lead_time, 'day'), :id => "requisition_line_#{@requisition_line.id}_lead_time") %>
+
+        <div style="clear:both;"></div>
+        <div style="width: 50%;float:left;padding:0px;"><%= inline_date_picker_field(@requisition_line.lead_time.nil? ? { :name => 'Need by date' } : { :name => 'Need by date', :style => 'display:none' }, 'requisition_line', 'need_by_date', :name => "requisition_line[#{@requisition_line.id}][need_by_date]", :id => "requisition_line_#{@requisition_line.id}_need_by_date") %></div>
+        <div style="width: 50%;float:left;padding:0px;">
+        </div>
+        <div style="clear:both;"></div>
+        <div class="wrapped_form_element">
+            <label>Attachments</label>
+                <%= render :partial => 'attachments/embedded_list', :locals => {:editable => true, :attach_to => @requisition_line, :attachment_name => "requisition_line[#{@requisition_line.id}]", :intents => ['Supplier','Internal']} %>
+        </div>
+    </td>
+</tr>
+</tbody>

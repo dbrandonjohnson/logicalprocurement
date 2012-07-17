@@ -1,0 +1,30 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<% @requisition_line = req_line %>
+<% current_backing = req_line.contract ? 'contract' : 'none' %>
+<div id="requisition_line_<%= req_line.id %>_backing_selector" class="inline_form_element">
+    <%= render :partial => "backing_selector", :locals => { :backing => current_backing, :req_line => req_line, :contracts => contracts } %>
+</div>
+
+<div id="requisition_line_<%= req_line.id %>_none_selector" style="<%= "display:none;" unless current_backing=='none' %>padding-top:5px;" class="inline_form_element"><label>Release Without Backing Document</label><%= check_box "requisition_line[]","released_by_buyer", :style => "border:none;" %></div>
+
+<div id="requisition_line_<%=req_line.id %>_contract_selector" <%= "style='display:none;'" unless current_backing=='contract' %> class="inline_form_element">
+    <%= render :partial => 'contract_selector', :locals => {:req_line => req_line, :contracts => contracts, :selected => req_line.contract_id} %>
+</div>
+

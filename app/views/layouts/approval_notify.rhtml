@@ -1,0 +1,101 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<html>
+<head>
+<style>
+<!--
+body,td {
+    font-size: 9pt;
+    font-family: Tahoma, Helvetica, sans-serif;
+}
+a {
+    color: #369;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+table.listing {
+    padding: 3px;
+}
+th.listing {
+    background-color: #ccc;
+}
+h3 {
+    padding: 0;
+    margin: 0px 0px 1px 0px;
+    font-size: 11pt;
+    color: #666;
+    border-bottom: 1px dotted #ccc;
+}
+div.notification_content {
+    background:#fff;
+    margin-left: 49px;
+    margin-right:209px;
+    voice-family: "\"}\"";
+    voice-family: inherit;
+    margin-left: 51px;
+    margin-right:211px;
+}
+div#titlebar {
+    clear: left;
+        font-size: 12pt;
+        font-weight: bold;
+        margin: 0px 0px 10px;
+        padding: 10px 10px 2px 1px;
+
+        color: #369;
+        border-bottom: 1px solid #ccc;
+}
+div#footer {
+border-top:1px solid #CCCCCC;
+clear:both;
+color:#999999;
+margin:20px 0px 5px;
+padding:5px 10px;
+text-align:center;
+}
+.stripe_odd {
+    padding: 3px;
+    clear:both;
+}
+.stripe_even {
+    padding: 3px;
+    clear:both;
+    background-color: #f0f0f0;
+}
+table.tabular {
+    border: 1px dotted #ccc;
+    width:95%;
+}
+thead.tabular {
+    background-color: #eef;
+    font-size: 9pt;
+}
+tfoot.tabular {
+    background-color: #eef;
+    font-weight: bold;
+}
+-->
+</style>
+</head>
+<body>
+<%= @content_for_layout %>
+<div id="footer">&copy; 2006-2007, Coupa Software</div>
+</body>

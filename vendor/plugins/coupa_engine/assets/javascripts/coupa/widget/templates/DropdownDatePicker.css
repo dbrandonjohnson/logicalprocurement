@@ -1,0 +1,172 @@
+.datePickerContainer {
+	width:164px; /* needed for proper user styling */
+}
+
+.calendarContainer {
+/*	border:1px solid #566f8f;*/
+}
+
+.calendarBodyContainer {
+	width:100%; /* needed for the explode effect (explain?) */
+	background: #7591bc url(../../../dojo/src/widget/templates/images/dpBg.gif) top left repeat-x;
+}
+
+.calendarBodyContainer thead tr td {
+	color:#293a4b;
+	font:bold 14pt;
+	text-align:center;
+	padding:0.25em;
+	background: url(../../../dojo/src/widget/templates/images/dpHorizLine.gif) bottom left repeat-x;
+}
+
+.calendarBodyContainer tbody tr td {
+	color:#fff;
+	font:bold 10pt;
+	text-align:center;
+	padding:0.4em;
+	background: url(../../../dojo/src/widget/templates/images/dpVertLine.gif) top right repeat-y;
+	cursor:pointer;
+	cursor:hand;
+}
+
+
+.monthWrapper {
+	padding-bottom:2px;
+	background: url(../../../dojo/src/widget/templates/images/dpHorizLine.gif) bottom left repeat-x;
+}
+
+.monthContainer {
+	width:100%;
+}
+
+.monthLabelContainer {
+	text-align:center;
+	font:bold;
+	background: url(../../../dojo/src/widget/templates/images/dpMonthBg.png) repeat-x top left !important;
+	color:#293a4b;
+	padding:0.25em;
+}
+
+.monthCurve {
+	width:12px;
+}
+
+.monthCurveTL {
+	background: url(../../../dojo/src/widget/templates/images/dpCurveTL.png) no-repeat top left !important;
+}
+
+.monthCurveTR {
+		background: url(../../../dojo/src/widget/templates/images/dpCurveTR.png) no-repeat top right !important;
+}
+
+
+.yearWrapper {
+	background: url(../../../dojo/src/widget/templates/images/dpHorizLineFoot.gif) top left repeat-x;
+	padding-top:2px;
+}
+
+.yearContainer {
+	width:100%;
+}
+
+.yearContainer td {
+	background:url(../../../dojo/src/widget/templates/images/dpYearBg.png) top left repeat-x;
+}
+
+.yearContainer .yearLabel {
+	margin:0;
+	padding:0.45em 0 0.45em 0;
+	color:#fff;
+	font:bold 0.65em ;
+	text-align:center;
+}
+
+.curveBL {
+	background: url(../../../dojo/src/widget/templates//images/dpCurveBL.png) bottom left no-repeat !important;
+	width:9px !important;
+	padding:0;
+	margin:0;
+}
+
+.curveBR {
+	background: url(../../../dojo/src/widget/templates/images/dpCurveBR.png) bottom right no-repeat !important;
+	width:9px !important;
+	padding:0;
+	margin:0;
+}
+
+
+.previousMonth {
+	background-color:#6782a8 !important;
+}
+
+.previousMonthDisabled {
+	background-color:#a4a5a6 !important;
+	cursor:default !important
+}
+.currentMonth {
+	font-size: 9pt;
+}
+
+.currentMonthDisabled {
+	background-color:#bbbbbc !important;
+	cursor:default !important
+}
+.nextMonth {
+	background-color:#6782a8 !important;
+}
+.nextMonthDisabled {
+	background-color:#a4a5a6 !important;
+	cursor:default !important;
+}
+
+.currentDate {
+	text-decoration:underline;
+	font-style:italic;
+        font-size: 9pt;
+
+}
+
+.selectedItem {
+	background-color:#fff !important;
+	color:#6782a8 !important;
+}
+
+.yearLabel .selectedYear {
+	padding:0.2em;
+	background-color:#9ec3fb !important;
+        font-size: 10pt;
+}
+
+.nextYear, .previousYear {
+	cursor:pointer;cursor:hand;
+	padding:0;
+}
+
+.nextYear {
+	margin:0 0 0 0.55em;
+        font-size: 10pt;
+}
+
+.previousYear {
+	margin:0 0.55em 0 0;
+        font-size: 10pt;
+       
+}
+
+.incrementControl {
+	cursor:pointer;cursor:hand;
+	width:1em;
+}
+
+.increase {
+	float:right;
+}
+
+.decrease {
+	float:left;
+}
+
+.lastColumn {
+	background-image:none !important;
+}

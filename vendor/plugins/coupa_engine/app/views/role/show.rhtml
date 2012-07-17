@@ -1,0 +1,54 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<div id="titlebar">Role: <%= @role.name %></div>
+<div id="wide_content">
+    <div id="role_details" class="object_details">
+      <% for column in @content_columns %>
+      <div class="inline_form_element">
+        <label><%= column.human_name %></label><%=h @role.send(column.name) %>
+      </div>
+      <% end %>
+      <div class="inline_form_element"><label>Admin?</label><%= @role.omnipotent? ? "Yes" : "No" %></div>
+<div style="clear:both"></div><br/>
+      <h3>Permissions</h3><br/>
+      <table id="role_permission_table" class="tabular">
+        <tbody class="tabular">
+      <% @all_actions.sort.each do |controller_name,permissions| %>
+      <tr class="<%= cycle('stripe_odd','stripe_even') %>">
+            <td><%= controller_name.humanize %></td>
+            <td>
+              <% permissions.sort_by{|p| p.action}.each do |permission| %><div style="display:block;width:250px;float:left;">
+            <strong><%= link_if_authorized(permission.action.humanize, {:controller => "permission", :action => "show", :id => permission}, :show_text => true, :title => permission.description) %></strong><br/>
+            <%= permission.description %></div>  
+        <% end %>
+          </td>
+          </tr>
+      <% end %>
+        </tbody>
+      </table><br/>
+
+      <h3>Users</h3>
+      <ul id="role_user_list">
+        <% @role.users.sort_by{|u| u.fullname}.each do |user| %>
+          <%= link_if_authorized user.fullname, {:controller => "user", :action => "show", :id => user.id}, {:show_text => true, :wrap_in => 'li', :title => user.login } %>
+        <% end %>
+      </ul>
+    </div>
+
+</div>

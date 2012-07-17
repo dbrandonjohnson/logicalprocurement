@@ -1,0 +1,38 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<tr id="tag_<%= admin_summary.id %>" class="<%=admin_summary_counter % 2 == 0 ? 'stripe_even' : 'stripe_odd' %>"><td>
+    <a name="<%=admin_summary.name%>"></a>
+    <div style="float:right;vertical-align:top;padding-right:10px;">
+<%= small_rollover_link_to_remote 'Delete', :url => {:action => 'admin_remove_taggings', :id => admin_summary.id}, :confirm => 'Are you sure?' %>
+    </div>
+    <h3 style="padding-top:5px;"><big><%= admin_summary.name %></big></h3>
+    <div style="padding:5px 20px;">
+        <%= render_component :controller => 'policies', :action => 'related', :id => admin_summary.name %>
+        <% items = admin_summary.taggings.collect{|t| t.taggable }.delete_if{|t| !t.is_a? CatalogItem} %>
+        <% if items.size > 0 %>
+            <div style="padding:3px 0px;border-bottom:1px solid silver;">
+                <div class="search_section_header">Catalog Items</div>
+            </div>
+            <div style="clear:both;width:100%;">
+                <%= render :partial => 'admin_gallery_summary', :collection => items, :locals => {:tag => admin_summary} %>
+                <div style="clear:both"> </div>
+            </div>
+        <% end %>
+    </div>
+</td></tr>

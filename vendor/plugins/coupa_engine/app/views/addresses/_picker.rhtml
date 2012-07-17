@@ -1,0 +1,43 @@
+<%#
+  Copyright (C) 2007  Coupa Software Incorporated http://www.coupa.com
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-%>
+
+<%= link_to_function image_tag('cross.png', :alt => 'Close', :style => "float:right"), "close_address_picker('#{field_root_id}')" %>
+
+<h3>Choose an address</h3>
+<% @addresses.each do |address| -%>
+<div id="<%= field_root_id %>_<%= address.id %>" class="address_picker_line" onclick="select_address('<%= field_root_id %>', <%= address.id %>)"> 
+    <%= render :partial => 'addresses/address', :locals => {:address => address} %>
+</div>
+<% end -%>
+
+<div id="<%= field_root_id %>_pagination_buttons" style="float:right">
+    <%= @address_pages.current.first? ? '' : link_to_function(image_tag('arrow_left.png', :alt => "Previous page"), "get_address_page('#{field_root_id}', #{@address_pages.current.number - 1})") %>
+    <%= @address_pages.current.last? ? '' : link_to_function(image_tag('arrow_right.png', :alt => "Next page"), "get_address_page('#{field_root_id}', #{@address_pages.current.number + 1})") %>
+</div>
+
+<div id="<%= field_root_id %>_pagination_spinner" style="float:right;display:none">
+    <%= image_tag 'spinner.gif' %>
+</div>
+
+<div id="<%= field_root_id %>_add_button">
+    <%= link_to_function image_tag('add.png', :alt => 'Create new address'), "show_address_form('#{field_root_id}')" %>
+</div>
+
+<div id="<%= field_root_id %>_add_spinner" style="display:none">
+    <%= image_tag 'spinner.gif' %>
+</div>
