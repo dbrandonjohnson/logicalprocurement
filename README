@@ -1,6 +1,10 @@
 INTRODUCTION
 
-Thank you for downloading Coupa eProcurement Express! 
+I have been a long time user of Coupa Express.  I finally decided to fork the project and bring it up to date since it hasn't been updated since 2007.
+
+The goals of the project are to upgrade to Rails 3, Replace any gems that are obsolete or have inactive development, remove all Coupa branding and replace it with Logical Procurement branding.
+
+ 
 
 INSTALLATION
 
