@@ -26,7 +26,7 @@ class UserController < ApplicationController
                        <% login, reports = user.login, user.descendants.size -%>
                        <% confirmation = 'Are you sure you wish to delete the user '+login+'?' -%>
                        <% confirmation = 'The user '+login+' has '+pluralize(reports, 'report')+' who will be deleted as well. '+confirmation unless reports == 0 -%>
-                       <%= link_if_authorized image_tag('pencil', :title => 'Edit '+login), {:action => 'edit_user', :id => value} %>
+                       <%= link_if_authorized image_tag('pencil', :title => 'Edit '+login), {:action => 'edit_user', :id => value} %>+<%= link_if_authorized ( image_tag('delete'), { :action => 'destroy', :id => value }, :confirm => 'Are you sure?', :post => true, :title => 'Delete') %>"
                        END
                        }]
                        
